@@ -3,6 +3,9 @@ import Banner from '../Banner/Banner';
 import Blog from '../Blog/Blog';
 import Footer from '../../Shared/Footer/Footer';
 import FoodItem from '../FoodItem/FoodItem';
+import Reviews from '../Reviews/Reviews';
+import ClientChoice from '../ClientChoice/ClientChoice';
+import {BiSearchAlt2} from 'react-icons/bi'
 
 const Home = () => {
     return (
