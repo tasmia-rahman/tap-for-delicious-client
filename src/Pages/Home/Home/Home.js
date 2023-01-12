@@ -6,6 +6,7 @@ const Home = () => {
         <div className='min-h-screen'>
             <div>
                 <Banner />
+                
             </div>
         </div>
     );
