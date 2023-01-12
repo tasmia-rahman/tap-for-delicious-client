@@ -4,7 +4,9 @@ import Blog from '../Blog/Blog';
 import Footer from '../../Shared/Footer/Footer';
 import FoodItem from '../FoodItem/FoodItem';
 import Reviews from '../Reviews/Reviews';
-import { BiSearchAlt2 } from 'react-icons/bi'
+import ClientChoice from '../ClientChoice/ClientChoice';
+import {BiSearchAlt2} from 'react-icons/bi'
+
 const Home = () => {
     return (
         <div className='min-h-screen'>
@@ -19,6 +21,7 @@ const Home = () => {
                 <FoodItem></FoodItem>
                 <Reviews></Reviews>
                 <Blog></Blog>
+                <ClientChoice></ClientChoice>
                 <Footer></Footer>
             </div>
         </div>
