@@ -1,0 +1,43 @@
+[
+    {
+      "id": "124e13b9-2d54-4b2f-a74d-a77b362d6ead",
+      "description": "A forward defensive shot is a deliberate shot that aims to prevent the ball from hitting the wicket or the player's pads.",
+      "title": "Most Popular Dishes This Week",
+      "time": 20,
+      "price": 420,
+      "stock": 20,
+      "ratings": 4,
+      "ratingsCount": 3725,
+      "img": "https://template.appdevs.net/xfood/assets/images/body/b2.jpg",
+      "shipping": 1,
+      "quantity": 0
+    },
+    {
+      "id": "13cbc7ed-a61b-4883-9d42-82d7d8642b86",
+      "description": "The on drive is played by striking the ball off the front foot towards mid-on. An overpitched delivery on the leg stump ",
+      "title": "Most Popular Dishes This Week",
+      "time": 30,
+      "price": 196,
+      "stock": 19,
+      "ratings": 5,
+      "ratingsCount": 4355,
+      "img": "https://template.appdevs.net/xfood/assets/images/body/b3.jpg",
+      "shipping": 14,
+      "quantity": 0
+    },
+    {
+      "id": "307f166f-1d04-4573-bc37-2f461ea9d4f7",
+      "description": "The cover drive in cricket is the act of stroking the ball through the covers with well-timed wristwork and conventional movement of the front foot toward",
+      "title": "Most Popular Dishes This Week",
+      "time": 50,
+      "price": 245,
+      "stock": 20,
+      "ratings": 4,
+      "ratingsCount": 3972,
+      "img": "https://template.appdevs.net/xfood/assets/images/body/b1.jpg",
+      "shipping": 1,
+      "quantity": 0
+    }
+    
+  ]
+  
