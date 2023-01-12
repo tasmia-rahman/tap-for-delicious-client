@@ -2,12 +2,14 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Blog from '../Blog/Blog';
 import Footer from '../../Shared/Footer/Footer';
+import FoodItem from '../FoodItem/FoodItem';
 
 const Home = () => {
     return (
         <div className='min-h-screen'>
             <div>
                 <Banner />
+                <FoodItem></FoodItem>
                 <Blog></Blog>
                 <Footer></Footer>
             </div>
