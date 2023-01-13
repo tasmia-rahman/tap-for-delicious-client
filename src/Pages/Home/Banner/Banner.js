@@ -15,32 +15,31 @@ import food1 from '../../../Assets/1.jpg'
 
 const Banner = () => {
     return (
-        <div>
-            <>
-                <Swiper
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    navigation={true}
-                    modules={[Autoplay, Pagination, Navigation]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide><img src={food1} alt="banner" /></SwiperSlide>
-                    <SwiperSlide><img src={food3} alt="banner" /></SwiperSlide>
-                    <SwiperSlide><img src={food4} alt="banner" /></SwiperSlide>
-                    <SwiperSlide><img src={food5} alt="banner" /></SwiperSlide>
-                    <SwiperSlide><img src={food6} alt="banner" /></SwiperSlide>
-                    <SwiperSlide><img src={food7} alt="banner" /></SwiperSlide>
-                    <SwiperSlide><img src={food8} alt="banner" /></SwiperSlide>
-                </Swiper>
-            </>
-        </div>
+        <>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+            >
+                <SwiperSlide><img src={food1} alt="banner" className='mx-auto' /></SwiperSlide>
+                <SwiperSlide><img src={food3} alt="banner" className='mx-auto' /></SwiperSlide>
+                <SwiperSlide><img src={food4} alt="banner" className='mx-auto' /></SwiperSlide>
+                <SwiperSlide><img src={food5} alt="banner" className='mx-auto' /></SwiperSlide>
+                <SwiperSlide><img src={food6} alt="banner" className='mx-auto' /></SwiperSlide>
+                <SwiperSlide><img src={food7} alt="banner" className='mx-auto' /></SwiperSlide>
+                <SwiperSlide><img src={food8} alt="banner" className='mx-auto' /></SwiperSlide>
+            </Swiper>
+        </>
+
     );
 };
 
