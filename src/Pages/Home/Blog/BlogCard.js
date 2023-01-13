@@ -8,11 +8,6 @@ const BlogCard = ({blog}) => {
             <div>
             <img src={img} alt="service-img" />
             </div>
-            {/* <PhotoProvider>
-                <PhotoView src={img}>
-                
-                </PhotoView>
-            </PhotoProvider>            */}
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p className='text-lg'>{description.slice(0,100)}</p>
