@@ -13,12 +13,12 @@ const ClientChoice = () => {
         </h3>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 gap-10 mx-auto">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 gap-10 mx-auto mt-10">
         {/* first part */}
         <div>
           <div
             
-            className="card bg-base-100 shadow-xl mx-auto  mt-10"
+            className="card bg-base-100 shadow-xl mx-auto "
           >
             <div className="flex p-5 ">
              
@@ -58,14 +58,14 @@ const ClientChoice = () => {
           </div>
         </div>
         {/* People Choose Banner */}
-        <div className="sm:hidden md:hidden lg:block">
-          <img style={{height: 500}} className="mx-auto mt-16 rounded-lg" src={mobile} alt="mobile" />
+        <div className="sm:hidden md:hidden lg:block my-auto">
+          <img style={{height: 520}} className="mx-auto  rounded-lg" src={mobile} alt="mobile" />
         </div>
         {/* second part */}
         <div>
           <div
             
-            className="card bg-base-100 shadow-xl mx-auto  mt-10"
+            className="card bg-base-100 shadow-xl mx-auto "
           >
             <div className="flex p-5 ">
              
