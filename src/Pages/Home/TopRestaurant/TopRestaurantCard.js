@@ -26,19 +26,19 @@ const TopRestaurantCard = ({ restaurant }) => {
           </div>
 
           <p>{type}</p>
-         <div className='mt-3'>
-         <div className='card-actions justify-end'>
-            <HiClock className='mt-1'></HiClock>
-            <p>12:00 am - 11:59 pm</p>
+          <div className='mt-3'>
+            <div className='card-actions justify-end'>
+              <HiClock className='mt-1'></HiClock>
+              <p>12:00 am - 11:59 pm</p>
 
+            </div>
+
+
+            <div className='card-actions justify-end'>
+              <HiLocationMarker className='mt-1'></HiLocationMarker>
+              <p>Mirpur, Dhaka </p>
+            </div>
           </div>
-
-
-          <div className='card-actions justify-end'>
-            <HiLocationMarker className='mt-1'></HiLocationMarker>
-            <p>Mirpur, Dhaka </p>
-          </div>
-         </div>
 
 
 
@@ -48,7 +48,6 @@ const TopRestaurantCard = ({ restaurant }) => {
         </div>
       </div>
     </div>
-
   );
 };
 
