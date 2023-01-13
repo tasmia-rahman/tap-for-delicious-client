@@ -2,8 +2,9 @@
     {
         
         "service_id": "04",
-        "title": "Italian Pizza",
+        "title": "Food Chef Italian",
         "img": "https://template.appdevs.net/xfood/assets/images/body/b1.jpg",
+        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
         "price": "20.00",
         "description":"pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients, baked quickly—usually, in a commercial setting, using a wood-fired oven heated to a very high temperature—and served hot.One of the simplest and most traditional pizzas is the Margherita, which is topped with tomatoes or tomato sauce, mozzarella, and basil. Popular legend relates that it was named for Queen Margherita, wife of Umberto I, who was said to have liked its mild fresh flavour and to have also noted that its topping colours—green, white, and red—were those of the",
 
@@ -29,8 +30,9 @@
     {
         
         "service_id": "05",
-        "title": "Euphoria Burger",
+        "title": "Food Chef Italian",
         "img": "https://template.appdevs.net/xfood/assets/images/body/b3.jpg",
+        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
         "price": "20.00",
         "description":"There are many kinds of crave worthy foods. From foods that are sweet and salty to savory, there is one crave-able item that sure gets consumers talking. National Cattlemen’s Beef Association, a contractor to the Beef Checkoff, recently conducted research on consumer preferences for burgers when dining out. Consumers’ own words highlight just how enticing burgers are for them.Many consumers enjoy a beef burger whenever they get a chance, and many of us have our go-to places for one. However, the results show that quick-service establishments aren’t the only places consumers go for a burger. In fact, many also choose casual or even fine-dining establishments to enjoy a burger.More specifically, the research looked at the quality indicators for burgers and how consumers go about customizing and selecting their burgers when dining out. The research was conducted among 700 consumers who eat beef burgers. Not surprisingly, the most important aspect of a burger is its taste—after all, that is why most of us enjoy them so much. In addition to taste, the overall quality and the value you get for the price you pay is important, as some consumers note:",
         "facility": [
@@ -55,8 +57,9 @@
     {
         
         "service_id": "01",
-        "title": "Kentucky Fried Chicken",
+        "title": "Food Chef Italian",
         "img": "https://template.appdevs.net/xfood/assets/images/body/b1.jpg",
+        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
         "price": "200.00",
         "description":"KFC's original product is pressure-fried chicken pieces, seasoned with Sanders' recipe of 11 herbs and spices. The constituents of the recipe are a trade secret.Today his Louisville-based company is known across the globe as KFC and is part of Yum! Brands. Fried chicken in Kentucky is known for being floured or battered and then pan, deep or pressure fried. You can find this deep-fried culinary goodness on the menu at many Louisville restaurants from fast to fancy.Flavorful, obviously full of flavor, or you could say, instead, flavorsome, tasty, tangy, appetizing, palatable, savory or sweet -for a particular flavor- and, if you want to try less known words, sapid or saporous. It wouldn't be flavorless, tasteless, bland, flat, or insipid.",
 
@@ -82,8 +85,9 @@
     {
         
         "service_id": "02",
-        "title": "Turkish Delight",
+        "title": "Food Chef Italian",
         "img": "https://template.appdevs.net/xfood/assets/images/body/b2.jpg",
+        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
         "price": "150.00",
         "description":"Originating from the Ottoman Empire (roughly modern-day Turkey) in the 18th or 19th century, shawarma, also spelled shawurma or shawerma, meaning “turning” in Arabic, is a Levantine meat preparation, where thin cuts of lamb, chicken, beef, or mixed meats are stacked in a cone-like shape on a vertical rotisserie (it has also taken similar form in the Greek Gyro…though there are a few interesting differences).Shawarma is all about the delicious sauces that accompany the meat – typically garlic yoghurt or tahini and hommus – and the secret ingredient: pickles. Pickled vegetables are what take shawarma to a whole new plane: pickled cucumbers, turnips, and even carrots or mangoes are common.",
         "facility": [
@@ -108,8 +112,9 @@
     {
         
         "service_id": "03",
-        "title": "Sri Lankan Pan roll",
+        "title": "Food Chef Italian",
         "img": "https://template.appdevs.net/xfood/assets/images/body/b3.jpg",
+        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
         "price": "30.00",
         "description":"Chicken Roll is a delectable North Indian recipe made using all purpose flour, stir-fried chicken, yoghurt and a variety of vegetables rolled into paranthas. On days you do not want to prepare an elaborate meal, this delectable dish can be a saviour. Rolls are quite popular across India and they are often a favourite evening snack. Egg Roll, Kathi Kebab Roll, Mutton Roll, Paneer Roll, Potato Roll and even Fish Roll are among its many variations. This easy roll recipe is made using chicken and has the unforgettable aroma of Indian spices. You can also utilize your leftover parathas and chapatis in making this recipe. If you do not like to use all-purpose flour or maida, you can make it with whole wheat flour too. In fact, it can be made even with leftover chicken. All you have to ensure is that you use the right amount of spices so that the flavour is not lost. Easy to pack and carry, you can also take it to office or prepare it for picnics and day trips. A must try roll recipe for all chicken lovers!",
         "facility": [
@@ -134,8 +139,9 @@
     {
         
         "service_id": "06",
-        "title": "Doll Instant Noodles",
+        "title": "Food Chef Italian",
         "img": "https://template.appdevs.net/xfood/assets/images/body/b2.jpg",
+        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
         "price": "20.00",
         "description":"Doll noodles are very popular in Hong Kong and southern china. The doll brand is a standard of instant noodles. So when the people of china want instant noodles, they order doll noodles. The taste and texture are tailored for Hong Kong and southern Chinese, who were the early Chinese immigrants to the US.Instant packet noodles (also known as ramen noodles) have been a key part of Asian food and life since their invention in 1950s Japan. They are enjoyed as a quick meal or snack on their own or can be used as quick and tasty noodles for a whole range of Asian cuisine.",
         "facility": [
