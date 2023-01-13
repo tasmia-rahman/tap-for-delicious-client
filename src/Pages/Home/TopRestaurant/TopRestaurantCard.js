@@ -1,12 +1,11 @@
 import React from 'react';
 
-const TopRestaurantCard = ({restaurant}) => {
-    const{img, title} = restaurant;
-    return (
+const TopRestaurantCard = ({ restaurant }) => {
+  const { img, title } = restaurant;
+  return (
 
-      <div>
-        
-          <div className="card w-96 bg-base-100 shadow-xl">
+    <div>
+      <div className="card bg-base-100 shadow-xl">
         <figure><img src={img} alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
@@ -16,8 +15,8 @@ const TopRestaurantCard = ({restaurant}) => {
           </div>
         </div>
       </div>
-      </div>
-    );
+    </div>
+  );
 };
 
 export default TopRestaurantCard;
