@@ -9,7 +9,7 @@ const Reviews = () => {
                 <h6 className='font-bold pb-5'>Satisfied Clients</h6>
                 <h3 className='font-semibold text-4xl pb-4'>What Our <span className='text-red-600'>Clients</span> Say</h3>
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 gap-10 mx-auto'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 gap-10 mx-auto px-5'>
                 {/* review 1 */}
                 <div className="group flex flex-col justify-between rounded-sm bg-white px-4 py-6 shadow">
                     <div className="rating pb-6">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import footerLogo from '../../../Assets/logo/logo2.png'
+import logo from '../../../Assets/tap-logo.png'
 
 const Footer = () => {
     return (
@@ -8,8 +9,8 @@ const Footer = () => {
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <Link rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
-                        <div className="flex items-center justify-center w-24 h-24 rounded-full bg-sky-600">
-                            <img src={footerLogo} alt="" srcSet="" />
+                        <div className="flex items-center justify-center w-24 h-24 rounded-full">
+                            <img src={logo} alt="" srcSet="" />
                         </div>
                         <span className="self-center text-2xl font-semibold">Tap For Delicious</span>
                     </Link>
@@ -80,7 +81,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center text-gray-600">© Meddit-Created by M Shaikh. All rights reserved.</div>
+            <div className="py-6 text-sm text-center text-gray-600">© Tap For Delicious. All rights reserved.</div>
         </footer>
     );
 };
