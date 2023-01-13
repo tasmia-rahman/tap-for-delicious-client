@@ -5,6 +5,7 @@ import FoodItem from '../FoodItem/FoodItem';
 import Reviews from '../Reviews/Reviews';
 import ClientChoice from '../ClientChoice/ClientChoice';
 import { BiSearchAlt2 } from 'react-icons/bi'
+import TopRestaurant from '../TopRestaurant/TopRestaurant';
 
 const Home = () => {
     return (
@@ -19,7 +20,9 @@ const Home = () => {
                         <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl' /></div>
                     </div>
                 </div>
+
                 <FoodItem></FoodItem>
+                <TopRestaurant></TopRestaurant>
                 <Reviews></Reviews>
                 <Blog></Blog>
                 <ClientChoice></ClientChoice>
