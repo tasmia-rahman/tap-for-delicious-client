@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiClock, HiColorSwatch, HiLocationMarker, HiOutlineColorSwatch, HiStar } from "react-icons/hi";
+import { HiClock, HiLocationMarker, HiStar } from "react-icons/hi";
 
 const TopRestaurantCard = ({ restaurant }) => {
   const { img, title, type } = restaurant;
@@ -7,7 +7,7 @@ const TopRestaurantCard = ({ restaurant }) => {
 
     <div>
 
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 mx-auto bg-base-100 shadow-xl">
         <figure><img src={img} alt="Shoes" /></figure>
         <div className="card-body">
 
