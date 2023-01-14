@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const FoodItemCard = ({ foodItem }) => {
   const { id, img, price, title, description } = foodItem;
   return (
@@ -9,7 +10,7 @@ const FoodItemCard = ({ foodItem }) => {
         <p className='text-amber-300 font-semibold text-xl'>{description}</p>
         <div className="card-actions justify-end">
           <p className='text-amber-300 font-semibold text-xl'>$ {price}</p>
-          <FaRegArrowAltCircleRight className=' text-amber-400 hover:text-white text-4xl'></FaRegArrowAltCircleRight>
+         <Link to={`Details/${id}`}> <FaRegArrowAltCircleRight  className=' text-amber-400 hover:text-white text-4xl'></FaRegArrowAltCircleRight></Link>
         </div>
       </div>
     </div>
