@@ -5,7 +5,7 @@ import { FaCartArrowDown } from 'react-icons/fa'
 
 const Navbar = () => {
     return (
-        <div className="px-14 border-b z-40 border-gray-200 shadow-md navbar sticky top-0  bg-white backdrop-filter backdrop-blur-lg bg-opacity-50">
+        <div className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0  bg-white backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <p className="btn border-2 border-amber-400 bg-transparent text-amber-500
+                <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
             </div>
         </div>
