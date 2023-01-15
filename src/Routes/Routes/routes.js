@@ -31,6 +31,10 @@ export const router = createBrowserRouter([
             element: <Contact />
         },
         {
+            path: '/',
+            element: <Contact />
+        },
+        {
             path: '/toprestaurant',
             element:<TopRestaurant></TopRestaurant>
 
