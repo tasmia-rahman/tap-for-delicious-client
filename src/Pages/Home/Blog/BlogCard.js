@@ -2,11 +2,11 @@ import React from 'react';
 
 
 const BlogCard = ({ blog }) => {
-    const { id, img, title, description } = blog;
+    const { img, title, description } = blog;
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
             <div>
-                <img src={img} alt="service-img" className='hover:scale-110' />
+                <img src={img} alt="service-img" className='hover:scale-110 duration-700' />
             </div>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
