@@ -4,13 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import food3 from '../../../Assets/7.jpg'
-import food4 from '../../../Assets/2.jpg'
-import food5 from '../../../Assets/3.jpg'
-import food6 from '../../../Assets/4.jpg'
-import food7 from '../../../Assets/5.jpg'
-import food8 from '../../../Assets/6.jpg'
-import food1 from '../../../Assets/1.jpg'
+import food3 from '../../../Assets/homepage-banner-img/7.jpg'
+import food4 from '../../../Assets/homepage-banner-img/2.jpg'
+import food5 from '../../../Assets/homepage-banner-img/3.jpg'
+import food6 from '../../../Assets/homepage-banner-img/4.jpg'
+import food7 from '../../../Assets/homepage-banner-img/5.jpg'
+import food8 from '../../../Assets/homepage-banner-img/6.jpg'
+import food1 from '../../../Assets/homepage-banner-img/1.jpg'
 
 
 const Banner = () => {
@@ -20,7 +20,7 @@ const Banner = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 pagination={{

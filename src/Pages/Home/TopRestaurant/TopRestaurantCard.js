@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiClock, HiColorSwatch, HiLocationMarker, HiOutlineColorSwatch, HiStar } from "react-icons/hi";
+import { HiClock, HiLocationMarker, HiStar } from "react-icons/hi";
 
 const TopRestaurantCard = ({ restaurant }) => {
   const { img, title, type } = restaurant;
@@ -7,7 +7,11 @@ const TopRestaurantCard = ({ restaurant }) => {
 
     <div>
 
+
       <div className="card w-100 h-100 bg-base-100 shadow-xl">
+
+      <div className="card w-96 mx-auto bg-base-100 shadow-xl">
+
         <figure><img src={img} alt="Shoes" /></figure>
         <div className="card-body">
 
@@ -25,6 +29,7 @@ const TopRestaurantCard = ({ restaurant }) => {
             </div>
           </div>
 
+
           {/* <p>{type}</p> */}
           <button className="btn btn-outline btn-warning">{type}</button>
          <div className='mt-1'>
@@ -32,14 +37,21 @@ const TopRestaurantCard = ({ restaurant }) => {
             <HiClock className='mt-1 '></HiClock>
             <p className='text-red-600'>12:00 am - 11:59 pm</p>
 
-          </div>
+          <p>{type}</p>
+          <div className='mt-3'>
+            <div className='card-actions justify-end'>
+              <HiClock className='mt-1'></HiClock>
+              <p>12:00 am - 11:59 pm</p>
 
 
-          <div className='card-actions justify-end'>
-            <HiLocationMarker className='mt-1'></HiLocationMarker>
-            <p>Mirpur, Dhaka </p>
+            </div>
+
+
+            <div className='card-actions justify-end'>
+              <HiLocationMarker className='mt-1'></HiLocationMarker>
+              <p>Mirpur, Dhaka </p>
+            </div>
           </div>
-         </div>
 
 
 
@@ -50,7 +62,10 @@ const TopRestaurantCard = ({ restaurant }) => {
       </div>
       
     </div>
+
     
+
+
 
   );
 };
