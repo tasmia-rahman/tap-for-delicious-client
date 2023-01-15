@@ -22,7 +22,7 @@ const Navbar = () => {
                     {/* Mobile navbar ends */}
                 </div>
 
-                <Link to='/' className="h-14 ml-3 w-14"><img src={logo} alt="" /></Link>
+                <Link to='/' className="h-14 md:ml-10 w-14"><img src={logo} alt="" /></Link>
 
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -57,8 +57,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
+                <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                 hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
+                </Link>
             </div>
         </div>
     );
