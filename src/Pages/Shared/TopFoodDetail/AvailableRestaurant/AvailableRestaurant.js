@@ -20,7 +20,7 @@ const AvailableRestaurant = () => {
                 </div>
             </div>
             <div class="row-span-4  col-span-4 ...">
-                <h2 className='text-center text-4xl'>Eita final design na!!!!!!!!!!!!!!!!!!!!! </h2>
+                <h2 className='text-center text-4xl'>Eita final design na!!!!!!!!!!!! </h2>
                 <TopRestaurant></TopRestaurant></div>
         </div>
     );
