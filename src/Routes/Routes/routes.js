@@ -5,6 +5,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
+import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
         {
             path: '/toprestaurant',
             element:<TopRestaurant></TopRestaurant>
+
+        },
+        {
+            path: '/details',
+            element:<AvailableRestaurant></AvailableRestaurant>
 
         }
         ]
