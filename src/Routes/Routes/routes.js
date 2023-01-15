@@ -5,8 +5,8 @@ import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
+import Login from "../../Pages/Login/Login";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
-
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -32,17 +32,17 @@ export const router = createBrowserRouter([
             element: <Contact />
         },
         {
-            path: '/',
-            element: <Contact />
+            path: '/toprestaurant',
+            element: <TopRestaurant></TopRestaurant>
+
         },
         {
             path: '/details',
-            element: <AvailableRestaurant />
+            element: <AvailableRestaurant></AvailableRestaurant>
         },
         {
-            path: '/toprestaurant',
-            element:<TopRestaurant></TopRestaurant>
-
+            path: '/login',
+            element: <Login />
         }
         ]
 
