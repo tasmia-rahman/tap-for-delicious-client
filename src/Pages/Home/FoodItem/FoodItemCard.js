@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+
 const FoodItemCard = ({ foodItem }) => {
 
-  const { img, price, title, description } = foodItem;
+  const { img, price, title, description, stock } = foodItem;
   return (
     <div className=" hero rounded-2xl shadow-xl hover:scale-110 duration-500" style={{ backgroundImage: `url(${img})`, height: "380px" }} >
       <div className="card-body rounded-2xl shadow-xl hero-overlay bg-opacity-30">
