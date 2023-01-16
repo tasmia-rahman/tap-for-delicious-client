@@ -13,32 +13,12 @@ const TopRestaurant = () => {
 
     return (
 
-        
+
         <div>
             <h4 className='text-xl text-center my-10 font-medium'>Top Restaurants</h4>
             <h1 className="text-3xl text-center my-5 font-medium">Choose From Most Popular <span className='text-red-600'>Restaurant</span></h1>
             <div className='grid w-100 gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-6'>
-           
-           
-           {
-               topRestaurant.map(restaurant=><TopRestaurantCard
-               key={restaurant.id}
-               restaurant={restaurant}
-               ></TopRestaurantCard>)
 
-           }
-
-       </div>
-      <div className='text-center mt-5'>
-      <button className="btn btn-secondary">See All Venders</button>
-      </div>
-
-
-        <div className='mx-10'>
-            <h1 className="text-3xl text-center my-20 font-medium">Choose From Most Popular <span className='text-red-600'>Restaurant</span></h1>
-            <div className='grid w-100 gap-10 grid-col-1 md:grid-cols-2 lg:grid-cols-3 px-5'>
-
-                {/* <h2 className="text-2xl">Top Restaurant</h2> */}
                 {
                     topRestaurant.map(restaurant => <TopRestaurantCard
                         key={restaurant.id}
@@ -48,7 +28,9 @@ const TopRestaurant = () => {
                 }
 
             </div>
-
+            <div className='text-center mt-5'>
+                <button className="btn btn-secondary">See All Restaurant</button>
+            </div>
         </div>
     );
 };
