@@ -8,7 +8,7 @@ const TopRestaurantCard = ({ restaurant }) => {
     <div>
 
 
-      <div className="card w-96 h-[600px] mx-auto bg-base-100 shadow-xl">
+      <div className="card w-full lg:max-w-96 h-[600px] mx-auto bg-base-100 shadow-xl">
 
         <figure><img src={img} alt="restaurants" /></figure>
         <div className="card-body">
