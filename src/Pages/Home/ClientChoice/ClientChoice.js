@@ -16,42 +16,42 @@ const ClientChoice = () => {
         {/* first part */}
         <div>
           <div className="card bg-base-100 shadow-xl mx-auto  ">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
+              <h2 className="card-title ml-2 ">
                 10,000 Restaurants Menus
               </h2>
             </div>
           </div>
           <div className="card bg-base-100 shadow-xl mx-auto  mt-10">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
+              <h2 className="card-title ml-2 ">
                 Free Mobile Application
               </h2>
             </div>
           </div>
           <div className="card bg-base-100 shadow-xl mx-auto  mt-10">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
+              <h2 className="card-title ml-2 ">
                 Fast Guaranteed Delivery
               </h2>
             </div>
           </div>
           <div className="card bg-base-100 shadow-xl mx-auto  mt-10">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
-                10,000 Restaurants Menus
+              <h2 className="card-title ml-2 ">
+                Free Home Delivery
               </h2>
             </div>
           </div>
         </div>
         {/* People Choose Banner */}
-        <div className="sm:hidden md:hidden lg:block my-auto">
+        <div className="hidden  lg:block my-auto">
           <img
-            style={{ height: 520 }}
+            style={{ height: 490 }}
             className="mx-auto  rounded-lg"
             src={mobile}
             alt="mobile"
@@ -60,34 +60,34 @@ const ClientChoice = () => {
         {/* second part */}
         <div>
           <div className="card bg-base-100 shadow-xl mx-auto ">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
-                10,000 Restaurants Menus
+              <h2 className="card-title ml-2 ">
+                24/7 Home Delivery
               </h2>
             </div>
           </div>
           <div className="card bg-base-100 shadow-xl mx-auto  mt-10">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
-                Free Mobile Application
+              <h2 className="card-title ml-2 ">
+                Offer For Some Package 
               </h2>
             </div>
           </div>
           <div className="card bg-base-100 shadow-xl mx-auto  mt-10">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
-                Fast Guaranteed Delivery
+              <h2 className="card-title ml-2 ">
+                Offer For Top Ordering
               </h2>
             </div>
           </div>
           <div className="card bg-base-100 shadow-xl mx-auto  mt-10">
-            <div className="flex p-5 ">
+            <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
-              <h2 className="card-title m-2 text-2xl">
-                10,000 Restaurants Menus
+              <h2 className="card-title ml-2 ">
+               Offer for Different Festival
               </h2>
             </div>
           </div>
