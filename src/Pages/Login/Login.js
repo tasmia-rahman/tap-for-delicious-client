@@ -69,7 +69,7 @@ const Login = () => {
                     </div>
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text">Login</button>
-                    <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
+                    <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ?</span>
                     <div className="divider">OR</div>
                     <button type='submit' className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text'>
