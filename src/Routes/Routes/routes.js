@@ -34,15 +34,15 @@ export const router = createBrowserRouter([
         {
             path: '/toprestaurant',
             element: <TopRestaurant></TopRestaurant>
-
-        },
-        {
-            path: '/details',
-            element: <AvailableRestaurant></AvailableRestaurant>
+            
         },
         {
             path: '/login',
             element: <Login />
+        },
+        {
+            path: '/details',
+            element: <AvailableRestaurant></AvailableRestaurant>
         }
         ]
 
