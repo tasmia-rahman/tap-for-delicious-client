@@ -11,19 +11,20 @@ const AvailableRestaurant = () => {
                             <h3 className='text-2xl font-semibold mb-2'>Filters</h3>
                             <hr style={{color:"yellow",width:"40px",fontFamily:"bolder"}}/>
                             <div className='flex gap-11 justify-between my-6'>
-                                <h3>Near By Me</h3>
+                                <h3  className=' text-slate-600'>Near By Me</h3>
                                 <input type="checkbox" className="toggle toggle-warning" />
                             </div>
                             <div className='flex justify-between my-3'>
-                                <p>Delivery</p>
+                                <p  className=' text-slate-600'>Delivery</p>
                                 <input type="checkbox" className="toggle toggle-warning" />
                             </div>
                             <div className='flex justify-between'>
-                                <p>Pickup</p>
+                                <p className=' text-slate-600'>Pickup</p>
                                 <input type="checkbox" className="toggle toggle-warning" />
                             </div>
                         </div>
                         <div className='my-6' >
+                            <h2 className='text-xl font-medium mb-2'>Advertisement</h2>
                             <img src='https://marketplace.foodotawp.com/wp-content/uploads/2021/04/BuffetFood.jpg' alt='' />
                         </div>
                     </div>
