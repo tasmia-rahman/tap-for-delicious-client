@@ -6,6 +6,7 @@ import Contact from "../../Pages/Contact/Contact";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
+import NotFound from "../../Pages/NotFound/NotFound";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
 export const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
         {
             path: '/details',
             element: <AvailableRestaurant></AvailableRestaurant>
+        },
+        {
+            path: '*',
+            element: <NotFound></NotFound>
         }
         ]
 
