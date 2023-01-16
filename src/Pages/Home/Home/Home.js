@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from '../Banner/Banner';
 import Blog from '../Blog/Blog';
 import FoodItem from '../FoodItem/FoodItem';
@@ -6,8 +6,11 @@ import Reviews from '../Reviews/Reviews';
 import ClientChoice from '../ClientChoice/ClientChoice';
 import { BiSearchAlt2 } from 'react-icons/bi'
 import TopRestaurant from '../TopRestaurant/TopRestaurant';
+// import TopRestaurantCard from '../TopRestaurant/TopRestaurantCard';
 
 const Home = () => {
+  
+    // const [topRestaurant, setTopRestaurant] = useState([]);
     return (
         <div className='min-h-screen'>
             <div>
@@ -23,6 +26,7 @@ const Home = () => {
 
                 <FoodItem></FoodItem>
                 <TopRestaurant></TopRestaurant>
+
                 <Reviews></Reviews>
                 <Blog></Blog>
                 <ClientChoice></ClientChoice>
