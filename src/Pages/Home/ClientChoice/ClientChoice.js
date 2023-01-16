@@ -87,7 +87,7 @@ const ClientChoice = () => {
             <div className="flex p-4 ">
               <TiTickOutline className="text-6xl my-auto text-yellow-400 border-4 rounded-full"></TiTickOutline>
               <h2 className="card-title ml-2 ">
-               Offer for Different Festival
+               Offer For Different Festival
               </h2>
             </div>
           </div>
