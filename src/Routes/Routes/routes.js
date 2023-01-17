@@ -8,6 +8,7 @@ import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
+import SignUp from "../../Pages/SignUp/SignUp";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
         {
             path: '/toprestaurant',
             element: <TopRestaurant></TopRestaurant>
-            
+
         },
         {
             path: '/login',
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
         {
             path: '*',
             element: <NotFound></NotFound>
+        },
+        {
+            path: '/signup',
+            element: <SignUp />
         }
         ]
 
