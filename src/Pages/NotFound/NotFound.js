@@ -1,10 +1,11 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div>
-      <div className="text-center mt-10">
+    <div data-theme="cupcake" className="min-h-screen">
+      <div className="text-center pt-10">
         <h1 className="font-semibold text-5xl">Ops...</h1>
         <h1 className="text-4xl ">Page not Found.</h1>
       </div>
@@ -16,7 +17,12 @@ const NotFound = () => {
           autoplay
           speed={1}
         />
+        <Link to='/'> <p className="flex justify-center w-60 mx-auto btn border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                hover:bg-amber-400 hover:text-white hover:border-white">Back to home</p>
+        </Link>
+
       </div>
+
 
     </div>
   );
