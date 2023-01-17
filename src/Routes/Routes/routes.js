@@ -3,6 +3,7 @@ import Main from "../../Layout/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
+import AllCategory from "../../Pages/Home/AllCategory/AllCategory";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
@@ -37,11 +38,17 @@ export const router = createBrowserRouter([
             
         },
         {
+            path: '/allcategory',
+            element:<AllCategory></AllCategory>
+
+        },
+        {
             path: '/login',
             element: <Login />
         },
         {
             path: '/details',
+            
             element: <AvailableRestaurant></AvailableRestaurant>
         }
         ]
