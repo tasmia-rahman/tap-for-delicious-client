@@ -13,6 +13,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <NotFound />,
         children: [{
             path: '/',
             element: <Home />
@@ -45,10 +46,6 @@ export const router = createBrowserRouter([
         {
             path: '/details',
             element: <AvailableRestaurant></AvailableRestaurant>
-        },
-        {
-            path: '*',
-            element: <NotFound></NotFound>
         },
         {
             path: '/signup',
