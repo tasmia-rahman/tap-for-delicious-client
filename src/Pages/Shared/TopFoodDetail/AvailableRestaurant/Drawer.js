@@ -3,7 +3,7 @@ import React from 'react';
 const Drawer = () => {
     return (
         <div className='lg:flex h-full w-full'>
-                    <div className="py-8 pl-6">
+                    <div className="py-8 px-6">
                         <div className="">
                             <h3 className='text-2xl font-semibold mb-2'>Filters</h3>
                             <div className='flex gap-1'>
@@ -45,10 +45,10 @@ const Drawer = () => {
                         </div>
                         <div className='my-6' >
                             <h2 className='text-xl font-medium mb-2'>Advertisement</h2>
-                            <img src='https://marketplace.foodotawp.com/wp-content/uploads/2021/04/BuffetFood.jpg' alt='' />
+                            <img style={{width:"100%"}} src='https://marketplace.foodotawp.com/wp-content/uploads/2021/04/BuffetFood.jpg' alt='' />
                         </div>
                     </div>
-                    <div className="divider divider-horizontal hidden lg:flex"></div>
+                    <div className="ml-[-5px] divider divider-horizontal hidden lg:flex"></div>
                 </div>
     );
 };
