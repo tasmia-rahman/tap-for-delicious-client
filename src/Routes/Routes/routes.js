@@ -9,10 +9,12 @@ import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
 import RestaurantRegistration from "../../Pages/RestaurantRegistration/RestaurantRegistration";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
+import SignUp from "../../Pages/SignUp/SignUp";
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <NotFound />,
         children: [{
             path: '/',
             element: <Home />
@@ -36,7 +38,7 @@ export const router = createBrowserRouter([
         {
             path: '/toprestaurant',
             element: <TopRestaurant></TopRestaurant>
-            
+
         },
         {
             path: '/login',
@@ -51,8 +53,8 @@ export const router = createBrowserRouter([
             element: <RestaurantRegistration></RestaurantRegistration>
         },
         {
-            path: '*',
-            element: <NotFound></NotFound>
+            path: '/signup',
+            element: <SignUp />
         }
         ]
 
