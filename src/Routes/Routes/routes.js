@@ -7,12 +7,15 @@ import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
+import RestaurantRegistration from "../../Pages/RestaurantRegistration/RestaurantRegistration";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
 import Signup from "../../Pages/Signup/Signup";
+import Wishlist from "../../Pages/Wishlist/Wishlist";
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <NotFound />,
         children: [{
             path: '/',
             element: <Home />
@@ -35,8 +38,8 @@ export const router = createBrowserRouter([
         },
         {
             path: '/toprestaurant',
-            element: <TopRestaurant></TopRestaurant>
-            
+            element: <TopRestaurant />
+
         },
         {
             path: '/login',
@@ -48,11 +51,19 @@ export const router = createBrowserRouter([
         },
         {
             path: '/details',
-            element: <AvailableRestaurant></AvailableRestaurant>
+            element: <AvailableRestaurant />
         },
         {
-            path: '*',
-            element: <NotFound></NotFound>
+            path: '/restaurantReg',
+            element: <RestaurantRegistration></RestaurantRegistration>
+        },
+        {
+            path: '/signup',
+            element: <SignUp />
+        },
+        {
+            path: '/wishlist',
+            element: <Wishlist />
         }
         ]
 
