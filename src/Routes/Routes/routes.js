@@ -38,10 +38,9 @@ export const router = createBrowserRouter([
             
         },
         {
-            path: '/allcategory',
+            path: '/allcategory/:id',
             element:<AllCategory></AllCategory>,
-            loader:({params}) =>fetch(`services.json/${params.id}`)
-
+            loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`)
         },
         {
             path: '/login',
