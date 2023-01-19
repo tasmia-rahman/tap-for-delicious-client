@@ -45,7 +45,7 @@ const Signup = () => {
 
         <div className="min-h-screen md:flex">
             <div
-                className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-yellow-200 to-amber-400 i justify-around items-center hidden">
+                className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-yellow-200 to-amber-400 justify-around items-center hidden">
                 <div>
                     <img src={logo} alt="" className='z-20 animate-pulse' />
                     {/* <h1 className="text-white font-bold text-4xl font-sans">Tap For Delicious</h1>
@@ -60,7 +60,7 @@ const Signup = () => {
                 <form onSubmit={handleSignup} className="bg-white">
                     <h1 className="text-gray-800 font-bold text-4xl mb-1">Sign Up</h1>
                     <p className="text-sm font-normal text-gray-600 mb-7">Get access to our full service</p>
-                    <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+                    <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
@@ -76,7 +76,7 @@ const Signup = () => {
                         </svg>
                         <input className="pl-2 outline-none border-none" type="email" name="email" id="" placeholder="Email Address" onChange={handleChange} value={email} required />
                     </div>
-                    <div className="flex items-center border-2 hover:border-yellow-400 focus:border-yellow-400 py-2 px-3 rounded-2xl">
+                    <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fillRule="evenodd"
@@ -86,7 +86,7 @@ const Signup = () => {
                         <input className="pl-2  border-none outline-none"
                             type="password" name="password" id="" placeholder="Password" onChange={handleChange} value={password} required />
                     </div>
-                    <div className="flex items-center border-2 hover:border-yellow-400 focus:border-yellow-400 py-2 px-3 rounded-2xl">
+                    <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fillRule="evenodd"
@@ -100,7 +100,10 @@ const Signup = () => {
                 hover:bg-amber-400 hover:text-white hover:border-white text">Sign Up</button>
                     <div>
                         <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Already on Tap for Delicious?</span>
-                        <Link to="/login"> Log In</Link>
+                        <span className='text-orange-400 font-semibold hover:text-amber-400 hover:font-bold'>
+                            <Link to="/login"> Log In</Link>
+                        </span>
+
 
                     </div>
                 </form>

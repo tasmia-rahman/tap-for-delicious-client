@@ -69,7 +69,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     currentUser?.email ?
-                    <button onClick={handleAuth} className='btn-ghost'>Sign Out</button>
+                        <button onClick={handleAuth} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                    hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce'>Sign Out</button>
                         :
                         <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                 hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
