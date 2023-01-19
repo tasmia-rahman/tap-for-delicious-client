@@ -16,7 +16,7 @@ const FoodItemCard = ({ foodItem }) => {
 
         </div>
       </div>
-      <p className='mt-4 text-center text-lg font-semibold'>{stock} Restaurants Products</p>
+      <p className='mt-4 text-white text-center text-lg font-semibold'>{stock} Restaurants Products</p>
     </div>
   );
 };

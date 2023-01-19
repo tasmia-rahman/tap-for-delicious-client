@@ -5,6 +5,7 @@ import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom';
 import { googleSignInInitiate, loginInitiate } from '../../Redux/action';
 
+
 const Login = () => {
 
    
@@ -103,6 +104,9 @@ const Login = () => {
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text">Login</button>
                     <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ?</span>
+                    <div className='mt-4'>
+                        Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400 hover:font-bold'>Sign up</span></Link>
+                    </div>
                     <div className="divider">OR</div>
                     <div>
                         <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Don't have an account ?</span>
