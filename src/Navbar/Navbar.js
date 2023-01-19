@@ -2,8 +2,18 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../Assets/tap-logo.png'
 import { FaCartArrowDown } from 'react-icons/fa'
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutInitiate } from '../Redux/action';
 
 const Navbar = () => {
+    const { currentUser } = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+
+    const handleAuth = () => {
+        if (currentUser) {
+            dispatch(logoutInitiate());
+        }
+    }
     return (
         <div className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0  bg-white backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">
@@ -57,9 +67,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                {
+                    currentUser?.email ?
+                    <button onClick={handleAuth} className='btn-ghost'>Sign Out</button>
+                        :
+                        <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                 hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
-                </Link>
+                        </Link>
+                }
+                {/* <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
+                </Link> */}
             </div>
         </div>
     );
