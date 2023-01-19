@@ -9,7 +9,7 @@ const Blog = () => {
                 .then(data => setBlogs(data)))
     }, [])
     return (
-        <div className='mx-10'>
+        <div className='my-44 mx-10'>
             <div className='text-center'>
                 <h6 className='font-bold pb-5'>Latest Blog</h6>
                 <h3 className='font-semibold text-4xl pb-4'>Latest <span className='text-red-600'>Blogs</span> & Articles</h3>

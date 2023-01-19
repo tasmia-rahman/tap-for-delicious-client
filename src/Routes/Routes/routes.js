@@ -10,6 +10,7 @@ import NotFound from "../../Pages/NotFound/NotFound";
 import RestaurantRegistration from "../../Pages/RestaurantRegistration/RestaurantRegistration";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
 import SignUp from "../../Pages/SignUp/SignUp";
+import Wishlist from "../../Pages/Wishlist/Wishlist";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/toprestaurant',
-            element: <TopRestaurant></TopRestaurant>
+            element: <TopRestaurant />
 
         },
         {
@@ -46,7 +47,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/details',
-            element: <AvailableRestaurant></AvailableRestaurant>
+            element: <AvailableRestaurant />
         },
         {
             path: '/restaurantReg',
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
         {
             path: '/signup',
             element: <SignUp />
+        },
+        {
+            path: '/wishlist',
+            element: <Wishlist />
         }
         ]
 
