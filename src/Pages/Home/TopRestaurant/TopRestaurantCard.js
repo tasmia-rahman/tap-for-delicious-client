@@ -31,7 +31,7 @@ const TopRestaurantCard = ({ restaurant }) => {
           <div className='mt-1'>
             <div className='card-actions justify-end'>
               <HiClock className='mt-1 '></HiClock>
-              <p className='text-red-600'>12:00 am - 11:59 pm</p>
+              <p className='text-red-600'>{time}</p>
 
             </div>
 

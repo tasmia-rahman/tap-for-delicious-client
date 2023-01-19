@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-const AllCategoryDetails = ({restaurants, setRestaurants}) => {
-    const {image, name, description, price} = restaurants;
+const AllCategoryDetails = ({restaurant}) => {
+    const {image, name, description, price} = restaurant;
   
 
     return (
