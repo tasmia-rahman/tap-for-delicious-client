@@ -12,9 +12,7 @@ const AllCategoryDetails = ({ restaurant }) => {
             <div className='flex gap-5 justify-start shadow-xl   w-[600px] '>
                 <div className='w-25'>
                     <div className='mask w-24 h-24'>
-
                         <img className=' mx-0' src={image} alt="" />
-
                     </div>
                 </div>
                 <div className='w-75'>
