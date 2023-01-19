@@ -29,7 +29,7 @@ const Login = () => {
 
 
     const handleGoogleSignIn = () =>{
-        //dispatch(googleSignInInitiate());
+        dispatch(googleSignInInitiate());
     }
     const handleFacebookSignIn = () =>{}
     

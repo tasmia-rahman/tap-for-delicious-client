@@ -1,6 +1,11 @@
-//import {app, googleAuthProvider} from "../firebase";
 import app from "../firebase";
+//import app from "../firebase";
 import * as types from "./actionTypes";
+import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
+
+
+const auth = getAuth(app);
+const googleAuthProvider = new GoogleAuthProvider();
 
 
 
@@ -72,7 +77,7 @@ export const signupInitiate = (email, password, displayName) => {
     return function (dispatch){
         dispatch(signupStart());
         
-          app.createUserWithEmailAndPassword( email, password)
+          createUserWithEmailAndPassword(auth, email, password)
           .then(({ user }) => {
              user.updateProfile({
                 displayName,
@@ -87,7 +92,7 @@ export const loginInitiate = (email, password) => {
     return function (dispatch){
         dispatch(loginStart());
         
-          app.signInWithEmailAndPassword( email, password)
+          signInWithEmailAndPassword(auth, email, password)
           .then(({ user }) => {
              dispatch(loginSuccess(user))
           })
@@ -95,23 +100,25 @@ export const loginInitiate = (email, password) => {
     }
 }
 
-// export const googleSignInInitiate = () => {
-//     return function (dispatch){
-//         dispatch(googleSignIntStart());
+export const googleSignInInitiate = () => {
+    return function (dispatch){
+        dispatch(googleSignIntStart());
         
-//           app.signInWithPopup(googleAuthProvider)
-//           .then(({ user }) => {
-//              dispatch(googleSignInSuccess(user))
-//           })
-//           .catch((error) => dispatch(googleSignInFail(error.message)));
-//     }
-// }
+          signInWithPopup(auth, googleAuthProvider)
+          .then(res => {
+            const user = res.user;
+            console.log(user);
+            //  dispatch(googleSignInSuccess(user))
+          })
+          .catch((error) => dispatch(googleSignInFail(error.message)));
+    }
+}
 
 export const logoutInitiate = () => {
     return function (dispatch){
         dispatch(logoutStart());
         
-          app.signOut()
+          signOut(auth)
           .then((res) =>dispatch(logoutSuccess()))
         
           .catch((error) => dispatch(logoutFail(error.message)));
