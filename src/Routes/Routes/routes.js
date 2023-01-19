@@ -9,7 +9,7 @@ import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
 import RestaurantRegistration from "../../Pages/RestaurantRegistration/RestaurantRegistration";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
-import Signup from "../../Pages/Signup/Signup";
+import SignUp from "../../Pages/SignUp/SignUp";
 import Wishlist from "../../Pages/Wishlist/Wishlist";
 export const router = createBrowserRouter([
     {
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/signup',
-            element: <Signup />
+            element: <SignUp/>
         },
         {
             path: '/details',
@@ -56,10 +56,6 @@ export const router = createBrowserRouter([
         {
             path: '/restaurantReg',
             element: <RestaurantRegistration></RestaurantRegistration>
-        },
-        {
-            path: '/signup',
-            element: <SignUp />
         },
         {
             path: '/wishlist',
