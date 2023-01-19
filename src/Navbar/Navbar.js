@@ -50,7 +50,7 @@ const Navbar = () => {
                     </li>
 
 
-                    <li className='text-lg font-medium text-amber-500 hover:text-amber-300 '><Link to='/'><FaCartArrowDown className='border-0 hover:border-2 py-1 px-2 rounded-xl hover:border-amber-400 text-5xl text-amber-400
+                    <li className='text-lg font-medium text-amber-500 hover:text-amber-300 '><Link to='/wishlist'><FaCartArrowDown className='border-0 hover:border-2 py-1 px-2 rounded-xl hover:border-amber-400 text-5xl text-amber-400
                     hover:text-white hover:bg-amber-400' /></Link></li>
 
 

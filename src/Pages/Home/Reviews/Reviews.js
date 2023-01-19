@@ -4,7 +4,7 @@ import './Reviews.css';
 
 const Reviews = () => {
     return (
-        <section className='my-20 mx-10'>
+        <section className='my-44 mx-10'>
             <div className='text-center'>
                 <h6 className='font-bold pb-5'>Satisfied Clients</h6>
                 <h3 className='font-semibold text-4xl pb-4'>What Our <span className='text-red-600'>Clients</span> Say</h3>
