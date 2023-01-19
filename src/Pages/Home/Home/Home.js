@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../Banner/Banner';
 import Blog from '../Blog/Blog';
 import FoodItem from '../FoodItem/FoodItem';
@@ -9,7 +9,7 @@ import TopRestaurant from '../TopRestaurant/TopRestaurant';
 // import TopRestaurantCard from '../TopRestaurant/TopRestaurantCard';
 
 const Home = () => {
-  
+
     // const [topRestaurant, setTopRestaurant] = useState([]);
     return (
         <div className='min-h-screen'>

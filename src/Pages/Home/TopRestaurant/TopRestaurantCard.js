@@ -9,9 +9,9 @@ const TopRestaurantCard = ({ restaurant }) => {
     <div>
 
 
-      <div className="card w-100 h-100 bg-base-100 shadow-xl">
+      <div className="card w-full lg:max-w-96 h-[600px] mx-auto bg-base-100 shadow-xl">
 
-        <figure><img src={img} alt="Shoes" /></figure>
+        <figure><img src={img} alt="restaurants" /></figure>
         <div className="card-body">
 
           <div className="card-actions justify-between ">
@@ -27,15 +27,14 @@ const TopRestaurantCard = ({ restaurant }) => {
             </div>
           </div>
 
-
-          
           <button className="btn btn-outline btn-warning">{type}</button>
-         <div className='mt-1'>
-         <div className='card-actions justify-end'>
-            <HiClock className='mt-1 text-green-600'></HiClock>
-            <p className='text-red-600'>{time}</p>
+          <div className='mt-1'>
+            <div className='card-actions justify-end'>
+              <HiClock className='mt-1 '></HiClock>
+              <p className='text-red-600'>12:00 am - 11:59 pm</p>
+
             </div>
-           
+
 
 
             <div className='card-actions justify-end'>
@@ -49,13 +48,13 @@ const TopRestaurantCard = ({ restaurant }) => {
           </div>
         </div>
       </div>
-      
-    </div>
-    
-  
-    
 
-    
+    </div>
+
+
+
+
+
 
 
 

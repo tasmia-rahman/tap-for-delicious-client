@@ -7,11 +7,16 @@ import AllCategory from "../../Pages/Home/AllCategory/AllCategory";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
+import NotFound from "../../Pages/NotFound/NotFound";
+import RestaurantRegistration from "../../Pages/RestaurantRegistration/RestaurantRegistration";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
+import Signup from "../../Pages/SignUp/Signup";
+import Wishlist from "../../Pages/Wishlist/Wishlist";
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <NotFound />,
         children: [{
             path: '/',
             element: <Home />
@@ -34,8 +39,8 @@ export const router = createBrowserRouter([
         },
         {
             path: '/toprestaurant',
-            element: <TopRestaurant></TopRestaurant>
-            
+            element: <TopRestaurant />
+
         },
         {
             path: '/allcategory/:id',
@@ -46,10 +51,23 @@ export const router = createBrowserRouter([
             path: '/login',
             element: <Login />
         },
+
         {
             path: '/details',
+            element: <AvailableRestaurant />
+        },
+        {
+            path: '/restaurantReg',
+            element: <RestaurantRegistration></RestaurantRegistration>
+        },
 
-            element: <AvailableRestaurant></AvailableRestaurant>
+        {
+            path: '/wishlist',
+            element: <Wishlist />
+        },
+        {
+            path: '/signup',
+            element: <Signup />
         }
         ]
 
