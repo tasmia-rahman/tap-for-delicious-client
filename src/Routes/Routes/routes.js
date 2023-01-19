@@ -39,7 +39,8 @@ export const router = createBrowserRouter([
         },
         {
             path: '/allcategory',
-            element:<AllCategory></AllCategory>
+            element:<AllCategory></AllCategory>,
+            loader:({params}) =>fetch(`services.json/${params.id}`)
 
         },
         {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/details',
-            
+
             element: <AvailableRestaurant></AvailableRestaurant>
         }
         ]

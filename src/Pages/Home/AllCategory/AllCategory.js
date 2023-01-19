@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import AllCategoryDetails from './AllCategoryDetails';
 
 const AllCategory = () => {
+    const restaurants = useLoaderData();
+    const [restaurant, setRestaurant] = useState([null]);
+   
     return (
         <div>
-            <h1 className="text-3xl">This is AllCategory  Page</h1>
-            <div className="carousel w-full">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" />
-                    <div className="">
-                        <h2 className=''>title</h2>
-                      
-                    </div>
-                </div>
+           
+            {/* {
+                restaurants.item.map(restaurant=><AllCategoryDetails
+                key={restaurant.id}
+                restaurant={restaurant}
+                setRestaurant={setRestaurant}
 
-
-            </div>
+                ></AllCategoryDetails>)
+            } */}
+           
         </div>
     );
 };
