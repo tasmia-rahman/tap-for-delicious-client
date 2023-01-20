@@ -16,7 +16,6 @@ const RestaurantRegistration = () => {
     const email = form.email.value;
     const phone = form.phone.value;
     const image = form.image.files[0];
-    console.log(image);
 
     const formData = new FormData();
     formData.append('image', image);
@@ -72,6 +71,7 @@ const RestaurantRegistration = () => {
             name="name"
             placeholder="Type Your Name"
             className="input input-bordered input-warning w-full max-w-xs"
+            required
           />
         </div>
         <div className="form-control mx-auto mt-4 w-full max-w-xs">
@@ -83,6 +83,7 @@ const RestaurantRegistration = () => {
             name="restaurantName"
             placeholder="Type restaurant name"
             className="input input-bordered input-warning w-full max-w-xs"
+            required
           />
         </div>
         <div className="form-control mx-auto mt-4 w-full max-w-xs">
@@ -94,6 +95,7 @@ const RestaurantRegistration = () => {
             name="address"
             placeholder="Type restaurant address"
             className="input input-bordered input-warning w-full max-w-xs"
+            required
           />
         </div>
         <div className="form-control mx-auto mt-4 w-full max-w-xs">
@@ -105,6 +107,7 @@ const RestaurantRegistration = () => {
             name="email"
             placeholder="Type your email"
             className="input input-bordered input-warning w-full max-w-xs"
+            required
           />
         </div>
         <div className="form-control mx-auto mt-4 w-full max-w-xs">
@@ -116,6 +119,7 @@ const RestaurantRegistration = () => {
             name="phone"
             placeholder="Type your phone number"
             className="input input-bordered input-warning w-full max-w-xs"
+            required
           />
         </div>
         <div className="form-control mx-auto mt-4 w-full max-w-xs">
@@ -124,7 +128,8 @@ const RestaurantRegistration = () => {
           </label>
           <input type="file"
             name="image"
-            className="file-input file-input-bordered file-input-warning w-full max-w-xs" />
+            className="file-input file-input-bordered file-input-warning w-full max-w-xs"
+            required />
         </div>
 
         <button className="btn btn-outline btn-warning max-w-xs block mx-auto mt-5" type="submit">Submit</button>

@@ -4,7 +4,7 @@ import BlogCard from './BlogCard';
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch('blog.json')
+        fetch('http://localhost:5000/blogs')
             .then(res => res.json()
                 .then(data => setBlogs(data)))
     }, [])
@@ -17,7 +17,7 @@ const Blog = () => {
             <div className='grid justify-center px-5 gap-10 grid-col-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     blogs.map(blog => <BlogCard
-                        key={blog.id}
+                        key={blog._id}
                         blog={blog}
                     ></BlogCard>)
                 }
