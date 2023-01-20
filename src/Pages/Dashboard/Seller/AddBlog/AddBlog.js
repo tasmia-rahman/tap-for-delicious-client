@@ -28,7 +28,7 @@ const AddBlog = () => {
                     console.log(imgData.data.url);
 
                     const blog = {
-                        image: imgData.data.url,
+                        img: imgData.data.url,
                         title,
                         details
                     }
