@@ -36,7 +36,7 @@ const AddBlog = () => {
                     }
 
                     // save blog information to the database
-                    fetch('http://localhost:5000/blogs', {
+                    fetch('https://tap-for-delicious-server.vercel.app/blogs', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

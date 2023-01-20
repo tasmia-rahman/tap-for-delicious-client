@@ -46,7 +46,7 @@ const Signup = () => {
     // ---- Send user info to database ---- //
     const saveUser = (displayName, email, role) => {
         const user = { displayName, email, role: role };
-        fetch('http://localhost:5000/users', {
+        fetch('https://tap-for-delicious-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
