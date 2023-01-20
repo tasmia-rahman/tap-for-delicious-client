@@ -55,7 +55,6 @@ const RestaurantRegistration = () => {
             })
         }
       })
-
   }
 
   return (
