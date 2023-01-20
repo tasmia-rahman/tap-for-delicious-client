@@ -7,15 +7,8 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
-    <RouterProvider router={router}>
-
-    </RouterProvider>
-    <Toaster />
-=======
       <RouterProvider router={router}></RouterProvider>
       <Toaster></Toaster>
->>>>>>> 96f683f0ba69ca965e06249cd9e379c7438ea591
     </>
   );
 }
