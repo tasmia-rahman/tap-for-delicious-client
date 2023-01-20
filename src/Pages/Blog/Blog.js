@@ -29,8 +29,8 @@ const Blog = () => {
                         {blog.title}
                     </div>
                     <div className='flex flex-col md:flex-row items-center gap-10'>
-                        <img src={blog.img} alt="" className='max-h-[400px]' />
-                        <div className='max-w-4xl'>
+                        <img src={blog.img} alt="" className='max-h-[400px] max-w-[400px]' />
+                        <div className='max-w-4xl text-justify'>
                             {blog.details}
                         </div>
                     </div>
