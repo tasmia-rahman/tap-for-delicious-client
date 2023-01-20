@@ -50,7 +50,7 @@ const RestaurantRegistration = () => {
                 role: 'seller'
               }
               // save seller information to the database
-              fetch('http://localhost:5000/users', {
+              fetch('https://tap-for-delicious-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                   'content-type': 'application/json'
