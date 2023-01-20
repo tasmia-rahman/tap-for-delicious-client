@@ -9,7 +9,7 @@ const FoodItem = () => {
                 .then(data => setFoodItems(data)))
     }, [])
     return (
-        <div className='mx-10 my-44'>
+        <div className='mx-10 mb-44 mt-16'>
             <div>
                 <div className='text-center mb-4'>
                     <p className="font-bold pb-5 ">Top Foods</p>

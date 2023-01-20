@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../Assets/tap-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { signupInitiate } from '../../Redux/action';
+import { toast } from 'react-hot-toast';
 
 const Signup = () => {
     const [state, setState] = useState({
@@ -31,6 +32,9 @@ const Signup = () => {
             return;
         }
         dispatch(signupInitiate(email, password, displayName));
+        const role = "buyer";
+        saveUser(displayName, email, role);
+        toast.success("User created successfully")
         setState({ email: "", displayName: "", password: "", passwordConfirm: "" })
     };
 
@@ -39,7 +43,22 @@ const Signup = () => {
         setState({ ...state, [name]: value })
     };
 
-
+    // ---- Send user info to database ---- //
+    const saveUser = (displayName, email, role) => {
+        const user = { displayName, email, role: role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                navigate('/login');
+                console.log(data);
+            })
+    }
 
     return (
 

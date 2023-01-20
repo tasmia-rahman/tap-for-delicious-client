@@ -7,8 +7,8 @@
     "ratings": 4,
     "ratingsCount": 3725,
     "img": "https://cdn.loveandlemons.com/wp-content/uploads/2019/07/salad-846x846.jpg",
-    "shipping": 1,
-    "quantity": 0
+    "author": "Salman Sheikh",
+    "authorImg": "https://media.istockphoto.com/id/1270067126/photo/smiling-indian-man-looking-at-camera.jpg?s=612x612&w=0&k=20&c=ovIQ5GPurLd3mOUj82jB9v-bjGZ8updgy1ACaHMeEC0="
   },
   {
     "id": "13cbc7ed-a61b-4883-9d42-82d7d8642b86",
@@ -18,8 +18,8 @@
     "ratings": 5,
     "ratingsCount": 4355,
     "img": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/meal-prep-ideas-846x846.jpg",
-    "shipping": 14,
-    "quantity": 0
+    "author": "Safa Tazmin",
+    "authorImg": "https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg?w=2000"
   },
   {
     "id": "307f166f-1d04-4573-bc37-2f461ea9d4f7",
@@ -29,7 +29,7 @@
     "ratings": 4,
     "ratingsCount": 3972,
     "img": "https://cdn.loveandlemons.com/wp-content/uploads/2019/09/easy-dinner-ideas-1-846x846.jpg",
-    "shipping": 1,
-    "quantity": 0
+    "author": "Rakesh Chakrabarty",
+    "authorImg": "https://media.istockphoto.com/id/1309489745/photo/portrait-of-young-happy-indian-business-man-executive-looking-at-camera-eastern-male.jpg?s=612x612&w=0&k=20&c=2hQ4Sm9Puyf1otnVwcyvnY0fk4af-XxHyGqq9ozPpgE="
   }
 ]
