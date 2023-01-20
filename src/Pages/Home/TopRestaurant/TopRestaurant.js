@@ -5,7 +5,7 @@ import TopRestaurantCard from './TopRestaurantCard';
 const TopRestaurant = () => {
     const [topRestaurant, setTopRestaurant] = useState([]);
     useEffect(() => {
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setTopRestaurant(data))
 
@@ -21,7 +21,7 @@ const TopRestaurant = () => {
 
                 {
                     topRestaurant.map(restaurant => <TopRestaurantCard
-                        key={restaurant.id}
+                        key={restaurant._id}
                         restaurant={restaurant}
                     ></TopRestaurantCard>)
 

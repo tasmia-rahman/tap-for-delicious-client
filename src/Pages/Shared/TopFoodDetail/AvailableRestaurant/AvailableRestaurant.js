@@ -7,6 +7,7 @@ const AvailableRestaurant = () => {
         <div className="lg:grid grid-rows-3 grid-flow-col ">
             <div className="row-span-3">
                 <Drawer></Drawer>
+
             </div>
             <div className="row-span-4  col-span-4">
                 <div className='pt-16 mx-6 hidden lg:block'>
