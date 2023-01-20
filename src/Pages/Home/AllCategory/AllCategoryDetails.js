@@ -9,7 +9,7 @@ const AllCategoryDetails = ({ restaurant }) => {
     return (
 
         <div className='h-[220px] flex justify-center items-center drop-shadow-2xl'>
-            <div className='flex gap-5 justify-start shadow-xl   w-[600px] '>
+            <div className='flex gap-5 justify-start    w-[600px] '>
                 <div className='w-25'>
                     <div className='mask w-24 h-24'>
                         <img className=' mx-0' src={image} alt="" />
@@ -20,7 +20,7 @@ const AllCategoryDetails = ({ restaurant }) => {
                     <p>{details}</p>
                     <p className=' text-red-600 font-semibold'>Price: {price}</p>
                     <div className="card-actions justify-end p-3">
-                    <button className="btn btn-warning">Add to card</button>
+                    <button className="btn btn-warning">Add to cart</button>
                 </div>
                 </div>
                 

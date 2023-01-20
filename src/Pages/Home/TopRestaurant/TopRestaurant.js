@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import TopRestaurantCard from './TopRestaurantCard';
 
 
@@ -29,7 +30,10 @@ const TopRestaurant = () => {
 
             </div>
             <div className='text-center mt-5'>
+                
                 <button className="btn btn-secondary">See All Restaurant</button>
+
+        
             </div>
         </div>
     );
