@@ -1,14 +1,15 @@
 import React from 'react';
 import { HiClock, HiLocationMarker, HiStar } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 
 const TopRestaurantCard = ({ restaurant }) => {
-  const { img, title, type } = restaurant;
+  const {_id, img, title, type,time, location } = restaurant;
   return (
 
     <div>
 
 
-      <div className="card w-full lg:max-w-96 h-[600px] mx-auto bg-base-100 shadow-xl">
+      <div className="card w-full lg:max-w-96 h-[500px] mx-auto bg-base-100 shadow-xl">
 
         <figure><img src={img} alt="restaurants" /></figure>
         <div className="card-body">
@@ -26,25 +27,24 @@ const TopRestaurantCard = ({ restaurant }) => {
             </div>
           </div>
 
-
-
           <button className="btn btn-outline btn-warning">{type}</button>
           <div className='mt-1'>
             <div className='card-actions justify-end'>
-              <HiClock className='mt-1 '></HiClock>
-              <p className='text-red-600'>12:00 am - 11:59 pm</p>
+              <HiClock className='mt-1 text-green-600'></HiClock>
+              <p className='text-red-600'>{time}</p>
+
             </div>
 
 
 
             <div className='card-actions justify-end'>
-              <HiLocationMarker className='mt-1'></HiLocationMarker>
-              <p>Mirpur, Dhaka </p>
+              <HiLocationMarker className='mt-1 text-red-800'></HiLocationMarker>
+              <p>{location} </p>
             </div>
           </div>
 
           <div className="card-actions justify-end ">
-            <button className="btn btn-primary mb-0">More Details</button>
+            <Link to={`/allcategory/${_id}`}><button className="btn btn-primary btn-warning mb-0">More Details</button></Link>
           </div>
         </div>
       </div>
