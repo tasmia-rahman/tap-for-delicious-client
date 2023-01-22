@@ -1,247 +1,348 @@
 [
     {
         
-        "service_id": "04",
         "title": "Organic Arcadian Food",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Arcadian.jpg",
-        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "type":"Type of food: Shakes, Steaks, Sea Food, Chicken, Appetizers",
+        "time":"11:58 pm - 11:55 pm",
+        "location":"Mirpur-10, Dhaka",
         "price": "20.00",
         "description":"pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients, baked quickly—usually, in a commercial setting, using a wood-fired oven heated to a very high temperature—and served hot.One of the simplest and most traditional pizzas is the Margherita, which is topped with tomatoes or tomato sauce, mozzarella, and basil. Popular legend relates that it was named for Queen Margherita, wife of Umberto I, who was said to have liked its mild fresh flavour and to have also noted that its topping colours—green, white, and red—were those of the",
 
-        "facility": [
+        "item": [
             {
-                "name": "Tasty Food Pizza",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Arcadian.jpg",
+                "name": "Oreo Milk Shake",
+                "details": "Oreo Milkshake Recipe - A super easy milkshake made with vanilla ice cream, milk, and Oreo cookies!  This sweet treat is a hit with the whole family on a hot",
+                "price":"290.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/oreo-shake-150x150.jpg",
+                "name": "Ice Cream Shake",
+                "details": "My Mom used to make this for me when I was a kid I loved it then and I still love it! Especially on hot .",
+                "price":"890.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Ice-cream-Milkshake-150x150.png",
+                "name": "Caramel Milk Shake",
+                "details": "This deliciously decadent caramel milkshake is quick and easy to make at home You’ll just need three ingredients: vanilla ice cream, milk, and caramel–homemade or store-bought is just .",
+                "price":"290.00"
             },
             {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Vanilla Milk Shake",
+                "details": "A very simple recipe for a vanilla milkshake Add chocolate, berries, peaches or whatever you like My kids like to add root beer instead of.",
+                "price":"1110.00"
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Kit Kat Shake",
+                "details": "An old friend you haven't seen for a while its great to catch up & still remember the time you met",
+                "price":"2000.00"
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Fire Hot Steak",
+                "details": "For a great tasting beef dish from Asia, fire meat is delicious and easy to prepare Ice cold beer is the beverage recommended with fire.",
+                "price":"1200.00"
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Jalapeno Steak",
+                "details": "Chicken or Beef Steak with spicy Jalapeno Sauce Order now and get your meal at very low ...",
+                "price":"1000.00"
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Mozambique Peri Chicken",
+                "details": "Grilled chicken breast fillets with our secret our in house peri peri sauce This Mozambique Peri Chicken is super crispy and ...",
+                "price":"200.00"
+
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Poulet Grille",
+                "details": "Grilled breast of chicken with spicy mushrooms and herb sauce This super crispy Poulet Grille chicken is on...",
+                "price":"440.00"
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Moroccan Chicken",
+                "details": "Tender pieces of chicken breast glazed with an in house tangy sauce served This Moroccan Chicken is ideal for friends ...",
+                "price":"300.00"
+            },
+            {
+                "image":"",
+                "name": "Caramel Milk Shake",
+                "name": "Parma Fish",
+                "details": "Oven baked Snapper topped with a black olive crust on a bed of deep fried hash ...",
+                "price":"290.00"
             }
+           
+           
         ]
     },
     {
         
-        "service_id": "05",
         "title": "Tasty Food Pizza",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/broadway.jpg",
-        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "type":"Type of food: Pizza, Deals, Sauces,Specialist, Calzone",
+        "time":"11:58 pm - 11:55 pm",
+        "location":"Mirpur-1, Dhaka",
         "price": "20.00",
         "description":"There are many kinds of crave worthy foods. From foods that are sweet and salty to savory, there is one crave-able item that sure gets consumers talking. National Cattlemen’s Beef Association, a contractor to the Beef Checkoff, recently conducted research on consumer preferences for burgers when dining out. Consumers’ own words highlight just how enticing burgers are for them.Many consumers enjoy a beef burger whenever they get a chance, and many of us have our go-to places for one. However, the results show that quick-service establishments aren’t the only places consumers go for a burger. In fact, many also choose casual or even fine-dining establishments to enjoy a burger.More specifically, the research looked at the quality indicators for burgers and how consumers go about customizing and selecting their burgers when dining out. The research was conducted among 700 consumers who eat beef burgers. Not surprisingly, the most important aspect of a burger is its taste—after all, that is why most of us enjoy them so much. In addition to taste, the overall quality and the value you get for the price you pay is important, as some consumers note:",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/01-1-2-150x150.png",
+                "name": "Cauliflower Pizza",
+                "details": "Special Cauliflower Pizza, Add your favourite toppings and create your own masterpiece topped with chicken chunks, olives, capsicum, onions and spicy peri .",
+                "price":"999.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/02-1-1-150x150.png",
+                "name": "Tikka Heat Pizza",
+                "details": "Medium size special tikka heart pizza Green Peppers, Mushrooms, Onions, Tomatoes, Black Olives, Italian Seasoning on a Pizza Sauce.",
+                "price":"800.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/05/Layer-891-150x150.png",
+                "name": "Tandoori Pizza",
+                "details": "Medium size pizza with Chapli Chicken, Green Chilli,  Green Peppers, Onions, Tomatoes on a Tandoori Pizza Sauce.",
+                "price":"690.00"
             }
+         
+           
         ]
     },
     {
         
-        "service_id": "01",
         "title": "Food Chef Italian",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/downtown.jpg",
-        "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "type":"Type of food: Pasta, Beverages, Rice, Vegetarian Dishes Starters",
+        "time":"11:58 pm - 11:55 pm",
+        "location":"Mirpur-2, Dhaka",
         "price": "200.00",
-        "description":"KFC's original product is pressure-fried chicken pieces, seasoned with Sanders' recipe of 11 herbs and spices. The constituents of the recipe are a trade secret.Today his Louisville-based company is known across the globe as KFC and is part of Yum! Brands. Fried chicken in Kentucky is known for being floured or battered and then pan, deep or pressure fried. You can find this deep-fried culinary goodness on the menu at many Louisville restaurants from fast to fancy.Flavorful, obviously full of flavor, or you could say, instead, flavorsome, tasty, tangy, appetizing, palatable, savory or sweet -for a particular flavor- and, if you want to try less known words, sapid or saporous. It wouldn't be flavorless, tasteless, bland, flat, or insipid.",
+        "description":"KFC's original product is pressure-fried chicken pieces, seasoned with Sanders' recipe of 11 herbs and spices. The constituents of the recipe are a trade secret.Today his Louisville-based company is known across the globe as KFC and is part of Yum! Brands. Fried chicken in Kentucky is known for being floured or battered and then pan, deep or pressure fried. You can find this deep-fried culinary goodness on the menu at many Louisville titles from fast to fancy.Flavorful, obviously full of flavor, or you could say, instead, flavorsome, tasty, tangy, appetizing, palatable, savory or sweet -for a particular flavor- and, if you want to try less known words, sapid or saporous. It wouldn't be flavorless, tasteless, bland, flat, or insipid.",
 
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/cheesy-pasta-150x150.jpg",
+                "name": "Cheesy Pasta",
+                "details": "Special Downtown Pasta, When you're craving cheese and carbs, there's really nothing .",
+                "price":"390.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/03/rice5-150x150.jpg",
+                "name": "Chicken Masala Rice",
+                "details": "Use fresh or leftover white rice for this easy, vegetable-studded fried rice recipe We fry the grains in batches and season the dish lightly for a perfect texture and.",
+                "price":"190.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/cheesy-pasta-150x150.jpg",
+                "name": "Spices Mushrooms",
+                "details": "The Best Sauteed Mushrooms Recipe: An easy side dish made with only 6 ingredients! Perfect to serve with steaks and holiday .",
+                "price":"890.00"
             }
+          
+           
         ]
     },
     {
         
-        "service_id": "02",
         "title": "Toni Food Hub",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/hardees.jpg",
         "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "time":"11:58 pm - 11:55 pm",
+        "location":"Mirpur-14, Dhaka",
         "price": "150.00",
         "description":"Originating from the Ottoman Empire (roughly modern-day Turkey) in the 18th or 19th century, shawarma, also spelled shawurma or shawerma, meaning “turning” in Arabic, is a Levantine meat preparation, where thin cuts of lamb, chicken, beef, or mixed meats are stacked in a cone-like shape on a vertical rotisserie (it has also taken similar form in the Greek Gyro…though there are a few interesting differences).Shawarma is all about the delicious sauces that accompany the meat – typically garlic yoghurt or tahini and hommus – and the secret ingredient: pickles. Pickled vegetables are what take shawarma to a whole new plane: pickled cucumbers, turnips, and even carrots or mangoes are common.",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Lemongrass Kahwa",
+                "details": "Many people find sipping hot tea to be relaxing, but lemongrass tea may offer further anxiety-reducing.",
+                "price":"790.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": " Molten Lava Cake",
+                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum.",
+                "price":"310.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Chicken Fillet",
+                "details": "A crispy breaded chicken  The secret to making a great grilled chicken sandwich is to think of more than just skinless, boneless.",
+                "price":"990.00"
             }
+           
         ]
     },
     {
         
-        "service_id": "03",
         "title": "Masterchef Chinese Food",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Howdy.jpg",
         "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "time":"11:58 am - 11:55 pm",
+        "location":"Uttora, Dhaka",
         "price": "30.00",
         "description":"Chicken Roll is a delectable North Indian recipe made using all purpose flour, stir-fried chicken, yoghurt and a variety of vegetables rolled into paranthas. On days you do not want to prepare an elaborate meal, this delectable dish can be a saviour. Rolls are quite popular across India and they are often a favourite evening snack. Egg Roll, Kathi Kebab Roll, Mutton Roll, Paneer Roll, Potato Roll and even Fish Roll are among its many variations. This easy roll recipe is made using chicken and has the unforgettable aroma of Indian spices. You can also utilize your leftover parathas and chapatis in making this recipe. If you do not like to use all-purpose flour or maida, you can make it with whole wheat flour too. In fact, it can be made even with leftover chicken. All you have to ensure is that you use the right amount of spices so that the flavour is not lost. Easy to pack and carry, you can also take it to office or prepare it for picnics and day trips. A must try roll recipe for all chicken lovers!",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Crispy Fry Burger",
+                "details": "Howdy Special, A well-seasoned, crispy fried chicken fillet slathered with a special burger sauce, topped with a slice of Cheddar .",
+                "price":"590.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Rotisserie Chicken Special Deal",
+                "details": "Have you tried our delicious, one-day deals Choose from two different deals every weekday, with affordable costs Serves 2 to.",
+                "price":"790.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Tickle Pickle Deal",
+                "details": "Make it a meal, Malai boti half, chicken breast/leg, 5 sada naan, salad, raita & 500ml soft.",
+                "price":"190.00"
             }
+          
+         
         ]
     },
     {
         
-        "service_id": "06",
         "title": "Fun Chicken Meals",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/mcdonalds.jpg",
         "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "time":"10:00 am - 11:59 pm",
+        "location":"Gulshan-1, Dhaka",
         "price": "20.00",
         "description":"Doll noodles are very popular in Hong Kong and southern china. The doll brand is a standard of instant noodles. So when the people of china want instant noodles, they order doll noodles. The taste and texture are tailored for Hong Kong and southern Chinese, who were the early Chinese immigrants to the US.Instant packet noodles (also known as ramen noodles) have been a key part of Asian food and life since their invention in 1950s Japan. They are enjoyed as a quick meal or snack on their own or can be used as quick and tasty noodles for a whole range of Asian cuisine.",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Sandwich Shake",
+                "details": "This is my new favorite thing! You guys have no idea what you are missing with this ice cream sandwich milkshake, but I’m about to enlighten you You’re ..",
+                "price":"490.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Cappuccino",
+                "details": "A light, foamy cappuccino is a favorite drink for many coffee .",
+                "price":"300.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Happy Meal For 2",
+                "details": "Spicy burger with fries, Cock to server 1 person Order now and enjoy this deal with your friends and ..",
+                "price":"800.00"
             }
+        
+           
         ]
     },
     {
         
-        "service_id": "07",
-        "title": "Chef Ganteng Restaurant",
+        "title": "Chef Ganteng title",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/monal.jpg",
         "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "time":"11:00 am - 11:59 pm",
+        "location":"Banani, Dhaka",
         "price": "20.00",
         "description":"Doll noodles are very popular in Hong Kong and southern china. The doll brand is a standard of instant noodles. So when the people of china want instant noodles, they order doll noodles. The taste and texture are tailored for Hong Kong and southern Chinese, who were the early Chinese immigrants to the US.Instant packet noodles (also known as ramen noodles) have been a key part of Asian food and life since their invention in 1950s Japan. They are enjoyed as a quick meal or snack on their own or can be used as quick and tasty noodles for a whole range of Asian cuisine.",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Brown Pie",
+                "details": "Special Desert, Brown sugar pie is a basic pie from Quebec, Canada In French, it is Tarte au Sucre Brun.",
+                "price":"670.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Sunday Brunch Menu",
+                "details": "Lahore style brunch with special dishes to make your day more special with your family Hurry up to order .",
+                "price":"330.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Continental",
+                "details": "From Chinese to Continental, Lebanese to Japanese and Indian, all of them have a taste of their own We all love to savour delicacies from around the.",
+                "price":"410.00"
             }
+          
+            
         ]
     },
     {
         
-        "service_id": "08",
         "title": "Marshall Steak House",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/nandos.jpg",
         "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "time":"11:50 am - 2:00 am",
+        "location":"Gulshan-2, Dhaka",
         "price": "20.00",
         "description":"Doll noodles are very popular in Hong Kong and southern china. The doll brand is a standard of instant noodles. So when the people of china want instant noodles, they order doll noodles. The taste and texture are tailored for Hong Kong and southern Chinese, who were the early Chinese immigrants to the US.Instant packet noodles (also known as ramen noodles) have been a key part of Asian food and life since their invention in 1950s Japan. They are enjoyed as a quick meal or snack on their own or can be used as quick and tasty noodles for a whole range of Asian cuisine.",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Vegetable Puffs",
+                "details": "A really delicious bakery style veg puff recipe made with mix veggies These are also known as curry.",
+                "price":"300.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Pulled Chicken Burger",
+                "details": "These pulled bbq chicken burgers are made with sweet bbqsauce, a quick, tangy slaw, spicy tillamook pepper jack cheese and creamyavocado making them a huge crowd .",
+                "price":"690.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
+                "name": "Chocolate Cake",
+                "details": "A delectable layered chocolate cake filled with chocolate cream and malt Hurry up to order now and make your .",
+                "price":"590.00"
             }
+            
+           
         ]
     },
     {
         
-        "service_id": "09",
         "title": "Chickenzilla Pizza Fusion",
         "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Normas.jpg",
         "type":"Type of food: Cheese Burger, Ice Cream, Potato Fires",
+        "time":"12:00 pm - 11:59 pm",
+        "location":"Savar, Dhaka",
         "price": "20.00",
         "description":"Doll noodles are very popular in Hong Kong and southern china. The doll brand is a standard of instant noodles. So when the people of china want instant noodles, they order doll noodles. The taste and texture are tailored for Hong Kong and southern Chinese, who were the early Chinese immigrants to the US.Instant packet noodles (also known as ramen noodles) have been a key part of Asian food and life since their invention in 1950s Japan. They are enjoyed as a quick meal or snack on their own or can be used as quick and tasty noodles for a whole range of Asian cuisine.",
-        "facility": [
+        "item": [
             {
-                "name": "Instant food Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/04/dry-fruit-paratha-150x150.jpg",
+                "name": "Dry Fruit Paratha",
+                "details": "Want a royal-like dish for a snack Then, try your hand at the dry fruit paratha To make this, you need to grind the dry fruits like cashews, almonds, and.",
+                "price":"390.00"
             },
             {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/03/erer-150x150.jpeg",
+                "name": "Chicken Tikka Burger",
+                "details": "Burgers served with fries Eating delicious food is a blessing Grab a bite of yummy Chicken Tikka ..",
+                "price":"290.00"
             },
             {
-                "name": "Easy Customer Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "Quality Cost Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+                "image":"https://marketplace.foodotawp.com/wp-content/uploads/2021/03/CHICKEN_CHEESE_KARAHI-1-150x150.jpg",
+                "name": "Chicken Cheese Karahi",
+                "details": "It is dairy based curry In this dish cheddar cheese is used instead of paneer (cottage cheese) while cheddar cheese is never used in traditional south Asian ..",
+                "price":"490.00"
             }
+           
         ]
     }
 ]

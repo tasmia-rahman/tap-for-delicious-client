@@ -2,9 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.drawer-container {
+  background-color: #F0F1F3;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -32,6 +31,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
