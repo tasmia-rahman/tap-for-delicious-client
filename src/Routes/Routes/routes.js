@@ -44,7 +44,6 @@ export const router = createBrowserRouter([
             {
                 path: '/toprestaurant',
                 element: <TopRestaurant />
-
             },
             {
                 path: '/allcategory/:id',
