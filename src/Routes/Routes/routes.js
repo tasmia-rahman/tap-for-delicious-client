@@ -57,10 +57,7 @@ export const router = createBrowserRouter([
             path: '/restaurantReg',
             element: <RestaurantRegistration></RestaurantRegistration>
         },
-        {
-            path: '/signup',
-            element: <SignUp />
-        },
+        
         {
             path: '/wishlist',
             element: <Wishlist />
