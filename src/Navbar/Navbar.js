@@ -40,22 +40,22 @@ const Navbar = () => {
 
                     <li>
                         <NavLink to='/home' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Home</NavLink>
                     </li>
                     <li>
                         <NavLink to='/about' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>About</NavLink>
                     </li>
                     <li>
                         <NavLink to='/contact' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Contact</NavLink>
                     </li>
                     <li>
                         <NavLink to='/blog' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Blog</NavLink>
                     </li>
 
