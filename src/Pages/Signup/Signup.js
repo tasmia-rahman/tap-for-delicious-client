@@ -4,8 +4,12 @@ import logo from '../../Assets/tap-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { signupInitiate } from '../../Redux/action';
 import { toast } from 'react-hot-toast';
+import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
 const Signup = () => {
+
+    const [show, setShow] = useState(false)
+    const [showConfirm, setShowConfirm] = useState(false)
     const [state, setState] = useState({
         displayName: "",
         email: "",
@@ -75,8 +79,8 @@ const Signup = () => {
                 <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8 z-10"></div>
                 <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8 z-10"></div>
             </div>
-            <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-                <form onSubmit={handleSignup} className="bg-white">
+            <div className="flex md:w-1/2 justify-center py-10 items-center ">
+                <form onSubmit={handleSignup} className="">
                     <h1 className="text-gray-800 font-bold text-4xl mb-1">Sign Up</h1>
                     <p className="text-sm font-normal text-gray-600 mb-7">Get access to our full service</p>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
@@ -85,7 +89,7 @@ const Signup = () => {
                             <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                                 clipRule="evenodd" />
                         </svg>
-                        <input className="pl-2 outline-none border-none" type="text" name="displayName" id="" placeholder="Full name" onChange={handleChange} value={displayName} required />
+                        <input className="pl-2" type="text" name="displayName" id="" placeholder="Full name" onChange={handleChange} value={displayName} required />
                     </div>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none"
@@ -103,7 +107,11 @@ const Signup = () => {
                                 clipRule="evenodd" />
                         </svg>
                         <input className="pl-2  border-none outline-none"
-                            type="password" name="password" id="" placeholder="Password" onChange={handleChange} value={password} required />
+                            type={show ? 'text' : 'password'} name="password" id="" placeholder="Password" onChange={handleChange} value={password} required />
+                        <p className='cursor-pointer'>
+                            {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
+                        </p>
+
                     </div>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
@@ -113,7 +121,10 @@ const Signup = () => {
                                 clipRule="evenodd" />
                         </svg>
                         <input className="pl-2  border-none outline-none"
-                            type="password" name="passwordConfirm" id="" placeholder="Repeat Password" onChange={handleChange} value={passwordConfirm} required />
+                            type={showConfirm ? 'text' : 'password'} name="passwordConfirm" id="" placeholder="Repeat Password" onChange={handleChange} value={passwordConfirm} required />
+                        <p className='cursor-pointer'>
+                            {showConfirm ? <RiEyeLine onClick={() => setShowConfirm(!showConfirm)} /> : <RiEyeCloseLine onClick={() => setShowConfirm(!showConfirm)} />}
+                        </p>
                     </div>
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text">Sign Up</button>
