@@ -38,29 +38,29 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex justify-center items-center gap-5 px-1">
 
-                    <li>
-                        <NavLink to='/home' className={({ isActive }) =>
-                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
-                        }>Home</NavLink>
-                    </li>
+
+                    <NavLink to='/home' className={({ isActive }) =>
+                        isActive ? "text-lg text-amber-300 border-t border-b hover:text-amber-500  font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                    }>Home</NavLink>
+
                     <li>
                         <NavLink to='/about' className={({ isActive }) =>
-                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500 border-t border-b font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>About</NavLink>
                     </li>
                     <li>
                         <NavLink to='/contact' className={({ isActive }) =>
-                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500 border-t border-b  font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Contact</NavLink>
                     </li>
                     <li>
                         <NavLink to='/blog' className={({ isActive }) =>
-                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500 border-t border-b  font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Blog</NavLink>
                     </li>
 
 
-                    <li className='text-lg font-medium text-amber-500 hover:text-amber-300 '><Link to='/wishlist'><FaCartArrowDown className='border-0 hover:border-2 py-1 px-2 rounded-xl hover:border-amber-400 text-5xl text-amber-400
+                    <li className='text-lg font-medium text-amber-500 hover:text-amber-300'><Link to='/wishlist'><FaCartArrowDown className='border-0 hover:border-2 py-1 px-2 rounded-xl hover:border-amber-400 text-5xl text-amber-400
                     hover:text-white hover:bg-amber-400' /></Link></li>
 
 
