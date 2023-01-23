@@ -40,22 +40,22 @@ const Navbar = () => {
 
                     <li>
                         <NavLink to='/home' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Home</NavLink>
                     </li>
                     <li>
                         <NavLink to='/about' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>About</NavLink>
                     </li>
                     <li>
                         <NavLink to='/contact' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Contact</NavLink>
                     </li>
                     <li>
                         <NavLink to='/blog' className={({ isActive }) =>
-                            isActive ? "text-lg text-orange-400 hover:text-amber-300  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-500 hover:text-amber-300 border-0"
+                            isActive ? "text-lg text-amber-300 hover:text-amber-500  font-bold border-b-2 border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Blog</NavLink>
                     </li>
 
@@ -70,7 +70,7 @@ const Navbar = () => {
                 {
                     currentUser?.email ?
                         <button onClick={handleAuth} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
-                    hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce'>Sign Out</button>
+                    hover:bg-amber-400 hover:text-white hover:border-white text'>Sign Out</button>
                         :
                         <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                 hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
