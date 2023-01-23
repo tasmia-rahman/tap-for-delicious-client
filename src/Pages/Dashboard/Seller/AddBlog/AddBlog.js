@@ -30,11 +30,13 @@ const AddBlog = () => {
                     const blog = {
                         img: imgData.data.url,
                         title,
-                        details
+                        details,
+                        author: 'Safa Tazmin',
+                        authorImg: 'https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg?w=2000'
                     }
 
                     // save blog information to the database
-                    fetch('http://localhost:5000/blogs', {
+                    fetch('https://tap-for-delicious-server.vercel.app/blogs', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
