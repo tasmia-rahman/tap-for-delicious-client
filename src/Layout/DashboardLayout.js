@@ -4,7 +4,7 @@ import DashboardNavbar from '../Pages/Shared/DashboardNavbar/DashboardNavbar';
 
 const DashboardLayout = () => {
     return (
-        <>
+        <div data-theme="cupcake">
             <DashboardNavbar></DashboardNavbar>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -19,7 +19,7 @@ const DashboardLayout = () => {
                     </ul>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
