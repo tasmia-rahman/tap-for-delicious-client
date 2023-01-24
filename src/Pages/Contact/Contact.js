@@ -12,10 +12,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_59tyy72",
-        "template_anezc8g",
+        "service_c7xbhoe",
+        "template_901deqc",
         form.current,
-        "kNwztQYr4W2J63n7m"
+        "KiMGZKUgVfCTntDP6"
       )
       .then(
         (result) => {
@@ -87,29 +87,29 @@ const Contact = () => {
             </form> */}
             <form action="#" data-aos="fade-up"
               ref={form}
-              onSubmit={sendEmail} class="space-y-8 mb-8">
+              onSubmit={sendEmail} className="space-y-8 mb-8">
 
               <div className="md:px-8">
-                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
-                <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
+                <label for="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
+                <input className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
                   type="text"
                   placeholder="Type Your Name"
                   name="user_name"
                   required />
               </div>
               <div className="md:px-8">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Email</label>
-                <input class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 "
+                <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Email</label>
+                <input className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 "
                   type="email"
                   placeholder="Type Your Email"
                   name="user_email"
                   required />
               </div>
-              <div class="sm:col-span-2 md:px-8">
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-                <textarea name="message" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 " placeholder="Leave a comment..."></textarea>
+              <div className="sm:col-span-2 md:px-8">
+                <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                <textarea name="message" id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 " placeholder="Leave a comment..."></textarea>
               </div>
-              <button class="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+              <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                 hover:bg-amber-400 hover:text-white hover:border-white text ml-8"
                 type="submit"
                 value="Send">Send message</button>
