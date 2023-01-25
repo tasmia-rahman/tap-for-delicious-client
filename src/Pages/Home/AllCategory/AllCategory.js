@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllCategoryDetails from "./AllCategoryDetails";
+import AddToCartModal from './AddToCartModal/AddToCartModal';
 
 const AllCategory = () => {
   const restaurants = useLoaderData();
 
+  const [foodItem, setFoodItem] = useState({});
+
+  const handleCartModal = item => {
+    setFoodItem(item);
+  }
+
   return (
     <div>
-        {/* cover img */}
+      {/* cover img */}
       <div
         className="bg-fixed md:bg-auto bg-cover bg-center  py-64"
         style={{ backgroundImage: `url(${restaurants.img})` }}
@@ -20,10 +27,12 @@ const AllCategory = () => {
       </div>
 
       <div className="mt-15">
-        {restaurants?.item.map((restaurant, i) => (
-          <AllCategoryDetails key={i} restaurant={restaurant}></AllCategoryDetails>
+        {restaurants?.item.map((item, i) => (
+          <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
         ))}
       </div>
+
+      <AddToCartModal foodItem={foodItem}></AddToCartModal>
     </div>
   );
 };
