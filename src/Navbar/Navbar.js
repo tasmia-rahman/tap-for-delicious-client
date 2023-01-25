@@ -8,35 +8,36 @@ import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 
 const Navbar = () => {
 
+    // ------- Theme --------- //
     const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
 
 
     let theme = "cupcake";
     let dark;
 
-    if (toggleTheme) {
-        const retrievedObject = localStorage.getItem('theme');
-        const themeObj = JSON.parse(retrievedObject);
-        theme = themeObj.theme;
-        if (theme === "cupcake") {
-            dark = true
-        }
-        else {
-            dark = false
-        }
+    // if (toggleTheme) {
+    //     const retrievedObject = localStorage.getItem('theme');
+    //     const themeObj = JSON.parse(retrievedObject);
+    //     theme = themeObj.theme;
+    //     if (theme === "cupcake") {
+    //         dark = true
+    //     }
+    //     else {
+    //         dark = false
+    //     }
 
-    }
-    else {
-        const retrievedObject = localStorage.getItem('theme');
-        const themeObj = JSON.parse(retrievedObject);
-        theme = themeObj.theme
-        if (theme === "cupcake") {
-            dark = true
-        }
-        else {
-            dark = false
-        }
-    }
+    // }
+    // else {
+    //     const retrievedObject = localStorage.getItem('theme');
+    //     const themeObj = JSON.parse(retrievedObject);
+    //     theme = themeObj.theme
+    //     if (theme === "cupcake") {
+    //         dark = true
+    //     }
+    //     else {
+    //         dark = false
+    //     }
+    // }
 
     console.log(dark);
 
@@ -51,6 +52,8 @@ const Navbar = () => {
             localStorage.setItem('theme', JSON.stringify(webTheme));
         }
     }
+
+    // ------- Theme End --------- //
 
 
     const { currentUser } = useSelector((state) => state.user);
