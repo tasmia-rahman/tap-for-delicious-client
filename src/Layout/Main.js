@@ -8,18 +8,18 @@ const Main = () => {
 
     const { toggleTheme } = useContext(ThemeContext)
 
-    let theme = ""
+    let theme = "cupcake"
 
-    if (toggleTheme) {
-        const retrievedObject = localStorage.getItem('theme');
-        const themeObj = JSON.parse(retrievedObject);
-        theme = themeObj.theme
-    }
-    else {
-        const retrievedObject = localStorage.getItem('theme');
-        const themeObj = JSON.parse(retrievedObject);
-        theme = themeObj.theme
-    }
+    // if (toggleTheme) {
+    //     const retrievedObject = localStorage.getItem('theme');
+    //     const themeObj = JSON.parse(retrievedObject);
+    //     theme = themeObj.theme
+    // }
+    // else {
+    //     const retrievedObject = localStorage.getItem('theme');
+    //     const themeObj = JSON.parse(retrievedObject);
+    //     theme = themeObj.theme
+    // }
 
 
 
