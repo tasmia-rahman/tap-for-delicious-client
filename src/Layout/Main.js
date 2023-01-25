@@ -11,13 +11,21 @@ const Main = () => {
     let theme = ""
 
     if (toggleTheme) {
-        theme = "cupcake";
+        const retrievedObject = localStorage.getItem('theme');
+        const themeObj = JSON.parse(retrievedObject);
+        theme = themeObj.theme
     }
     else {
-        theme = "halloween";
+        const retrievedObject = localStorage.getItem('theme');
+        const themeObj = JSON.parse(retrievedObject);
+        theme = themeObj.theme
     }
+
+
+
+
     return (
-        <div data-theme={`${theme}`}>
+        <div data-theme={theme}>
             <Navbar />
             <Outlet />
             <Footer></Footer>
