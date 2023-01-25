@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../Assets/tap-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { signupInitiate } from '../../Redux/action';
+import { signupInitiate } from '../../Redux/Authentication/action';
 import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
