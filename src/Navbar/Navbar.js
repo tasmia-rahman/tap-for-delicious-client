@@ -28,7 +28,7 @@ const Navbar = () => {
         }
     }
     return (
-        <div data-theme={`${theme}`} className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0  bg-white backdrop-filter backdrop-blur-lg bg-opacity-50">
+        <div data-theme={`${theme}`} className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0   backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

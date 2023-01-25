@@ -81,7 +81,7 @@ const Signup = () => {
             </div>
             <div className="flex md:w-1/2 justify-center py-10 items-center ">
                 <form onSubmit={handleSignup} className="">
-                    <h1 className="text-gray-800 font-bold text-4xl mb-1">Sign Up</h1>
+                    <h1 className="font-bold text-4xl mb-1">Sign Up</h1>
                     <p className="text-sm font-normal text-gray-600 mb-7">Get access to our full service</p>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
