@@ -8,18 +8,26 @@ const Main = () => {
 
     const { toggleTheme } = useContext(ThemeContext)
 
-    let theme = "cupcake"
+    var theme = "cupcake"
 
-    // if (toggleTheme) {
-    //     const retrievedObject = localStorage.getItem('theme');
-    //     const themeObj = JSON.parse(retrievedObject);
-    //     theme = themeObj.theme
-    // }
-    // else {
-    //     const retrievedObject = localStorage.getItem('theme');
-    //     const themeObj = JSON.parse(retrievedObject);
-    //     theme = themeObj.theme
-    // }
+    if (toggleTheme) {
+        const retrievedObject = localStorage.getItem('theme');
+        const themeObj = JSON.parse(retrievedObject);
+        if (themeObj) {
+            theme = themeObj?.theme
+        }
+        else {
+            theme = "cupcake"
+        }
+
+    }
+    else {
+        const retrievedObject = localStorage.getItem('theme');
+        const themeObj = JSON.parse(retrievedObject);
+        theme = themeObj?.theme
+    }
+
+
 
 
 
