@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import Blog from '../Blog/Blog';
 import FoodItem from '../FoodItem/FoodItem';
@@ -7,11 +7,21 @@ import ClientChoice from '../ClientChoice/ClientChoice';
 import { BiSearchAlt2 } from 'react-icons/bi'
 import TopRestaurant from '../TopRestaurant/TopRestaurant';
 import RegisterRes from '../RegisterRes/RegisterRes';
-// import TopRestaurantCard from '../TopRestaurant/TopRestaurantCard';
+import TopRestaurantCard from '../TopRestaurant/TopRestaurantCard';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
 
-    // const [topRestaurant, setTopRestaurant] = useState([]);
+
+    const [topRestaurant, setTopRestaurant] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/services-limit')
+            .then(res => res.json())
+            .then(data => setTopRestaurant(data))
+
+    }, [])
+
+
     return (
         <div className='min-h-screen'>
             <div>
@@ -28,7 +38,25 @@ const Home = () => {
                 <RegisterRes />
 
                 <FoodItem></FoodItem>
-                <TopRestaurant></TopRestaurant>
+                {/* <TopRestaurant></TopRestaurant> */}
+                <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
+
+                    {
+                        topRestaurant.map(restaurant => <TopRestaurantCard
+                            key={restaurant._id}
+                            restaurant={restaurant}
+                        ></TopRestaurantCard>)
+
+                    }
+                    
+
+                </div>
+                <div className='text-center mt-5'>
+                
+                <Link to='/toprestaurant'>  <button className="btn btn-secondary">See All Restaurant</button></Link>
+  
+          
+              </div>
 
                 <Reviews></Reviews>
                 <Blog></Blog>
