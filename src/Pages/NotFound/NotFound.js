@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div data-theme="cupcake" className="min-h-screen">
+    <div data-theme="bumblebee" className="min-h-screen">
       <div className="text-center pt-10">
         <h1 className="font-semibold text-5xl">Ops...</h1>
         <h1 className="text-4xl ">Page not Found.</h1>

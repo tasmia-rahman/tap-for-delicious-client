@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 import DashboardNavbar from '../Pages/Shared/DashboardNavbar/DashboardNavbar';
 
@@ -7,10 +7,10 @@ const DashboardLayout = () => {
 
     // const { toggleTheme } = useContext(ThemeContext)
 
-    // let theme = ""
+    let theme = ""
 
     // if (toggleTheme) {
-    //     theme = "cupcake";
+    //     theme = "bumblebee";
     // }
     // else {
     //     theme = "halloween";
@@ -20,7 +20,13 @@ const DashboardLayout = () => {
 
     const retrievedObject = localStorage.getItem('theme');
     const themeObj = JSON.parse(retrievedObject);
-    const theme = themeObj.theme;
+    if (themeObj) {
+        theme = themeObj.theme;
+    }
+    else {
+        theme = "bumblebee";
+    }
+
 
 
     return (
@@ -34,8 +40,12 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side drawer-container">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 text-base-content">
-                        <li><Link className='underline' to="/dashboard/addBlog">Add Blog</Link></li>
+                    <ul data-theme={theme} className="menu p-4 w-80 text-base-content border-r">
+                        <li>
+                            <NavLink to='/dashboard/addBlog' className={({ isActive }) =>
+                                isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                            }>Add Blog</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>

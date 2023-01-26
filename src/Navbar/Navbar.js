@@ -12,7 +12,7 @@ const Navbar = () => {
     const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
 
 
-    let theme = "cupcake";
+    let theme = "bumblebee";
     let dark = false;;
 
     if (toggleTheme) {
@@ -20,7 +20,7 @@ const Navbar = () => {
         const retrievedObject = localStorage.getItem('theme');
         const themeObj = JSON.parse(retrievedObject);
         theme = themeObj?.theme;
-        if (theme === "cupcake") {
+        if (theme === "bumblebee") {
             dark = false
         }
         if (theme === "halloween") {
@@ -52,7 +52,7 @@ const Navbar = () => {
             localStorage.setItem('theme', JSON.stringify(webTheme));
         }
         else {
-            const webTheme = { theme: "cupcake" }
+            const webTheme = { theme: "bumblebee" }
             localStorage.setItem('theme', JSON.stringify(webTheme));
         }
     }
@@ -63,6 +63,7 @@ const Navbar = () => {
     const { currentUser } = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
+
 
     const handleAuth = () => {
         if (currentUser) {
@@ -79,9 +80,11 @@ const Navbar = () => {
                     {/* Mobile navbar */}
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/home'>Home</Link></li>
-                        <li><Link to='/'>About</Link></li>
-                        <li><Link to='/'>Contact</Link></li>
-                        <li><Link to='/'>Order</Link></li>
+                        <li><Link to='/about'>About</Link></li>
+                        <li><Link to='/contact'>Contact</Link></li>
+                        <li><Link to='/blog'>Blog</Link></li>
+                        <li className='text-lg font-medium text-amber-500 hover:text-amber-300'><Link to='/wishlist'><FaCartArrowDown className='border-0 hover:border-2 py-1 px-2 rounded-xl hover:border-amber-400 text-5xl text-amber-400
+                    hover:text-white hover:bg-amber-400' /></Link></li>
 
                     </ul>
                     {/* Mobile navbar ends */}
@@ -113,6 +116,13 @@ const Navbar = () => {
                             isActive ? "text-lg text-amber-300 hover:text-amber-500 border-t border-b  font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                         }>Blog</NavLink>
                     </li>
+                    {
+                        currentUser ? <li>
+                            <NavLink to='/dashboard' className={({ isActive }) =>
+                                isActive ? "text-lg text-amber-300 hover:text-amber-500 border-t border-b  font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                            }>Dashboard</NavLink>
+                        </li> : ""
+                    }
 
 
                     <li className='text-lg font-medium text-amber-500 hover:text-amber-300'>
@@ -135,10 +145,10 @@ const Navbar = () => {
                 {
                     currentUser?.email ?
                         <button onClick={handleAuth} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
-                    hover:bg-amber-400 hover:text-white hover:border-white text'>Sign Out</button>
+                    hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>Sign Out</button>
                         :
                         <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
-                hover:bg-amber-400 hover:text-white hover:border-white text animate-bounce">Login</p>
+                hover:bg-amber-400 hover:text-white hover:border-amber-400 text animate-bounce">Login</p>
                         </Link>
                 }
                 {/* <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl

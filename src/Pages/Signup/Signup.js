@@ -89,7 +89,7 @@ const Signup = () => {
                             <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                                 clipRule="evenodd" />
                         </svg>
-                        <input className="pl-2" type="text" name="displayName" id="" placeholder="Full name" onChange={handleChange} value={displayName} required />
+                        <input className="pl-2 outline-none border-none" type="text" name="displayName" id="" placeholder="Full name" onChange={handleChange} value={displayName} required />
                     </div>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none"
