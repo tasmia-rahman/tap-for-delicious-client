@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
 
 const AddToCartModal = ({ foodItem }) => {
-    const { image, name, details, price, spice } = foodItem;
+
+
+    const { image, name, details, price, spice, sugar } = foodItem;
 
     console.log(foodItem);
 
@@ -37,6 +39,17 @@ const AddToCartModal = ({ foodItem }) => {
                             <div className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text text-base">{spice}</span>
+                                    <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
+                                </label>
+                            </div>)}
+
+                    </div>
+                    <div>
+                        {sugar ? <h1 className='font-semibold text-lg'>Select your sweetness level</h1> : ""}
+                        {sugar?.map(sugar =>
+                            <div className="form-control">
+                                <label className="label cursor-pointer">
+                                    <span className="label-text text-base">{sugar}</span>
                                     <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
                                 </label>
                             </div>)}
