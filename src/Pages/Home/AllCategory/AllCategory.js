@@ -8,9 +8,21 @@ const AllCategory = () => {
   const restaurants = useLoaderData();
 
   const [foodItem, setFoodItem] = useState({});
+  const [itemQuantity, setItemQuantity] = useState(1);
 
   const handleCartModal = item => {
     setFoodItem(item);
+  }
+
+  const handleIncreaseQuantity = () => {
+    setItemQuantity(itemQuantity + 1);
+  }
+
+  const handleDecreaseQuantity = () => {
+    if (itemQuantity === 1) {
+      return;
+    }
+    setItemQuantity(itemQuantity - 1);
   }
 
   return (
@@ -33,7 +45,7 @@ const AllCategory = () => {
         ))}
       </div>
 
-      <AddToCartModal foodItem={foodItem}></AddToCartModal>
+      <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
     </div>
   );
 };

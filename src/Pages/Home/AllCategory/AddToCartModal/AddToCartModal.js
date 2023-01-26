@@ -4,16 +4,10 @@ import { RiH1 } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
 import { addToCart } from './../../../../Redux/Actions/cartAction';
 
-const AddToCartModal = ({ foodItem }) => {
-
-
-
-    const { image, name, details, price, spice, sugar } = foodItem;
-
-    console.log(foodItem);
-
-
-    const [itemQuantity, setItemQuantity] = useState(1);
+const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
+    const { _id, image, name, details, price, spice } = foodItem;
+    
+    // const [itemQuantity, setItemQuantity] = useState(1);
 
     const dispatch = useDispatch();
 
@@ -21,16 +15,17 @@ const AddToCartModal = ({ foodItem }) => {
         dispatch(addToCart(foodItem))
     }
 
-    const handleIncreaseQuantity = () => {
-        setItemQuantity(itemQuantity + 1);
-    }
+    // const handleIncreaseQuantity = () => {
+    //     setItemQuantity(itemQuantity + 1);
+    // }
 
-    const handleDecreaseQuantity = () => {
-        if (itemQuantity === 1) {
-            return;
-        }
-        setItemQuantity(itemQuantity - 1);
-    }
+    // const handleDecreaseQuantity = () => {
+    //     if (itemQuantity === 1) {
+    //         return;
+    //     }
+    //     setItemQuantity(itemQuantity - 1);
+    // }
+
     return (
         <>
             <input type="checkbox" id="addToCart-modal" className="modal-toggle" />
