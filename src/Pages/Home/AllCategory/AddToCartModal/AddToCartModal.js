@@ -5,7 +5,7 @@ import { RiH1 } from 'react-icons/ri';
 const AddToCartModal = ({ foodItem }) => {
     const { image, name, details, price, spice } = foodItem;
 
-    console.log(foodItem)
+    console.log(foodItem);
 
     const [itemQuantity, setItemQuantity] = useState(1);
 
