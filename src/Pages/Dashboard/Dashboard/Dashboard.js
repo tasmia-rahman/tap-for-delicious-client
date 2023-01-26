@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { FaRegUser } from 'react-icons/fa'
+import { FaRegUser } from 'react-icons/fa';
 import { Player } from '@lottiefiles/react-lottie-player';
 const Dashboard = () => {
 

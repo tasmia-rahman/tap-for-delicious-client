@@ -120,14 +120,31 @@ export const loginInitiate = (email, password) => {
             .catch((error) => dispatch(loginFail(error.message)));
     }
 }
-
+const saveUser = (displayName, email, role, photoURL) => {
+    const user = { displayName, email, role: role, photoURL };
+    fetch('https://tap-for-delicious-server.vercel.app/users', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+}
 export const googleSignInInitiate = () => {
     return function (dispatch) {
         dispatch(googleSignIntStart());
 
         signInWithPopup(auth, googleAuthProvider)
             .then(({ user }) => {
-
+                const displayName = user.displayName;
+                const email = user.email;
+                const photoURL = user.photoURL
+                const role = "buyer";
+                saveUser(displayName, email, role, photoURL);
                 dispatch(googleSignInSuccess(user))
             })
             .catch((error) => dispatch(googleSignInFail(error.message)));
