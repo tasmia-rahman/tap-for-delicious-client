@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../Assets/tap-logo.png'
 import { FaCartArrowDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutInitiate } from '../Redux/action';
+import { logoutInitiate } from '../Redux/Authentication/action';
 import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 
 const Navbar = () => {
@@ -42,6 +42,7 @@ const Navbar = () => {
             dark = false
         }
     }
+
 
     const handleTheme = () => {
         setToggleTheme(!toggleTheme)

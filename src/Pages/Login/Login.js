@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../Assets/tap-logo.png'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom';
-import { facebookSignInInitiate, googleSignInInitiate, loginInitiate } from '../../Redux/action';
+import { facebookSignInInitiate, googleSignInInitiate, loginInitiate } from '../../Redux/Authentication/action';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
 const Login = () => {

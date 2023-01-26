@@ -1,4 +1,4 @@
-import app from "../firebase";
+import app from "../../firebase";
 //import app from "../firebase";
 import * as types from "./actionTypes";
 import {createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
