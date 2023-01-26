@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
 
 const Blog = () => {
+
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
         fetch('https://tap-for-delicious-server.vercel.app/blogs')
