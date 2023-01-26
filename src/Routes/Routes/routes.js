@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
+import Cart from "../../Pages/Cart/Cart";
 import Contact from "../../Pages/Contact/Contact";
 import AddBlog from "../../Pages/Dashboard/Seller/AddBlog/AddBlog";
 import Users from "../../Pages/Dashboard/Users/Users";
@@ -13,7 +14,6 @@ import NotFound from "../../Pages/NotFound/NotFound";
 import RestaurantRegistration from "../../Pages/RestaurantRegistration/RestaurantRegistration";
 import AvailableRestaurant from "../../Pages/Shared/TopFoodDetail/AvailableRestaurant/AvailableRestaurant";
 import Signup from "../../Pages/SignUp/Signup";
-import Wishlist from "../../Pages/Wishlist/Wishlist";
 import DashboardLayout from './../../Layout/DashboardLayout';
 import Dashboard from './../../Pages/Dashboard/Dashboard/Dashboard';
 export const router = createBrowserRouter([
@@ -60,8 +60,8 @@ export const router = createBrowserRouter([
                 element: <RestaurantRegistration></RestaurantRegistration>
             },
             {
-                path: '/wishlist',
-                element: <Wishlist />
+                path: '/cart',
+                element: <Cart></Cart>
             },
             {
                 path: '/signup',

@@ -1,15 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { addToCart } from './../../../../Redux/Actions/cartAction';
 
 const AddToCartModal = ({ foodItem }) => {
+
 
 
     const { image, name, details, price, spice, sugar } = foodItem;
 
     console.log(foodItem);
 
+
     const [itemQuantity, setItemQuantity] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(foodItem))
+    }
 
     const handleIncreaseQuantity = () => {
         setItemQuantity(itemQuantity + 1);
@@ -66,7 +76,12 @@ const AddToCartModal = ({ foodItem }) => {
                             <p className='text-xl pt-1 px-4'>{itemQuantity}</p>
                             <p className='text-3xl cursor-pointer' onClick={handleIncreaseQuantity}>+</p>
                         </div>
-                        <button className='btn btn-warning w-10/12 ml-2 rounded-lg'>Add To Cart</button>
+                        <button
+                            className='btn btn-warning w-10/12 ml-2 rounded-lg'
+                            onClick={handleAddToCart}
+                        >
+                            Add To Cart
+                        </button>
                     </div>
                 </div>
             </div>
