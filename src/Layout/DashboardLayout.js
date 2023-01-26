@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 import DashboardNavbar from '../Pages/Shared/DashboardNavbar/DashboardNavbar';
 
 const DashboardLayout = () => {
+
+    // const { toggleTheme } = useContext(ThemeContext)
+
+    // let theme = ""
+
+    // if (toggleTheme) {
+    //     theme = "cupcake";
+    // }
+    // else {
+    //     theme = "halloween";
+    // }
+
+    // console.log(theme);
+
+    const retrievedObject = localStorage.getItem('theme');
+    const themeObj = JSON.parse(retrievedObject);
+    const theme = themeObj.theme;
+
+
     return (
-        <>
+        <div data-theme={theme}>
             <DashboardNavbar></DashboardNavbar>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -19,7 +39,7 @@ const DashboardLayout = () => {
                     </ul>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

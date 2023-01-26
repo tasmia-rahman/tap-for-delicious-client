@@ -44,12 +44,11 @@ export const router = createBrowserRouter([
             {
                 path: '/toprestaurant',
                 element: <TopRestaurant />
-
             },
             {
                 path: '/allcategory/:id',
                 element: <AllCategory></AllCategory>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/details',

@@ -11,7 +11,7 @@ const Reviews = () => {
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 gap-10 mx-auto px-5'>
                 {/* review 1 */}
-                <div className="group flex flex-col justify-between rounded-sm bg-white px-4 py-6 shadow">
+                <div className="group flex flex-col justify-between rounded-sm px-4 py-6 shadow">
                     <div className="rating pb-6">
                         <HiStar className='text-yellow-400'></HiStar>
                         <HiStar className='text-yellow-400'></HiStar>
@@ -36,7 +36,7 @@ const Reviews = () => {
                     </div>
                 </div>
                 {/* review 2 */}
-                <div className="group flex flex-col justify-between rounded-sm bg-white px-4 py-6 shadow">
+                <div className="group flex flex-col justify-between rounded-sm px-4 py-6 shadow">
                     <div className="rating pb-6">
                         <HiStar className='text-yellow-400'></HiStar>
                         <HiStar className='text-yellow-400'></HiStar>
@@ -61,7 +61,7 @@ const Reviews = () => {
                     </div>
                 </div>
                 {/* review 3 */}
-                <div className="group flex flex-col justify-between rounded-sm bg-white px-4 py-6 shadow">
+                <div className="group flex flex-col justify-between rounded-sm px-4 py-6 shadow">
                     <div className="rating pb-6">
                         <HiStar className='text-yellow-400'></HiStar>
                         <HiStar className='text-yellow-400'></HiStar>

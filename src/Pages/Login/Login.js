@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../Assets/tap-logo.png'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom';
-import { googleSignInInitiate, loginInitiate } from '../../Redux/action';
-
+import { facebookSignInInitiate, googleSignInInitiate, loginInitiate } from '../../Redux/Authentication/action';
+import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
 const Login = () => {
 
-
+    const [show, setShow] = useState(false)
     const [state, setState] = useState({
         email: "",
         password: "",
@@ -31,7 +31,9 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         dispatch(googleSignInInitiate());
     }
-    const handleFacebookSignIn = () => { }
+    const handleFacebookSignIn = () => {
+        dispatch(facebookSignInInitiate());
+     }
 
 
     const handleLogin = (event) => {
@@ -63,9 +65,9 @@ const Login = () => {
                 <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8 z-10"></div>
                 <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8 z-10"></div>
             </div>
-            <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-                <form onSubmit={handleLogin} className="bg-white">
-                    <h1 className="text-gray-800 font-bold text-4xl mb-1">Login</h1>
+            <div className="flex md:w-1/2 justify-center py-10 items-center">
+                <form onSubmit={handleLogin} className="">
+                    <h1 className=" font-bold text-4xl mb-1">Login</h1>
                     <p className="text-sm font-normal text-gray-600 mb-7">Get access to our full service</p>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none"
@@ -83,7 +85,11 @@ const Login = () => {
                                 clipRule="evenodd" />
                         </svg>
                         <input className="pl-2  border-none outline-none"
-                            type="password" name="password" id="" placeholder="Password" onChange={handleChange} value={password} required />
+                            type={show ? 'text' : 'password'} name="password" id="" placeholder="Password" onChange={handleChange} value={password} required
+                        />
+                        <p className='cursor-pointer'>
+                            {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
+                        </p>
                     </div>
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text">Login</button>

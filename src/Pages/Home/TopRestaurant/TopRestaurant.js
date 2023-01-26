@@ -6,7 +6,7 @@ import TopRestaurantCard from './TopRestaurantCard';
 const TopRestaurant = () => {
     const [topRestaurant, setTopRestaurant] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://tap-for-delicious-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setTopRestaurant(data))
 
@@ -29,7 +29,16 @@ const TopRestaurant = () => {
                 }
 
             </div>
+
            
+            <div className='text-center mt-5'>
+
+                <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                    hover:bg-amber-400 hover:text-white hover:border-yellow-400 text shadow-lg">See All Restaurant</button>
+
+
+            </div>
+
         </div>
     );
 };
