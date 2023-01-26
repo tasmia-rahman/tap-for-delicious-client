@@ -6,6 +6,7 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const Main = () => {
 
+    //-------------- Theme ------------//
     const { toggleTheme } = useContext(ThemeContext)
 
     var theme = "cupcake"
@@ -27,9 +28,7 @@ const Main = () => {
         theme = themeObj?.theme
     }
 
-
-
-
+    //-------------- Theme End------------//
 
 
     return (
