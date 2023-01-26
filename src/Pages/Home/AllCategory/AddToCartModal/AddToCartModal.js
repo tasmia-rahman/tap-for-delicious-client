@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from './../../../../Redux/Actions/cartAction';
 
 const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
-    const { _id, image, name, details, price, spice, sugar } = foodItem;
+    const { image, name, details, price, spice, sugar } = foodItem;
 
     // const [itemQuantity, setItemQuantity] = useState(1);
 
@@ -40,8 +40,8 @@ const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handle
                     <p className="py-4 text-justify">{details}</p>
                     <div>
                         {spice ? <h1 className='font-semibold text-lg'>Select your spice level</h1> : ""}
-                        {spice?.map(spice =>
-                            <div className="form-control">
+                        {spice?.map((spice, i) =>
+                            <div key={i} className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text text-base">{spice}</span>
                                     <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
@@ -51,8 +51,8 @@ const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handle
                     </div>
                     <div>
                         {sugar ? <h1 className='font-semibold text-lg'>Select your sweetness level</h1> : ""}
-                        {sugar?.map(sugar =>
-                            <div className="form-control">
+                        {sugar?.map((sugar, i) =>
+                            <div key={i} className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text text-base">{sugar}</span>
                                     <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />

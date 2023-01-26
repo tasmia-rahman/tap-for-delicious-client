@@ -1,15 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { TbTrash } from "react-icons/tb";
+import { deleteFromCart } from '../../Redux/Actions/cartAction';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
+
+    const dispatch = useDispatch();
 
     let subtotal = 0;
 
     cartItems.forEach(cartItem => {
         subtotal = subtotal + parseFloat(cartItem.price);
     });
-    console.log(subtotal);
 
     return (
         <div className="card w-7/12 bg-base-100 shadow-xl mx-auto my-36">
@@ -18,9 +21,22 @@ const Cart = () => {
                     cartItems.map((cartItem, i) => {
                         return <div key={i}>
                             <div className='flex items-center'>
-                                <h4 className='text-warning text-xl'>{cartItem.name}</h4>
+                                <h4 className='text-warning text-xl flex items-center'>
+                                    <span
+                                        className='text-red-600 mr-3 text-lg'
+                                        onClick={() => dispatch(deleteFromCart(cartItem))}
+                                    >
+                                        <TbTrash></TbTrash>
+                                    </span>
+                                    {cartItem.name}
+                                </h4>
                                 <p className='flex justify-end'>TK {cartItem.price}</p>
                             </div>
+                            {/* <div>
+                                <span className='text-3xl cursor-pointer'>-</span>
+                                <span className='text-xl pt-1 px-4'></span>
+                                <span className='text-3xl cursor-pointer'>+</span>
+                            </div> */}
                         </div>
                     })
                 }
