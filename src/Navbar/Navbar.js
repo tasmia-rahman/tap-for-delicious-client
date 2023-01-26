@@ -43,8 +43,6 @@ const Navbar = () => {
         }
     }
 
-    console.log(dark, theme);
-
     const handleTheme = () => {
         setToggleTheme(!toggleTheme)
 

@@ -6,6 +6,7 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const Main = () => {
 
+    //-------------- Theme ------------//
     const { toggleTheme } = useContext(ThemeContext)
 
     var theme = "cupcake"
@@ -26,11 +27,7 @@ const Main = () => {
         const themeObj = JSON.parse(retrievedObject);
         theme = themeObj?.theme
     }
-
-
-
-
-
+    //-------------- Theme End------------//
 
     return (
         <div data-theme={theme}>
