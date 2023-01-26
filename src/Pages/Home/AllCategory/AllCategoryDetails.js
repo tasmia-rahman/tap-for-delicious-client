@@ -5,6 +5,12 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
     const { image, name, details, price } = item;
 
     return (
+
+        <div className='h-[220px] flex justify-center items-center drop-shadow-2xl'>
+            <div className='flex gap-5 justify-start    w-[600px] '>
+                <div className='w-25'>
+                    <div className='mask w-24 h-24'>
+                        <img className='hover:scale-105 duration-700' src={image} alt="food"  />
         <>
             <div className='h-[220px] flex justify-center items-center drop-shadow-2xl'>
                 <div className='flex gap-5 justify-start    w-[600px] '>
@@ -27,6 +33,7 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
                                 Add to cart
                             </label>
                         </div>
+
                     </div>
                 </div>
             </div>

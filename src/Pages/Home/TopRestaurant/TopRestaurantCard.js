@@ -8,10 +8,9 @@ const TopRestaurantCard = ({ restaurant }) => {
 
     <div>
 
-
       <div className="card w-full lg:max-w-96 h-[500px] mx-auto bg-base-100 shadow-xl">
 
-        <figure><img src={img} alt="restaurants" /></figure>
+        <figure><img src={img} alt="restaurants" className='hover:scale-110 duration-700' /></figure>
         <div className="card-body">
 
           <div className="card-actions justify-between ">
