@@ -6,7 +6,7 @@ import { addToCart } from './../../../../Redux/Actions/cartAction';
 
 const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
     const { _id, image, name, details, price, spice } = foodItem;
-
+    
     // const [itemQuantity, setItemQuantity] = useState(1);
 
     const dispatch = useDispatch();
@@ -44,6 +44,17 @@ const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handle
                             <div className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text text-base">{spice}</span>
+                                    <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
+                                </label>
+                            </div>)}
+
+                    </div>
+                    <div>
+                        {sugar ? <h1 className='font-semibold text-lg'>Select your sweetness level</h1> : ""}
+                        {sugar?.map(sugar =>
+                            <div className="form-control">
+                                <label className="label cursor-pointer">
+                                    <span className="label-text text-base">{sugar}</span>
                                     <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
                                 </label>
                             </div>)}

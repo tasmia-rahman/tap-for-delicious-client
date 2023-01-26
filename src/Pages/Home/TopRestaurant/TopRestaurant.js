@@ -12,10 +12,12 @@ const TopRestaurant = () => {
 
     }, [])
 
+    console.log(topRestaurant);
+
     return (
 
 
-        <div className='my-44'>
+        <div className='my-32'>
             <h4 className='text-xl text-center my-10 font-medium'>Top Restaurants</h4>
             <h1 className="text-3xl text-center my-5 font-medium">Choose From Most Popular <span className='text-red-600'>Restaurant</span></h1>
             <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
@@ -30,11 +32,9 @@ const TopRestaurant = () => {
 
             </div>
 
-           
+
             <div className='text-center mt-5'>
 
-                <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
-                    hover:bg-amber-400 hover:text-white hover:border-yellow-400 text shadow-lg">See All Restaurant</button>
 
 
             </div>
