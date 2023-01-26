@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from './../../../../Redux/Actions/cartAction';
 
 const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
-    const { _id, image, name, details, price, spice } = foodItem;
-    
+    const { _id, image, name, details, price, spice, sugar } = foodItem;
+
     // const [itemQuantity, setItemQuantity] = useState(1);
 
     const dispatch = useDispatch();
