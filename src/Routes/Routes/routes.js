@@ -4,6 +4,7 @@ import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
 import AddBlog from "../../Pages/Dashboard/Seller/AddBlog/AddBlog";
+import Users from "../../Pages/Dashboard/Users/Users";
 import AllCategory from "../../Pages/Home/AllCategory/AllCategory";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
@@ -84,7 +85,12 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addBlog',
                 element: <AddBlog></AddBlog>
+            },
+            {
+                path: '/dashboard/users',
+                element: <Users />
             }
+
         ]
     }
 ])
