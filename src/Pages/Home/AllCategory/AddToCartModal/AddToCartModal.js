@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import { RiH1 } from 'react-icons/ri';
 
 const AddToCartModal = ({ foodItem }) => {
-    const { image, name, details, price } = foodItem;
+    const { image, name, details, price, spice } = foodItem;
+
+    console.log(foodItem)
 
     const [itemQuantity, setItemQuantity] = useState(1);
 
@@ -28,6 +31,17 @@ const AddToCartModal = ({ foodItem }) => {
                         <p>TK {price}</p>
                     </div>
                     <p className="py-4 text-justify">{details}</p>
+                    <div>
+                        {spice ? <h1 className='font-semibold text-lg'>Select your spice level</h1> : ""}
+                        {spice?.map(spice =>
+                            <div className="form-control">
+                                <label className="label cursor-pointer">
+                                    <span className="label-text text-base">{spice}</span>
+                                    <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
+                                </label>
+                            </div>)}
+
+                    </div>
                     <div>
                         <h5 className="font-semibold text-lg">Special instructions</h5>
                         <p>Any specific preferences? Let the restaurant know.</p>
