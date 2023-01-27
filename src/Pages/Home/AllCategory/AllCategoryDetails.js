@@ -5,7 +5,9 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
     const { image, name, details, price } = item;
 
     return (
-        <div className='h-[220px] flex justify-center items-center drop-shadow-2xl'>
+
+        <div className='h-[290px] flex justify-center items-center drop-shadow-2xl'>
+
             <div className='flex gap-5 justify-start w-[600px] '>
                 <div className='w-25'>
                     <div className='mask w-24 h-24'>
