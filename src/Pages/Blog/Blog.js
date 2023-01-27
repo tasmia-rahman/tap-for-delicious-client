@@ -6,8 +6,8 @@ const Blog = () => {
 
     useEffect(() => {
         fetch('https://tap-for-delicious-server.vercel.app/blogs')
-            .then(res => res.json()
-                .then(data => setBlogs(data)))
+            .then(res => res.json())
+            .then(data => setBlogs(data))
     }, []);
 
 

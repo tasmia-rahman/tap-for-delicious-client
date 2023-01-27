@@ -17,6 +17,7 @@ import Signup from "../../Pages/SignUp/Signup";
 import DashboardLayout from './../../Layout/DashboardLayout';
 import Dashboard from './../../Pages/Dashboard/Dashboard/Dashboard';
 import Order from './../../Pages/Order/Order/Order';
+import MyOrders from './../../Pages/Dashboard/Buyer/MyOrders/MyOrders';
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/users',
                 element: <Users />
+            },
+            {
+                path: '/dashboard/myOrders',
+                element: <MyOrders />
             }
 
         ]
