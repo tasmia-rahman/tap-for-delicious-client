@@ -9,7 +9,7 @@ const Main = () => {
     //-------------- Theme ------------//
     const { toggleTheme } = useContext(ThemeContext)
 
-    var theme = "cupcake"
+    var theme = "bumblebee"
 
     if (toggleTheme) {
         const retrievedObject = localStorage.getItem('theme');
@@ -18,7 +18,7 @@ const Main = () => {
             theme = themeObj?.theme
         }
         else {
-            theme = "cupcake"
+            theme = "bumblebee"
         }
 
     }

@@ -1,24 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { addToCart } from './../../../../Redux/Actions/cartAction';
 
-const AddToCartModal = ({ foodItem }) => {
-    const { image, name, details, price, spice } = foodItem;
+const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
+    const { image, name, details, price, spice, sugar } = foodItem;
 
-    console.log(foodItem);
+    // const [itemQuantity, setItemQuantity] = useState(1);
 
-    const [itemQuantity, setItemQuantity] = useState(1);
+    const dispatch = useDispatch();
 
-    const handleIncreaseQuantity = () => {
-        setItemQuantity(itemQuantity + 1);
+    const handleAddToCart = () => {
+        dispatch(addToCart(foodItem))
     }
 
-    const handleDecreaseQuantity = () => {
-        if (itemQuantity === 1) {
-            return;
-        }
-        setItemQuantity(itemQuantity - 1);
-    }
+    // const handleIncreaseQuantity = () => {
+    //     setItemQuantity(itemQuantity + 1);
+    // }
+
+    // const handleDecreaseQuantity = () => {
+    //     if (itemQuantity === 1) {
+    //         return;
+    //     }
+    //     setItemQuantity(itemQuantity - 1);
+    // }
+
     return (
         <>
             <input type="checkbox" id="addToCart-modal" className="modal-toggle" />
@@ -33,10 +40,21 @@ const AddToCartModal = ({ foodItem }) => {
                     <p className="py-4 text-justify">{details}</p>
                     <div>
                         {spice ? <h1 className='font-semibold text-lg'>Select your spice level</h1> : ""}
-                        {spice?.map(spice =>
-                            <div className="form-control">
+                        {spice?.map((spice, i) =>
+                            <div key={i} className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text text-base">{spice}</span>
+                                    <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
+                                </label>
+                            </div>)}
+
+                    </div>
+                    <div>
+                        {sugar ? <h1 className='font-semibold text-lg'>Select your sweetness level</h1> : ""}
+                        {sugar?.map((sugar, i) =>
+                            <div key={i} className="form-control">
+                                <label className="label cursor-pointer">
+                                    <span className="label-text text-base">{sugar}</span>
                                     <input type="radio" name="radio-10" className="radio checked:bg-amber-500" required />
                                 </label>
                             </div>)}
@@ -53,7 +71,12 @@ const AddToCartModal = ({ foodItem }) => {
                             <p className='text-xl pt-1 px-4'>{itemQuantity}</p>
                             <p className='text-3xl cursor-pointer' onClick={handleIncreaseQuantity}>+</p>
                         </div>
-                        <button className='btn btn-warning w-10/12 ml-2 rounded-lg'>Add To Cart</button>
+                        <button
+                            className='btn btn-warning w-10/12 ml-2 rounded-lg'
+                            onClick={handleAddToCart}
+                        >
+                            Add To Cart
+                        </button>
                     </div>
                 </div>
             </div>

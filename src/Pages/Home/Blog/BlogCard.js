@@ -7,7 +7,9 @@ const BlogCard = ({ blog }) => {
     return (
         <div className="card card-compact w-full lg:max-w-96 bg-base-100 shadow-xl">
             <div>
-                <img src={img} alt="service-img" className='hover:scale-105 duration-700' />
+                <figure>
+                    <img src={img} alt="service-img" className='hover:scale-110 duration-500' />
+                </figure>
             </div>
             <div className="card-body">
                 <h2 className="text-2xl font-semibold text-center">{title}</h2>

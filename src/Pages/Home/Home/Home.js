@@ -53,15 +53,15 @@ const Home = () => {
                         ></TopRestaurantCard>)
 
                     }
-                    
+
 
                 </div>
                 <div className='text-center mt-5'>
-                
-                <Link to='/toprestaurant'>  <button className="btn btn-secondary">See All Restaurant</button></Link>
-  
-          
-              </div>
+
+                    <Link to='/toprestaurant'>  <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl hover:bg-amber-400 hover:text-white hover:border-amber-400 text">See All Restaurant</button></Link>
+
+
+                </div>
 
                 <Reviews></Reviews>
                 <Blog></Blog>

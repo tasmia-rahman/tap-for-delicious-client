@@ -12,8 +12,9 @@ const TopRestaurant = () => {
 
     }, [])
 
-    return (
+    console.log(topRestaurant);
 
+    return (
 
         <div className='my-4'>
             <div id="slide1" className="carousel-item relative w-full">
