@@ -1,8 +1,61 @@
 import React from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+    const navigate = useNavigate();
+    const { uid, email } = useSelector((state) => state.user.currentUser);
+    const cartItems = useSelector((state) => state.cartReducer.cartItems);
+    console.log(cartItems);
+
+    const [deliveryOption, setDeliveryOption] = useState(false);
+    const [paymentType, setPaymentType] = useState('COD');
+
+    const handleOrder = (event) => {
+        event.preventDefault()
+
+        const form = event.target;
+        const road = form.road.value;
+        const house = form.house.value;
+        const area = form.area.value;
+        const postalCode = form.postalCode.value;
+        const note = form.note.value;
+
+        const order = {
+            buyerId: uid,
+            buyerEmail: email,
+            cartItems,
+            road,
+            house,
+            area,
+            postalCode,
+            note,
+            deliveryOption,
+            paymentType
+        }
+
+        // save order information to the database
+        fetch('https://tap-for-delicious-server.vercel.app/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                if (result.acknowledged) {
+                    toast.success('Your order has been placed successfully.');
+                    navigate('/');
+                }
+            })
+    }
+
     return (
-        <form>
+        <form onSubmit={handleOrder}>
             <div className='w-7/12 mx-auto mt-6 mb-36'>
                 <div className="card bg-base-100 shadow-xl mb-10">
                     <div className="card-body">
@@ -12,7 +65,7 @@ const Order = () => {
                                 <p>Contactless delivery</p>
                                 <p>To keep you safe, the rider will place your order at your door </p>
                             </div>
-                            <input type="checkbox" className="toggle toggle-warning" />
+                            <input onChange={() => setDeliveryOption(!deliveryOption)} type="checkbox" className="toggle toggle-warning" />
                         </div>
                         <input
                             type="text"
@@ -43,7 +96,7 @@ const Order = () => {
                             required
                         />
                         <textarea
-                            name="rider-note"
+                            name="note"
                             placeholder="Note to rider - e.g. floor/directions/landmark"
                             className="input input-bordered input-warning w-full my-3 h-28"
                             required
@@ -55,11 +108,25 @@ const Order = () => {
                         <h4 className='text-warning text-2xl mb-3'>Payment Details</h4>
                         <div className='flex items-center'>
                             <div className='flex items-center mr-8'>
-                                <input type="radio" value='COD' name="payment-type" className="radio radio-warning mr-2" checked />
+                                <input
+                                    type="radio"
+                                    value='COD'
+                                    name="payment-type"
+                                    className="radio radio-warning mr-2"
+                                    onChange={(event) => setPaymentType(event.target.value)}
+                                    checked={paymentType === 'COD'}
+                                />
                                 <p>Cash On Delivery</p>
                             </div>
                             <div className='flex items-center'>
-                                <input type="radio" value='card' name="payment-type" className="radio radio-warning mr-2" />
+                                <input
+                                    type="radio"
+                                    value='card'
+                                    name="payment-type"
+                                    className="radio radio-warning mr-2"
+                                    onChange={(event) => setPaymentType(event.target.value)}
+                                    checked={paymentType === 'card'}
+                                />
                                 <p>Card</p>
                             </div>
                         </div>
