@@ -38,12 +38,11 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row w-full justify-center items-center">
         <div className="w-1/2 my-20">
           <Player
-            src='https://assets1.lottiefiles.com/packages/lf20_9gwslqtn.json'
+            src='https://assets6.lottiefiles.com/packages/lf20_bt7iqzns.json'
             className="player bg-black rounded-lg"
             loop
             autoplay
             speed={1}
-            background='red'
           />
         </div>
         <div className="w-1/2">

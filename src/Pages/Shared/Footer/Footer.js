@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase text-gray-900">Product</h3>
+                        <h3 className="tracking-wide uppercase ">Product</h3>
                         <ul className="space-y-1">
                             <li>
                                 <Link href="#">Features</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase text-gray-900">About</h3>
+                        <h3 className="tracking-wide uppercase ">About</h3>
                         <ul className="space-y-1">
                             <li>
                                 <Link href="#">Privacy</Link>
@@ -45,7 +45,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="uppercase text-gray-900">Support</h3>
+                        <h3 className="uppercase ">Support</h3>
                         <ul className="space-y-1">
                             <li>
                                 <Link href="#">Public API</Link>
@@ -59,7 +59,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <div className="uppercase text-gray-900">Social Link</div>
+                        <div className="uppercase ">Social Link</div>
                         <div className="flex justify-start space-x-3">
                             <Link href="#" title="Facebook" className="flex items-center p-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">

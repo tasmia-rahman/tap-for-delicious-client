@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Wishlist = () => {
+const ReviewDetails = () => {
     return (
         <div>
-
+            
         </div>
     );
 };
 
-export default Wishlist;
+export default ReviewDetails;

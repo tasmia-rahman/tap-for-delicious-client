@@ -15,7 +15,7 @@ const Home = () => {
 
     const [topRestaurant, setTopRestaurant] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services-limit')
+        fetch('https://tap-for-delicious-server.vercel.app/services-limit')
             .then(res => res.json())
             .then(data => setTopRestaurant(data))
 
@@ -39,6 +39,11 @@ const Home = () => {
 
                 <FoodItem></FoodItem>
                 {/* <TopRestaurant></TopRestaurant> */}
+                <div>
+                   
+                    <h4 className='text-xl text-center mt-10 font-medium'>Top Restaurants</h4>
+                    <h1 className="text-3xl text-center my-5 font-medium">Choose From Most Popular <span className='text-red-600'>Restaurant</span></h1>
+                </div>
                 <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
 
                     {
@@ -48,15 +53,15 @@ const Home = () => {
                         ></TopRestaurantCard>)
 
                     }
-                    
+
 
                 </div>
                 <div className='text-center mt-5'>
-                
-                <Link to='/toprestaurant'>  <button className="btn btn-secondary">See All Restaurant</button></Link>
-  
-          
-              </div>
+
+                    <Link to='/toprestaurant'>  <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl hover:bg-amber-400 hover:text-white hover:border-amber-400 text">See All Restaurant</button></Link>
+
+
+                </div>
 
                 <Reviews></Reviews>
                 <Blog></Blog>
