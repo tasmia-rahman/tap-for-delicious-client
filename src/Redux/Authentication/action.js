@@ -1,15 +1,11 @@
 import app from "../../firebase";
-//import app from "../firebase";
-import * as types from "./actionTypes";
-import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import * as types from "../Authentication/actionTypes";
+import {createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 
 
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
 const facebookAuthProvider = new FacebookAuthProvider();
-
-
-
 
 
 const signupStart = () => ({
