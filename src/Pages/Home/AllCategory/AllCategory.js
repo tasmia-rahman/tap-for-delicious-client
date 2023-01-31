@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllCategoryDetails from "./AllCategoryDetails";
-import AddToCartModal from './AddToCartModal/AddToCartModal/AddToCartModal';
+import AddToCartModal from './AddToCartModal/AddToCartModal';
 import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 
