@@ -1,5 +1,4 @@
 import React from 'react';
-import AddToCartModal from './AddToCartModal/AddToCartModal';
 
 const AllCategoryDetails = ({ item, handleCartModal }) => {
     const { image, name, details, price } = item;

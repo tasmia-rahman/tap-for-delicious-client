@@ -2,29 +2,33 @@ import React from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
-import { addToCart } from './../../../../Redux/Actions/cartAction';
+import { addToCart } from '../../../../../Redux/Actions/cartAction';
+import CartAmountToggle from '../CartAmountToggle/CartAmountToggle';
+import { toast } from 'react-hot-toast';
 
-const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
+const AddToCartModal = ({ foodItem }) => {
     const { image, name, details, price, spice, sugar } = foodItem;
 
-    // const [itemQuantity, setItemQuantity] = useState(1);
+    const [itemQuantity, setItemQuantity] = useState(1);
 
     const dispatch = useDispatch();
 
     const handleAddToCart = () => {
-        dispatch(addToCart(foodItem))
+        dispatch(addToCart(foodItem));
+        setItemQuantity(1);
+        toast.success('Item added to cart');
     }
 
-    // const handleIncreaseQuantity = () => {
-    //     setItemQuantity(itemQuantity + 1);
-    // }
+    const handleIncreaseQuantity = () => {
+        setItemQuantity(itemQuantity + 1);
+    }
 
-    // const handleDecreaseQuantity = () => {
-    //     if (itemQuantity === 1) {
-    //         return;
-    //     }
-    //     setItemQuantity(itemQuantity - 1);
-    // }
+    const handleDecreaseQuantity = () => {
+        if (itemQuantity === 1) {
+            return;
+        }
+        setItemQuantity(itemQuantity - 1);
+    }
 
     return (
         <>
@@ -65,18 +69,20 @@ const AddToCartModal = ({ foodItem, itemQuantity, handleIncreaseQuantity, handle
                         <p>Any specific preferences? Let the restaurant know.</p>
                         <textarea className="textarea textarea-bordered my-4 w-full h-24 rounded-md" placeholder="e.g. No mayo"></textarea>
                     </div>
-                    <div className='flex'>
-                        <div className='flex items-center'>
-                            <p className='text-3xl cursor-pointer' onClick={handleDecreaseQuantity}>-</p>
-                            <p className='text-xl pt-1 px-4'>{itemQuantity}</p>
-                            <p className='text-3xl cursor-pointer' onClick={handleIncreaseQuantity}>+</p>
-                        </div>
-                        <button
+                    <div className='flex items-center'>
+                        <CartAmountToggle
+                            itemQuantity={itemQuantity}
+                            handleIncreaseQuantity={handleIncreaseQuantity}
+                            handleDecreaseQuantity={handleDecreaseQuantity}
+                        >
+                        </CartAmountToggle>
+                        <label
+                            htmlFor="addToCart-modal"
                             className='btn btn-warning w-10/12 ml-2 rounded-lg'
                             onClick={handleAddToCart}
                         >
                             Add To Cart
-                        </button>
+                        </label>
                     </div>
                 </div>
             </div>
