@@ -1,0 +1,141 @@
+[
+    {
+        "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/01-1-2-150x150.png",
+        "name": "Cauliflower Pizza",
+        "details": "Special Cauliflower Pizza, Add your favourite toppings and create your own masterpiece topped with chicken chunks, olives, capsicum, onions and spicy peri .",
+        "price": "600.00",
+        "restaurant": "Pizza Hub",
+        "resID": "63d8bf876c4b45c620ca7849",
+        "resEmail": "pizza@hub.com",
+        "spice": [
+            "regular",
+            "spicy",
+            "extra spicy"
+        ]
+    },
+    {
+        "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/02-1-1-150x150.png",
+        "name": "Tikka Heat Pizza",
+        "details": "Medium size special tikka heart pizza Green Peppers, Mushrooms, Onions, Tomatoes, Black Olives, Italian Seasoning on a Pizza Sauce.",
+        "price": "800.00",
+        "restaurant": "Pizza Hub",
+        "resID": "63d8bf876c4b45c620ca7849",
+        "resEmail": "pizza@hub.com",
+        "spice": [
+            "regular",
+            "spicy",
+            "extra spicy"
+        ]
+    },
+    {
+        "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/05/Layer-891-150x150.png",
+        "name": "Tandoori Pizza",
+        "details": "Medium size pizza with Chapli Chicken, Green Chilli,  Green Peppers, Onions, Tomatoes on a Tandoori Pizza Sauce.",
+        "price": "690.00",
+        "restaurant": "Pizza Hub",
+        "resID": "63d8bf876c4b45c620ca7849",
+        "resEmail": "pizza@hub.com",
+        "spice": [
+            "regular",
+            "spicy",
+            "extra spicy"
+        ]
+    },
+    {
+        "image": "https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/rek7sgz9rejdw8goz22s",
+        "name": "Naga Chilli Chicken",
+        "details": "Your favorite chicken burger with extra spices",
+        "price": "280.00",
+        "restaurant": "Burger Hunter",
+        "resID": "63d8bf876c4b45c620ca7848",
+        "resEmail": "burger@hunter.com",
+        "spice": [
+            "regular",
+            "spicy",
+            "extra spicy"
+        ]
+    },
+    {
+        "image": "https://cookwithreena.files.wordpress.com/2017/11/img_20171106_145657036.jpg?w=1000",
+        "name": "Ilish Vaat",
+        "details": "It's hilsha fish with plain rice",
+        "price": "280.00",
+        "resID": "63d8bf876c4b45c620ca784a",
+        "restaurant": "Khabar Dabar",
+        "resEmail": "khabar@dabar.com"
+    },
+    {
+        "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Arcadian.jpg",
+        "name": "Oreo Milk Shake",
+        "details": "Oreo Milkshake Recipe - A super easy milkshake made with vanilla ice cream, milk, and Oreo cookies!  This sweet treat is a hit with the whole family on a hot",
+        "price": "140.00",
+        "restaurant": "Cappuccino Club",
+        "resID": "63d8bf876c4b45c620ca784b",
+        "resEmail": "cappuchino@club.com",
+        "sugar": [
+            "no sugar",
+            "normal sugar",
+            "extra sugar"
+        ]
+    },
+    {
+        "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/oreo-shake-150x150.jpg",
+        "name": "Ice Cream Shake",
+        "details": "My Mom used to make this for me when I was a kid I loved it then and I still love it! Especially on hot .",
+        "price": "80.00",
+        "restaurant": "Cappuccino Club",
+        "resID": "63d8bf876c4b45c620ca784b",
+        "resEmail": "cappuchino@club.com",
+        "sugar": [
+            "no sugar",
+            "normal sugar",
+            "extra sugar"
+        ]
+    },
+    {
+        "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Ice-cream-Milkshake-150x150.png",
+        "name": "Caramel Milk Shake",
+        "details": "This deliciously decadent caramel milkshake is quick and easy to make at home You’ll just need three ingredients: vanilla ice cream, milk, and caramel–homemade or store-bought is just .",
+        "price": "130.00",
+        "restaurant": "Cappuccino Club",
+        "resID": "63d8bf876c4b45c620ca784b",
+        "resEmail": "cappuchino@club.com",
+        "sugar": [
+            "no sugar",
+            "normal sugar",
+            "extra sugar"
+        ]
+    },
+    {
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYs2JlfekuGWixTVcC5uESBPXSdX3h4ZD1vQ&usqp=CAU",
+        "name": "Caramel Milk Shake",
+        "details": "A very simple recipe for a vanilla milkshake Add chocolate, berries, peaches or whatever you like My kids like to add root beer instead of.",
+        "price": "120.00",
+        "restaurant": "Cappuccino Club",
+        "resID": "63d8bf876c4b45c620ca784b",
+        "resEmail": "cappuchino@club.com",
+        "sugar": [
+            "no sugar",
+            "normal sugar",
+            "extra sugar"
+        ]
+    },
+    {
+        "image": "https://vismaifood.com/storage/app/uploads/public/8b4/19e/427/thumb__700_0_0_0_auto.jpg",
+        "name": "Dosa",
+        "details": "Rich in healthy carbohydrates and proteins, which makes it a healthy and wholesome delight for weight-watchers",
+        "price": "120.00",
+        "restaurant": "Bangalndian",
+        "resEmail": "banglaindian@desi.com",
+        "resID": "63d8bf876c4b45c620ca784d"
+    },
+    {
+        "image": "https://hungrito.com/wp-content/uploads/2021/02/Places-for-Thai-Food-in-Ahmedabad.jpg",
+        "name": "Chaomin",
+        "details": "A very popular food in Thailand",
+        "price": "160.00",
+        "restaurant": "Thai Treat",
+        "resID": "63d8bf876c4b45c620ca784c",
+        "resEmail": "thai@treat.com"
+    }
+]

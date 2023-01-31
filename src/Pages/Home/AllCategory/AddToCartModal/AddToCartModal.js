@@ -2,9 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../../../Redux/Actions/cartAction';
-import CartAmountToggle from '../CartAmountToggle/CartAmountToggle';
+import { addToCart } from '../../../../Redux/Actions/cartAction';
 import { toast } from 'react-hot-toast';
+import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineMinus } from "react-icons/ai";
 
 const AddToCartModal = ({ foodItem }) => {
     const { image, name, details, price, spice, sugar } = foodItem;
@@ -14,7 +15,7 @@ const AddToCartModal = ({ foodItem }) => {
     const dispatch = useDispatch();
 
     const handleAddToCart = () => {
-        dispatch(addToCart(foodItem));
+        dispatch(addToCart(foodItem, itemQuantity));
         setItemQuantity(1);
         toast.success('Item added to cart');
     }
@@ -70,12 +71,11 @@ const AddToCartModal = ({ foodItem }) => {
                         <textarea className="textarea textarea-bordered my-4 w-full h-24 rounded-md" placeholder="e.g. No mayo"></textarea>
                     </div>
                     <div className='flex items-center'>
-                        <CartAmountToggle
-                            itemQuantity={itemQuantity}
-                            handleIncreaseQuantity={handleIncreaseQuantity}
-                            handleDecreaseQuantity={handleDecreaseQuantity}
-                        >
-                        </CartAmountToggle>
+                        <div className='flex items-center'>
+                            <AiOutlineMinus className='text-xl cursor-pointer' onClick={() => handleDecreaseQuantity()}></AiOutlineMinus>
+                            <p className='text-xl pb-1 px-2'>{itemQuantity}</p>
+                            <AiOutlinePlus className='text-xl cursor-pointer' onClick={() => handleIncreaseQuantity()}></AiOutlinePlus>
+                        </div>
                         <label
                             htmlFor="addToCart-modal"
                             className='btn btn-warning w-10/12 ml-2 rounded-lg'
