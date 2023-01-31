@@ -1,15 +1,16 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCqD8gr96V3F1ziDpaY44_Il1rodGChuBo",
-  authDomain: "food-for-delicious.firebaseapp.com",
-  projectId: "food-for-delicious",
-  storageBucket: "food-for-delicious.appspot.com",
-  messagingSenderId: "250067381375",
-  appId: "1:250067381375:web:8ea0ba0d007773fad8a34a"
+  apiKey: "AIzaSyBlI1azioE5waRznGiISAZ-bJJXQju_eDc",
+  authDomain: "tap-for-delicious.firebaseapp.com",
+  projectId: "tap-for-delicious",
+  storageBucket: "tap-for-delicious.appspot.com",
+  messagingSenderId: "880324132747",
+  appId: "1:880324132747:web:88ba6968e07a820a09b98e"
 };
 
 // Initialize Firebase
