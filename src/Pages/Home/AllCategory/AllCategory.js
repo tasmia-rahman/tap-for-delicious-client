@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllCategoryDetails from "./AllCategoryDetails";
-import AddToCartModal from './AddToCartModal/AddToCartModal';
+import AddToCartModal from './AddToCartModal/AddToCartModal/AddToCartModal';
 import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 
 const AllCategory = () => {
   const restaurants = useLoaderData();
   const [foodItem, setFoodItem] = useState({});
-  const [itemQuantity, setItemQuantity] = useState(1);
+  // const [itemQuantity, setItemQuantity] = useState(1);
 
   const handlePlaceReview = event => {
 
@@ -28,7 +28,7 @@ const AllCategory = () => {
       message,
     }
     console.log(review)
-    
+
     fetch('http://localhost:5000/reviews', {
       method: 'POST',
       headers: {
@@ -46,23 +46,10 @@ const AllCategory = () => {
         }
       })
       .catch(er => console.error(er));
-
-
   }
 
   const handleCartModal = item => {
     setFoodItem(item);
-  }
-
-  const handleIncreaseQuantity = () => {
-    setItemQuantity(itemQuantity + 1);
-  }
-
-  const handleDecreaseQuantity = () => {
-    if (itemQuantity === 1) {
-      return;
-    }
-    setItemQuantity(itemQuantity - 1);
   }
 
   return (
@@ -105,7 +92,7 @@ const AllCategory = () => {
         ))}
       </div>
 
-      <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+      <AddToCartModal foodItem={foodItem}></AddToCartModal>
     </div>
   );
 };
