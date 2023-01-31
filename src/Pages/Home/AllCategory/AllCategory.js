@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllCategoryDetails from "./AllCategoryDetails";
@@ -28,6 +27,7 @@ const AllCategory = () => {
       message,
     }
     console.log(review)
+
     
     fetch('https://tap-for-delicious-server.vercel.app/reviews', {
       method: 'POST',

@@ -19,6 +19,7 @@ import Dashboard from './../../Pages/Dashboard/Dashboard/Dashboard';
 import Order from './../../Pages/Order/Order/Order';
 import MyOrders from './../../Pages/Dashboard/Buyer/MyOrders/MyOrders';
 import UploadFood from "../../Pages/Dashboard/UploadFood/UploadFood";
+import RestaurantDetails from "../../Pages/RestaurantDetails/RestaurantDetails";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -77,6 +78,11 @@ export const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+            {
+                path: '/resDetails/:email',
+                element: <RestaurantDetails></RestaurantDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/restaurants/${params.email}`)
             }
         ]
     },

@@ -13,7 +13,8 @@ const AvailableRestaurant = () => {
                 <div className='pt-16 mx-6 hidden lg:block'>
                     <img className="w-full" src='https://marketplace.foodotawp.com/wp-content/uploads/2021/05/top-banner_.png' alt='' />
                 </div>
-                <TopRestaurant></TopRestaurant></div>
+                <TopRestaurant></TopRestaurant>
+            </div>
         </div>
     );
 };
