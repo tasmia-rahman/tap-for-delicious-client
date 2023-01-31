@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const MyReviews = () => {
-    const[myReview, setMyReview] = useState([]);
+    // const[myReview, setMyReview] = useState([]);
 
     useEffect(()=>{
         fetch(``)
