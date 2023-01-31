@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Burger Hunter",
+        "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/hardees.jpg",
+        "type": "Burgers, Pasta, Nachos, Fast foods",
+        "time": "10:00 am - 8:00 pm",
+        "location": "Mirpur-10, Dhaka",
+        "description": "Best burger in town",
+        "email": "burger@hunter.com"
+    },
+    {
+        "title": "Pizza Hub",
+        "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/broadway.jpg",
+        "type": "Pizza",
+        "time": "11:00 am - 9:00 pm",
+        "location": "Rampura, Dhaka",
+        "description": "Delicious pizza at your door",
+        "email": "pizza@hub.com"
+    },
+    {
+        "title": "Khabar Dabar",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Panta_Ilish.jpg/800px-Panta_Ilish.jpg",
+        "type": "Vaat, Fish, Chicken, Beef, Mutton, Daal",
+        "time": "11:00 am - 9:00 pm",
+        "location": "Uttora, Dhaka",
+        "description": "Delicious pizza at your door",
+        "email": "pizza@hub.com"
+    },
+    {
+        "title": "Cappuccino Club",
+        "img": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Arcadian.jpg",
+        "type": "Vaat, Fish, Chicken, Beef, Mutton, Daal",
+        "time": "11:00 am - 9:00 pm",
+        "location": "Uttora, Dhaka",
+        "description": "Start your day with a coffee",
+        "email": "cappuchino@club.com"
+    },
+    {
+        "title": "Thai Treat",
+        "img": "https://i.ytimg.com/vi/-rKzzqUCtV8/maxresdefault.jpg",
+        "type": "Vaat, Fish, Chicken, Beef, Mutton, Daal",
+        "time": "11:00 am - 9:00 pm",
+        "location": "Banani, Dhaka",
+        "description": "Delicious pizza at your door",
+        "email": "thai@treat.com"
+    },
+    {
+        "title": "Bangalndian",
+        "img": "https://www.tastingtable.com/img/gallery/20-delicious-indian-dishes-you-have-to-try-at-least-once/l-intro-1645057933.jpg",
+        "type": "Indian and Desi Foods",
+        "time": "11:00 am - 9:00 pm",
+        "location": "Mohakhali, Dhaka",
+        "description": "Try out indian food in desi style",
+        "email": "banglaindian@desi.com"
+    }
+]

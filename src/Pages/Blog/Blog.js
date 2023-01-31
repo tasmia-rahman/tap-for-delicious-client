@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading/Loading';
 
 const Blog = () => {
 
-    const [blogs, setBlogs] = useState([])
+    const { data: blogs, isFetching } = useQuery({
+        queryKey: ["blogs"],
+        queryFn: async () => {
+            try {
+                const res = await fetch('https://tap-for-delicious-server.vercel.app/blogs',)
+                const data = await res.json();
+                return data;
+            }
+            catch (err) {
 
-    useEffect(() => {
-        fetch('https://tap-for-delicious-server.vercel.app/blogs')
-            .then(res => res.json())
-            .then(data => setBlogs(data))
-    }, []);
+            }
+        }
+    })
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
 
 
     return (

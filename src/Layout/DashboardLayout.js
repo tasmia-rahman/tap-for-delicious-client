@@ -5,18 +5,7 @@ import DashboardNavbar from '../Pages/Shared/DashboardNavbar/DashboardNavbar';
 
 const DashboardLayout = () => {
 
-    // const { toggleTheme } = useContext(ThemeContext)
-
     let theme = ""
-
-    // if (toggleTheme) {
-    //     theme = "bumblebee";
-    // }
-    // else {
-    //     theme = "halloween";
-    // }
-
-    // console.log(theme);
 
     const retrievedObject = localStorage.getItem('theme');
     const themeObj = JSON.parse(retrievedObject);
