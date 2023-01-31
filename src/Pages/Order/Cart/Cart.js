@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { TbTrash } from "react-icons/tb";
-import { deleteFromCart } from '../../../Redux/Actions/cartAction';
+import { addToCart, deleteFromCart } from '../../../Redux/Actions/cartAction';
 import { Link } from 'react-router-dom';
+import { FaPlusCircle } from "react-icons/fa";
+import { FaMinusCircle } from "react-icons/fa";
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -12,7 +14,7 @@ const Cart = () => {
     let subtotal = 0;
 
     cartItems.forEach(cartItem => {
-        subtotal = subtotal + parseFloat(cartItem.price);
+        subtotal = subtotal + parseFloat(cartItem.totalPrice);
     });
 
     return (
@@ -22,8 +24,8 @@ const Cart = () => {
                 <div className="card-body">
                     {
                         cartItems.map((cartItem, i) => {
-                            return <div key={i}>
-                                <div className='flex items-center'>
+                            return <div key={i} className='flex items-center mb-2'>
+                                <div>
                                     <h4 className='text-warning text-xl flex items-center'>
                                         <span
                                             className='text-red-600 mr-3 text-lg'
@@ -33,13 +35,30 @@ const Cart = () => {
                                         </span>
                                         {cartItem.name}
                                     </h4>
-                                    <p className='flex justify-end'>TK {cartItem.price}</p>
+                                    <div className='flex items-center mt-1 ml-8'>
+                                        <div>
+                                            <p>Quantity:</p>
+                                        </div>
+                                        <div className='flex items-center ml-2'>
+                                            <FaMinusCircle
+                                                className='cursor-pointer text-red-500'
+                                                onClick={() => {
+                                                    dispatch(
+                                                        addToCart(cartItem, cartItem.quantity === 1 ? 1 : (cartItem.quantity - 1))
+                                                    )
+                                                }}
+                                            >
+                                            </FaMinusCircle>
+                                            <p className='px-2 pb-1 text-lg'>{cartItem.quantity}</p>
+                                            <FaPlusCircle
+                                                className='cursor-pointer text-green-600'
+                                                onClick={() => dispatch(addToCart(cartItem, cartItem.quantity + 1))}
+                                            >
+                                            </FaPlusCircle>
+                                        </div>
+                                    </div>
                                 </div>
-                                {/* <div>
-                                <span className='text-3xl cursor-pointer'>-</span>
-                                <span className='text-xl pt-1 px-4'></span>
-                                <span className='text-3xl cursor-pointer'>+</span>
-                            </div> */}
+                                <p className='flex justify-end'>TK {cartItem.totalPrice}</p>
                             </div>
                         })
                     }
