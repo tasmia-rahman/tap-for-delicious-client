@@ -3,7 +3,7 @@ import { HiClock, HiLocationMarker, HiStar } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 
 const TopRestaurantCard = ({ restaurant }) => {
-  const {_id, img, title, type,time, location } = restaurant;
+  const { _id, img, title, type, time, location } = restaurant;
   return (
 
     <div>
@@ -26,13 +26,16 @@ const TopRestaurantCard = ({ restaurant }) => {
             </div>
           </div>
 
-          <button className="btn btn-outline btn-warning">{type}</button>
+          <div className="form-control mt-6">
+            <h1 className="btn btn-outline btn-warning">{type}</h1>
+          </div>
           <div className='mt-1'>
             <div className='card-actions justify-end'>
               <HiClock className='mt-1 text-green-600'></HiClock>
               <p className='text-red-600'>{time}</p>
 
             </div>
+
 
 
 
