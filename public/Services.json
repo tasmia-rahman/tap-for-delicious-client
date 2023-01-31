@@ -12,74 +12,122 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Arcadian.jpg",
                 "name": "Oreo Milk Shake",
                 "details": "Oreo Milkshake Recipe - A super easy milkshake made with vanilla ice cream, milk, and Oreo cookies!  This sweet treat is a hit with the whole family on a hot",
-                "price": "290.00"
+                "price": "290.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/oreo-shake-150x150.jpg",
                 "name": "Ice Cream Shake",
                 "details": "My Mom used to make this for me when I was a kid I loved it then and I still love it! Especially on hot .",
-                "price": "890.00"
+                "price": "890.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/Ice-cream-Milkshake-150x150.png",
                 "name": "Caramel Milk Shake",
                 "details": "This deliciously decadent caramel milkshake is quick and easy to make at home You’ll just need three ingredients: vanilla ice cream, milk, and caramel–homemade or store-bought is just .",
-                "price": "290.00"
+                "price": "290.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "",
                 "name": "Caramel Milk Shake",
                 "details": "A very simple recipe for a vanilla milkshake Add chocolate, berries, peaches or whatever you like My kids like to add root beer instead of.",
-                "price": "1110.00"
+                "price": "1110.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "",
                 "name": "Caramel Milk Shake",
-                "name": "Kit Kat Shake",
                 "details": "An old friend you haven't seen for a while its great to catch up & still remember the time you met",
-                "price": "2000.00"
+                "price": "2000.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "",
                 "name": "Caramel Milk Shake",
-                "name": "Fire Hot Steak",
                 "details": "For a great tasting beef dish from Asia, fire meat is delicious and easy to prepare Ice cold beer is the beverage recommended with fire.",
-                "price": "1200.00"
+                "price": "1200.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "",
-                "name": "Caramel Milk Shake",
                 "name": "Jalapeno Steak",
                 "details": "Chicken or Beef Steak with spicy Jalapeno Sauce Order now and get your meal at very low ...",
-                "price": "1000.00"
+                "price": "1000.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "",
-                "name": "Caramel Milk Shake",
                 "name": "Mozambique Peri Chicken",
                 "details": "Grilled chicken breast fillets with our secret our in house peri peri sauce This Mozambique Peri Chicken is super crispy and ...",
-                "price": "200.00"
+                "price": "200.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "",
-                "name": "Caramel Milk Shake",
                 "name": "Poulet Grille",
                 "details": "Grilled breast of chicken with spicy mushrooms and herb sauce This super crispy Poulet Grille chicken is on...",
-                "price": "440.00"
+                "price": "440.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "",
-                "name": "Caramel Milk Shake",
                 "name": "Moroccan Chicken",
                 "details": "Tender pieces of chicken breast glazed with an in house tangy sauce served This Moroccan Chicken is ideal for friends ...",
-                "price": "300.00"
+                "price": "300.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "",
-                "name": "Caramel Milk Shake",
                 "name": "Parma Fish",
                 "details": "Oven baked Snapper topped with a black olive crust on a bed of deep fried hash ...",
-                "price": "290.00"
+                "price": "290.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             }
         ]
     },
@@ -107,13 +155,23 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/02-1-1-150x150.png",
                 "name": "Tikka Heat Pizza",
                 "details": "Medium size special tikka heart pizza Green Peppers, Mushrooms, Onions, Tomatoes, Black Olives, Italian Seasoning on a Pizza Sauce.",
-                "price": "800.00"
+                "price": "800.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/05/Layer-891-150x150.png",
                 "name": "Tandoori Pizza",
                 "details": "Medium size pizza with Chapli Chicken, Green Chilli,  Green Peppers, Onions, Tomatoes on a Tandoori Pizza Sauce.",
-                "price": "690.00"
+                "price": "690.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             }
         ]
     },
@@ -130,19 +188,34 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/cheesy-pasta-150x150.jpg",
                 "name": "Cheesy Pasta",
                 "details": "Special Downtown Pasta, When you're craving cheese and carbs, there's really nothing .",
-                "price": "390.00"
+                "price": "390.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/03/rice5-150x150.jpg",
                 "name": "Chicken Masala Rice",
                 "details": "Use fresh or leftover white rice for this easy, vegetable-studded fried rice recipe We fry the grains in batches and season the dish lightly for a perfect texture and.",
-                "price": "190.00"
+                "price": "190.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/cheesy-pasta-150x150.jpg",
                 "name": "Spices Mushrooms",
                 "details": "The Best Sauteed Mushrooms Recipe: An easy side dish made with only 6 ingredients! Perfect to serve with steaks and holiday .",
-                "price": "890.00"
+                "price": "890.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             }
         ]
     },
@@ -159,19 +232,34 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Lemongrass Kahwa",
                 "details": "Many people find sipping hot tea to be relaxing, but lemongrass tea may offer further anxiety-reducing.",
-                "price": "790.00"
+                "price": "790.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": " Molten Lava Cake",
                 "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum.",
-                "price": "310.00"
+                "price": "310.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Chicken Fillet",
                 "details": "A crispy breaded chicken  The secret to making a great grilled chicken sandwich is to think of more than just skinless, boneless.",
-                "price": "990.00"
+                "price": "990.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             }
         ]
     },
@@ -188,19 +276,34 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Crispy Fry Burger",
                 "details": "Howdy Special, A well-seasoned, crispy fried chicken fillet slathered with a special burger sauce, topped with a slice of Cheddar .",
-                "price": "590.00"
+                "price": "590.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Rotisserie Chicken Special Deal",
                 "details": "Have you tried our delicious, one-day deals Choose from two different deals every weekday, with affordable costs Serves 2 to.",
-                "price": "790.00"
+                "price": "790.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Tickle Pickle Deal",
                 "details": "Make it a meal, Malai boti half, chicken breast/leg, 5 sada naan, salad, raita & 500ml soft.",
-                "price": "190.00"
+                "price": "190.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             }
         ]
     },
@@ -217,19 +320,34 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Sandwich Shake",
                 "details": "This is my new favorite thing! You guys have no idea what you are missing with this ice cream sandwich milkshake, but I’m about to enlighten you You’re ..",
-                "price": "490.00"
+                "price": "490.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Cappuccino",
                 "details": "A light, foamy cappuccino is a favorite drink for many coffee .",
-                "price": "300.00"
+                "price": "300.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Happy Meal For 2",
                 "details": "Spicy burger with fries, Cock to server 1 person Order now and enjoy this deal with your friends and ..",
-                "price": "800.00"
+                "price": "800.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             }
         ]
     },
@@ -246,7 +364,12 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Brown Pie",
                 "details": "Special Desert, Brown sugar pie is a basic pie from Quebec, Canada In French, it is Tarte au Sucre Brun.",
-                "price": "670.00"
+                "price": "670.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
@@ -280,8 +403,13 @@
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
                 "name": "Pulled Chicken Burger",
-                "details": "These pulled bbq chicken burgers are made with sweet bbqsauce, a quick, tangy slaw, spicy tillamook pepper jack cheese and creamyavocado making them a huge crowd .",
-                "price": "690.00"
+                "details": "These pulled bbq chicken burgers are made with sweet bbq sauce, a quick, tangy slaw, spicy tillamook pepper jack cheese and creamyavocado making them a huge crowd .",
+                "price": "690.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/04/green-150x150.jpg",
@@ -310,13 +438,23 @@
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/03/erer-150x150.jpeg",
                 "name": "Chicken Tikka Burger",
                 "details": "Burgers served with fries Eating delicious food is a blessing Grab a bite of yummy Chicken Tikka ..",
-                "price": "290.00"
+                "price": "290.00",
+                "spice": [
+                    "regular",
+                    "spicy",
+                    "extra spicy"
+                ]
             },
             {
                 "image": "https://marketplace.foodotawp.com/wp-content/uploads/2021/03/CHICKEN_CHEESE_KARAHI-1-150x150.jpg",
                 "name": "Chicken Cheese Karahi",
                 "details": "It is dairy based curry In this dish cheddar cheese is used instead of paneer (cottage cheese) while cheddar cheese is never used in traditional south Asian ..",
-                "price": "490.00"
+                "price": "490.00",
+                "sugar": [
+                    "no sugar",
+                    "normal sugar",
+                    "extra sugar"
+                ]
             }
         ]
     }

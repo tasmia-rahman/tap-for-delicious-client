@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import TopRestaurantCard from './TopRestaurantCard';
 
 
@@ -12,8 +11,9 @@ const TopRestaurant = () => {
 
     }, [])
 
-    return (
+    console.log(topRestaurant);
 
+    return (
 
         <div className='my-4'>
             <div id="slide1" className="carousel-item relative w-full">
