@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllCategoryDetails from "./AllCategoryDetails";
@@ -28,7 +27,7 @@ const AllCategory = () => {
       message,
     }
     console.log(review)
-    
+
     fetch('http://localhost:5000/reviews', {
       method: 'POST',
       headers: {
