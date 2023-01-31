@@ -16,7 +16,7 @@ const AllCategory = () => {
     event.preventDefault();
     const form = event.target;
     const name = `${form.name.value}`;
-    // const email = user?.email || 'unregistered';
+      // const email = name || 'unregistered';
     const message = form.message.value;
 
     const review = {
@@ -90,7 +90,7 @@ const AllCategory = () => {
 
                 <div className="form-control">
 
-                  {/* <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email} className="input input-ghost " /> */}
+                  {/* <input name="restaurants" type="text" placeholder="Restaurants Name" defaultValue={name} className="input input-ghost " /> */}
 
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
