@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 const AllCategory = () => {
   const restaurants = useLoaderData();
-  const [foodItem, setFoodItem] = useState({});
+  const [_id, foodItem, setFoodItem] = useState({});
 
 
   const handlePlaceReview = event => {
@@ -29,7 +29,7 @@ const AllCategory = () => {
     console.log(review)
 
     
-    fetch('https://tap-for-delicious-server.vercel.app/reviews', {
+    fetch(`https://tap-for-delicious-server.vercel.app/reviews${_id}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
