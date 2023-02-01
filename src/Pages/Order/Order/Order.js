@@ -1,14 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { emptyCart } from './../../../Redux/Actions/cartAction';
 
 const Order = () => {
     const navigate = useNavigate();
     const { uid, email } = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
     console.log(cartItems);
+
+    const dispatch = useDispatch();
 
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
@@ -46,7 +49,6 @@ const Order = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 if (result.acknowledged) {
                     toast.success('Your order has been placed successfully.');
                     navigate('/');
@@ -132,7 +134,11 @@ const Order = () => {
                         </div>
                     </div>
                 </div>
-                <button className='btn btn-warning text-white w-full rounded-lg' type='submit'>
+                <button
+                    className='btn btn-warning text-white w-full rounded-lg'
+                    type='submit'
+                    onClick={() => dispatch(emptyCart())}
+                >
                     Confirm Order
                 </button>
             </div >
