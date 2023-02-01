@@ -51,6 +51,7 @@ const Order = () => {
             .then(result => {
                 if (result.acknowledged) {
                     toast.success('Your order has been placed successfully.');
+                    dispatch(emptyCart());
                     navigate('/');
                 }
             })
@@ -101,7 +102,6 @@ const Order = () => {
                             name="note"
                             placeholder="Note to rider - e.g. floor/directions/landmark"
                             className="input input-bordered input-warning w-full my-3 h-28"
-                            required
                         />
                     </div>
                 </div>
@@ -137,7 +137,6 @@ const Order = () => {
                 <button
                     className='btn btn-warning text-white w-full rounded-lg'
                     type='submit'
-                    onClick={() => dispatch(emptyCart())}
                 >
                     Confirm Order
                 </button>
