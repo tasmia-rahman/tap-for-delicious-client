@@ -3,7 +3,7 @@ import { HiClock, HiLocationMarker, HiStar } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 
 const TopRestaurantCard = ({ restaurant }) => {
-  const { _id, img, title, type, time, location, email } = restaurant;
+  const { img, title, type, time, location, email } = restaurant;
 
   return (
 

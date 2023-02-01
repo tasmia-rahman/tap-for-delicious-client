@@ -97,20 +97,39 @@ const RestaurantDetails = () => {
             </div>
             {/* review */}
             <h1 className="text-3xl text-center">Write A Review</h1>
-            <form onSubmit={handlePlaceReview} className=" shadow-2xl text-center">
-                {/* <h2 className="text-4xl">{title}</h2> */}
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-1 m-4 mx-auto'>
-                    <input name="firstName" type="text" placeholder="First Name" className="input input-ghost input-bordered" /><br />
+            <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5">
 
-                    <input name="lastName" type="text" placeholder="Last Name" className="input input-ghost input-bordered" /><br />
-                    {/* <input type="text" placeholder="password" className="input input-bordered" /> */}
+                <div className="mt-5">
 
+                    <div className="mx-auto mt-5">
 
-                    {/* <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email} className="input input-ghost " /> */}
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <div className="card-body">
+                                <div className="form-control">
+
+                                    <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
+                                </div>
+
+                                <div className="form-control">
+
+                                </div>
+
+                                <div className="form-control">
+
+                                    {/* <input name="restaurants" type="text" placeholder="Restaurants Name" defaultValue={name} className="input input-ghost " /> */}
+
+                                </div>
+                                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
+                                <div className="form-control mt-6">
+                                    <button className="btn btn-primary">Add your review </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
-                <input className="btn m-2 bg-amber-500 text-black" type="submit" value="Add your review " />
+
             </form>
+
             <h1>Restaurant name: {restaurant.title}</h1>
             Tolal foods : {foods?.length}
 
