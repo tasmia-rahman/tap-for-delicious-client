@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { HiStar } from "react-icons/hi";
-import { FaRegUser, FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 const ReviewsCard = ({review}) => {
 
