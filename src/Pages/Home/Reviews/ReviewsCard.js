@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { HiStar } from "react-icons/hi";
-import { FaRegUser } from 'react-icons/fa';
+import { FaRegUser, FaUserCircle } from 'react-icons/fa';
 
 const ReviewsCard = ({review}) => {
 
@@ -23,17 +23,7 @@ const ReviewsCard = ({review}) => {
                     <h5 className='font-semibold text-2xl pb-2'>{title}</h5>
                     <p className='pb-6'>{message}
                     </p>
-                    {/* <div className='flex'>
-                        <div className="avatar">
-                            <div className="w-12 rounded-full">
-                                <img src="https://template.appdevs.net/xfood/assets/images/body/client-1.jpg" alt='' />
-                            </div>
-                        </div>
-                        <div className='pl-6'>
-                            <h4 className='font-semibold text-2xl'>Alex Doe</h4>
-                            <p>Master Chef</p>
-                        </div>
-                    </div> */}
+                   
                     <div className='flex justify-start'>
 
                         {currentUser?.photoURL ? <div className="avatar">
@@ -43,14 +33,14 @@ const ReviewsCard = ({review}) => {
                         </div> :
                            
                              <div className=''>
-                                <h1 className='text-2xl my-10'><FaRegUser></FaRegUser></h1>
+                                <h1 className='text-3xl my-10'><FaUserCircle></FaUserCircle></h1>
                             </div>
                         }
                         <div className='pl-6'>
                             <h1 className="font-semibold text-2xl">{currentUser?.displayName}</h1>
                             {/* <p className='font-semibold text-2xl mt-10'>{customer}</p> */}
                         </div>
-                        <p className='font-semibold text-xl mt-7'>{customer}</p>
+                        <p className='font-semibold text-xl mt-10'>{customer}</p>
 
                        
                             </div>
