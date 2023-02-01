@@ -5,8 +5,11 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const ReviewsCard = ({ review }) => {
 
-    const { currentUser } = useSelector((state) => state.user);
-    const { customer, message, title } = review;
+
+    const { user } = useSelector((state) => state.user);
+    const{customer, message,title}=review;
+
+    
 
     return (
         <div className='text-center'>
@@ -26,9 +29,10 @@ const ReviewsCard = ({ review }) => {
 
                     <div className='flex justify-start'>
 
-                        {currentUser?.photoURL ? <div className="avatar">
+                    {user?.photoURL?
+                         <div className="avatar">
                             <div className="w-16 rounded-full">
-                                <img src={currentUser?.photoURL} alt="" />
+                                <img src={user?.photoURL} alt="" />
                             </div>
                         </div> :
 
@@ -37,7 +41,7 @@ const ReviewsCard = ({ review }) => {
                             </div>
                         }
                         <div className='pl-6'>
-                            <h1 className="font-semibold text-2xl">{currentUser?.displayName}</h1>
+                            <h1 className="font-semibold text-2xl">{user?.displayName}</h1>
                             {/* <p className='font-semibold text-2xl mt-10'>{customer}</p> */}
                         </div>
                         <p className='font-semibold text-xl mt-10'>{customer}</p>
