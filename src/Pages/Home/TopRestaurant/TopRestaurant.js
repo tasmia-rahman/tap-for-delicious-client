@@ -18,13 +18,13 @@ const TopRestaurant = () => {
             }
         }
     })
-    const [topRestaurant, setTopRestaurant] = useState([]);
-    useEffect(() => {
-        fetch('https://tap-for-delicious-server.vercel.app/services')
-            .then(res => res.json())
-            .then(data => setTopRestaurant(data))
+    // const [topRestaurant, setTopRestaurant] = useState([]);
+    // useEffect(() => {
+    //     fetch('https://tap-for-delicious-server.vercel.app/services')
+    //         .then(res => res.json())
+    //         .then(data => setTopRestaurant(data))
 
-    }, [])
+    // }, [])
 
 
     return (
