@@ -55,6 +55,7 @@ const Home = () => {
                 <RegisterRes />
 
                 <FoodItem></FoodItem>
+                <Link to='/tofood'> <div className="btn max-w-sm mx-auto flex justify-center mt-12 mb-32 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl hover:bg-amber-400 hover:text-white hover:border-amber-400 text shadow-xl shadow-yellow-400 hover:shadow-yellow-400 duration-300">See All Top Food's</div></Link>
                 {/* <TopRestaurant></TopRestaurant> */}
                 <div>
 
