@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './Redux/Authentication/store';
 import ThemeContextProvider from './Context/Theme/ThemeContextProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import AuthProvider from './Context/AuthProvider/AuthProvider';
 
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,9 +15,11 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <ThemeContextProvider>
-          <App />
-        </ThemeContextProvider>
+        <AuthProvider>
+          <ThemeContextProvider>
+            <App />
+          </ThemeContextProvider>
+        </AuthProvider>
       </Provider>
     </QueryClientProvider>
   </React.StrictMode>
