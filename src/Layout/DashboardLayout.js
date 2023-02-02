@@ -35,6 +35,15 @@ const DashboardLayout = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul data-theme={theme} className="menu p-4 w-64 text-base-content border-r">
                         {
+                            isAdmin && <>
+                                <li>
+                                    <NavLink to='/dashboard/allrestaurant' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>All Restaurant</NavLink>
+                                </li>
+                            </>
+                        }
+                        {
                             isSeller && <>
                                 <li>
                                     <NavLink to='/dashboard/restaurant' className={({ isActive }) =>
