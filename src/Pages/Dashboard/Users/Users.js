@@ -1,14 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FaRegUser } from 'react-icons/fa';
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading/Loading';
 const Users = () => {
 
-    const [users, setUsers] = useState([])
+    const { data: users, isFetching } = useQuery({
+        queryKey: ["users"],
+        queryFn: async () => {
+            try {
+                const res = await fetch('https://tap-for-delicious-server.vercel.app/users',)
+                const data = await res.json();
+                return data;
+            }
+            catch (err) {
 
-    useEffect(() => {
-        fetch('https://tap-for-delicious-server.vercel.app/users')
-            .then(res => res.json()
-                .then(data => setUsers(data)))
-    }, []);
+            }
+        }
+    })
+
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
