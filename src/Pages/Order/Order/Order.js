@@ -10,10 +10,9 @@ import useUser from './../../../Hooks/useUser';
 
 const Order = () => {
     const { user } = useContext(AuthContext);
-    const [, buyer] = useUser(user?.email);
+    const { buyer } = useUser(user?.email);
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    console.log(cartItems);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -32,7 +31,7 @@ const Order = () => {
         const note = form.note.value;
 
         const order = {
-            buyerId: buyer?.uid,
+            buyerId: buyer?._id,
             buyerEmail: buyer?.email,
             cartItems,
             road,

@@ -6,7 +6,8 @@ import useUser from './../../../../Hooks/useUser';
 const MyOrders = () => {
 
     const { user } = useContext(AuthContext);
-    const [, buyer] = useUser(user?.email);
+    const { buyer } = useUser(user?.email);
+    console.log(buyer);
 
     const { data: myOrders = [] } = useQuery({
         queryKey: ['myOrders', buyer?.email],
@@ -25,24 +26,35 @@ const MyOrders = () => {
                     <thead>
                         <tr>
                             <th>Order ID</th>
+                            <th>Items</th>
+                            <th>Order Date</th>
                             <th>Address</th>
                             <th>Payment Type</th>
-                            <th>Payment Status</th>
-                            <th>Order Date</th>
+                            <th>Order Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             myOrders.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
-                                <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
-                                <td className='capitalize'>{order.paymentType}</td>
                                 <td>
                                     {
-                                        order.paymentType === 'COD' ? 'Completed' : 'Pending'
+                                        order.cartItems.map(item => <div key={item._id} className='flex items-center py-4'>
+                                            <div className="avatar mr-3">
+                                                <div className="w-16 rounded">
+                                                    <img src={item.image} alt='' />
+                                                </div>
+                                            </div>
+                                            <div>{item.name} - {item.quantity}</div>
+                                        </div>)
                                     }
                                 </td>
                                 <td>{order.date.substring(0, 24)}</td>
+                                <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
+                                <td className='capitalize'>{order.paymentType}</td>
+                                <td>
+
+                                </td>
                             </tr>)
                         }
                     </tbody>

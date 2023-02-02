@@ -23,7 +23,9 @@ const useUser = email => {
                 })
         }
     }, [email])
-    return [seller, buyer, isAdmin, isSeller, isBuyer, isUserLoading];
+
+    return { seller, buyer, isAdmin, isSeller, isBuyer, isUserLoading };
+    // return [seller, buyer, isAdmin, isSeller, isBuyer, isUserLoading];
 }
 
 export default useUser;

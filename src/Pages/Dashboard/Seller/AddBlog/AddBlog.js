@@ -45,7 +45,6 @@ const AddBlog = () => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result);
                             if (result.acknowledged) {
                                 toast.success('Blog added successfully.');
                                 navigate('/dashboard/myBlogs');
