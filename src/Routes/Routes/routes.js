@@ -52,6 +52,10 @@ export const router = createBrowserRouter([
                 element: <TopRestaurant />
             },
             {
+                path: '/tofood',
+                element: <AvailableRestaurant />
+            },
+            {
                 path: '/allcategory/:id',
                 element: <AllCategory></AllCategory>,
                 loader: ({ params }) => fetch(`https://localhost:5000/services/${params.id}`)
