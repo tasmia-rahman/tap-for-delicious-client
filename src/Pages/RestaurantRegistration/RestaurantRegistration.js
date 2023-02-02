@@ -19,11 +19,16 @@ const RestaurantRegistration = () => {
     const form = event.target;
     const name = form.name.value;
     const restaurantName = form.restaurantName.value;
+    const restaurantType = form.restaurantType.value;
     const address = form.address.value;
     const email = form.email.value;
     const phone = form.phone.value;
     const password = form.password.value;
+    const openingTime = form.openingTime.value;
+    const closingTime = form.closingTime.value;
     const image = form.image.files[0];
+
+    // console.log(name,  restaurantName, restaurantType, address, email, phone, openingTime, closingTime, image, password)
 
     const formData = new FormData();
     formData.append("image", image);
@@ -44,13 +49,16 @@ const RestaurantRegistration = () => {
                 image: imgData.data.url,
                 name,
                 restaurantName,
+                restaurantType,
                 address,
                 email,
                 phone,
+                openingTime,
+                closingTime,
                 role: "seller",
               };
               // save seller information to the database
-              fetch("https://tap-for-delicious-server.vercel.app/users", {
+              fetch("https://tap-for-delicious-server.vercel.app/restaurant", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -91,12 +99,12 @@ const RestaurantRegistration = () => {
             <form onSubmit={handleRestaurantReg} className="space-y-8 mb-8">
               <div className="md:px-8">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  <span className="label-text">What is your name?</span>
+                  <span className="label-text">Owner name?</span>
                 </label>
                 <input
                   type="text"
                   name="name"
-                  placeholder="Type Your Name"
+                  placeholder="Type Owner Name"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
                   required
                 />
@@ -118,6 +126,46 @@ const RestaurantRegistration = () => {
               <div className="md:px-8">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                   <span className="label-text">
+                    What is your restaurant type?
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  name="restaurantType"
+                  placeholder="Coffee, Thai, Chinese, Bangla, Indian & Others"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
+                  required
+                />
+              </div>
+              <div className="md:px-8">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <span className="label-text">Opening Time</span>
+                </label>
+                <input
+                  type="time"
+                  name="openingTime"
+                  placeholder="Type Password"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
+                  required
+                />
+              </div>
+
+              <div className="md:px-8">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <span className="label-text">Closing Time</span>
+                </label>
+                <input
+                  type="time"
+                  name="closingTime"
+                  placeholder="Type Password"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
+                  required
+                />
+              </div>
+
+              <div className="md:px-8">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <span className="label-text">
                     What is your restaurant address?
                   </span>
                 </label>
@@ -129,18 +177,7 @@ const RestaurantRegistration = () => {
                   required
                 />
               </div>
-              <div className="md:px-8">
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  <span className="label-text">What is your email?</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Type your email"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
-                  required
-                />
-              </div>
+
               <div className="md:px-8">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                   <span className="label-text">What is your phone number?</span>
@@ -153,6 +190,33 @@ const RestaurantRegistration = () => {
                   required
                 />
               </div>
+
+              <div className="md:px-8">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <span className="label-text">What is your email?</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Type your email"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
+                  required
+                />
+              </div>
+
+              <div className="md:px-8">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <span className="label-text">What is your password?</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Type your password"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
+                  required
+                />
+              </div>
+            
               <div className="md:px-8">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                   <span className="label-text">Picture upload</span>
@@ -165,18 +229,7 @@ const RestaurantRegistration = () => {
                 />
               </div>
 
-              <div className="md:px-8">
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  <span className="label-text">Enter Password</span>
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Type Password"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
-                  required
-                />
-              </div>
+              
 
               <p className="font-semibold text-red-600 mt-4 text-center">
                 {error}
