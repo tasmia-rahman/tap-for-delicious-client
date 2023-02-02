@@ -1,18 +1,20 @@
+import React from 'react';
 import { useContext } from 'react';
-import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
+import { AuthContext } from './../../../../../Context/AuthProvider/AuthProvider';
+import useUser from './../../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
-import useUser from './../../../../Hooks/useUser';
+import { useState } from 'react';
 
-const MyOrders = () => {
-
+const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.email);
-    console.log(buyer);
+    const { seller } = useUser(user?.email);
 
-    const { data: myOrders = [] } = useQuery({
-        queryKey: ['myOrders', buyer?.email],
+    // const [orderStatus, setOrderStatus] = useState('order_placed');
+
+    const { data: orders = [] } = useQuery({
+        queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`);
+            const res = await fetch(`http://localhost:5000/orders/${seller?.restaurantName}`);
             const data = await res.json();
             return data;
         }
@@ -27,16 +29,18 @@ const MyOrders = () => {
                         <tr>
                             <th>Order ID</th>
                             <th>Ordered Items</th>
-                            <th>Restaurant</th>
                             <th>Order Date</th>
+                            <th>Customer Name</th>
+                            <th>Customer Email</th>
                             <th>Address</th>
+                            <th>Note</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myOrders.map((order, i) => <tr key={order._id}>
+                            orders.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>
                                     {
@@ -50,11 +54,20 @@ const MyOrders = () => {
                                         </div>)
                                     }
                                 </td>
-                                <td>{order.cartItems[0].restaurant}</td>
                                 <td>{order.date.substring(0, 24)}</td>
+                                <td>{order.buyerName}</td>
+                                <td>{order.buyerEmail}</td>
                                 <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
-                                <td className='capitalize'>{order.paymentType}</td>
-                                <td>{order.orderStatus}</td>
+                                <td className='capitalize'>{order.orderStatus}</td>
+                                <td>{order.note}</td>
+                                {/* <td>
+                                    <select onchange={(event) => setOrderStatus(event.target.value)}>
+                                        <option value="order_placed">Order Placed</option>
+                                        <option value="preparing">Preparing</option>
+                                        <option value="out_for_delivery">Out for delivery</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </td> */}
                             </tr>)
                         }
                     </tbody>
@@ -64,4 +77,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default RestaurantOrders;

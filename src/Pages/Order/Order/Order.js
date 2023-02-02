@@ -32,6 +32,7 @@ const Order = () => {
 
         const order = {
             buyerId: buyer?._id,
+            buyerName: buyer?.displayName,
             buyerEmail: buyer?.email,
             cartItems,
             road,
@@ -40,7 +41,8 @@ const Order = () => {
             postalCode,
             note,
             deliveryOption,
-            paymentType
+            paymentType,
+            orderStatus: 'Order Placed'
         }
 
         // save order information to the database
