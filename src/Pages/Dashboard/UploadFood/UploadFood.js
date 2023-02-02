@@ -5,7 +5,7 @@ const UploadFood = () => {
 
     return (
         <div>
-
+            
         </div>
     );
 };
