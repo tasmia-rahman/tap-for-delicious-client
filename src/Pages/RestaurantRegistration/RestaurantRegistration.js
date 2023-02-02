@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import app from "../../firebase";
+import app from "../../Firebase/firebase.config";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 const RestaurantRegistration = () => {

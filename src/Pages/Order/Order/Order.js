@@ -1,14 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { emptyCart } from './../../../Redux/Actions/cartAction';
+import { useContext } from 'react';
+import { AuthContext } from './../../../Context/AuthProvider/AuthProvider';
+import useUser from './../../../Hooks/useUser';
 
 const Order = () => {
-    const navigate = useNavigate();
-    const { uid, email } = useSelector((state) => state.user.currentUser);
+    const { user } = useContext(AuthContext);
+    const [, buyer] = useUser(user?.email);
+
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
     console.log(cartItems);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
@@ -24,8 +32,8 @@ const Order = () => {
         const note = form.note.value;
 
         const order = {
-            buyerId: uid,
-            buyerEmail: email,
+            buyerId: buyer?.uid,
+            buyerEmail: buyer?.email,
             cartItems,
             road,
             house,
@@ -46,9 +54,9 @@ const Order = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 if (result.acknowledged) {
                     toast.success('Your order has been placed successfully.');
+                    dispatch(emptyCart());
                     navigate('/');
                 }
             })
@@ -99,7 +107,6 @@ const Order = () => {
                             name="note"
                             placeholder="Note to rider - e.g. floor/directions/landmark"
                             className="input input-bordered input-warning w-full my-3 h-28"
-                            required
                         />
                     </div>
                 </div>
@@ -132,7 +139,10 @@ const Order = () => {
                         </div>
                     </div>
                 </div>
-                <button className='btn btn-warning text-white w-full rounded-lg' type='submit'>
+                <button
+                    className='btn btn-warning text-white w-full rounded-lg'
+                    type='submit'
+                >
                     Confirm Order
                 </button>
             </div >
