@@ -9,12 +9,12 @@ const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
     const { seller } = useUser(user?.email);
 
-    // const [orderStatus, setOrderStatus] = useState('order_placed');
+    const [orderStatus, setOrderStatus] = useState('order_placed');
 
     const { data: orders = [] } = useQuery({
         queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders/${seller?.restaurantName}`);
+            const res = await fetch(`http://localhost:5000/seller_orders/${seller?.restaurantName}`);
             const data = await res.json();
             return data;
         }
@@ -58,16 +58,16 @@ const RestaurantOrders = () => {
                                 <td>{order.buyerName}</td>
                                 <td>{order.buyerEmail}</td>
                                 <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
-                                <td className='capitalize'>{order.orderStatus}</td>
                                 <td>{order.note}</td>
-                                {/* <td>
+                                <td>{order.paymentType}</td>
+                                <td>
                                     <select onchange={(event) => setOrderStatus(event.target.value)}>
                                         <option value="order_placed">Order Placed</option>
                                         <option value="preparing">Preparing</option>
                                         <option value="out_for_delivery">Out for delivery</option>
                                         <option value="completed">Completed</option>
                                     </select>
-                                </td> */}
+                                </td>
                             </tr>)
                         }
                     </tbody>

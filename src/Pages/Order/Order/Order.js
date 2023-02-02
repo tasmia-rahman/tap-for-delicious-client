@@ -35,6 +35,7 @@ const Order = () => {
             buyerName: buyer?.displayName,
             buyerEmail: buyer?.email,
             cartItems,
+            restaurantName: cartItems[0].restaurant,
             road,
             house,
             area,
