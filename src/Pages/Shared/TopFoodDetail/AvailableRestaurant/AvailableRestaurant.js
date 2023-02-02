@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import FoodItem from '../../../Home/FoodItem/FoodItem';
+
 import FoodItemCard from '../../../Home/FoodItem/FoodItemCard';
-import TopRestaurant from '../../../Home/TopRestaurant/TopRestaurant';
+
 import Drawer from './Drawer';
 
 const AvailableRestaurant = () => {
