@@ -59,7 +59,7 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                console.log('user', user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
                 // saveUser(user.displayName, user.email, 'buyer');

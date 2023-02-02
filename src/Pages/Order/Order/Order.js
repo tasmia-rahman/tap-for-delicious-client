@@ -4,14 +4,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { emptyCart } from './../../../Redux/Actions/cartAction';
+import { useContext } from 'react';
+import { AuthContext } from './../../../Context/AuthProvider/AuthProvider';
+import useUser from './../../../Hooks/useUser';
 
 const Order = () => {
-    const navigate = useNavigate();
-    const { uid, email } = useSelector((state) => state.user.currentUser);
+    const { user } = useContext(AuthContext);
+    const [, buyer] = useUser(user?.email);
+
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
     console.log(cartItems);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
@@ -27,8 +32,8 @@ const Order = () => {
         const note = form.note.value;
 
         const order = {
-            buyerId: uid,
-            buyerEmail: email,
+            buyerId: buyer?.uid,
+            buyerEmail: buyer?.email,
             cartItems,
             road,
             house,

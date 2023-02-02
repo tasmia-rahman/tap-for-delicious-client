@@ -45,6 +45,11 @@ const DashboardLayout = () => {
                                 isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                             }>Users</NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/dashboard/allrestaurant' className={({ isActive }) =>
+                                isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                            }>All Restaurant</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>

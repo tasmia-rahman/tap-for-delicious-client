@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
+import { useQuery } from 'react-query';
+import useUser from './../../../../Hooks/useUser';
 
 const MyOrders = () => {
 
-    const [orders, setOrders] = useState([]);
-    console.log(orders);
+    const { user } = useContext(AuthContext);
+    const [, buyer] = useUser(user?.email);
 
-    useEffect(() => {
-        fetch('https://tap-for-delicious-server.vercel.app/orders')
-            .then(res => res.json())
-            .then(data => setOrders(data))
-    }, []);
+    const { data: myOrders = [] } = useQuery({
+        queryKey: ['myOrders', buyer?.email],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`);
+            const data = await res.json();
+            return data;
+        }
+    });
 
     return (
         <div>
@@ -28,7 +33,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, i) => <tr key={order._id}>
+                            myOrders.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
                                 <td className='capitalize'>{order.paymentType}</td>
@@ -37,7 +42,7 @@ const MyOrders = () => {
                                         order.paymentType === 'COD' ? 'Completed' : 'Pending'
                                     }
                                 </td>
-                                <td>{order.date}</td>
+                                <td>{order.date.substring(0, 24)}</td>
                             </tr>)
                         }
                     </tbody>
