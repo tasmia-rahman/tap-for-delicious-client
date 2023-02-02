@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import DashboardNavbar from '../Pages/Shared/DashboardNavbar/DashboardNavbar';
-
+import { useContext } from 'react';
+import { AuthContext } from './../Context/AuthProvider/AuthProvider';
+import useUser from './../Hooks/useUser';
 
 const DashboardLayout = () => {
 
@@ -16,6 +18,8 @@ const DashboardLayout = () => {
         theme = "bumblebee";
     }
 
+    const { user } = useContext(AuthContext);
+    const { isAdmin, isSeller, isBuyer } = useUser(user?.email);
 
 
     return (
@@ -29,22 +33,35 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side drawer-container">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul data-theme={theme} className="menu p-4 w-80 text-base-content border-r">
-                        <li>
-                            <NavLink to='/dashboard/addBlog' className={({ isActive }) =>
-                                isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
-                            }>Add Blog</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/restaurant' className={({ isActive }) =>
-                                isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
-                            }>My restaurant</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/users' className={({ isActive }) =>
-                                isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
-                            }>Users</NavLink>
-                        </li>
+                    <ul data-theme={theme} className="menu p-4 w-64 text-base-content border-r">
+                        {
+                            isSeller && <>
+                                <li>
+                                    <NavLink to='/dashboard/restaurant' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>My restaurant</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/users' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>My Users</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/addBlog' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>Add Blog</NavLink>
+                                </li>
+                            </>
+                        }
+                        {
+                            isBuyer && <>
+                                <li>
+                                    <NavLink to='/dashboard/myOrders' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>My Orders</NavLink>
+                                </li>
+                            </>
+                        }
                     </ul>
                 </div>
             </div>
