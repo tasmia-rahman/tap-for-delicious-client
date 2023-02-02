@@ -57,8 +57,9 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://localhost:5000/services/${params.id}`)
             },
             {
-                path: '/details',
-                element: <AvailableRestaurant />
+                path: '/details/:email',
+                element: <RestaurantDetails></RestaurantDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/restaurants/${params.email}`)
             },
             {
                 path: '/restaurantReg',
