@@ -71,7 +71,7 @@ const RestaurantRegistration = () => {
                   console.log(result);
                   if (result.acknowledged) {
                     toast.success("Registered Successfully.");
-                    saveUser(name, email, "seller");
+                    saveUser(name, email, "seller", restaurantName);
                     navigate("/dashboard");
                   }
                 });
@@ -83,8 +83,8 @@ const RestaurantRegistration = () => {
       });
   };
 
-  const saveUser = (displayName, email, role) => {
-    const user = { displayName, email, role: role };
+  const saveUser = (displayName, email, role, restaurantName) => {
+    const user = { displayName, email, role, restaurantName };
     fetch('https://tap-for-delicious-server.vercel.app/users', {
       method: 'POST',
       headers: {
