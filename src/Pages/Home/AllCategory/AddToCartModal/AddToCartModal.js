@@ -44,7 +44,7 @@ const AddToCartModal = ({ foodItem }) => {
             <input type="checkbox" id="addToCart-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="addToCart-modal" className="btn btn-sm  btn-circle absolute right-2 top-2 border-2 bg-amber-400 border-yellow-400 bg-transparent text-white hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">✕</label>
+                    <label htmlFor="addToCart-modal" className="btn btn-sm  btn-circle absolute right-2 top-2 border-2 bg-amber-400 border-yellow-400 text-white hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">✕</label>
                     <br />
                     <div className='flex justify-between'>
                         <h3 className="font-bold text-2xl">{name}</h3>
@@ -86,7 +86,9 @@ const AddToCartModal = ({ foodItem }) => {
                         </div>
                         <label
                             htmlFor="addToCart-modal"
-                            className='btn md:w-full md:mx-auto lg:w-10/12 ml-2 border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
+
+                            className='btn md:w-full md:mx-auto lg:w-10/12 ml-2 border-2 bg-yellow-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
+
                             onClick={handleAddToCart}
                         >
                             Add To Cart

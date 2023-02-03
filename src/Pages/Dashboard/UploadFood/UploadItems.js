@@ -89,7 +89,7 @@ const UploadItems = () => {
                     <input type="file" name='image' required className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
                 </div>
 
-                <button type='submit' className='btn max-w-sm mx-auto flex justify-center ml-5 border-2 bg-amber-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 '>
+                <button type='submit' className='btn max-w-sm mx-auto flex justify-center ml-5 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 '>
                     Upload
                 </button>
             </form>

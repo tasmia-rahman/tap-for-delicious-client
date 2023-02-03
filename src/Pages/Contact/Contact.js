@@ -108,7 +108,7 @@ const Contact = () => {
                 <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
                 <textarea name="message" id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 " placeholder="Leave a comment..."></textarea>
               </div>
-              <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+              <button className="btn mr-10 border-2 border-amber-400 text-amber-500 rounded-2xl
                 hover:bg-amber-400 hover:text-white hover:border-white text ml-8"
                 type="submit"
                 value="Send">Send message</button>
