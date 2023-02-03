@@ -139,8 +139,9 @@ const RestaurantDetails = () => {
                             <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                         ))}
                     </div>
-                    <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
-
+                    {
+                        isBuyer && <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+                    }
                 </div>
                 <div className='w-1/4 text-center'>
                     {/* <h2>Right side</h2> */}
