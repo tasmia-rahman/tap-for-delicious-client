@@ -147,7 +147,7 @@ const RestaurantDetails = () => {
             </form>
 
 
-            <h1>Restaurant name: {restaurant.title}</h1>
+            {/* <h1>Restaurant name: {restaurant.title}</h1>
             Tolal foods : {foods?.length}
 
             <div className="mt-15">
@@ -155,7 +155,7 @@ const RestaurantDetails = () => {
                     <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                 ))}
             </div>
-            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal> */}
 
 
         </div>
