@@ -18,10 +18,12 @@ import DashboardLayout from './../../Layout/DashboardLayout';
 import Dashboard from './../../Pages/Dashboard/Dashboard/Dashboard';
 import Order from './../../Pages/Order/Order/Order';
 import MyOrders from './../../Pages/Dashboard/Buyer/MyOrders/MyOrders';
-import UploadFood from "../../Pages/Dashboard/UploadFood/UploadFood";
+
 import RestaurantDetails from "../../Pages/RestaurantDetails/RestaurantDetails";
 import AllRestaurant from "../../Pages/Dashboard/AllRestaurant/AllRestaurant";
 import RestaurantOrders from '../../Pages/Dashboard/Seller/RestaurantOrders/RestaurantOrders/RestaurantOrders';
+import DashboardRestaurant from "../../Pages/Dashboard/UploadFood/DashboardRestaurant";
+import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -116,7 +118,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/restaurant',
-                element: <UploadFood />
+                element: <DashboardRestaurant />
             },
             {
                 path: '/dashboard/allrestaurant',
@@ -125,6 +127,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/restaurantOrders',
                 element: <RestaurantOrders></RestaurantOrders>
+            },
+            {
+                path: '/dashboard/uploadItems',
+                element: <UploadItems />
             }
 
         ]
