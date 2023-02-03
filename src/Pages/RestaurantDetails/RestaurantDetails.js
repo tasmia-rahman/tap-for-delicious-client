@@ -6,17 +6,37 @@ import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import AllCategoryDetails from "../Home/AllCategory/AllCategoryDetails";
 import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useUser from './../../Hooks/useUser';
+import { useSelector, useDispatch } from 'react-redux';
+import { emptyCart } from '../../Redux/Actions/cartAction';
 
 const RestaurantDetails = () => {
-    const[_id, title] =useLoaderData();
+
+    const { user } = useContext(AuthContext);
+    const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
+
+    const [_id, title] = useLoaderData();
 
     const foods = useLoaderData();
+
     const resEmail = foods[0]?.resEmail;
     const [foodItem, setFoodItem] = useState({});
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const handleCartModal = item => {
-        setFoodItem(item);
+        if (isBuyer) {
+            setFoodItem(item);
+        }
+        else {
+            if (isAdmin || isSeller) {
+                toast('You can not add item to cart!');
+            }
+            else {
+                toast('You must log in first!');
+            }
+        }
     }
 
     const handleIncreaseQuantity = () => {
@@ -33,7 +53,7 @@ const RestaurantDetails = () => {
 
     const [restaurant, setRestaurant] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/restaurant/${resEmail}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/restaurant/${resEmail}`)
             .then(res => res.json())
 
             .then(data => setRestaurant(data))
@@ -51,7 +71,7 @@ const RestaurantDetails = () => {
         const message = form.message.value;
 
         const review = {
-            service: _id,
+            // service: _id,
             restaurantName: restaurant.title,
             customer: name,
             // email,
@@ -59,7 +79,7 @@ const RestaurantDetails = () => {
         }
         console.log(review)
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://tap-for-delicious-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +99,7 @@ const RestaurantDetails = () => {
 
 
     }
-    
+
     return (
         <div>
             <div
@@ -98,29 +118,35 @@ const RestaurantDetails = () => {
                 <p className='text-3xl'>{restaurant.location} </p>
             </div>
 
-
            
             <div className='grid gap-2 grid-cols-1 md:grid-cols-1 lg:grid-cols-3 m-8 '>
                 <div className='w-80 text-center shadow-2xl'>
+            {/* review */}
+            
                     <div>
-                    <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
+                        <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
                     </div>
                     <h1 className='text-xl'>Restaurant name: {restaurant.title}</h1>
-                    <p className='text-xl'>Tolal foods : {foods?.length}</p>
+                    <p className='text-xl'>Total foods : {foods?.length}</p>
                     <div className='mt-8'>
                         <h1 className="text-3xl mb-3">Advertisement</h1>
-                        <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" />
+                        <div className='flex justify-center mt-5'>
+                            <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='' />
+                        </div>
                     </div>
                 </div>
+                
                 <div class="w-full ml-0 ">
                     <h1 className="text-3xl text-yellow-400 font-semibold mb-5 text-center">All Items</h1>
                     <div className="mt-15"> 
+                
                         {foods?.map((item, i) => (
                             <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                         ))}
                     </div>
-                    <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
-
+                    {
+                        isBuyer && <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+                    }
                 </div>
                 <div className='w-full text-center '>
                     {/* <h2>Right side</h2> */}
@@ -141,7 +167,7 @@ const RestaurantDetails = () => {
 
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
                                         <div className="form-control mt-6">
-                                            <button className="btn btn-primary">Add your review </button>
+                                            <button className="btn max-w-sm mx-auto flex justify-center  border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
                                         </div>
                                     </div>
                                 </div>
@@ -150,12 +176,11 @@ const RestaurantDetails = () => {
 
                     </form>
 
+
                 </div>
 
             </div>
         </div>
-
-
 
     );
 };

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
 import { useQuery } from 'react-query';
 import useUser from './../../../../Hooks/useUser';
+import Loading from './../../../Shared/Loading/Loading';
 
 const MyOrders = () => {
 
@@ -9,14 +10,18 @@ const MyOrders = () => {
     const { buyer } = useUser(user?.email);
     console.log(buyer);
 
-    const { data: myOrders = [] } = useQuery({
+    const { data: myOrders = [], isFetching } = useQuery({
         queryKey: ['myOrders', buyer?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`);
+            const res = await fetch(`https://tap-for-delicious-server.vercel.app/orders/${buyer?.email}`);
             const data = await res.json();
             return data;
         }
     });
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
