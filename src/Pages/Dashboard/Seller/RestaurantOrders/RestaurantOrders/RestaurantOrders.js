@@ -4,6 +4,7 @@ import { AuthContext } from '../../../../../Context/AuthProvider/AuthProvider';
 import useUser from '../../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
 import OrderStatus from '../OrderStatus/OrderStatus';
+import { toast } from 'react-hot-toast';
 
 const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
@@ -17,6 +18,19 @@ const RestaurantOrders = () => {
             return data;
         }
     });
+
+    const handleOrderDelete = (id) => {
+        fetch(`http://localhost:5000/orders/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast('Deleted successfully');
+                }
+            })
+    }
 
     return (
         <div>
@@ -62,7 +76,7 @@ const RestaurantOrders = () => {
                                 <td>
                                     <OrderStatus order={order} refetch={refetch}></OrderStatus>
                                 </td>
-
+                                <td><button onClick={() => handleOrderDelete(order._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>
