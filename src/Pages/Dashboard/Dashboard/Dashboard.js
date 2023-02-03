@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { FaRegUser } from 'react-icons/fa';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 const Dashboard = () => {
 
-    const { currentUser } = useSelector((state) => state.user);
+    const { user } = useContext(AuthContext);
 
-    console.log(currentUser);
+    console.log(user);
     return (
         <div>
             <h2 className="text-2xl text-center">Welcome</h2>
-            <h1 className="mt-5 text-center mx-auto  font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-600">{currentUser?.displayName}</h1>
-            {currentUser?.photoURL ? <div className="avatar flex justify-center my-16">
+            <h1 className="mt-5 text-center mx-auto  font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-600">{user?.displayName}</h1>
+            {user?.photoURL ? <div className="avatar flex justify-center my-16">
                 <div className="w-32 rounded-full">
-                    <img src={currentUser?.photoURL} alt="" />
+                    <img src={user?.photoURL} alt="" />
                 </div>
             </div> :
                 <div className='flex justify-center'>

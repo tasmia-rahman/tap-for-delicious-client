@@ -63,12 +63,12 @@ const Navbar = () => {
     // ------- Theme End --------- //
 
 
-    const { currentUser } = useSelector((state) => state.user);
+    const { user } = useContext(AuthContext);
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
 
     const handleAuth = () => {
-        if (currentUser) {
+        if (user) {
             dispatch(logoutInitiate());
         }
     }
@@ -92,7 +92,7 @@ const Navbar = () => {
                         <li><Link to='/contact'>Contact</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                         {
-                            currentUser ? <li><Link to='/dashboard'>Dashboard</Link></li> : ""
+                            user ? <li><Link to='/dashboard'>Dashboard</Link></li> : ""
                         }
                         <li className='text-lg font-medium text-amber-500 hover:text-amber-300'><Link to='/wishlist'><FaCartArrowDown className='border-0 hover:border-2 py-1 px-2 rounded-xl hover:border-amber-400 text-5xl text-amber-400
                     hover:text-white hover:bg-amber-400' /></Link></li>
@@ -128,7 +128,7 @@ const Navbar = () => {
                         }>Blog</NavLink>
                     </li>
                     {
-                        currentUser ? <li>
+                        user ? <li>
                             <NavLink to='/dashboard' className={({ isActive }) =>
                                 isActive ? "text-lg text-amber-300 hover:text-amber-500 border-t border-b  font-bold border-orange-300" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                             }>Dashboard</NavLink>
@@ -158,8 +158,7 @@ const Navbar = () => {
                         <button onClick={handleLogOut} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                     hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>Sign Out</button>
                         :
-                        <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
-                hover:bg-amber-400 hover:text-white hover:border-amber-400 text animate-bounce">Login</p>
+                        <Link to='/login'> <p className="btn max-w-sm mx-auto flex justify-center mr-10 border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 animate-bounce">Login</p>
                         </Link>
                 }
                 {/* <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl

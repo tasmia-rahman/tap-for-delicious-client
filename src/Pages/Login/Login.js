@@ -66,6 +66,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 navigate('/');
+                console.log('user', user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
                 // saveUser(user.displayName, user.email, 'buyer');

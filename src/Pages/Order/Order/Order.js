@@ -4,14 +4,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { emptyCart } from './../../../Redux/Actions/cartAction';
+import { useContext } from 'react';
+import { AuthContext } from './../../../Context/AuthProvider/AuthProvider';
+import useUser from './../../../Hooks/useUser';
 
 const Order = () => {
-    const navigate = useNavigate();
-    const { uid, email } = useSelector((state) => state.user.currentUser);
+    const { user } = useContext(AuthContext);
+    const { buyer } = useUser(user?.email);
+    console.log(user?.email);
+    console.log(buyer?.email);
+
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    console.log(cartItems);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
@@ -27,16 +33,19 @@ const Order = () => {
         const note = form.note.value;
 
         const order = {
-            buyerId: uid,
-            buyerEmail: email,
+            buyerId: buyer?._id,
+            buyerName: buyer?.displayName,
+            buyerEmail: buyer?.email,
             cartItems,
+            restaurantName: cartItems[0].restaurant,
             road,
             house,
             area,
             postalCode,
             note,
             deliveryOption,
-            paymentType
+            paymentType,
+            orderStatus: 'Order Placed'
         }
 
         // save order information to the database
