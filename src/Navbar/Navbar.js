@@ -9,7 +9,7 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Navbar = () => {
 
-    const {user, logout} = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
     // ------- Theme --------- //
     const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
@@ -62,8 +62,6 @@ const Navbar = () => {
 
     // ------- Theme End --------- //
 
-
-    const { user } = useContext(AuthContext);
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
 
@@ -75,9 +73,9 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logout()
-        .then()
-        .catch();
-      }
+            .then()
+            .catch();
+    }
     return (
         <div data-theme={`${theme}`} className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0   backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">

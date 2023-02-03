@@ -14,7 +14,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    
+
 
     const [show, setShow] = useState(false)
     // const [state, setState] = useState({
@@ -38,7 +38,7 @@ const Login = () => {
                     email: user.email
                 }
                 console.log(currentUser);
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 //get jwt token
                 // fetch('http://localhost:5000/jwt',{
                 //     method: 'POST',
@@ -65,14 +65,30 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                navigate('/');
-                console.log('user', user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                // saveUser(user.displayName, user.email, 'buyer');
+                saveUser(user.displayName, user.email, 'buyer');
             })
             .catch(error => console.log(error.message))
     }
+
+    // ---- Send user info to database ---- //
+    const saveUser = (displayName, email, role) => {
+        const user = { displayName, email, role: role };
+        fetch('https://tap-for-delicious-server.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                navigate('/');
+                console.log(data);
+            })
+    }
+
 
     return (
 
