@@ -100,7 +100,7 @@ const RestaurantDetails = () => {
 
 
     }
-    
+
     return (
         <div>
             <div
@@ -123,13 +123,15 @@ const RestaurantDetails = () => {
             <div className='flex gap-5 flex-cols-1 md:flex-1 lg:flex-3 m-8 '>
                 <div className='w-1/4 text-center shadow-2xl'>
                     <div>
-                    <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
+                        <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
                     </div>
                     <h1 className='text-xl'>Restaurant name: {restaurant.title}</h1>
                     <p className='text-xl'>Tolal foods : {foods?.length}</p>
                     <div className='mt-8'>
                         <h1 className="text-3xl mb-3">Advertisement</h1>
-                        <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" />
+                        <div className='flex justify-center mt-5'>
+                            <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='' />
+                        </div>
                     </div>
                 </div>
                 <div class="w-1/2  text-center">
@@ -160,7 +162,7 @@ const RestaurantDetails = () => {
 
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
                                         <div className="form-control mt-6">
-                                            <button className="btn btn-primary">Add your review </button>
+                                            <button className="btn max-w-sm mx-auto flex justify-center  border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
                                         </div>
                                     </div>
                                 </div>
@@ -173,6 +175,11 @@ const RestaurantDetails = () => {
                 </div>
 
             </div>
+
+        </div>
+
+
+
     );
 };
 

@@ -8,7 +8,7 @@ const RestaurantCard = ({ res }) => {
         <div>
             <div className="card w-full lg:max-w-96 h-[500px] mx-auto bg-base-100 shadow-xl">
 
-                <figure><img style={{height:"300px"}} src={res.img} alt="restaurants" className='hover:scale-110 duration-700' /></figure>
+                <figure><img style={{ height: "300px" }} src={res.img} alt="restaurants" className='hover:scale-110 duration-700' /></figure>
                 <div className="card-body">
 
                     <div className="card-actions justify-between ">
@@ -41,7 +41,7 @@ const RestaurantCard = ({ res }) => {
                     </div>
 
                     <div className="card-actions justify-end ">
-                    <Link to={`/resDetails/${res?.email}`}>  <button className='btn border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                        <Link to={`/resDetails/${res?.email}`}>  <button className='btn border-2 border-amber-400 text-amber-500 rounded-2xl
                     hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>more Details </button></Link>
                     </div>
                 </div>
