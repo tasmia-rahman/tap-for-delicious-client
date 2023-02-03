@@ -11,7 +11,6 @@ const RestaurantRegistration = () => {
 
   const navigate = useNavigate();
   const imageHostKey = process.env.REACT_APP_imgbb_key;
-  console.log(imageHostKey);
 
   const handleRestaurantReg = (event) => {
     event.preventDefault();
