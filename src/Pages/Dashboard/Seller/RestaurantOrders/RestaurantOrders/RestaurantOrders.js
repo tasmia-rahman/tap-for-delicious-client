@@ -34,6 +34,7 @@ const RestaurantOrders = () => {
                             <th>Note</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +62,7 @@ const RestaurantOrders = () => {
                                 <td>
                                     <OrderStatus order={order} refetch={refetch}></OrderStatus>
                                 </td>
+
                             </tr>)
                         }
                     </tbody>
