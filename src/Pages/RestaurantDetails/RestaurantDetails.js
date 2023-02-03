@@ -6,18 +6,38 @@ import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import AllCategoryDetails from "../Home/AllCategory/AllCategoryDetails";
 import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useUser from './../../Hooks/useUser';
+import { useSelector } from 'react-redux';
 
 const RestaurantDetails = () => {
+    const { user } = useContext(AuthContext);
+    const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
 
+    const cartItems = useSelector((state) => state.cartReducer.cartItems);
+    
     const [_id, title] = useLoaderData();
 
     const foods = useLoaderData();
+    console.log('foods', title);
     const resEmail = foods[0]?.resEmail;
     const [foodItem, setFoodItem] = useState({});
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const handleCartModal = item => {
-        setFoodItem(item);
+        if (isBuyer) {
+            // if (cartItems.restaurant !== )
+            setFoodItem(item);
+        }
+        else {
+            if (isAdmin || isSeller) {
+                toast('You can not add item to cart!');
+            }
+            else {
+                toast('You must log in first!');
+            }
+        }
     }
 
     const handleIncreaseQuantity = () => {
@@ -99,7 +119,6 @@ const RestaurantDetails = () => {
                 <p className='text-3xl'>{restaurant.location} </p>
             </div>
 
-
             {/* review */}
             <div className='flex gap-5 flex-cols-1 md:flex-1 lg:flex-3 m-8 '>
                 <div className='w-1/4 text-center shadow-2xl'>
@@ -154,9 +173,6 @@ const RestaurantDetails = () => {
                 </div>
 
             </div>
-
-
-
     );
 };
 
