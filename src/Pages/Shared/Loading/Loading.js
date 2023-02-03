@@ -7,7 +7,7 @@ const Loading = () => {
             <div className="text-center pt-10">
                 {/* <h1 className="font-semibold text-lg">Loading...</h1> */}
             </div>
-            <div className="max-w-[400px] mx-auto my-20">
+            <div className="max-w-[400px] mx-auto my-auto">
                 <Player
                     src='https://assets3.lottiefiles.com/packages/lf20_p8bfn5to.json'
                     className="player"

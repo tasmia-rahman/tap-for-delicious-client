@@ -1,10 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { toast } from 'react-hot-toast';
+import Loading from './../../../Shared/Loading/Loading';
 
 const AllBuyers = () => {
 
-    const { data: buyers = [], refetch } = useQuery({
+    const { data: buyers = [], refetch, isFetching } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/buyers');
@@ -24,6 +25,10 @@ const AllBuyers = () => {
                     toast('Deleted successfully');
                 }
             })
+    }
+
+    if (isFetching) {
+        return <Loading></Loading>
     }
 
     return (

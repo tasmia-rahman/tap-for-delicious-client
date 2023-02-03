@@ -6,18 +6,38 @@ import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import AllCategoryDetails from "../Home/AllCategory/AllCategoryDetails";
 import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useUser from './../../Hooks/useUser';
+import { useSelector } from 'react-redux';
 
 const RestaurantDetails = () => {
+    const { user } = useContext(AuthContext);
+    const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
 
-    const[_id, title]=useLoaderData();
+    const cartItems = useSelector((state) => state.cartReducer.cartItems);
+
+    const [_id, title] = useLoaderData();
 
     const foods = useLoaderData();
+    console.log('foods', title);
     const resEmail = foods[0]?.resEmail;
     const [foodItem, setFoodItem] = useState({});
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const handleCartModal = item => {
-        setFoodItem(item);
+        if (isBuyer) {
+            // if (cartItems.restaurant !== )
+            setFoodItem(item);
+        }
+        else {
+            if (isAdmin || isSeller) {
+                toast('You can not add item to cart!');
+            }
+            else {
+                toast('You must log in first!');
+            }
+        }
     }
 
     const handleIncreaseQuantity = () => {
@@ -108,8 +128,9 @@ const RestaurantDetails = () => {
                     <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                 ))}
             </div>
-            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
-
+            {
+                isBuyer && <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity} handleDecreaseQuantity={handleDecreaseQuantity}></AddToCartModal>
+            }
 
             <h1 className="text-3xl text-center mt-20">Write A Review</h1>
             <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5 mb-20">
@@ -155,9 +176,6 @@ const RestaurantDetails = () => {
                     <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                 ))}
             </div>
-            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
-
-
         </div>
     );
 };

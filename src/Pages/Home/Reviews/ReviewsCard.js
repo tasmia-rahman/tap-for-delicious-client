@@ -6,14 +6,14 @@ import { FaUserCircle } from 'react-icons/fa';
 
 
 
-const ReviewsCard = ({review}) => {
+const ReviewsCard = ({ review }) => {
     // const[title]=useLoaderData();
-    const {customer, message, restaurantName  } = review;
+    const { customer, message, restaurantName } = review;
 
 
     const { user } = useSelector((state) => state.user);
     // const { title} = review;
-    
+
 
     return (
         <div className='text-center'>
@@ -27,10 +27,10 @@ const ReviewsCard = ({review}) => {
                         <HiStar className='text-yellow-400'></HiStar>
                         <HiStar></HiStar>
                     </div>
-                    
+
                     {
                         // review.title &&
-                        <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5>
+                        // <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5>
 
                     }
                     <p className='pb-6'>{message.slice(0, 150)}
