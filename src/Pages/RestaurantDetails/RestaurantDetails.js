@@ -8,8 +8,7 @@ import AllCategoryDetails from "../Home/AllCategory/AllCategoryDetails";
 import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 
 const RestaurantDetails = () => {
-
-    const [_id, title] = useLoaderData();
+    const[_id, title] =useLoaderData();
 
     const foods = useLoaderData();
     const resEmail = foods[0]?.resEmail;
@@ -100,9 +99,9 @@ const RestaurantDetails = () => {
             </div>
 
 
-            {/* review */}
-            <div className='flex gap-5 flex-cols-1 md:flex-1 lg:flex-3 m-8 '>
-                <div className='w-1/4 text-center shadow-2xl'>
+           
+            <div className='grid gap-2 grid-cols-1 md:grid-cols-1 lg:grid-cols-3 m-8 '>
+                <div className='w-80 text-center shadow-2xl'>
                     <div>
                     <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
                     </div>
@@ -113,9 +112,9 @@ const RestaurantDetails = () => {
                         <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" />
                     </div>
                 </div>
-                <div class="w-1/2  text-center">
-                    <h1 className="text-3xl text-yellow-400 font-semibold mb-5">All Items</h1>
-                    <div className="mt-15 ">
+                <div class="w-full ml-0 ">
+                    <h1 className="text-3xl text-yellow-400 font-semibold mb-5 text-center">All Items</h1>
+                    <div className="mt-15"> 
                         {foods?.map((item, i) => (
                             <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                         ))}
@@ -123,16 +122,17 @@ const RestaurantDetails = () => {
                     <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
 
                 </div>
-                <div className='w-1/4 text-center'>
+                <div className='w-full text-center '>
                     {/* <h2>Right side</h2> */}
+                     {/* review */}
                     <h1 className="text-3xl text-center text-yellow-400">Write A Review</h1>
-                    <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5">
+                    <form onSubmit={handlePlaceReview} className="w-80 mx-auto mr-14  mt-5">
 
                         <div className="mt-5">
 
-                            <div className="mx-auto mt-5">
+                            <div className="mx-auto ">
 
-                                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                                <div className="card  shadow-2xl">
                                     <div className="card-body">
                                         <div className="form-control">
 
