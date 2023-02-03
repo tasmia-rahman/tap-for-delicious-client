@@ -5,7 +5,7 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
 
     return (
 
-        <div className='h-[290px] flex justify-center items-center drop-shadow-2xl'>
+        <div className=''>
 
             <div className='flex gap-5 justify-start w-[600px] '>
                 <div className='w-25'>
@@ -13,8 +13,8 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
                         <img className='hover:scale-105 duration-700' src={image} alt="food" />
                     </div>
                 </div>
-                <div className='w-75'>
-                    <h2 className='text-3xl font-bold '>{name}</h2>
+                <div className='flex-start'>
+                    <h2 className='text-2xl font-semibold mb-3 '>{name}</h2>
                     <p>{details}</p>
                     <p className='text-red-600 font-semibold'>Price: {price}</p>
                     <div className="card-actions justify-end p-3">

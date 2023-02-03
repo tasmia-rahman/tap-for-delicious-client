@@ -47,14 +47,13 @@ const RestaurantDetails = () => {
         event.preventDefault();
         const form = event.target;
         const name = `${form.name.value}`;
-        const title = `${form.restaurant.value}`;
+        // const title = `${form.restaurant.value}`;
         // const email = user?.email || 'unregistered';
         const message = form.message.value;
 
         const review = {
             service: _id,
-            restaurantName: title,
-
+            restaurantName: restaurant.title,
             customer: name,
             // email,
             message,
@@ -81,17 +80,17 @@ const RestaurantDetails = () => {
 
 
     }
+    
     return (
         <div>
             <div
                 className="bg-fixed md:bg-auto bg-cover bg-center  py-64"
                 style={{ backgroundImage: `url(${restaurant.img})` }}
             >
-
             </div>
 
             <div>
-                {/* <img className='h-2/4' src={restaurants.img} alt="" /> */}
+
                 <h1 className="text-3xl font-bold mx-5 mt-3">{restaurant.title}</h1>
 
             </div>
@@ -99,66 +98,65 @@ const RestaurantDetails = () => {
                 <HiLocationMarker className='mt-1 text-3xl text-red-800'></HiLocationMarker>
                 <p className='text-3xl'>{restaurant.location} </p>
             </div>
+
+
             {/* review */}
+            <div className='flex gap-5 flex-cols-1 md:flex-1 lg:flex-3 m-8 '>
+                <div className='w-1/4 text-center shadow-2xl'>
+                    <div>
+                    <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
+                    </div>
+                    <h1 className='text-xl'>Restaurant name: {restaurant.title}</h1>
+                    <p className='text-xl'>Tolal foods : {foods?.length}</p>
+                    <div className='mt-8'>
+                        <h1 className="text-3xl mb-3">Advertisement</h1>
+                        <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" />
+                    </div>
+                </div>
+                <div class="w-1/2  text-center">
+                    <h1 className="text-3xl text-yellow-400 font-semibold mb-5">All Items</h1>
+                    <div className="mt-15 ">
+                        {foods?.map((item, i) => (
+                            <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
+                        ))}
+                    </div>
+                    <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
 
+                </div>
+                <div className='w-1/4 text-center'>
+                    {/* <h2>Right side</h2> */}
+                    <h1 className="text-3xl text-center text-yellow-400">Write A Review</h1>
+                    <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5">
 
-            <div className='text-2xl font-semibold text-center mt-20 mb-3'>All Available Items</div>
-            <div className="mt-15">
-                {foods.map((item, i) => (
-                    <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
-                ))}
-            </div>
-            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+                        <div className="mt-5">
 
+                            <div className="mx-auto mt-5">
 
-            <h1 className="text-3xl text-center mt-20">Write A Review</h1>
-            <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5 mb-20">
+                                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                                    <div className="card-body">
+                                        <div className="form-control">
 
-                <div className="mt-5">
+                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
+                                        </div>
 
-                    <div className="mx-auto mt-5">
-
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <div className="card-body">
-                                <div className="form-control">
-
-                                    <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
-                                </div>
-
-                                {/* <div className="form-control">
-                                <input name='restaurant' type="text" placeholder=" restaurantName" className="input input-bordered" />
-
-                                </div> */}
-
-                                <div className="form-control">
-
-                                    {/* <input name="restaurants" type="text" placeholder="Restaurants Name" defaultValue={name} className="input input-ghost " /> */}
-
-                                </div>
-                                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
-                                <div className="form-control mt-6">
-                                    <button className="btn max-w-sm mx-auto flex justify-center border-2 bg-amber-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
+                                        <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
+                                        <div className="form-control mt-6">
+                                            <button className="btn btn-primary">Add your review </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                    </form>
+
+
                 </div>
 
-            </form>
-
-
-            {/* <h1>Restaurant name: {restaurant.title}</h1>
-            Tolal foods : {foods?.length}
-
-            <div className="mt-15">
-                {foods?.map((item, i) => (
-                    <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
-                ))}
             </div>
-            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal> */}
 
 
-        </div>
+
     );
 };
 
