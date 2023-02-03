@@ -9,6 +9,8 @@ import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 
 const RestaurantDetails = () => {
 
+    const[_id, title]=useLoaderData();
+
     const foods = useLoaderData();
     const resEmail = foods[0]?.resEmail;
     const [foodItem, setFoodItem] = useState({});
@@ -34,6 +36,7 @@ const RestaurantDetails = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/restaurant/${resEmail}`)
             .then(res => res.json())
+
             .then(data => setRestaurant(data))
     }, [resEmail])
 
@@ -43,13 +46,14 @@ const RestaurantDetails = () => {
 
         event.preventDefault();
         const form = event.target;
-        const name = `${form.firstName.value}  ${form.lastName.value}`;
+        const name = `${form.name.value}`;
+        const title = `${form.restaurant.value}`;
         // const email = user?.email || 'unregistered';
         const message = form.message.value;
 
         const review = {
-            //service: _id,
-            // serviceName: title,
+            service: _id,
+            restaurantName: title,
 
             customer: name,
             // email,
@@ -110,9 +114,10 @@ const RestaurantDetails = () => {
                                     <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
                                 </div>
 
-                                <div className="form-control">
+                                {/* <div className="form-control">
+                                <input name='restaurant' type="text" placeholder=" restaurantName" className="input input-bordered" />
 
-                                </div>
+                                </div> */}
 
                                 <div className="form-control">
 
@@ -134,7 +139,7 @@ const RestaurantDetails = () => {
             Tolal foods : {foods?.length}
 
             <div className="mt-15">
-                {foods.map((item, i) => (
+                {foods?.map((item, i) => (
                     <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                 ))}
             </div>
