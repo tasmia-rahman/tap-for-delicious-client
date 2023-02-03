@@ -19,14 +19,14 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const login = (email, password) => {
+    const loginUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logout = () => {
         setLoading(true);
-        localStorage.removeItem('access-token');
+        //localStorage.removeItem('access-token');
         return signOut(auth);
     }
 
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { user, loading, setLoading, providerLogin, createUser, login, logout, updateUserInfo };
+    const authInfo = { user, loading, setLoading, providerLogin, createUser, loginUser, logout, updateUserInfo };
 
     return (
         <AuthContext.Provider value={authInfo}>

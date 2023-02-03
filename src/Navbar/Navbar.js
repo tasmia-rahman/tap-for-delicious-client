@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../Assets/tap-logo.png'
 import { FaCartArrowDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Navbar = () => {
 
+    const {user, logout} = useContext(AuthContext);
+    const navigate = useNavigate();
     // ------- Theme --------- //
     const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
 
@@ -70,6 +72,12 @@ const Navbar = () => {
             dispatch(logoutInitiate());
         }
     }
+
+    const handleLogOut = () => {
+        logout()
+        .then()
+        .catch();
+      }
     return (
         <div data-theme={`${theme}`} className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0   backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">
@@ -147,7 +155,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user?.email ?
-                        <button onClick={handleAuth} className='btn max-w-sm mx-auto flex justify-center mr-10 border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'>Sign Out</button>
+                        <button onClick={handleLogOut} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                    hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>Sign Out</button>
                         :
                         <Link to='/login'> <p className="btn max-w-sm mx-auto flex justify-center mr-10 border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 animate-bounce">Login</p>
                         </Link>
