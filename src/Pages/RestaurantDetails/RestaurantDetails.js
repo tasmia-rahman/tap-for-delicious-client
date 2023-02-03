@@ -9,7 +9,7 @@ import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 
 const RestaurantDetails = () => {
 
-    const[_id, title]=useLoaderData();
+    const [_id, title] = useLoaderData();
 
     const foods = useLoaderData();
     const resEmail = foods[0]?.resEmail;
@@ -137,7 +137,7 @@ const RestaurantDetails = () => {
                                 </div>
                                 <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
                                 <div className="form-control mt-6">
-                                    <button className="btn max-w-sm mx-auto flex justify-center border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
+                                    <button className="btn max-w-sm mx-auto flex justify-center border-2 bg-amber-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
                                 </div>
                             </div>
                         </div>
