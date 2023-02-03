@@ -10,7 +10,7 @@ const DashboardRestaurant = () => {
 
     const { user } = useContext(AuthContext)
 
-    const email = "burger@hunter.com";
+    const email = user.email;
     const [restaurant, setRestaurant] = useState({})
     useEffect(() => {
         fetch(`http://localhost:5000/restaurant/${email}`)
@@ -75,7 +75,7 @@ const DashboardRestaurant = () => {
 
             <div className='mt-20'>
                 <h1 className='text-xl my-10 text-red-600 font-medium'>All Available Foods</h1>
-                <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                <div className='grid z-40 gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                     {
                         foods.map((food, i) =>
                             <div key={i} className="card bg-base-100 shadow-xl mb-10">
