@@ -80,7 +80,7 @@ const RestaurantDetails = () => {
 
 
     }
-    
+
     return (
         <div>
             <div
@@ -104,7 +104,7 @@ const RestaurantDetails = () => {
             <div className='flex gap-5 flex-cols-1 md:flex-1 lg:flex-3 m-8 '>
                 <div className='w-1/4 text-center shadow-2xl'>
                     <div>
-                    <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
+                        <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
                     </div>
                     <h1 className='text-xl'>Restaurant name: {restaurant.title}</h1>
                     <p className='text-xl'>Tolal foods : {foods?.length}</p>
@@ -154,7 +154,7 @@ const RestaurantDetails = () => {
                 </div>
 
             </div>
-
+        </div>
 
 
     );
