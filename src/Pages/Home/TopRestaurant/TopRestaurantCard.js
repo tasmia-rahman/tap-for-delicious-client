@@ -46,7 +46,7 @@ const TopRestaurantCard = ({ restaurant }) => {
           <div className="card-actions justify-end ">
 
             <Link to={`/resDetails/${email}`}>  <button className='btn border-2 border-amber-400 text-amber-500 rounded-2xl
-                    hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>more Details </button></Link>
+                    hover:bg-amber-400 bg-transparent hover:text-white hover:border-amber-400 text'>more Details </button></Link>
 
           </div>
         </div>
