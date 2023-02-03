@@ -10,18 +10,20 @@ import Loading from './../../../../Shared/Loading/Loading';
 const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
     const { seller } = useUser(user?.email);
+    console.log(seller?.restaurantName);
 
     const { data: orders = [], refetch, isFetching } = useQuery({
         queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/seller_res_orders/${seller?.restaurantName}`);
+            const res = await fetch(`https://tap-for-delicious-server.vercel.app/seller_res_orders/${seller?.restaurantName}`);
             const data = await res.json();
             return data;
         }
     });
+    console.log(orders);
 
     const handleOrderDelete = (id) => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/orders/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
