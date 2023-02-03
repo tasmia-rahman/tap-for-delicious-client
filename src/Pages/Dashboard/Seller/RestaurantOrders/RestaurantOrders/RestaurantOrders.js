@@ -14,7 +14,7 @@ const RestaurantOrders = () => {
     const { data: orders = [], refetch, isFetching } = useQuery({
         queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/seller_orders/${seller?.restaurantName}`);
+            const res = await fetch(`http://localhost:5000/seller_res_orders/${seller?.restaurantName}`);
             const data = await res.json();
             return data;
         }

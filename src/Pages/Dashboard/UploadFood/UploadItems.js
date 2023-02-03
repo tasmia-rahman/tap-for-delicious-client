@@ -14,7 +14,7 @@ const UploadItems = () => {
     const [res, setRes] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/restaurant/${email}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/restaurant/${email}`)
             .then(res => res.json())
             .then(data => setRes(data))
     }, [email])
@@ -50,7 +50,7 @@ const UploadItems = () => {
                         resEmail: email
                     }
 
-                    fetch("http://localhost:5000/food", {
+                    fetch("https://tap-for-delicious-server.vercel.app/food", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

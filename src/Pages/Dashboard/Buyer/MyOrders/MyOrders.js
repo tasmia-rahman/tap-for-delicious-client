@@ -13,7 +13,7 @@ const MyOrders = () => {
     const { data: myOrders = [], isFetching } = useQuery({
         queryKey: ['myOrders', buyer?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`);
+            const res = await fetch(`https://tap-for-delicious-server.vercel.app/orders/${buyer?.email}`);
             const data = await res.json();
             return data;
         }

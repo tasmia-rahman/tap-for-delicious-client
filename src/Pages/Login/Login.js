@@ -40,7 +40,7 @@ const Login = () => {
                 console.log(currentUser);
                 navigate(from, { replace: true });
                 //get jwt token
-                // fetch('http://localhost:5000/jwt',{
+                // fetch('https://tap-for-delicious-server.vercel.app/jwt',{
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'

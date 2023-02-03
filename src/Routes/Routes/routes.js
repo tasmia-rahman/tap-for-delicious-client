@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/restaurants/${params.email}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
             },
             {
                 path: '/restaurantReg',
@@ -93,7 +93,7 @@ export const router = createBrowserRouter([
             {
                 path: '/resDetails/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/restaurants/${params.email}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
             }
         ]
     },

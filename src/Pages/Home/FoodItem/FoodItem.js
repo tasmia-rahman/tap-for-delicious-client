@@ -4,7 +4,7 @@ import FoodItemCard from './FoodItemCard';
 const FoodItem = () => {
     const [foodItems, setFoodItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/topfood-limit')
+        fetch('https://tap-for-delicious-server.vercel.app/topfood-limit')
             .then(res => res.json()
                 .then(data => setFoodItems(data)))
     }, [])

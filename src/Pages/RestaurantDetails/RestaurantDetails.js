@@ -52,7 +52,7 @@ const RestaurantDetails = () => {
 
     const [restaurant, setRestaurant] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/restaurant/${resEmail}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/restaurant/${resEmail}`)
             .then(res => res.json())
 
             .then(data => setRestaurant(data))
@@ -78,7 +78,7 @@ const RestaurantDetails = () => {
         }
         console.log(review)
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://tap-for-delicious-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
