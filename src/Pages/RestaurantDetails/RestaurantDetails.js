@@ -100,8 +100,19 @@ const RestaurantDetails = () => {
                 <p className='text-3xl'>{restaurant.location} </p>
             </div>
             {/* review */}
-            <h1 className="text-3xl text-center">Write A Review</h1>
-            <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5">
+
+
+            <div className='text-2xl font-semibold text-center mt-20 mb-3'>All Available Items</div>
+            <div className="mt-15">
+                {foods.map((item, i) => (
+                    <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
+                ))}
+            </div>
+            <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+
+
+            <h1 className="text-3xl text-center mt-20">Write A Review</h1>
+            <form onSubmit={handlePlaceReview} className="w-96 mx-auto mt-5 mb-20">
 
                 <div className="mt-5">
 
@@ -126,7 +137,7 @@ const RestaurantDetails = () => {
                                 </div>
                                 <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Add your review </button>
+                                    <button className="btn max-w-sm mx-auto flex justify-center border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
                                 </div>
                             </div>
                         </div>
@@ -134,6 +145,7 @@ const RestaurantDetails = () => {
                 </div>
 
             </form>
+
 
             <h1>Restaurant name: {restaurant.title}</h1>
             Tolal foods : {foods?.length}
@@ -144,6 +156,7 @@ const RestaurantDetails = () => {
                 ))}
             </div>
             <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
+
 
         </div>
     );
