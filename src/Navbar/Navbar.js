@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../Assets/tap-logo.png'
 import { FaCartArrowDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutInitiate } from '../Redux/Authentication/action';
 import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
+import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Navbar = () => {
 
+    const {user, logout} = useContext(AuthContext);
+    const navigate = useNavigate();
     // ------- Theme --------- //
     const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
 
@@ -69,6 +72,12 @@ const Navbar = () => {
             dispatch(logoutInitiate());
         }
     }
+
+    const handleLogOut = () => {
+        logout()
+        .then()
+        .catch();
+      }
     return (
         <div data-theme={`${theme}`} className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0   backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">
@@ -145,8 +154,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    currentUser?.email ?
-                        <button onClick={handleAuth} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
+                    user?.email ?
+                        <button onClick={handleLogOut} className='btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
                     hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>Sign Out</button>
                         :
                         <Link to='/login'> <p className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl
