@@ -5,12 +5,13 @@ import useUser from '../../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
 import OrderStatus from '../OrderStatus/OrderStatus';
 import { toast } from 'react-hot-toast';
+import Loading from './../../../../Shared/Loading/Loading';
 
 const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
     const { seller } = useUser(user?.email);
 
-    const { data: orders = [], refetch } = useQuery({
+    const { data: orders = [], refetch, isFetching } = useQuery({
         queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/seller_orders/${seller?.restaurantName}`);
@@ -30,6 +31,10 @@ const RestaurantOrders = () => {
                     toast('Deleted successfully');
                 }
             })
+    }
+
+    if (isFetching) {
+        return <Loading></Loading>
     }
 
     return (

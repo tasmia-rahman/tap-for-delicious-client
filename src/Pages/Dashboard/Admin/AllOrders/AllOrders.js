@@ -1,9 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from './../../../Shared/Loading/Loading';
 
 const AllOrders = () => {
 
-    const { data: allOrders = [] } = useQuery({
+    const { data: allOrders = [], isFetching } = useQuery({
         queryKey: ['allOrders'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/orders`);
@@ -11,6 +12,11 @@ const AllOrders = () => {
             return data;
         }
     });
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
+
     return (
         <div>
             <h3 className="text-3xl font-semibold my-3">All Orders</h3>
