@@ -150,10 +150,10 @@ const RestaurantDetails = () => {
 
                     </form>
 
+
                 </div>
 
             </div>
-        </div>
 
 
 
