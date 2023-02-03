@@ -47,15 +47,14 @@ const RestaurantRegistration = () => {
             .then((userCredential) => {
               console.log(userCredential.user);
               const user = {
-                image: imgData.data.url,
+                img: imgData.data.url,
                 name,
-                restaurantName,
-                restaurantType,
-                address,
+                title: restaurantName,
+                type: restaurantType,
+                location: address,
                 email,
                 phone,
-                openingTime,
-                closingTime,
+                time: `${openingTime} - ${closingTime}`,
                 role: "seller",
               };
               // save seller information to the database
