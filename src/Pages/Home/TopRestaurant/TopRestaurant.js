@@ -18,13 +18,6 @@ const TopRestaurant = () => {
             }
         }
     })
-    // const [topRestaurant, setTopRestaurant] = useState([]);
-    // useEffect(() => {
-    //     fetch('https://tap-for-delicious-server.vercel.app/services')
-    //         .then(res => res.json())
-    //         .then(data => setTopRestaurant(data))
-
-    // }, [])
 
 
     return (
@@ -41,7 +34,7 @@ const TopRestaurant = () => {
             <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
 
                 {
-                    restaurants.map(restaurant => <TopRestaurantCard
+                    restaurants?.map(restaurant => <TopRestaurantCard
                         key={restaurant._id}
                         restaurant={restaurant}
                     ></TopRestaurantCard>)

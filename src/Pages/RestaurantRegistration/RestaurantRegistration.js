@@ -10,8 +10,7 @@ const RestaurantRegistration = () => {
   const auth = getAuth(app);
 
   const navigate = useNavigate();
-  const imageHostKey = process.env.REACT_APP_imgbb_key;
-  console.log(imageHostKey);
+  const imageHostKey = "3854192c81d6a82970830b8c614a4811";
 
   const handleRestaurantReg = (event) => {
     event.preventDefault();
@@ -47,15 +46,14 @@ const RestaurantRegistration = () => {
             .then((userCredential) => {
               console.log(userCredential.user);
               const user = {
-                image: imgData.data.url,
+                img: imgData.data.url,
                 name,
-                restaurantName,
-                restaurantType,
-                address,
+                title: restaurantName,
+                type: restaurantType,
+                location: address,
                 email,
                 phone,
-                openingTime,
-                closingTime,
+                time: `${openingTime} - ${closingTime}`,
                 role: "seller",
               };
               // save seller information to the database

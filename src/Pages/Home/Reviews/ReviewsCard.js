@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HiStar } from "react-icons/hi";
 import { FaUserCircle } from 'react-icons/fa';
+import { useLoaderData } from 'react-router-dom';
 
 
 
 
 const ReviewsCard = ({ review }) => {
     // const[title]=useLoaderData();
-    const { customer, message, restaurantName } = review;
-
-
+    const {customer, message } = review;
     const { user } = useSelector((state) => state.user);
+
     // const { title} = review;
 
 
@@ -28,11 +28,6 @@ const ReviewsCard = ({ review }) => {
                         <HiStar></HiStar>
                     </div>
 
-                    {
-                        // review.title &&
-                        // <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5>
-
-                    }
                     <p className='pb-6'>{message.slice(0, 150)}
                     </p>
 
