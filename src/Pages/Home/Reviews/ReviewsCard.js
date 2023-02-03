@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HiStar } from "react-icons/hi";
 import { FaUserCircle } from 'react-icons/fa';
 
-const ReviewsCard = ({ review }) => {
+
+
+
+const ReviewsCard = ({review}) => {
+    // const[title]=useLoaderData();
+    const {customer, message, restaurantName  } = review;
 
 
     const { user } = useSelector((state) => state.user);
-    const{customer, message,title}=review;
-
+    // const { title} = review;
     
 
     return (
@@ -23,31 +27,37 @@ const ReviewsCard = ({ review }) => {
                         <HiStar className='text-yellow-400'></HiStar>
                         <HiStar></HiStar>
                     </div>
-                    <h5 className='font-semibold text-2xl pb-2'>{title}</h5>
-                    <p className='pb-6'>{message}
+                    
+                    {
+                        // review.title &&
+                        <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5>
+
+                    }
+                    <p className='pb-6'>{message.slice(0, 150)}
                     </p>
 
                     <div className='flex justify-start'>
 
-                    {user?.photoURL?
-                         <div className="avatar">
-                            <div className="w-16 rounded-full">
-                                <img src={user?.photoURL} alt="" />
-                            </div>
-                        </div> :
+                        {user?.photoURL ?
+                            <div className="avatar">
+                                <div className="w-16 rounded-full">
+                                    <img src={user?.photoURL} alt="" />
+                                </div>
+                            </div> :
 
                             <div className=''>
-                                <h1 className='text-3xl my-10'><FaUserCircle></FaUserCircle></h1>
+                                <h1 className='text-3xl my-6'><FaUserCircle></FaUserCircle></h1>
                             </div>
                         }
                         <div className='pl-6'>
                             <h1 className="font-semibold text-2xl">{user?.displayName}</h1>
                             {/* <p className='font-semibold text-2xl mt-10'>{customer}</p> */}
                         </div>
-                        <p className='font-semibold text-xl mt-10'>{customer}</p>
+                        <p className='font-semibold text-xl mt-6'>{customer}</p>
 
 
                     </div>
+
 
                 </div>
 
