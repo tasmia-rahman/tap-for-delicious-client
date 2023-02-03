@@ -13,7 +13,7 @@ const DashboardRestaurant = () => {
     const email = user.email;
     const [restaurant, setRestaurant] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/restaurant/${email}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/restaurant/${email}`)
             .then(res => res.json())
             .then(data => setRestaurant(data))
     }, [email])
@@ -22,7 +22,7 @@ const DashboardRestaurant = () => {
         queryKey: ["foods"],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/restaurants/${email}`)
+                const res = await fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${email}`)
                 const data = await res.json();
                 return data;
             }

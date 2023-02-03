@@ -9,7 +9,7 @@ const OrderStatus = ({ order, refetch }) => {
     //     const form = event.target;
     //     const orderStatus = form.orderStatus.value;
 
-    //     fetch(`http://localhost:5000/seller_orders/${_id}`, {
+    //     fetch(`https://tap-for-delicious-server.vercel.app/seller_orders/${_id}`, {
     //         method: 'PUT',
     //         headers: { 'Content-Type': 'application/json' },
     //         body: JSON.stringify({ orderStatus })
@@ -23,7 +23,7 @@ const OrderStatus = ({ order, refetch }) => {
     // }
 
     const handleOrderStatus = (orderStatus) => {
-        fetch(`http://localhost:5000/seller_orders/${_id}`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/seller_orders/${_id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ orderStatus })

@@ -8,7 +8,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews`)
+        fetch(`https://tap-for-delicious-server.vercel.app/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data))
 
@@ -22,7 +22,7 @@ const Reviews = () => {
                 <h3 className='font-semibold text-4xl pb-4'>What Our <span className='text-red-600'>Clients</span> Say</h3>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 gap-10 mx-auto px-5'>
-              
+
                 {
                     reviews.map(review => <ReviewsCard
                         key={review._id}

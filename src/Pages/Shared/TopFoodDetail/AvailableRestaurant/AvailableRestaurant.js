@@ -7,7 +7,7 @@ import Drawer from './Drawer';
 const AvailableRestaurant = () => {
     const [foodItems, setFoodItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/topfood')
+        fetch('https://tap-for-delicious-server.vercel.app/topfood')
             .then(res => res.json()
                 .then(data => setFoodItems(data)))
     }, [])
@@ -22,7 +22,7 @@ const AvailableRestaurant = () => {
                     <img className="w-full" src='https://marketplace.foodotawp.com/wp-content/uploads/2021/05/top-banner_.png' alt='' />
                 </div>
 
-                 <div className='p-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                <div className='p-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
                     {
                         foodItems.map(foodItem => <FoodItemCard
                             key={foodItem.id}
