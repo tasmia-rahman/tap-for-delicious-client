@@ -50,8 +50,8 @@ const UploadFood = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-center mx-auto  font-extrabold text-transparent text-3xl md:text-6xl bg-clip-text bg-gradient-to-r from-red-700 via-orange-400 to-red-500'>{title}</h1>
-                    <p className='text-xl flex items-center gap-1'>
+                    <h1 className='text-center mx-auto py-3  font-extrabold text-transparent text-3xl md:text-6xl bg-clip-text bg-gradient-to-r from-red-700 via-orange-400 to-red-500'>{title}</h1>
+                    <p className='text-xl flex items-center gap-1 mt-2'>
                         <HiLocationMarker className='text-red-500 animate-bounce' />   {location}
                     </p>
                 </div>
