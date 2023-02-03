@@ -6,6 +6,7 @@ export const addToCart = (foodItem, quantity) => (dispatch, getState) => {
         image: foodItem.image,
         name: foodItem.name,
         details: foodItem.details,
+        restaurant: foodItem.restaurant,
         price: foodItem.price,
         quantity,
         totalPrice: (foodItem.price * quantity)
