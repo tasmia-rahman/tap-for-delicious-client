@@ -1,17 +1,15 @@
 import React from 'react';
 import { useContext } from 'react';
-import { AuthContext } from './../../../../../Context/AuthProvider/AuthProvider';
-import useUser from './../../../../../Hooks/useUser';
+import { AuthContext } from '../../../../../Context/AuthProvider/AuthProvider';
+import useUser from '../../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
-import { useState } from 'react';
+import OrderStatus from '../OrderStatus/OrderStatus';
 
 const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
     const { seller } = useUser(user?.email);
 
-    const [orderStatus, setOrderStatus] = useState('order_placed');
-
-    const { data: orders = [] } = useQuery({
+    const { data: orders = [], refetch } = useQuery({
         queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/seller_orders/${seller?.restaurantName}`);
@@ -61,12 +59,7 @@ const RestaurantOrders = () => {
                                 <td>{order.note}</td>
                                 <td>{order.paymentType}</td>
                                 <td>
-                                    <select onchange={(event) => setOrderStatus(event.target.value)}>
-                                        <option value="order_placed">Order Placed</option>
-                                        <option value="preparing">Preparing</option>
-                                        <option value="out_for_delivery">Out for delivery</option>
-                                        <option value="completed">Completed</option>
-                                    </select>
+                                    <OrderStatus order={order} refetch={refetch}></OrderStatus>
                                 </td>
                             </tr>)
                         }

@@ -21,7 +21,7 @@ import MyOrders from './../../Pages/Dashboard/Buyer/MyOrders/MyOrders';
 import UploadFood from "../../Pages/Dashboard/UploadFood/UploadFood";
 import RestaurantDetails from "../../Pages/RestaurantDetails/RestaurantDetails";
 import AllRestaurant from "../../Pages/Dashboard/AllRestaurant/AllRestaurant";
-import RestaurantOrders from './../../Pages/Dashboard/Seller/AddBlog/RestaurantOrders/RestaurantOrders';
+import RestaurantOrders from '../../Pages/Dashboard/Seller/RestaurantOrders/RestaurantOrders/RestaurantOrders';
 export const router = createBrowserRouter([
     {
         path: '/',
