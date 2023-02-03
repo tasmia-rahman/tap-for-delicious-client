@@ -1,22 +1,36 @@
+import React from 'react';
 import { useContext } from 'react';
-import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
+import { AuthContext } from '../../../../../Context/AuthProvider/AuthProvider';
+import useUser from '../../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
-import useUser from './../../../../Hooks/useUser';
+import OrderStatus from '../OrderStatus/OrderStatus';
+import { toast } from 'react-hot-toast';
 
-const MyOrders = () => {
-
+const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.email);
-    console.log(buyer);
+    const { seller } = useUser(user?.email);
 
-    const { data: myOrders = [] } = useQuery({
-        queryKey: ['myOrders', buyer?.email],
+    const { data: orders = [], refetch } = useQuery({
+        queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`);
+            const res = await fetch(`http://localhost:5000/seller_orders/${seller?.restaurantName}`);
             const data = await res.json();
             return data;
         }
     });
+
+    const handleOrderDelete = (id) => {
+        fetch(`http://localhost:5000/orders/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast('Deleted successfully');
+                }
+            })
+    }
 
     return (
         <div>
@@ -27,16 +41,19 @@ const MyOrders = () => {
                         <tr>
                             <th>Order ID</th>
                             <th>Ordered Items</th>
-                            <th>Restaurant</th>
                             <th>Order Date</th>
+                            <th>Customer Name</th>
+                            <th>Customer Email</th>
                             <th>Address</th>
+                            <th>Note</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myOrders.map((order, i) => <tr key={order._id}>
+                            orders.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>
                                     {
@@ -50,11 +67,16 @@ const MyOrders = () => {
                                         </div>)
                                     }
                                 </td>
-                                <td>{order.restaurantName}</td>
                                 <td>{order.date.substring(0, 24)}</td>
+                                <td>{order.buyerName}</td>
+                                <td>{order.buyerEmail}</td>
                                 <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
-                                <td className='capitalize'>{order.paymentType}</td>
-                                <td>{order.orderStatus}</td>
+                                <td>{order.note}</td>
+                                <td>{order.paymentType}</td>
+                                <td>
+                                    <OrderStatus order={order} refetch={refetch}></OrderStatus>
+                                </td>
+                                <td><button onClick={() => handleOrderDelete(order._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>
@@ -64,4 +86,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default RestaurantOrders;

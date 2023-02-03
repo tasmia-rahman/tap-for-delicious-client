@@ -1,12 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useContext } from 'react';
 import logo from '../../Assets/tap-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { signupInitiate } from '../../Redux/Authentication/action';
 import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Signup = () => {
+
+    const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const auth = getAuth();
+
+    const handleSignUp = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const passwordConfirm = form.passwordConfirm.value;
+        const displayName = form.displayName.value;
+
+        if (password !== passwordConfirm) {
+            return;
+        }
+
+        const role = "buyer";
+        toast.success("User created successfully")
+        setState({ email: "", displayName: "", password: "", passwordConfirm: "" })
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                updateProfile(auth.currentUser, { displayName: displayName })
+                    .then(() => {
+                        // Profile updated!
+                        // ...
+                        saveUser(displayName, user.email, role);
+                    })
+                    .catch((error) => {
+                        // An error occurred
+                        // ...
+                    });
+            })
+            .catch(err => console.error(err))
+    }
 
     const [show, setShow] = useState(false)
     const [showConfirm, setShowConfirm] = useState(false)
@@ -17,30 +54,12 @@ const Signup = () => {
         passwordConfirm: ""
     });
 
-    const { currentUser } = useSelector(state => state.user);
 
-    const navigate = useNavigate();
 
-    useEffect(() => {
-        if (currentUser) {
-            navigate('/');
-        }
-    }, [currentUser, navigate])
 
-    const dispatch = useDispatch();
 
     const { email, password, displayName, passwordConfirm } = state;
-    const handleSignup = (event) => {
-        event.preventDefault();
-        if (password !== passwordConfirm) {
-            return;
-        }
-        dispatch(signupInitiate(email, password, displayName));
-        const role = "buyer";
-        saveUser(displayName, email, role);
-        toast.success("User created successfully")
-        setState({ email: "", displayName: "", password: "", passwordConfirm: "" })
-    };
+
 
     const handleChange = (e) => {
         let { name, value } = e.target;
@@ -80,7 +99,7 @@ const Signup = () => {
                 <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8 z-10"></div>
             </div>
             <div className="flex md:w-1/2 justify-center py-10 items-center ">
-                <form onSubmit={handleSignup} className="">
+                <form onSubmit={handleSignUp} className="">
                     <h1 className="font-bold text-4xl mb-1">Sign Up</h1>
                     <p className="text-sm font-normal text-gray-600 mb-7">Get access to our full service</p>
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">

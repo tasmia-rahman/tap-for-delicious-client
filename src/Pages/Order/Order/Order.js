@@ -10,10 +10,11 @@ import useUser from './../../../Hooks/useUser';
 
 const Order = () => {
     const { user } = useContext(AuthContext);
-    const [, buyer] = useUser(user?.email);
+    const { buyer } = useUser(user?.email);
+    console.log(user?.email);
+    console.log(buyer?.email);
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    console.log(cartItems);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -32,16 +33,19 @@ const Order = () => {
         const note = form.note.value;
 
         const order = {
-            buyerId: buyer?.uid,
+            buyerId: buyer?._id,
+            buyerName: buyer?.displayName,
             buyerEmail: buyer?.email,
             cartItems,
+            restaurantName: cartItems[0].restaurant,
             road,
             house,
             area,
             postalCode,
             note,
             deliveryOption,
-            paymentType
+            paymentType,
+            orderStatus: 'Order Placed'
         }
 
         // save order information to the database

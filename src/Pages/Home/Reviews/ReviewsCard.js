@@ -7,14 +7,16 @@ import { useLoaderData } from 'react-router-dom';
 
 
 
-const ReviewsCard = ({review}) => {
+const ReviewsCard = ({ review }) => {
     // const[title]=useLoaderData();
-    const {customer, message, restaurantName } = review;
-    console.log(review)
+    const {customer, message } = review;
+ 
+
+
     const { user } = useSelector((state) => state.user);
 
     // const { title} = review;
-    
+
 
     return (
         <div className='text-center'>
@@ -29,7 +31,8 @@ const ReviewsCard = ({review}) => {
                         <HiStar></HiStar>
                     </div>
                     
-                    {/* <h5 className='font-semibold text-2xl pb-2'>{ restaurantName}</h5> */}
+                  
+                        {/* <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5> */} */}
 
                     <p className='pb-6'>{message.slice(0, 150)}
                     </p>

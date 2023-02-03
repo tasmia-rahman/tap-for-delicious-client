@@ -1,43 +1,38 @@
-import { useContext } from 'react';
-import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
+import React from 'react';
 import { useQuery } from 'react-query';
-import useUser from './../../../../Hooks/useUser';
 
-const MyOrders = () => {
+const AllOrders = () => {
 
-    const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.email);
-    console.log(buyer);
-
-    const { data: myOrders = [] } = useQuery({
-        queryKey: ['myOrders', buyer?.email],
+    const { data: allOrders = [] } = useQuery({
+        queryKey: ['allOrders'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`);
+            const res = await fetch(`http://localhost:5000/orders`);
             const data = await res.json();
             return data;
         }
     });
-
     return (
         <div>
-            <h3 className="text-3xl font-semibold my-3">My Orders</h3>
+            <h3 className="text-3xl font-semibold my-3">All Orders</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th>Order ID</th>
+                            <th></th>
+                            <th>Customer Name</th>
+                            <th>Customer Email</th>
                             <th>Ordered Items</th>
                             <th>Restaurant</th>
                             <th>Order Date</th>
-                            <th>Address</th>
-                            <th>Payment Type</th>
                             <th>Order Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myOrders.map((order, i) => <tr key={order._id}>
+                            allOrders.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
+                                <td>{order.buyerName}</td>
+                                <td>{order.buyerEmail}</td>
                                 <td>
                                     {
                                         order.cartItems.map(item => <div key={item._id} className='flex items-center py-4'>
@@ -52,8 +47,6 @@ const MyOrders = () => {
                                 </td>
                                 <td>{order.restaurantName}</td>
                                 <td>{order.date.substring(0, 24)}</td>
-                                <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
-                                <td className='capitalize'>{order.paymentType}</td>
                                 <td>{order.orderStatus}</td>
                             </tr>)
                         }
@@ -64,4 +57,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default AllOrders;

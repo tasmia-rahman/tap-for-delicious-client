@@ -48,13 +48,14 @@ const Home = () => {
                     </div>
                     <div className='absolute top-4 left-[45%] md:top-20 justify-center z-30 flex items-center gap-3'>
                         <input type="text" placeholder="Search" className="input input-sm md:input-md input-bordered input-error w-full max-w-xs" />
-                        <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl' /></div>
+                        <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl hover:text-yellow-300 hover:cursor-pointer' /></div>
                     </div>
                 </div>
 
                 <RegisterRes />
 
                 <FoodItem></FoodItem>
+                <Link to='/tofood'> <div className="btn bg-amber-400 max-w-sm mx-auto flex justify-center mt-12 mb-32 border-2 border-amber-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-yellow-400 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-yellow-400 hover:shadow-lg duration-300">See All Top Food's</div></Link>
                 {/* <TopRestaurant></TopRestaurant> */}
                 <div>
 

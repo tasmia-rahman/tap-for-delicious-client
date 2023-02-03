@@ -46,15 +46,14 @@ const RestaurantRegistration = () => {
             .then((userCredential) => {
               console.log(userCredential.user);
               const user = {
-                image: imgData.data.url,
+                img: imgData.data.url,
                 name,
-                restaurantName,
-                restaurantType,
-                address,
+                title: restaurantName,
+                type: restaurantType,
+                location: address,
                 email,
                 phone,
-                openingTime,
-                closingTime,
+                time: `${openingTime} - ${closingTime}`,
                 role: "seller",
               };
               // save seller information to the database
@@ -70,6 +69,7 @@ const RestaurantRegistration = () => {
                   console.log(result);
                   if (result.acknowledged) {
                     toast.success("Registered Successfully.");
+                    saveUser(name, email, "seller", restaurantName);
                     navigate("/dashboard");
                   }
                 });
@@ -80,6 +80,22 @@ const RestaurantRegistration = () => {
         }
       });
   };
+
+  const saveUser = (displayName, email, role, restaurantName) => {
+    const user = { displayName, email, role, restaurantName };
+    fetch('https://tap-for-delicious-server.vercel.app/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        navigate('/login');
+        console.log(data);
+      })
+  }
 
   return (
     <div className="mb-20">
@@ -216,7 +232,7 @@ const RestaurantRegistration = () => {
                   required
                 />
               </div>
-            
+
               <div className="md:px-8">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                   <span className="label-text">Picture upload</span>
@@ -229,7 +245,7 @@ const RestaurantRegistration = () => {
                 />
               </div>
 
-              
+
 
               <p className="font-semibold text-red-600 mt-4 text-center">
                 {error}
