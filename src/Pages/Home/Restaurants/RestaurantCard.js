@@ -41,8 +41,7 @@ const RestaurantCard = ({ res }) => {
                     </div>
 
                     <div className="card-actions justify-end ">
-                        <Link to={`/resDetails/${res?.email}`}>  <button className='btn border-2 border-amber-400 text-amber-500 rounded-2xl
-                    hover:bg-amber-400 hover:text-white hover:border-amber-400 text'>more Details </button></Link>
+                        <Link to={`/resDetails/${res?.email}`}>  <button className='btn max-w-sm mx-auto flex justify-center border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 '>more Details </button></Link>
                     </div>
                 </div>
             </div>
