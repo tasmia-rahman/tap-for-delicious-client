@@ -9,25 +9,23 @@ import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { emptyCart } from '../../Redux/Actions/cartAction';
 
 const RestaurantDetails = () => {
     const { user } = useContext(AuthContext);
     const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
 
-    const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    
     const [_id, title] = useLoaderData();
 
     const foods = useLoaderData();
-    console.log('foods', title);
+
     const resEmail = foods[0]?.resEmail;
     const [foodItem, setFoodItem] = useState({});
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const handleCartModal = item => {
         if (isBuyer) {
-            // if (cartItems.restaurant !== )
             setFoodItem(item);
         }
         else {
@@ -72,7 +70,7 @@ const RestaurantDetails = () => {
         const message = form.message.value;
 
         const review = {
-            service: _id,
+            // service: _id,
             restaurantName: restaurant.title,
             customer: name,
             // email,
@@ -100,7 +98,7 @@ const RestaurantDetails = () => {
 
 
     }
-    
+
     return (
         <div>
             <div
@@ -123,7 +121,7 @@ const RestaurantDetails = () => {
             <div className='flex gap-5 flex-cols-1 md:flex-1 lg:flex-3 m-8 '>
                 <div className='w-1/4 text-center shadow-2xl'>
                     <div>
-                    <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
+                        <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
                     </div>
                     <h1 className='text-xl'>Restaurant name: {restaurant.title}</h1>
                     <p className='text-xl'>Tolal foods : {foods?.length}</p>
@@ -173,6 +171,7 @@ const RestaurantDetails = () => {
                 </div>
 
             </div>
+        </div>
     );
 };
 

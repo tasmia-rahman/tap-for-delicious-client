@@ -1,23 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../../../Redux/Actions/cartAction';
 import { toast } from 'react-hot-toast';
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
+import { emptyCart } from './../../../../Redux/Actions/cartAction';
 
 const AddToCartModal = ({ foodItem }) => {
-    const { image, name, details, price, spice, sugar } = foodItem;
+    const { image, name, details, price, restaurant, spice, sugar } = foodItem;
+
+    const cartItems = useSelector((state) => state.cartReducer.cartItems);
+    const dispatch = useDispatch();
 
     const [itemQuantity, setItemQuantity] = useState(1);
 
-    const dispatch = useDispatch();
-
     const handleAddToCart = () => {
-        dispatch(addToCart(foodItem, itemQuantity));
-        setItemQuantity(1);
-        toast.success('Item added to cart');
+        if ((cartItems.length !== 0) && (cartItems[0].restaurant !== restaurant)) {
+            dispatch(emptyCart());
+            dispatch(addToCart(foodItem, itemQuantity));
+        }
+        else {
+            dispatch(addToCart(foodItem, itemQuantity));
+            setItemQuantity(1);
+            toast.success('Item added to cart');
+        }
     }
 
     const handleIncreaseQuantity = () => {
