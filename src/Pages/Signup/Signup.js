@@ -145,7 +145,7 @@ const Signup = () => {
                             {showConfirm ? <RiEyeLine onClick={() => setShowConfirm(!showConfirm)} /> : <RiEyeCloseLine onClick={() => setShowConfirm(!showConfirm)} />}
                         </p>
                     </div>
-                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
+                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-white text">Sign Up</button>
                     <div>
                         <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Already on Tap for Delicious?</span>
