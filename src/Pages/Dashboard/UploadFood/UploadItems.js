@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { MdOutlineFastfood, MdOutlineDescription } from 'react-icons/md';
 import { TbCurrencyTaka } from 'react-icons/tb';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 const UploadItems = () => {
 
     const { user } = useContext(AuthContext);
-
+    const navigate = useNavigate()
     const email = user?.email;
     const [res, setRes] = useState()
 
@@ -47,6 +49,21 @@ const UploadItems = () => {
                         restaurant,
                         resEmail: email
                     }
+
+                    fetch("http://localhost:5000/food", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(food),
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            if (result.acknowledged) {
+                                toast.success("Item uploaded successfully")
+                                navigate('dashboard/restaurant')
+                            }
+                        })
                 }
             });
 
