@@ -79,7 +79,7 @@ const AddToCartModal = ({ foodItem }) => {
                         <label
                             htmlFor="addToCart-modal"
 
-                            className='btn md:w-full md:mx-auto lg:w-10/12 ml-2 border-2 bg-yellow-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
+                            className='btn md:w-full md:mx-auto lg:w-10/12 ml-2 border-2 bg-yellow-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
 
                             onClick={handleAddToCart}
                         >
