@@ -1,39 +1,48 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useContext } from 'react';
 import logo from '../../Assets/tap-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { signupInitiate } from '../../Redux/Authentication/action';
 import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Signup = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
-    
-    const handleSignUp = event =>{
+    const auth = getAuth();
+
+    const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         const passwordConfirm = form.passwordConfirm.value;
-        
+        const displayName = form.displayName.value;
+
         if (password !== passwordConfirm) {
             return;
         }
-        
+
         const role = "buyer";
-        saveUser(displayName, email, role);
         toast.success("User created successfully")
         setState({ email: "", displayName: "", password: "", passwordConfirm: "" })
 
         createUser(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(err => console.error(err))
+            .then(result => {
+                const user = result.user;
+                updateProfile(auth.currentUser, { displayName: displayName })
+                    .then(() => {
+                        // Profile updated!
+                        // ...
+                        saveUser(displayName, user.email, role);
+                    })
+                    .catch((error) => {
+                        // An error occurred
+                        // ...
+                    });
+            })
+            .catch(err => console.error(err))
     }
 
     const [show, setShow] = useState(false)
@@ -46,11 +55,11 @@ const Signup = () => {
     });
 
 
-    
 
 
-     const { email, password, displayName, passwordConfirm } = state;
-   
+
+    const { email, password, displayName, passwordConfirm } = state;
+
 
     const handleChange = (e) => {
         let { name, value } = e.target;
