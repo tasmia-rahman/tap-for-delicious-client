@@ -8,35 +8,36 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
         <div className=''>
 
             <div className='flex gap-5 justify-start '>
-             <div className='w-24'>
+                <div className='w-24'>
                     <div className='mask w-24 h-24'>
-           
-               
-                    {/* <div className='mask w-24 h-24'>
+
+
+                        {/* <div className='mask w-24 h-24'>
                         <img className='hover:scale-105 duration-700' src={image} alt="food" />
                     </div> */}
-                    <div className="avatar">
-                        <div className="w-24 rounded">
-                            <img className='hover:scale-105 duration-700' src={image} alt="food" />
+                        <div className="avatar">
+                            <div className="w-24 rounded">
+                                <img className='hover:scale-105 duration-700' src={image} alt="food" />
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
-                <div className='w-full my-10'>
-                    <h2 className='text-2xl font-semibold mb-3 '>{name}</h2>
-                    <p>{details}</p>
-                    <p className='text-red-600 font-semibold'>Price: {price}</p>
-                    <div className="card-actions p-3">
+                    <div className='w-full my-10'>
+                        <h2 className='text-2xl font-semibold mb-3 '>{name}</h2>
+                        <p>{details}</p>
+                        <p className='text-red-600 font-semibold'>Price: {price}</p>
+                        <div className="card-actions p-3">
 
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="addToCart-modal"
-                            className="btn w-[150px] mx-auto flex justify-center mr-10 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300"
-                            onClick={() => handleCartModal(item)}
-                        >
-                            Add to cart
-                        </label>
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="addToCart-modal"
+                                className="btn w-[150px] mx-auto flex justify-center mr-10 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300"
+                                onClick={() => handleCartModal(item)}
+                            >
+                                Add to cart
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
