@@ -1,39 +1,48 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useContext } from 'react';
 import logo from '../../Assets/tap-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { signupInitiate } from '../../Redux/Authentication/action';
 import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Signup = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
-    
-    const handleSignUp = event =>{
+    const auth = getAuth();
+
+    const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         const passwordConfirm = form.passwordConfirm.value;
-        
+        const displayName = form.displayName.value;
+
         if (password !== passwordConfirm) {
             return;
         }
-        
+
         const role = "buyer";
-        saveUser(displayName, email, role);
         toast.success("User created successfully")
         setState({ email: "", displayName: "", password: "", passwordConfirm: "" })
 
         createUser(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(err => console.error(err))
+            .then(result => {
+                const user = result.user;
+                updateProfile(auth.currentUser, { displayName: displayName })
+                    .then(() => {
+                        // Profile updated!
+                        // ...
+                        saveUser(displayName, user.email, role);
+                    })
+                    .catch((error) => {
+                        // An error occurred
+                        // ...
+                    });
+            })
+            .catch(err => console.error(err))
     }
 
     const [show, setShow] = useState(false)
@@ -46,11 +55,11 @@ const Signup = () => {
     });
 
 
-    
 
 
-     const { email, password, displayName, passwordConfirm } = state;
-   
+
+    const { email, password, displayName, passwordConfirm } = state;
+
 
     const handleChange = (e) => {
         let { name, value } = e.target;
@@ -136,11 +145,11 @@ const Signup = () => {
                             {showConfirm ? <RiEyeLine onClick={() => setShowConfirm(!showConfirm)} /> : <RiEyeCloseLine onClick={() => setShowConfirm(!showConfirm)} />}
                         </p>
                     </div>
-                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
-                hover:bg-amber-400 hover:text-white hover:border-white text">Sign Up</button>
+                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
+                hover:bg-amber-400 hover:text-white hover:border-white bg-transparent text">Sign Up</button>
                     <div>
                         <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Already on Tap for Delicious?</span>
-                        <span className='text-orange-400 font-semibold hover:text-amber-400 hover:font-bold'>
+                        <span className='text-orange-400 font-semibold bg-transparent hover:text-amber-400 hover:font-bold'>
                             <Link to="/login"> Log In</Link>
                         </span>
 

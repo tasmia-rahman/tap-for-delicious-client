@@ -39,7 +39,17 @@ const DashboardLayout = () => {
                                 <li>
                                     <NavLink to='/dashboard/allrestaurant' className={({ isActive }) =>
                                         isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
-                                    }>All Restaurant</NavLink>
+                                    }>All Restaurants</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/allBuyers' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>All Buyers</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/allOrders' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>All Orders</NavLink>
                                 </li>
                             </>
                         }
