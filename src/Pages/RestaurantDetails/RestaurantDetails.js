@@ -9,8 +9,6 @@ import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
-import { useSelector, useDispatch } from 'react-redux';
-import { emptyCart } from '../../Redux/Actions/cartAction';
 
 const RestaurantDetails = () => {
 
@@ -118,11 +116,11 @@ const RestaurantDetails = () => {
                 <p className='text-3xl'>{restaurant.location} </p>
             </div>
 
-           
+
             <div className='grid gap-2 grid-cols-1 md:grid-cols-1 lg:grid-cols-3 m-8 '>
-                <div className='w-80 text-center shadow-2xl'>
-            {/* review */}
-            
+                <div className='w-80 text-center bg-transparent'>
+                    {/* review */}
+
                     <div>
                         <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
                     </div>
@@ -130,16 +128,16 @@ const RestaurantDetails = () => {
                     <p className='text-xl'>Total foods : {foods?.length}</p>
                     <div className='mt-8'>
                         <h1 className="text-3xl mb-3">Advertisement</h1>
-                        <div className='flex justify-center mt-5'>
-                            <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='' />
+                        <div className='flex justify-center mt-5 '>
+                            <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='shadow-lg' />
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="w-full ml-0 ">
                     <h1 className="text-3xl text-yellow-400 font-semibold mb-5 text-center">All Items</h1>
-                    <div className="mt-15"> 
-                
+                    <div className="mt-15">
+
                         {foods?.map((item, i) => (
                             <AllCategoryDetails key={i} item={item} handleCartModal={handleCartModal}></AllCategoryDetails>
                         ))}
@@ -150,7 +148,7 @@ const RestaurantDetails = () => {
                 </div>
                 <div className='w-full text-center '>
                     {/* <h2>Right side</h2> */}
-                     {/* review */}
+                    {/* review */}
                     <h1 className="text-3xl text-center text-yellow-400">Write A Review</h1>
                     <form onSubmit={handlePlaceReview} className="w-80 mx-auto mr-14  mt-5">
 
