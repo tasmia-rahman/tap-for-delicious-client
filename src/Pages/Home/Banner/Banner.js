@@ -32,15 +32,15 @@ const Banner = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide><img src={food1} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food2} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food3} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food4} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food5} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food6} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food7} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food8} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
-                <SwiperSlide><img src={food9} alt="banner" className='mx-auto h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food1} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food2} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food3} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food4} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food5} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food6} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food7} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food8} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
+                <SwiperSlide><img src={food9} alt="banner" className='mx-auto lg:h-[900px] w-full' /></SwiperSlide>
             </Swiper>
         </>
 
