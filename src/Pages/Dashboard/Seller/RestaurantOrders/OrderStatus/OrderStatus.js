@@ -9,7 +9,7 @@ const OrderStatus = ({ order, refetch }) => {
     //     const form = event.target;
     //     const orderStatus = form.orderStatus.value;
 
-    //     fetch(`http://localhost:5000/seller_orders/${_id}`, {
+    //     fetch(`https://tap-for-delicious-server.vercel.app/seller_orders/${_id}`, {
     //         method: 'PUT',
     //         headers: { 'Content-Type': 'application/json' },
     //         body: JSON.stringify({ orderStatus })
@@ -23,7 +23,7 @@ const OrderStatus = ({ order, refetch }) => {
     // }
 
     const handleOrderStatus = (orderStatus) => {
-        fetch(`http://localhost:5000/seller_orders/${_id}`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/seller_orders/${_id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ orderStatus })
@@ -37,7 +37,7 @@ const OrderStatus = ({ order, refetch }) => {
     }
 
     return (
-        <>
+        <div className='flex items-center'>
             {/* <form onSubmit={handleOrderStatus}>
                 <div>
                     <select name="orderStatus" defaultValue={orderStatus}>
@@ -51,14 +51,14 @@ const OrderStatus = ({ order, refetch }) => {
                     <button className='btn btn-warning btn-sm' type='submit'>Submit</button>
                 </div>
             </form> */}
-
+            <p className='mr-2'>Select:</p>
             <select className='border border-amber-400' name="orderStatus" defaultValue={orderStatus} onChange={(e) => handleOrderStatus(e.target.value)}>
                 <option value="Order Placed">Order Placed</option>
                 <option value="Preparing">Preparing</option>
                 <option value="Out for delivery">Out for delivery</option>
                 <option value="Completed">Completed</option>
             </select>
-        </>
+        </div>
     );
 };
 

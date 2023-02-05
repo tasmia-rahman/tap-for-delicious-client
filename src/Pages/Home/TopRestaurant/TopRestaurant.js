@@ -9,7 +9,7 @@ const TopRestaurant = () => {
         queryKey: ["restaurants"],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/restaurants',)
+                const res = await fetch('https://tap-for-delicious-server.vercel.app/restaurants',)
                 const data = await res.json();
                 return data;
             }
@@ -18,20 +18,13 @@ const TopRestaurant = () => {
             }
         }
     })
-    // const [topRestaurant, setTopRestaurant] = useState([]);
-    // useEffect(() => {
-    //     fetch('https://tap-for-delicious-server.vercel.app/services')
-    //         .then(res => res.json())
-    //         .then(data => setTopRestaurant(data))
-
-    // }, [])
 
 
     return (
 
         <div className='mb-16'>
             <div id="slide1" className="carousel-item relative w-full">
-                <img src="https://img.freepik.com/premium-photo/modern-design-club-restaurant-bar-indoors_530697-26350.jpg?size=626&ext=jpg&uid=R91043052&ga=GA1.2.233135277.1674674657&semt=ais" alt="/" className="w-full h-72" h />
+                <img src="https://i.pinimg.com/originals/bf/65/d5/bf65d51f34b1bf193ec947f3c0c3f3e0.jpg" alt="/" className="w-full h-80 mt-1" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 
                 </div>
@@ -41,7 +34,7 @@ const TopRestaurant = () => {
             <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
 
                 {
-                    restaurants.map(restaurant => <TopRestaurantCard
+                    restaurants?.map(restaurant => <TopRestaurantCard
                         key={restaurant._id}
                         restaurant={restaurant}
                     ></TopRestaurantCard>)

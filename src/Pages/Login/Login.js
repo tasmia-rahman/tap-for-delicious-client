@@ -14,7 +14,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    
+
 
     const [show, setShow] = useState(false)
     // const [state, setState] = useState({
@@ -38,9 +38,9 @@ const Login = () => {
                     email: user.email
                 }
                 console.log(currentUser);
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 //get jwt token
-                // fetch('http://localhost:5000/jwt',{
+                // fetch('https://tap-for-delicious-server.vercel.app/jwt',{
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'
@@ -65,14 +65,30 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                navigate('/');
-                console.log('user', user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                // saveUser(user.displayName, user.email, 'buyer');
+                saveUser(user.displayName, user.email, 'buyer');
             })
             .catch(error => console.log(error.message))
     }
+
+    // ---- Send user info to database ---- //
+    const saveUser = (displayName, email, role) => {
+        const user = { displayName, email, role: role };
+        fetch('https://tap-for-delicious-server.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                navigate('/');
+                console.log(data);
+            })
+    }
+
 
     return (
 
@@ -119,19 +135,19 @@ const Login = () => {
                             {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
                         </p>
                     </div>
-                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
-                hover:bg-amber-400 hover:text-white hover:border-white text">Login</button>
+                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
+                hover:bg-amber-400 hover:text-white bg-transparent hover:border-white text">Login</button>
                     <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ?</span>
                     <div className='mt-4'>
-                        Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400 hover:font-bold'>Sign up</span></Link>
+                        Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
                     <div className="divider">OR</div>
-                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500
-            hover:bg-amber-400 hover:text-white hover:border-white text
+                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
+            hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent
 '>
                         CONTINUE WITH GOOGLE <BsGoogle className='ml-2' />
                     </button>
-                    <div type='button' className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text'>
+                    <div type='button' className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
                         CONTINUE WITH FACEBOOK <BsFacebook className='ml-2' />
                     </div>
                 </form>

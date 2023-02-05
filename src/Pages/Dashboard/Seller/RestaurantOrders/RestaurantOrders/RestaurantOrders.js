@@ -4,19 +4,40 @@ import { AuthContext } from '../../../../../Context/AuthProvider/AuthProvider';
 import useUser from '../../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
 import OrderStatus from '../OrderStatus/OrderStatus';
+import { toast } from 'react-hot-toast';
+import Loading from './../../../../Shared/Loading/Loading';
 
 const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
     const { seller } = useUser(user?.email);
+    console.log(seller?.restaurantName);
 
-    const { data: orders = [], refetch } = useQuery({
+    const { data: orders = [], refetch, isFetching } = useQuery({
         queryKey: ['orders', seller?.restaurantName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/seller_orders/${seller?.restaurantName}`);
+            const res = await fetch(`https://tap-for-delicious-server.vercel.app/seller_res_orders/${seller?.restaurantName}`);
             const data = await res.json();
             return data;
         }
     });
+    console.log(orders);
+
+    const handleOrderDelete = (id) => {
+        fetch(`https://tap-for-delicious-server.vercel.app/orders/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast('Deleted successfully');
+                }
+            })
+    }
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -34,6 +55,7 @@ const RestaurantOrders = () => {
                             <th>Note</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +83,7 @@ const RestaurantOrders = () => {
                                 <td>
                                     <OrderStatus order={order} refetch={refetch}></OrderStatus>
                                 </td>
+                                <td><button onClick={() => handleOrderDelete(order._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>
