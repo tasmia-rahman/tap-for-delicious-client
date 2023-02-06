@@ -9,12 +9,11 @@ import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
-import { useSelector, useDispatch } from 'react-redux';
-import { emptyCart } from '../../Redux/Actions/cartAction';
 
 const RestaurantDetails = () => {
     const { user } = useContext(AuthContext);
-    const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
+
+    const { isBuyer, isSeller, isAdmin } = useUser(user?.displayName);
 
     const [_id, title] = useLoaderData();
 
@@ -95,7 +94,6 @@ const RestaurantDetails = () => {
                 }
             })
             .catch(er => console.error(er));
-
 
     }
 
