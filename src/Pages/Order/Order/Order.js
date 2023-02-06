@@ -10,9 +10,7 @@ import useUser from './../../../Hooks/useUser';
 
 const Order = () => {
     const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.email);
-    console.log(user?.email);
-    console.log(buyer?.email);
+    const { buyer } = useUser(user?.displayName);
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
 

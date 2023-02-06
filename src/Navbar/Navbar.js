@@ -152,7 +152,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user?.email ?
+                    user?.uid ?
                         <button onClick={handleLogOut} className='btn max-w-sm mx-auto flex justify-center mr-10 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 '>Sign Out</button>
                         :
                         <Link to='/login'> <p className="btn max-w-sm mx-auto flex justify-center mr-10 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 animate-bounce">Login</p>

@@ -13,7 +13,8 @@ import useUser from './../../Hooks/useUser';
 const RestaurantDetails = () => {
 
     const { user } = useContext(AuthContext);
-    const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
+
+    const { isBuyer, isSeller, isAdmin } = useUser(user?.displayName);
 
     const [_id, title] = useLoaderData();
 
@@ -94,7 +95,6 @@ const RestaurantDetails = () => {
                 }
             })
             .catch(er => console.error(er));
-
 
     }
 

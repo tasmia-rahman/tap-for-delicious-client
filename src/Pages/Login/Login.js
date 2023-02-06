@@ -3,7 +3,7 @@ import logo from '../../Assets/tap-logo.png'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from './../../Context/AuthProvider/AuthProvider';
 
@@ -62,6 +62,20 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                // setLoading(false);
+                // setLoginUserEmail(user.email);
+                saveUser(user.displayName, user.email, 'buyer');
+            })
+            .catch(error => console.log(error.message))
+    }
+
+    const facebookProvider = new FacebookAuthProvider();
+
+    const handleFacebookSignIn = () => {
+        providerLogin(facebookProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user)
@@ -142,14 +156,12 @@ const Login = () => {
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
                     <div className="divider">OR</div>
-                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
-            hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent
-'>
+                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
                         CONTINUE WITH GOOGLE <BsGoogle className='ml-2' />
                     </button>
-                    <div type='button' className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
+                    <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
                         CONTINUE WITH FACEBOOK <BsFacebook className='ml-2' />
-                    </div>
+                    </button>
                 </form>
             </div>
         </div>
