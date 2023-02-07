@@ -25,6 +25,7 @@ import AllBuyers from './../../Pages/Dashboard/Admin/AllBuyers/AllBuyers';
 import AllOrders from './../../Pages/Dashboard/Admin/AllOrders/AllOrders';
 import DashboardRestaurant from "../../Pages/Dashboard/UploadFood/DashboardRestaurant";
 import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -99,7 +100,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         errorElement: <NotFound></NotFound>,
         children: [
             {

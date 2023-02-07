@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,8 +7,10 @@ import { toast } from 'react-hot-toast';
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import { emptyCart } from './../../../../Redux/Actions/cartAction';
+import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
 
 const AddToCartModal = ({ foodItem }) => {
+    const { user } = useContext(AuthContext)
     const { image, name, details, price, restaurant, spice, sugar } = foodItem;
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -85,6 +87,7 @@ const AddToCartModal = ({ foodItem }) => {
                             <AiOutlinePlus className='text-xl cursor-pointer' onClick={() => handleIncreaseQuantity()}></AiOutlinePlus>
                         </div>
                         <label
+                        disabled={!user}
                             htmlFor="addToCart-modal"
 
                             className='btn md:w-full md:mx-auto lg:w-10/12 ml-2 border-2 bg-yellow-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
