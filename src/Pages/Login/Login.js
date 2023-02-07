@@ -3,16 +3,22 @@ import logo from '../../Assets/tap-logo.png'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
-import { GoogleAuthProvider } from 'firebase/auth';
+import { FcGoogle } from 'react-icons/fc'
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from './../../Context/AuthProvider/AuthProvider';
+
 
 const Login = () => {
     const { loginUser, providerLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
+
     const from = location.state?.from?.pathname || '/';
+
+
+
 
 
 
@@ -23,16 +29,19 @@ const Login = () => {
     // });
     // const { email, password } = state;
 
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
+
         loginUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
 
                 const currentUser = {
                     email: user.email
@@ -54,11 +63,14 @@ const Login = () => {
                 //     navigate(from, {replace: true});
                 // })
 
+
             })
             .catch(err => console.error(err))
     }
 
+
     const googleProvider = new GoogleAuthProvider();
+
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
@@ -71,6 +83,23 @@ const Login = () => {
             })
             .catch(error => console.log(error.message))
     }
+
+
+    const facebookProvider = new FacebookAuthProvider();
+
+
+    const handleFacebookSignIn = () => {
+        providerLogin(facebookProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                // setLoading(false);
+                // setLoginUserEmail(user.email);
+                saveUser(user.displayName, user.email, 'buyer');
+            })
+            .catch(error => console.log(error.message))
+    }
+
 
     // ---- Send user info to database ---- //
     const saveUser = (displayName, email, role) => {
@@ -90,7 +119,10 @@ const Login = () => {
     }
 
 
+
+
     return (
+
 
         <div className="min-h-screen md:flex">
             <div
@@ -142,18 +174,17 @@ const Login = () => {
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
                     <div className="divider">OR</div>
-                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
-            hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent
-'>
-                        CONTINUE WITH GOOGLE <BsGoogle className='ml-2' />
+                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:border-white text bg-transparent'>
+                        CONTINUE WITH GOOGLE <FcGoogle className='ml-2 text-lg' />
                     </button>
-                    <div type='button' className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
+                    <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white hover:border-white text bg-transparent'>
                         CONTINUE WITH FACEBOOK <BsFacebook className='ml-2' />
-                    </div>
+                    </button>
                 </form>
             </div>
         </div>
     );
 };
+
 
 export default Login;
