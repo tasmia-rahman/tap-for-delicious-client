@@ -14,7 +14,7 @@ const RestaurantDetails = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { isBuyer, isSeller, isAdmin } = useUser(user?.displayName);
+    const { isBuyer, isSeller, isAdmin } = useUser(user?.email);
 
     const [_id, title] = useLoaderData();
 
