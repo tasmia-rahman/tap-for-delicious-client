@@ -8,27 +8,23 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
         <div className=''>
 
             <div className='flex gap-5 justify-start '>
-                <div className='w-full card card-body card-bordered m-5'>
-                    <div className='mask w-24 h-24'>
+                <div className='w-full card card-body card-bordered rounded-none mt-3'>
+                    <div className=''>
 
 
                         {/* <div className='mask w-24 h-24'>
                         <img className='hover:scale-105 duration-700' src={image} alt="food" />
                     </div> */}
-                        <div className="avatar">
-                            <div className="w-36 rounded">
-                                <img className='hover:scale-105 duration-700' src={image} alt="food" />
-                            </div>
+                            
+                                <img className='hover:scale-105 duration-700' style={{width:"450px",height:"200px"}} src={image} alt="food" />
 
-                        </div>
                     </div>
-                    <div className='w-full my-10'>
-                        <h2 className='text-2xl font-semibold mb-3 '>{name}</h2>
+                    <div>
+                    <h2 className='text-2xl font-semibold my-3 '>{name}</h2>
                         <p>{details}</p>
                         <p className='text-red-600 font-semibold'>Price: {price}</p>
-                        <div className="card-actions p-3">
-
-                        </div>
+                    </div>
+                    <div className='w-full'>
                         <div>
                             <label
                                 htmlFor="addToCart-modal"
