@@ -7,7 +7,7 @@ import Loading from './../../../Shared/Loading/Loading';
 const MyOrders = () => {
 
     const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.displayName);
+    const { buyer } = useUser(user?.email);
     console.log(buyer);
 
     const { data: myOrders = [], isFetching } = useQuery({
