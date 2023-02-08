@@ -14,8 +14,6 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-
-
     const [show, setShow] = useState(false)
     // const [state, setState] = useState({
     //     email: "",
@@ -64,10 +62,11 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                console.log(user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                saveUser(user.displayName, user.email, 'buyer');
+                let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
+                saveUser(userInfo);
             })
             .catch(error => console.log(error.message))
     }
@@ -81,14 +80,20 @@ const Login = () => {
                 console.log(user)
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                saveUser(user.displayName, user.email, 'buyer');
+                let userInfo;
+                if (user.email === null) {
+                    userInfo = { uid: user?.uid, displayName: user?.displayName, role: 'buyer' };
+                }
+                else {
+                    userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
+                }
+                saveUser(userInfo);
             })
             .catch(error => console.log(error.message))
     }
 
     // ---- Send user info to database ---- //
-    const saveUser = (displayName, email, role) => {
-        const user = { displayName, email, role: role };
+    const saveUser = (user) => {
         fetch('https://tap-for-delicious-server.vercel.app/users', {
             method: 'POST',
             headers: {
@@ -102,7 +107,6 @@ const Login = () => {
                 console.log(data);
             })
     }
-
 
     return (
 
