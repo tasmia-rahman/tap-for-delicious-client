@@ -19,10 +19,10 @@ const Footer = () => {
                         <h3 className="tracking-wide uppercase font-bold text-xl ">Product</h3>
                         <ul className="space-y-1">
                             <li>
-                                <Link href="#">Top Food</Link>
+                                <Link to="/tofood">Top Food</Link>
                             </li>
                             <li>
-                                <Link href="#">Top Restaurant</Link>
+                                <Link to="/toprestaurant">Top Restaurant</Link>
                             </li>
 
                         </ul>
