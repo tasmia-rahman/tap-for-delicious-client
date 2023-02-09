@@ -12,8 +12,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Restaurants from '../Restaurants/Restaurants';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
-const Home = () => {
+import $ from "jquery";
+import "jquery-ui-dist/jquery-ui";
+import Search from './Search';
 
+
+const Home = () => {
+    const [search, setSearch] = useState([]);
+    
     const { data: restaurants, refetch, isFetching } = useQuery({
         queryKey: ["restaurants"],
         queryFn: async () => {
@@ -36,6 +42,19 @@ const Home = () => {
 
     }, [])
 
+
+    
+    // const handleSearch = (event) =>{
+    //     fetch(`http://localhost:5000/search?term=${event.target.value}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             //setSearch(data)
+    //             console.log(data)
+    //             console.log(event.target.value)
+    //         })
+    //         .catch(error => console.log(error))
+    // }
+
     if (isFetching) {
         return <Loading></Loading>
     }
@@ -47,9 +66,11 @@ const Home = () => {
                         <Banner />
                     </div>
                     <div className='absolute top-4 left-[45%] md:top-20 justify-center z-30 flex items-center gap-3'>
-                        <input type="text" placeholder="Search" className="input input-sm md:input-md input-bordered input-error w-full max-w-xs" />
+                        <input id='search' type="text" placeholder="Search" className="input input-sm md:input-md input-bordered input-error w-full max-w-xs" />
                         <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl hover:text-yellow-300 hover:cursor-pointer' /></div>
                     </div>
+                    
+                    <Search></Search>
                 </div>
 
                 <RegisterRes />
