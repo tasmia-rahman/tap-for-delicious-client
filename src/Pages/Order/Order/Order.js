@@ -31,6 +31,7 @@ const Order = () => {
         const note = form.note.value;
 
         const order = {
+            buyerUid: user?.uid,
             buyerId: buyer?._id,
             buyerName: buyer?.displayName,
             buyerEmail: buyer?.email,
