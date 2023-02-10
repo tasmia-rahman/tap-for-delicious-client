@@ -7,7 +7,7 @@ const AllOrders = () => {
     const { data: allOrders = [], isFetching } = useQuery({
         queryKey: ['allOrders'],
         queryFn: async () => {
-            const res = await fetch(`https://tap-for-delicious-server.vercel.app/orders`);
+            const res = await fetch(`https://tap-for-delicious-server.vercel.app/all_orders`);
             const data = await res.json();
             return data;
         }

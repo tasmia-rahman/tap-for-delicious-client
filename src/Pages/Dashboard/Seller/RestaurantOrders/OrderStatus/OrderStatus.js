@@ -23,7 +23,7 @@ const OrderStatus = ({ order, refetch }) => {
     // }
 
     const handleOrderStatus = (orderStatus) => {
-        fetch(`https://tap-for-delicious-server.vercel.app/seller_orders/${_id}`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/order_status/${_id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ orderStatus })

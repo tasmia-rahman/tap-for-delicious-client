@@ -9,14 +9,13 @@ import AddToCartModal from '../Home/AllCategory/AddToCartModal/AddToCartModal';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
+import ReportModal from './ReportModal/ReportModal';
 
 const RestaurantDetails = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { isBuyer, isSeller, isAdmin } = useUser(user?.displayName);
-
-    const [_id, title] = useLoaderData();
+    const { isBuyer, isSeller, isAdmin, buyer } = useUser(user?.email);
 
     const foods = useLoaderData();
 
@@ -186,8 +185,7 @@ const RestaurantDetails = () => {
                                 <div className="card  card-bordered">
                                     <div className="card-body">
                                         <div className="form-control">
-
-                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
+                                    <input name='name' type="text" placeholder=" Name" className="input input-bordered"/>
                                         </div>
 
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
@@ -198,13 +196,18 @@ const RestaurantDetails = () => {
                                 </div>
                             </div>
                         </div>
-
                     </form>
-
-
+                    <div className='mt-10 mx-12'>
+                        <label htmlFor="report-modal" className='py-2 px-6 border-2 bg-red-600 border-red-600 text-white rounded-2xl hover:bg-base-100 hover:text-red-500 hover:border-red-400 text shadow-sm shadow-red-400 hover:shadow-lg hover:shadow-red-400 duration-300'
+                        >
+                            Report This Restaurant
+                        </label>
+                    </div>
                 </div>
-
             </div>
+            {
+                isBuyer && <ReportModal buyer={buyer} restaurant={restaurant}></ReportModal>
+            }
         </div>
 
     );

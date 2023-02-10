@@ -19,7 +19,7 @@ const DashboardLayout = () => {
     }
 
     const { user } = useContext(AuthContext);
-    const { isAdmin, isSeller, isBuyer } = useUser(user?.displayName);
+    const { isAdmin, isSeller, isBuyer } = useUser(user?.email);
 
 
     return (
@@ -50,6 +50,11 @@ const DashboardLayout = () => {
                                     <NavLink to='/dashboard/allOrders' className={({ isActive }) =>
                                         isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                                     }>All Orders</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/allReports' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>All Reported Restaurants</NavLink>
                                 </li>
                             </>
                         }
