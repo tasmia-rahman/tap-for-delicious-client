@@ -27,12 +27,6 @@ const ReviewsCard = ({ review }) => {
                         <HiStar className='text-yellow-400'></HiStar>
                         <HiStar></HiStar>
                     </div>
-<<<<<<< HEAD
-                    
-                  
-                        {/* <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5> */} 
-=======
->>>>>>> 9db81eb5ffc8d58a2d54360a142a4ab073b5715b
 
                     <p className='pb-6'>{message.slice(0, 150)}
                     </p>
