@@ -32,7 +32,7 @@ const ReviewsCard = ({ review }) => {
                     </div>
                     
                   
-                        {/* <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5> */} */}
+                        {/* <h5 className='font-semibold text-2xl pb-2'>{restaurantName}</h5> */} 
 
                     <p className='pb-6'>{message.slice(0, 150)}
                     </p>

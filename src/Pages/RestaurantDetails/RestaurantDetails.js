@@ -109,7 +109,10 @@ const RestaurantDetails = () => {
                     <p className='text-xl'>Tolal foods : {foods?.length}</p>
                     <div className='mt-8'>
                         <h1 className="text-3xl mb-3">Advertisement</h1>
+                        <div className='flex justify-center'>
                         <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" />
+
+                        </div>
                     </div>
                 </div>
                 <div class="w-full ml-0 ">
@@ -123,7 +126,7 @@ const RestaurantDetails = () => {
 
                 </div>
                 <div className='w-full text-center '>
-                    {/* <h2>Right side</h2> */}
+                    
                      {/* review */}
                     <h1 className="text-3xl text-center text-yellow-400">Write A Review</h1>
                     <form onSubmit={handlePlaceReview} className="w-80 mx-auto mr-14  mt-5">
@@ -136,7 +139,7 @@ const RestaurantDetails = () => {
                                     <div className="card-body">
                                         <div className="form-control">
 
-                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
+                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered"/>
                                         </div>
 
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>

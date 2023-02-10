@@ -8,9 +8,9 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
         <div className=''>
 
             <div className='flex gap-5 justify-start '>
-                <div className='w-25'>
-                    <div className='mask w-24 h-24'>
-                        <img className='hover:scale-105 duration-700' src={image} alt="food" />
+                <div className='w-24'>
+                    <div className='mask w-24 h-24 '>
+                        <img className='hover:scale-105 duration-700 rounded-xl' src={image} alt="food" />
                     </div>
                 </div>
                 <div className='flex-start'>
