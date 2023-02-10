@@ -169,18 +169,18 @@ const Login = () => {
                             {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
                         </p>
                     </div>
-                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
-                hover:bg-amber-400 hover:text-white bg-transparent hover:border-white text">Login</button>
+                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 hover:border-amber-400 text-amber-500
+                hover:bg-amber-400 hover:text-white bg-transparent text">Login</button>
                     <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ?</span>
                     <div className='mt-4'>
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
                     <div className="divider">OR</div>
 
-                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:border-white text bg-transparent'>
+                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 text bg-transparent'>
                         CONTINUE WITH GOOGLE <FcGoogle className='ml-2 text-lg' />
                     </button>
-                    <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white hover:border-white text bg-transparent'>
+                    <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text bg-transparent hover:border-blue-500 text'>
 
                         CONTINUE WITH FACEBOOK <BsFacebook className='ml-2' />
                     </button>

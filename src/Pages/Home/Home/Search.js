@@ -26,7 +26,7 @@ const Search = () => {
                         <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl hover:text-yellow-300 hover:cursor-pointer' /></div>
                     </div> */}
             {/* <label for="datepicker">Recipe</label> */}
-            <input type="text" id="foodSearch" className="input input-sm md:input-md input-bordered input-error w-full max-w-xs mx-auto" />
+            <input type="text" id="foodSearch" className="input input-sm md:input-md input-bordered input-error w-full max-w-md mx-auto" placeholder='Search your food ' />
 
         </div>
     );
