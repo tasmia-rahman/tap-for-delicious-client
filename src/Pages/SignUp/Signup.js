@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { getAuth, updateProfile } from "firebase/auth";
-const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
 const Signup = () => {
     const [errors,setErrors]=useState({
         email: "",
@@ -71,6 +71,7 @@ const Signup = () => {
     };
     const handleEmailChange=(e)=>{
         const email=e.target.value;
+        const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(!emailValidator.test(email)){
             setErrors({...errors,email:"× Please provide a valid email"})  
             setState({ ...state, email: e.target.value })
