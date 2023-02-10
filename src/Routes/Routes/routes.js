@@ -25,6 +25,8 @@ import AllBuyers from './../../Pages/Dashboard/Admin/AllBuyers/AllBuyers';
 import AllOrders from './../../Pages/Dashboard/Admin/AllOrders/AllOrders';
 import DashboardRestaurant from "../../Pages/Dashboard/UploadFood/DashboardRestaurant";
 import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestaurants/ReportedRestaurants';
 
 export const router = createBrowserRouter([
     {
@@ -99,7 +101,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         errorElement: <NotFound></NotFound>,
         children: [
             {
@@ -125,6 +127,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allOrders',
                 element: <AllOrders></AllOrders>
+            },
+            {
+                path: '/dashboard/allReports',
+                element: <ReportedRestaurants></ReportedRestaurants>
             },
             {
                 path: '/dashboard/restaurantOrders',

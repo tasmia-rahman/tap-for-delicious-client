@@ -4,6 +4,7 @@ import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { FcGoogle } from 'react-icons/fc'
+
 import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from './../../Context/AuthProvider/AuthProvider';
@@ -16,11 +17,6 @@ const Login = () => {
 
 
     const from = location.state?.from?.pathname || '/';
-
-
-
-
-
 
     const [show, setShow] = useState(false)
     // const [state, setState] = useState({
@@ -76,10 +72,32 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                console.log(user);
+                // setLoading(false);
+                // setLoginUserEmail(user.email);
+                let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
+                saveUser(userInfo);
+            })
+            .catch(error => console.log(error.message))
+    }
+
+    const facebookProvider = new FacebookAuthProvider();
+
+    const handleFacebookSignIn = () => {
+        providerLogin(facebookProvider)
+            .then(result => {
+                const user = result.user;
                 console.log(user)
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                saveUser(user.displayName, user.email, 'buyer');
+                let userInfo;
+                if (user.email === null) {
+                    userInfo = { uid: user?.uid, displayName: user?.displayName, role: 'buyer' };
+                }
+                else {
+                    userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
+                }
+                saveUser(userInfo);
             })
             .catch(error => console.log(error.message))
     }
@@ -102,8 +120,7 @@ const Login = () => {
 
 
     // ---- Send user info to database ---- //
-    const saveUser = (displayName, email, role) => {
-        const user = { displayName, email, role: role };
+    const saveUser = (user) => {
         fetch('https://tap-for-delicious-server.vercel.app/users', {
             method: 'POST',
             headers: {
@@ -117,8 +134,6 @@ const Login = () => {
                 console.log(data);
             })
     }
-
-
 
 
     return (
@@ -174,10 +189,12 @@ const Login = () => {
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
                     <div className="divider">OR</div>
+
                     <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:border-white text bg-transparent'>
                         CONTINUE WITH GOOGLE <FcGoogle className='ml-2 text-lg' />
                     </button>
                     <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white hover:border-white text bg-transparent'>
+
                         CONTINUE WITH FACEBOOK <BsFacebook className='ml-2' />
                     </button>
                 </form>
