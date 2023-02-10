@@ -132,8 +132,8 @@ const RestaurantDetails = () => {
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                         </div>
                         <div className='flex gap-2'>
-                            <img className='h-[30px]' src='https://marketplace.foodotawp.com/wp-content/themes/foodota/libs/images/menu-cc.png' alt=''/>
-                        <p className='text-xl'>Total foods : {foods?.length}</p>
+                            <img className='h-[30px]' src='https://marketplace.foodotawp.com/wp-content/themes/foodota/libs/images/menu-cc.png' alt='' />
+                            <p className='text-xl'>Total foods : {foods?.length}</p>
                         </div>
                     </div>
                     <div className='mt-6 rounded-lg card-bordered'>
@@ -185,7 +185,7 @@ const RestaurantDetails = () => {
                                 <div className="card  card-bordered">
                                     <div className="card-body">
                                         <div className="form-control">
-                                    <input name='name' type="text" placeholder=" Name" className="input input-bordered"/>
+                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
                                         </div>
 
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>

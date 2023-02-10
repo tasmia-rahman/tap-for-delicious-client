@@ -28,6 +28,7 @@ const ReportModal = ({ buyer, restaurant }) => {
             .then(result => {
                 if (result.acknowledged) {
                     toast.error(`You reported ${restaurant?.title}`);
+                    form.reset();
                 }
             })
     }
