@@ -81,7 +81,6 @@ const Login = () => {
             .catch(error => console.log(error.message))
     }
 
-    const facebookProvider = new FacebookAuthProvider();
 
     const handleFacebookSignIn = () => {
         providerLogin(facebookProvider)
@@ -105,18 +104,6 @@ const Login = () => {
 
     const facebookProvider = new FacebookAuthProvider();
 
-
-    const handleFacebookSignIn = () => {
-        providerLogin(facebookProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                // setLoading(false);
-                // setLoginUserEmail(user.email);
-                saveUser(user.displayName, user.email, 'buyer');
-            })
-            .catch(error => console.log(error.message))
-    }
 
 
     // ---- Send user info to database ---- //
