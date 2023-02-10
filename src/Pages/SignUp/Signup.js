@@ -5,7 +5,9 @@ import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { getAuth, updateProfile } from "firebase/auth";
+
 import useToken from '../../Hooks/useToken';
+
 
 const Signup = () => {
     const [errors,setErrors]=useState({
