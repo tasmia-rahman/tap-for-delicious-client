@@ -79,7 +79,8 @@ const Signup = () => {
     };
     const handleEmailChange=(e)=>{
         const email=e.target.value;
-       const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
         if(!emailValidator.test(email)){
             setErrors({...errors,email:"× Please provide a valid email"})  
             setState({ ...state, email: e.target.value })
