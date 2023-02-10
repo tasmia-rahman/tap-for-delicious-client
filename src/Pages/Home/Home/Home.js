@@ -19,7 +19,7 @@ import Search from './Search';
 
 const Home = () => {
     const [search, setSearch] = useState([]);
-    
+
     const { data: restaurants, refetch, isFetching } = useQuery({
         queryKey: ["restaurants"],
         queryFn: async () => {
@@ -43,7 +43,7 @@ const Home = () => {
     }, [])
 
 
-    
+
     // const handleSearch = (event) =>{
     //     fetch(`http://localhost:5000/search?term=${event.target.value}`)
     //         .then(res => res.json())
@@ -66,11 +66,13 @@ const Home = () => {
                         <Banner />
                     </div>
                     <div className='absolute top-4 left-[45%] md:top-20 justify-center z-30 flex items-center gap-3'>
-                        <input id='search' type="text" placeholder="Search" className="input input-sm md:input-md input-bordered input-error w-full max-w-xs" />
-                        <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl hover:text-yellow-300 hover:cursor-pointer' /></div>
+                        {/* <input id='search' type="text" placeholder="Search" className="input input-sm md:input-md input-bordered input-error w-full max-w-xs" />
+                        <div><BiSearchAlt2 className='text-white text-3xl hover:text-4xl hover:text-yellow-300 hover:cursor-pointer' /></div> */}
                     </div>
-                    
-                    <Search></Search>
+
+                    <div className='flex justify-center'>
+                        <Search></Search>
+                    </div>
                 </div>
 
                 <RegisterRes />
