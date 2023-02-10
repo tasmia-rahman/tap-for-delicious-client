@@ -4,7 +4,7 @@ import FoodItemCard from './FoodItemCard';
 const FoodItem = () => {
     const [foodItems, setFoodItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/topfood-limit')
+        fetch('https://tap-for-delicious-server.vercel.app/topfood-limit')
             .then(res => res.json()
                 .then(data => setFoodItems(data)))
     }, [])
@@ -18,12 +18,12 @@ const FoodItem = () => {
                 <div className='p-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 '>
                     {
                         foodItems.map(foodItem => <FoodItemCard
-                            key={foodItem.id}
+                            key={foodItem._id}
                             foodItem={foodItem}
                         ></FoodItemCard>)
                     }
                 </div>
-                
+
             </div>
         </div>
     );

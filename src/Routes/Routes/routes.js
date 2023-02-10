@@ -25,6 +25,8 @@ import AllBuyers from './../../Pages/Dashboard/Admin/AllBuyers/AllBuyers';
 import AllOrders from './../../Pages/Dashboard/Admin/AllOrders/AllOrders';
 import DashboardRestaurant from "../../Pages/Dashboard/UploadFood/DashboardRestaurant";
 import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestaurants/ReportedRestaurants';
 
 export const router = createBrowserRouter([
     {
@@ -63,12 +65,12 @@ export const router = createBrowserRouter([
             {
                 path: '/allcategory/:id',
                 element: <AllCategory></AllCategory>,
-                loader: ({ params }) => fetch(`https://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/details/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/restaurants/${params.email}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
             },
             {
                 path: '/restaurantReg',
@@ -93,13 +95,13 @@ export const router = createBrowserRouter([
             {
                 path: '/resDetails/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/restaurants/${params.email}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
             }
         ]
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         errorElement: <NotFound></NotFound>,
         children: [
             {
@@ -125,6 +127,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allOrders',
                 element: <AllOrders></AllOrders>
+            },
+            {
+                path: '/dashboard/allReports',
+                element: <ReportedRestaurants></ReportedRestaurants>
             },
             {
                 path: '/dashboard/restaurantOrders',

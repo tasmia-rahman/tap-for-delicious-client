@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { RiH1 } from 'react-icons/ri';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../../../Redux/Actions/cartAction';
 import { toast } from 'react-hot-toast';
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
+import { emptyCart } from './../../../../Redux/Actions/cartAction';
+import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
 
 const AddToCartModal = ({ foodItem }) => {
-    const { image, name, details, price, spice, sugar } = foodItem;
+    const { user } = useContext(AuthContext)
+    const { image, name, details, price, restaurant, spice, sugar } = foodItem;
+
+    const cartItems = useSelector((state) => state.cartReducer.cartItems);
+    const dispatch = useDispatch();
 
     const [itemQuantity, setItemQuantity] = useState(1);
 
-    const dispatch = useDispatch();
-
     const handleAddToCart = () => {
-        dispatch(addToCart(foodItem, itemQuantity));
-        setItemQuantity(1);
-        toast.success('Item added to cart');
+        if ((cartItems.length !== 0) && (cartItems[0].restaurant !== restaurant)) {
+            dispatch(emptyCart());
+            dispatch(addToCart(foodItem, itemQuantity));
+        }
+        else {
+            dispatch(addToCart(foodItem, itemQuantity));
+            setItemQuantity(1);
+            toast.success('Item added to cart');
+        }
     }
 
     const handleIncreaseQuantity = () => {
@@ -36,7 +46,7 @@ const AddToCartModal = ({ foodItem }) => {
             <input type="checkbox" id="addToCart-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="addToCart-modal" className="btn btn-sm  btn-circle absolute right-2 top-2 border-2 bg-amber-400 border-yellow-400 bg-transparent text-white hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">✕</label>
+                    <label htmlFor="addToCart-modal" className="btn btn-sm  btn-circle absolute right-2 top-2 border-2 bg-amber-400 border-yellow-400 text-white hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">✕</label>
                     <br />
                     <div className='flex justify-between'>
                         <h3 className="font-bold text-2xl">{name}</h3>
@@ -77,8 +87,11 @@ const AddToCartModal = ({ foodItem }) => {
                             <AiOutlinePlus className='text-xl cursor-pointer' onClick={() => handleIncreaseQuantity()}></AiOutlinePlus>
                         </div>
                         <label
+                            disabled={!user}
                             htmlFor="addToCart-modal"
-                            className='btn max-w-sm mx-auto flex justify-end border-2 bg-amber-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
+
+                            className='btn md:w-full md:mx-auto lg:w-10/12 ml-2 border-2 bg-yellow-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'
+
                             onClick={handleAddToCart}
                         >
                             Add To Cart

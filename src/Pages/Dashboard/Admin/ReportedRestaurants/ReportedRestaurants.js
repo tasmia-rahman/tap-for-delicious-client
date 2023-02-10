@@ -1,21 +1,21 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { toast } from 'react-hot-toast';
 import Loading from './../../../Shared/Loading/Loading';
+import { toast } from 'react-hot-toast';
 
-const AllBuyers = () => {
+const ReportedRestaurants = () => {
 
-    const { data: buyers = [], refetch, isFetching } = useQuery({
-        queryKey: ['buyers'],
+    const { data: reports = [], refetch, isFetching } = useQuery({
+        queryKey: ['reports'],
         queryFn: async () => {
-            const res = await fetch('https://tap-for-delicious-server.vercel.app/buyers');
+            const res = await fetch('https://tap-for-delicious-server.vercel.app/reports');
             const data = await res.json();
             return data;
         }
     });
 
-    const handleUserDelete = (id) => {
-        fetch(`https://tap-for-delicious-server.vercel.app/users/${id}`, {
+    const handleReportDelete = (id) => {
+        fetch(`https://tap-for-delicious-server.vercel.app/reports/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const AllBuyers = () => {
 
     return (
         <div>
-            <h3 className="text-3xl font-semibold my-3">All Buyers</h3>
+            <h3 className="text-3xl font-semibold my-3">All Reported Restaurants</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -41,18 +41,20 @@ const AllBuyers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Join Date</th>
-                            <th></th>
+                            <th>Date</th>
+                            <th>Objection</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            buyers.map((buyer, i) => <tr key={buyer._id}>
+                            reports.map((report, i) => <tr key={report._id}>
                                 <th>{i + 1}</th>
-                                <td>{buyer.displayName}</td>
-                                <td>{buyer.email}</td>
-                                <td>{buyer.joinDate.substring(0, 24)}</td>
-                                <td><button onClick={() => handleUserDelete(buyer._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
+                                <td>{report.displayName}</td>
+                                <td>{report.email}</td>
+                                <td>{report.date.substring(0, 24)}</td>
+                                <td>{report.objection}</td>
+                                <td><button onClick={() => handleReportDelete(report._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>
@@ -62,4 +64,4 @@ const AllBuyers = () => {
     );
 };
 
-export default AllBuyers;
+export default ReportedRestaurants;

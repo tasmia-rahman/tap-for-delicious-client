@@ -2,17 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { MdOutlineFastfood, MdOutlineDescription } from 'react-icons/md';
 import { TbCurrencyTaka } from 'react-icons/tb';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 const UploadItems = () => {
 
     const { user } = useContext(AuthContext);
-
+    const navigate = useNavigate()
     const email = user?.email;
     const [res, setRes] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/restaurant/${email}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/restaurant/${email}`)
             .then(res => res.json())
             .then(data => setRes(data))
     }, [email])
@@ -47,6 +49,21 @@ const UploadItems = () => {
                         restaurant,
                         resEmail: email
                     }
+
+                    fetch("https://tap-for-delicious-server.vercel.app/food", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(food),
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            if (result.acknowledged) {
+                                toast.success("Item uploaded successfully")
+                                navigate('dashboard/restaurant')
+                            }
+                        })
                 }
             });
 
@@ -72,7 +89,7 @@ const UploadItems = () => {
                     <input type="file" name='image' required className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
                 </div>
 
-                <button type='submit' className='btn max-w-sm mx-auto flex justify-center ml-5 border-2 bg-amber-400 border-yellow-400 bg-transparent text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 '>
+                <button type='submit' className='btn max-w-sm mx-auto flex justify-center ml-5 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 '>
                     Upload
                 </button>
             </form>
