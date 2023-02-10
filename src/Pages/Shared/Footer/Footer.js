@@ -47,12 +47,13 @@ const Footer = () => {
                     <div className="space-y-3">
                         <h3 className="uppercase font-bold text-xl">Support</h3>
                         <ul className="space-y-1">
+                        <li>
+                                <Link to='/documentation'>Documentation</Link>
+                            </li>
                             <li>
                                 <Link href="#">Partner with us</Link>
                             </li>
-                            <li>
-                                <Link href="#">Documentation</Link>
-                            </li>
+                            
                             <li>
                                 <Link href="#">Guides</Link>
                             </li>
