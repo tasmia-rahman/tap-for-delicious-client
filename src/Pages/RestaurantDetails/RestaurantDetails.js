@@ -132,7 +132,10 @@ const RestaurantDetails = () => {
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                         </div>
+                        <div className='flex gap-2'>
+                            <img className='h-[30px]' src='https://marketplace.foodotawp.com/wp-content/themes/foodota/libs/images/menu-cc.png' alt=''/>
                         <p className='text-xl'>Total foods : {foods?.length}</p>
+                        </div>
                     </div>
                     <div className='mt-6 rounded-lg card-bordered'>
                         <h1 className="text-2xl font-bold mb-1 ml-3">Advertisement</h1>
@@ -145,7 +148,7 @@ const RestaurantDetails = () => {
                 <div class="lg:ml-[-40px] lg:w-[515px] mx-3 mt-5 lg:mt-0"  >
                     <div className=' rounded-t-lg card-bordered px-8 pt-4'>
                         <h1 className='text-2xl font-bold'>Categories</h1>
-                        <div className='flex gap-1 mb-3 mt-3'>
+                        <div className='flex gap-1 mb-3 mt-1'>
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "50px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
@@ -167,7 +170,7 @@ const RestaurantDetails = () => {
                     {/* review */}
                     <div className='rounded-lg card-bordered px-8 pt-4'>
                         <h1 className='text-2xl font-bold'>Review</h1>
-                        <div className='flex gap-1 mb-3 mt-3'>
+                        <div className='flex gap-1 mb-3 mt-1'>
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "50px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
