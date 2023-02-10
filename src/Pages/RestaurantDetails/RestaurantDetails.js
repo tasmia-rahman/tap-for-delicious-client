@@ -97,10 +97,8 @@ const RestaurantDetails = () => {
                 <HiLocationMarker className='mt-1 text-3xl text-red-800'></HiLocationMarker>
                 <p className='text-3xl'>{restaurant.location} </p>
             </div>
-
-
            
-            <div className='grid gap-2 grid-cols-1 md:grid-cols-1 lg:grid-cols-3 m-8 '>
+            <div className='grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-8 '>
                 <div className='w-80 text-center shadow-2xl'>
                     <div>
                     <h1 className='text-2xl text-yellow-400 font-semibold mb-3'>Restaurant Name & Total Food </h1>
@@ -108,10 +106,8 @@ const RestaurantDetails = () => {
                     <h1 className='text-xl'>Restaurant name: {restaurant.title}</h1>
                     <p className='text-xl'>Tolal foods : {foods?.length}</p>
                     <div className='mt-8'>
-                        <h1 className="text-3xl mb-3">Advertisement</h1>
-                        <div className='flex justify-center'>
+                        <h1 className="text-3xl mb-3">Advertisement</h1>                        <div className='flex justify-center'>
                         <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" />
-
                         </div>
                     </div>
                 </div>
@@ -125,8 +121,7 @@ const RestaurantDetails = () => {
                     <AddToCartModal foodItem={foodItem} itemQuantity={itemQuantity} handleIncreaseQuantity={handleIncreaseQuantity}> handleDecreaseQuantity={handleDecreaseQuantity}</AddToCartModal>
 
                 </div>
-                <div className='w-full text-center '>
-                    
+                <div className='w-full text-center '>                
                      {/* review */}
                     <h1 className="text-3xl text-center text-yellow-400">Write A Review</h1>
                     <form onSubmit={handlePlaceReview} className="w-80 mx-auto mr-14  mt-5">
@@ -138,8 +133,7 @@ const RestaurantDetails = () => {
                                 <div className="card  shadow-2xl">
                                     <div className="card-body">
                                         <div className="form-control">
-
-                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered"/>
+                                    <input name='name' type="text" placeholder=" Name" className="input input-bordered"/>
                                         </div>
 
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>

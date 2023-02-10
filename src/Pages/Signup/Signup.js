@@ -5,12 +5,21 @@ import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { getAuth, updateProfile } from "firebase/auth";
+import useToken from '../../Hooks/useToken';
 
 const Signup = () => {
 
     const { createUser } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
     const auth = getAuth();
+
+    const [token] = useToken(createdUserEmail);
+    const navigate = useNavigate();
+
+    if(token){
+        navigate('/')
+    }
+   
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -55,9 +64,6 @@ const Signup = () => {
     });
 
 
-
-
-
     const { email, password, displayName, passwordConfirm } = state;
 
 
@@ -78,10 +84,13 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                navigate('/login');
-                console.log(data);
+                
+                setCreatedUserEmail(email);
             })
     }
+
+
+   
 
     return (
 
