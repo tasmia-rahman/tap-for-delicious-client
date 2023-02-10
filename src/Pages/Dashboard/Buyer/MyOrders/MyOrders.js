@@ -19,7 +19,16 @@ const MyOrders = () => {
     const { data: myOrders = [], isFetching } = useQuery({
         queryKey: ['myOrders', user?.uid, user?.email],
         queryFn: async () => {
+<<<<<<< HEAD
+            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`,{
+                headers:{
+                    authorization:`bearer ${localStorage.getItem('accessToken')}`
+                }
+
+            });
+=======
             const res = await fetch(url);
+>>>>>>> 9db81eb5ffc8d58a2d54360a142a4ab073b5715b
             const data = await res.json();
             return data;
         }
