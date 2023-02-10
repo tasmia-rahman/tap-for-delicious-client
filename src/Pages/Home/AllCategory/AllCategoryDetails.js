@@ -8,6 +8,11 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
         <div className=''>
 
             <div className='flex gap-5 justify-start '>
+<<<<<<< HEAD
+                <div className='w-24'>
+                    <div className='mask w-24 h-24 '>
+                        <img className='hover:scale-105 duration-700 rounded-xl' src={image} alt="food" />
+=======
                 <div className='w-full card card-body card-bordered rounded-none mt-3'>
                     <div className=''>
 
@@ -15,12 +20,13 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
                         {/* <div className='mask w-24 h-24'>
                         <img className='hover:scale-105 duration-700' src={image} alt="food" />
                     </div> */}
-                            
-                                <img className='hover:scale-105 duration-700' style={{width:"450px",height:"200px"}} src={image} alt="food" />
 
+                        <img className='hover:scale-105 duration-700' style={{ width: "450px", height: "200px" }} src={image} alt="food" />
+
+>>>>>>> 9db81eb5ffc8d58a2d54360a142a4ab073b5715b
                     </div>
                     <div>
-                    <h2 className='text-2xl font-semibold my-3 '>{name}</h2>
+                        <h2 className='text-2xl font-semibold my-3 '>{name}</h2>
                         <p>{details}</p>
                         <p className='text-red-600 font-semibold'>Price: {price}</p>
                     </div>

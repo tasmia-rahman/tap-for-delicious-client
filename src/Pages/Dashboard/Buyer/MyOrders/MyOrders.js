@@ -1,19 +1,34 @@
 import { useContext } from 'react';
 import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
-import { useQuery } from 'react-query';
 import useUser from './../../../../Hooks/useUser';
+import { useQuery } from 'react-query';
 import Loading from './../../../Shared/Loading/Loading';
 
 const MyOrders = () => {
 
     const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.displayName);
-    console.log(buyer);
+
+    let url;
+    if ((user.email === null) && user.uid) {
+        url = `https://tap-for-delicious-server.vercel.app/orders_with_uid/${user?.uid}`;
+    }
+    else {
+        url = `https://tap-for-delicious-server.vercel.app/orders_with_email/${user?.email}`;
+    }
 
     const { data: myOrders = [], isFetching } = useQuery({
-        queryKey: ['myOrders', buyer?.email],
+        queryKey: ['myOrders', user?.uid, user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://tap-for-delicious-server.vercel.app/orders/${buyer?.email}`);
+<<<<<<< HEAD
+            const res = await fetch(`http://localhost:5000/orders/${buyer?.email}`,{
+                headers:{
+                    authorization:`bearer ${localStorage.getItem('accessToken')}`
+                }
+
+            });
+=======
+            const res = await fetch(url);
+>>>>>>> 9db81eb5ffc8d58a2d54360a142a4ab073b5715b
             const data = await res.json();
             return data;
         }

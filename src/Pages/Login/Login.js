@@ -3,18 +3,20 @@ import logo from '../../Assets/tap-logo.png'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
+import { FcGoogle } from 'react-icons/fc'
+
 import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from './../../Context/AuthProvider/AuthProvider';
+
 
 const Login = () => {
     const { loginUser, providerLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
+
     const from = location.state?.from?.pathname || '/';
-
-
 
     const [show, setShow] = useState(false)
     // const [state, setState] = useState({
@@ -23,16 +25,19 @@ const Login = () => {
     // });
     // const { email, password } = state;
 
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
+
         loginUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
 
                 const currentUser = {
                     email: user.email
@@ -54,25 +59,28 @@ const Login = () => {
                 //     navigate(from, {replace: true});
                 // })
 
+
             })
             .catch(err => console.error(err))
     }
 
+
     const googleProvider = new GoogleAuthProvider();
+
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                console.log(user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                saveUser(user.displayName, user.email, 'buyer');
+                let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
+                saveUser(userInfo);
             })
             .catch(error => console.log(error.message))
     }
 
-    const facebookProvider = new FacebookAuthProvider();
 
     const handleFacebookSignIn = () => {
         providerLogin(facebookProvider)
@@ -81,14 +89,25 @@ const Login = () => {
                 console.log(user)
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                saveUser(user.displayName, user.email, 'buyer');
+                let userInfo;
+                if (user.email === null) {
+                    userInfo = { uid: user?.uid, displayName: user?.displayName, role: 'buyer' };
+                }
+                else {
+                    userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
+                }
+                saveUser(userInfo);
             })
             .catch(error => console.log(error.message))
     }
 
+
+    const facebookProvider = new FacebookAuthProvider();
+
+
+
     // ---- Send user info to database ---- //
-    const saveUser = (displayName, email, role) => {
-        const user = { displayName, email, role: role };
+    const saveUser = (user) => {
         fetch('https://tap-for-delicious-server.vercel.app/users', {
             method: 'POST',
             headers: {
@@ -105,6 +124,7 @@ const Login = () => {
 
 
     return (
+
 
         <div className="min-h-screen md:flex">
             <div
@@ -149,17 +169,19 @@ const Login = () => {
                             {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
                         </p>
                     </div>
-                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
-                hover:bg-amber-400 hover:text-white bg-transparent hover:border-white text">Login</button>
+                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 hover:border-amber-400 text-amber-500
+                hover:bg-amber-400 hover:text-white bg-transparent text">Login</button>
                     <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ?</span>
                     <div className='mt-4'>
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
                     <div className="divider">OR</div>
-                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
-                        CONTINUE WITH GOOGLE <BsGoogle className='ml-2' />
+
+                    <button type='button' onClick={handleGoogleSignIn} className='w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 text bg-transparent'>
+                        CONTINUE WITH GOOGLE <FcGoogle className='ml-2 text-lg' />
                     </button>
-                    <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white hover:border-white text bg-transparent'>
+                    <button type='button' onClick={handleFacebookSignIn} className='flex block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text bg-transparent hover:border-blue-500 text'>
+
                         CONTINUE WITH FACEBOOK <BsFacebook className='ml-2' />
                     </button>
                 </form>
@@ -167,5 +189,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;

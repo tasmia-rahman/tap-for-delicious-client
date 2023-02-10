@@ -5,15 +5,24 @@ import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { getAuth, updateProfile } from "firebase/auth";
-const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+import useToken from '../../Hooks/useToken';
+
 const Signup = () => {
     const [errors,setErrors]=useState({
         email: "",
         password: "",
     })
     const { createUser } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
     const auth = getAuth();
+
+    const [token] = useToken(createdUserEmail);
+    const navigate = useNavigate();
+
+    if(token){
+        navigate('/')
+    }
+   
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -57,9 +66,6 @@ const Signup = () => {
         passwordConfirm: "",
     });
     console.log(state.displayName);
-
-
-
 
     const { email, password, displayName, passwordConfirm } = state;
 
@@ -121,10 +127,13 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                navigate('/login');
-                console.log(data);
+                
+                setCreatedUserEmail(email);
             })
     }
+
+
+   
 
     return (
 
@@ -191,7 +200,7 @@ const Signup = () => {
                         </p>
                     </div>
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
-                hover:bg-amber-400 hover:text-white hover:border-white bg-transparent text">Sign Up</button>
+                hover:bg-amber-400 hover:text-white hover:border-amber-400 bg-transparent text">Sign Up</button>
                     <div>
                         <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Already on Tap for Delicious?</span>
                         <span className='text-orange-400 font-semibold bg-transparent hover:text-amber-400 hover:font-bold'>
