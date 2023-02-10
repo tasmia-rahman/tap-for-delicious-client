@@ -3,6 +3,7 @@ import $ from "jquery";
 import "jquery-ui-dist/jquery-ui";
 import { BiSearchAlt2 } from 'react-icons/bi'
 
+
 const Search = () => {
 
     useEffect(() => {
@@ -11,9 +12,14 @@ const Search = () => {
                 let data = await fetch(`http://localhost:5000/search?term=${request.term}`)
                     .then(results => results.json())
                     .then(results => results.map(result => {
+                        console.log(result);
                         return { label: result.name, value: result.name, id: result._id }
                     }));
                 response(data);
+            },
+            minLength: 2,
+            select: function(event, ui){
+                console.log(ui.item);
             }
         });
     }, [])
