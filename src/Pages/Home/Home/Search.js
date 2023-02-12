@@ -9,7 +9,7 @@ const Search = () => {
     useEffect(() => {
         $("#foodSearch").autocomplete({
             source: async function (request, response) {
-                let data = await fetch(`http://localhost:5000/search?term=${request.term}`)
+                let data = await fetch(`https://tap-for-delicious-server.vercel.app/search?term=${request.term}`)
                     .then(results => results.json())
                     .then(results => results.map(result => {
                         console.log(result);
@@ -18,7 +18,7 @@ const Search = () => {
                 response(data);
             },
             minLength: 2,
-            select: function(event, ui){
+            select: function (event, ui) {
                 console.log(ui.item);
             }
         });

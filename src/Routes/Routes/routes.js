@@ -27,6 +27,7 @@ import DashboardRestaurant from "../../Pages/Dashboard/UploadFood/DashboardResta
 import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestaurants/ReportedRestaurants';
+import Documentation from "../../Pages/Documentation/Documentation";
 
 export const router = createBrowserRouter([
     {
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
                 path: '/resDetails/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
                 loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
+            },
+            {
+                path: '/documentation',
+                element: <Documentation></Documentation>
             }
         ]
     },
