@@ -25,7 +25,7 @@ const AvailableRestaurant = () => {
                 <div className='p-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
                     {
                         foodItems.map(foodItem => <FoodItemCard
-                            key={foodItem.id}
+                            key={foodItem._id}
                             foodItem={foodItem}
                         ></FoodItemCard>)
                     }

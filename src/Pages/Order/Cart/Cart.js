@@ -5,6 +5,7 @@ import { addToCart, deleteFromCart } from '../../../Redux/Actions/cartAction';
 import { Link } from 'react-router-dom';
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -26,7 +27,7 @@ const Cart = () => {
                     <div className="card-body">
                         {
                             cartItems.map((cartItem, i) => {
-                                return <div key={i} className='flex items-center mb-2'>
+                                return <div key={i} className='lg:flex md:flex items-center mb-2'>
                                     <div>
                                         <h4 className='text-warning text-xl flex items-center'>
                                             <span
@@ -39,7 +40,7 @@ const Cart = () => {
                                         </h4>
                                         <div className='flex items-center mt-1 ml-8'>
                                             <div>
-                                                <p>Quantity:</p>
+                                                <p className='ml-[-31px] md:ml-1 lg:ml-1'>Quantity:</p>
                                             </div>
                                             <div className='flex items-center ml-2'>
                                                 <FaMinusCircle
@@ -60,7 +61,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <p className='flex justify-end'>TK {cartItem.totalPrice}</p>
+                                    <p className='lg:flex md:flex justify-end'>TK {cartItem.totalPrice}</p>
                                 </div>
                             })
                         }
@@ -78,11 +79,11 @@ const Cart = () => {
                             <p className='flex justify-end'>TK 3</p>
                         </div>
                         <div className='flex items-center'>
-                            <p><span className='font-bold'>Total</span> <small>(Incl. VAT where applicable)</small></p>
+                            <p><span className='font-bold'>Total</span> <small className='hidden lg:flex md:flex'>(Incl. VAT where applicable)</small></p>
                             <p className='flex justify-end'>TK {subtotal + 60 + 3}</p>
                         </div>
                         <button
-                            className='btn btn-warning text-white w-full rounded-lg mt-4'
+                            className='btn mx-auto md:mx-auto flex justify-center mt-16 border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
                         >
                             <Link to='/order'>Go To Checkout</Link>
                         </button>
@@ -90,8 +91,15 @@ const Cart = () => {
                 </div>
             </>
             :
-            <div className='my-40'>
-                <h3 className='text-warning text-4xl text-center'>Nothing in cart!</h3>
+            <div className='min-h-screen flex flex-col md:flex-row items-center justify-center'>
+                <h3 className='text-warning text-4xl text-center '>Nothing in cart!</h3>
+                <Player
+                    src='https://assets5.lottiefiles.com/packages/lf20_peztuj79.json'
+                    className="player"
+                    loop
+                    autoplay
+                    speed={1}
+                />
             </div>
     );
 };

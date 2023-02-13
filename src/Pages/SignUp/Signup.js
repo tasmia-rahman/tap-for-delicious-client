@@ -4,11 +4,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+
 import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
+
 import useToken from '../../Hooks/useToken';
 
-const Signup = () => {
 
+const Signup = () => {
+    const [errors,setErrors]=useState({
+        email: "",
+        password: "",
+    })
     const { createUser } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const auth = getAuth();
@@ -61,9 +67,9 @@ const Signup = () => {
         displayName: "",
         email: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
     });
-
+    console.log(state.displayName);
 
     const { email, password, displayName, passwordConfirm } = state;
 
@@ -71,7 +77,49 @@ const Signup = () => {
     const handleChange = (e) => {
         let { name, value } = e.target;
         setState({ ...state, [name]: value })
+        
     };
+    const handleEmailChange=(e)=>{
+        const email=e.target.value;
+        const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if(!emailValidator.test(email)){
+            setErrors({...errors,email:"× Please provide a valid email"})  
+            setState({ ...state, email: e.target.value })
+        }
+        else
+        {
+            setErrors({...errors,email:""}) 
+         setState({ ...state, email: e.target.value })
+        }
+    }
+    ///
+    const handlePasswordChange=(e)=>{
+        const password=e.target.value;
+        const passNumber=/^(?=.*[0-9])/;
+        const passUpperCase=/^(?=.*[A-Z])/.test(password);
+        const passLowerCase=/^(?=.*[a-z])/.test(password);
+        if(!passNumber.test(password)){
+            setErrors({...errors,password:"× Must contain 1 number "})
+            setState({ ...state, password: e.target.value })
+        }
+       else if(!passUpperCase){
+            setErrors({...errors,password:"× Must contain 1 Upper Case "})
+            setState({ ...state, password: e.target.value })
+        }
+       else if(!passLowerCase){
+            setErrors({...errors,password:"× Must contain 1 Lower Case "})
+            setState({ ...state, password: e.target.value })
+        }
+        else if(password.length<6){
+            setErrors({...errors,password:"× Must contain at least 6 characters"})
+            setState({ ...state, password: e.target.value })
+        }
+        else{
+            setErrors({...errors,password:""})
+            setState({ ...state, password: e.target.value })
+               }
+    }
 
     // ---- Send user info to database ---- //
     const saveUser = (displayName, email, role) => {
@@ -133,8 +181,9 @@ const Signup = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                 d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                         </svg>
-                        <input className="pl-2 outline-none border-none" type="email" name="email" id="" placeholder="Email Address" onChange={handleChange} value={email} required />
+                        <input className="pl-2 outline-none border-none" type="email" name="email" id="" placeholder="Email Address" onChange={handleEmailChange} value={email} required />
                     </div>
+                    {errors.email&&<p className=' text-amber-500 mt-[-10px] mb-3 ml-3'>{errors.email}</p>}
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
@@ -143,12 +192,13 @@ const Signup = () => {
                                 clipRule="evenodd" />
                         </svg>
                         <input className="pl-2  border-none outline-none"
-                            type={show ? 'text' : 'password'} name="password" id="" placeholder="Password" onChange={handleChange} value={password} required />
+                            type={show ? 'text' : 'password'} name="password" id="" placeholder="Password" onChange={handlePasswordChange} value={password} required />
                         <p className='cursor-pointer'>
                             {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
                         </p>
 
                     </div>
+                    {errors.password&&<p className='text-amber-500 mt-[-10px] mb-3 ml-2'>{errors.password}</p>}
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">

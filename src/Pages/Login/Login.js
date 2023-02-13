@@ -24,6 +24,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     const [show, setShow] = useState(false)
+    const [errors,setErrors]=useState("")
     // const [state, setState] = useState({
     //     email: "",
     //     password: "",
@@ -55,9 +56,10 @@ const Login = () => {
                 navigate(from, { replace: true });
                
             })
-            .catch(err => console.error(err))
-    }
-   
+
+            .catch(err => setErrors(err.code)
+            )
+        }
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -181,6 +183,7 @@ const Login = () => {
                             {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
                         </p>
                     </div>
+                    {errors&&<p className='text-amber-500 mt-2 text-center mb-[-7px] '>{errors}</p>}
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 hover:border-amber-400 text-amber-500
                 hover:bg-amber-400 hover:text-white bg-transparent text">Login</button>
                     <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ? <button onClick={handleForgetPassword} className=''>Reset password</button>

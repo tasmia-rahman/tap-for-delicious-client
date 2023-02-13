@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/tap-logo.png'
+import banner from '../../../Assets/footer-banner/footer3.jpg'
 
 const Footer = () => {
     return (
-        <footer data-theme="" className="px-4 divide-y">
+        <div
+        className=" bg-cover bg-right"
+        style={{ backgroundImage: `url(${banner})` }}
+      >
+        <footer  className="px-10 py-10 divide-y bg-cover bg-right bg-slate-100"
+        style={{ backgroundImage: `url(${banner})` }} data-theme="">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-                <div className="lg:w-1/3">
+                <div className="lg:w-1/3 p-10">
                     <Link to="/home" className="flex justify-center space-x-3 lg:justify-start">
                         <div className="flex items-center justify-center w-24 h-24 rounded-full">
                             <img src={logo} alt="" srcSet="" />
@@ -47,12 +53,13 @@ const Footer = () => {
                     <div className="space-y-3">
                         <h3 className="uppercase font-bold text-xl">Support</h3>
                         <ul className="space-y-1">
+                        <li>
+                                <Link to='/documentation'>Documentation</Link>
+                            </li>
                             <li>
                                 <Link href="#">Partner with us</Link>
                             </li>
-                            <li>
-                                <Link href="#">Documentation</Link>
-                            </li>
+                            
                             <li>
                                 <Link href="#">Guides</Link>
                             </li>
@@ -83,8 +90,10 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center text-gray-600">© Tap For Delicious. All rights reserved.</div>
+            <div className="py-6 text-sm text-center">© Tap For Delicious. All rights reserved.</div>
         </footer>
+      </div>
+       
     );
 };
 

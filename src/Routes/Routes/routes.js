@@ -5,7 +5,6 @@ import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
 import AddBlog from "../../Pages/Dashboard/Seller/AddBlog/AddBlog";
 import Users from "../../Pages/Dashboard/Users/Users";
-import AllCategory from "../../Pages/Home/AllCategory/AllCategory";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
@@ -27,6 +26,7 @@ import DashboardRestaurant from "../../Pages/Dashboard/UploadFood/DashboardResta
 import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestaurants/ReportedRestaurants';
+import Documentation from "../../Pages/Documentation/Documentation";
 
 export const router = createBrowserRouter([
     {
@@ -63,11 +63,6 @@ export const router = createBrowserRouter([
                 element: <AvailableRestaurant />
             },
             {
-                path: '/allcategory/:id',
-                element: <AllCategory></AllCategory>,
-                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/services/${params.id}`)
-            },
-            {
                 path: '/details/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
                 loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
@@ -96,6 +91,10 @@ export const router = createBrowserRouter([
                 path: '/resDetails/:email',
                 element: <RestaurantDetails></RestaurantDetails>,
                 loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/restaurants/${params.email}`)
+            },
+            {
+                path: '/documentation',
+                element: <Documentation></Documentation>
             }
         ]
     },
