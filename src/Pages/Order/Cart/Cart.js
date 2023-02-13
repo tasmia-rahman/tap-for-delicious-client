@@ -26,7 +26,7 @@ const Cart = () => {
                     <div className="card-body">
                         {
                             cartItems.map((cartItem, i) => {
-                                return <div key={i} className='flex items-center mb-2'>
+                                return <div key={i} className='lg:flex md:flex items-center mb-2'>
                                     <div>
                                         <h4 className='text-warning text-xl flex items-center'>
                                             <span
@@ -39,7 +39,7 @@ const Cart = () => {
                                         </h4>
                                         <div className='flex items-center mt-1 ml-8'>
                                             <div>
-                                                <p>Quantity:</p>
+                                                <p className='ml-[-31px] md:ml-1 lg:ml-1'>Quantity:</p>
                                             </div>
                                             <div className='flex items-center ml-2'>
                                                 <FaMinusCircle
@@ -60,7 +60,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <p className='flex justify-end'>TK {cartItem.totalPrice}</p>
+                                    <p className='lg:flex md:flex justify-end'>TK {cartItem.totalPrice}</p>
                                 </div>
                             })
                         }
@@ -78,7 +78,7 @@ const Cart = () => {
                             <p className='flex justify-end'>TK 3</p>
                         </div>
                         <div className='flex items-center'>
-                            <p><span className='font-bold'>Total</span> <small>(Incl. VAT where applicable)</small></p>
+                            <p><span className='font-bold'>Total</span> <small className='hidden lg:flex md:flex'>(Incl. VAT where applicable)</small></p>
                             <p className='flex justify-end'>TK {subtotal + 60 + 3}</p>
                         </div>
                         <button

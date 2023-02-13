@@ -137,7 +137,7 @@ const RestaurantDetails = () => {
                         </div>
                     </div>
                     <div className='mt-6 rounded-lg card-bordered'>
-                        <h1 className="text-2xl font-bold mb-1 ml-3">Advertisement</h1>
+                        <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8 ">Advertisement</h1>
                         <div className='flex justify-center mt-2 mb-4'>
                             <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='shadow-lg' />
                         </div>
@@ -197,7 +197,7 @@ const RestaurantDetails = () => {
                             </div>
                         </div>
                     </form>
-                    <div className='mt-10 mx-12'>
+                    <div className='mt-10  lg:ml-14 ml-16'>
                         <label htmlFor="report-modal" className='py-2 px-6 border-2 bg-red-600 border-red-600 text-white rounded-2xl hover:bg-base-100 hover:text-red-500 hover:border-red-400 text shadow-sm shadow-red-400 hover:shadow-lg hover:shadow-red-400 duration-300'
                         >
                             Report This Restaurant
