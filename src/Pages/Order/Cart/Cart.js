@@ -5,6 +5,7 @@ import { addToCart, deleteFromCart } from '../../../Redux/Actions/cartAction';
 import { Link } from 'react-router-dom';
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -90,8 +91,15 @@ const Cart = () => {
                 </div>
             </>
             :
-            <div className='my-40'>
-                <h3 className='text-warning text-4xl text-center'>Nothing in cart!</h3>
+            <div className='min-h-screen flex flex-col md:flex-row items-center justify-center'>
+                <h3 className='text-warning text-4xl text-center '>Nothing in cart!</h3>
+                <Player
+                    src='https://assets5.lottiefiles.com/packages/lf20_peztuj79.json'
+                    className="player"
+                    loop
+                    autoplay
+                    speed={1}
+                />
             </div>
     );
 };

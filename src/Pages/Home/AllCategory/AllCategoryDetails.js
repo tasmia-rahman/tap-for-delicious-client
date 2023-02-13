@@ -5,7 +5,7 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
 
     return (
 
-        <div className=''>
+        <div className='mb-5'>
 
             <div className='flex gap-5 justify-start '>
                 <div className='w-full card card-body card-bordered rounded-none mt-3'>
