@@ -16,7 +16,7 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
                         <img className='hover:scale-105 duration-700' src={image} alt="food" />
                     </div> */}
 
-                        <img className='hover:scale-105 duration-700' style={{ width: "450px", height: "200px" }} src={image} alt="food" />
+                        <img className='hover:scale-105 duration-700' style={{ width: "450px", height: "" }} src={image} alt="food" />
 
                     </div>
                     <div>
@@ -28,7 +28,7 @@ const AllCategoryDetails = ({ item, handleCartModal }) => {
                         <div>
                             <label
                                 htmlFor="addToCart-modal"
-                                className="btn w-[150px] mx-auto flex justify-center mr-10 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300"
+                                className="btn w-[150px] mx-auto flex justify-center border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300"
                                 onClick={() => handleCartModal(item)}
                             >
                                 Add to cart
