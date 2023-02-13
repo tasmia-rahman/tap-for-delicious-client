@@ -17,8 +17,7 @@ const NotFound = () => {
           autoplay
           speed={1}
         />
-        <Link to='/'> <p className="flex justify-center w-60 mx-auto btn border-2 border-amber-400  text-amber-500 rounded-2xl bg-transparent
-                hover:bg-amber-400 hover:text-white hover:border-white">Back to home</p>
+        <Link to='/'> <p className="flex justify-center w-60 mx-auto btn border-2 border-amber-400  text-amber-500 rounded-2xl bg-transparent hover:bg-amber-400 hover:text-white hover:border-white">Back to home</p>
         </Link>
 
       </div>
