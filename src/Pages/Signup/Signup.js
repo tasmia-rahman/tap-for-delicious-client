@@ -7,9 +7,6 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 
-
-
-
 import useToken from '../../Hooks/useToken';
 
 
