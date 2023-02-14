@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import AllCategoryDetails from "../Home/AllCategory/AllCategoryDetails";
@@ -29,10 +29,10 @@ const RestaurantDetails = () => {
         }
         else {
             if (isAdmin || isSeller) {
-                toast('You can not add item to cart!');
+                toast.error('You can not add item to cart!');
             }
             else {
-                toast('You must log in first!');
+                toast.error('You must log in first!');
             }
         }
     }
@@ -131,10 +131,13 @@ const RestaurantDetails = () => {
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                         </div>
-                        <p className='text-xl'>Total foods : {foods?.length}</p>
+                        <div className='flex gap-2'>
+                            <img className='h-[30px]' src='https://marketplace.foodotawp.com/wp-content/themes/foodota/libs/images/menu-cc.png' alt='' />
+                            <p className='text-xl'>Total foods : {foods?.length}</p>
+                        </div>
                     </div>
-                    <div className='mt-6 rounded-lg card-bordered'>
-                        <h1 className="text-2xl font-bold mb-1 ml-3">Advertisement</h1>
+                    <div className='mt-6 rounded-lg card-bordered py-3'>
+                        <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8 ">Advertisement</h1>
                         <div className='flex justify-center mt-2 mb-4'>
                             <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='shadow-lg' />
                         </div>
@@ -143,8 +146,8 @@ const RestaurantDetails = () => {
 
                 <div class="lg:ml-[-40px] lg:w-[515px] mx-3 mt-5 lg:mt-0"  >
                     <div className=' rounded-t-lg card-bordered px-8 pt-4'>
-                        <h1 className='text-2xl font-bold'>Categories</h1>
-                        <div className='flex gap-1 mb-3 mt-3'>
+                        <h1 className='text-2xl font-bold'>Available items</h1>
+                        <div className='flex gap-1 mb-3 mt-1'>
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "50px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
@@ -166,7 +169,7 @@ const RestaurantDetails = () => {
                     {/* review */}
                     <div className='rounded-lg card-bordered px-8 pt-4'>
                         <h1 className='text-2xl font-bold'>Review</h1>
-                        <div className='flex gap-1 mb-3 mt-3'>
+                        <div className='flex gap-1 mb-3 mt-1'>
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "50px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
@@ -182,7 +185,6 @@ const RestaurantDetails = () => {
                                 <div className="card  card-bordered">
                                     <div className="card-body">
                                         <div className="form-control">
-
                                             <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
                                         </div>
 
@@ -195,7 +197,7 @@ const RestaurantDetails = () => {
                             </div>
                         </div>
                     </form>
-                    <div className='mt-10 mx-12'>
+                    <div className='mt-10  lg:ml-14 ml-16 mb-10 flex items-center'>
                         <label htmlFor="report-modal" className='py-2 px-6 border-2 bg-red-600 border-red-600 text-white rounded-2xl hover:bg-base-100 hover:text-red-500 hover:border-red-400 text shadow-sm shadow-red-400 hover:shadow-lg hover:shadow-red-400 duration-300'
                         >
                             Report This Restaurant

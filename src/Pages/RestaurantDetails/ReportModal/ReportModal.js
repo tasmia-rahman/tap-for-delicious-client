@@ -27,7 +27,8 @@ const ReportModal = ({ buyer, restaurant }) => {
             .then(res => res.json())
             .then(result => {
                 if (result.acknowledged) {
-                    toast(`You reported ${restaurant?.title}`);
+                    toast.error(`You reported ${restaurant?.title}`);
+                    form.reset();
                 }
             })
     }

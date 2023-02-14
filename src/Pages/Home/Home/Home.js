@@ -20,7 +20,7 @@ import Search from './Search';
 const Home = () => {
     const [search, setSearch] = useState([]);
 
-    const { data: restaurants, refetch, isFetching } = useQuery({
+    const { data: restaurants, isFetching } = useQuery({
         queryKey: ["restaurants"],
         queryFn: async () => {
             try {
@@ -34,18 +34,18 @@ const Home = () => {
         }
     })
 
-    const [topRestaurant, setTopRestaurant] = useState([]);
+    const [topRestaurants, setTopRestaurants] = useState([]);
     useEffect(() => {
-        fetch('https://tap-for-delicious-server.vercel.app/services-limit')
+        fetch('http://localhost:5000/restaurants-limit')
             .then(res => res.json())
-            .then(data => setTopRestaurant(data))
+            .then(data => setTopRestaurants(data))
 
     }, [])
 
 
 
     // const handleSearch = (event) =>{
-    //     fetch(`http://localhost:5000/search?term=${event.target.value}`)
+    //     fetch(`https://tap-for-delicious-server.vercel.app/search?term=${event.target.value}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             //setSearch(data)
@@ -104,8 +104,9 @@ const Home = () => {
                 </div> */}
                 <div>
                     <Restaurants
-                        restaurants={restaurants}
-                        isFetching={isFetching}></Restaurants>
+                        restaurants={topRestaurants}
+                        isFetching={isFetching}>
+                    </Restaurants>
                 </div>
 
                 <Reviews></Reviews>

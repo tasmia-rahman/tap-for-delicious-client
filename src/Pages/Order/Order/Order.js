@@ -156,10 +156,12 @@ const Order = () => {
                         </div>
                     </div>
                 </div>
-                
+               
                 
                 {/* <button
                     className='btn btn-warning text-white w-full rounded-lg'
+                <button
+                    className='btn border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
                     type='submit'
                 >
                     Confirm Order
