@@ -89,7 +89,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center">© Tap For Delicious. All rights reserved.</div>
+            <div className="py-6 text-center">© Tap For Delicious. All rights reserved.</div>
         </footer>
        
     );
