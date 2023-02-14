@@ -7,6 +7,7 @@ import { emptyCart } from './../../../Redux/Actions/cartAction';
 import { useContext } from 'react';
 import { AuthContext } from './../../../Context/AuthProvider/AuthProvider';
 import useUser from './../../../Hooks/useUser';
+import Payment from '../../Payment/Payment';
 
 const Order = () => {
     const { user } = useContext(AuthContext);
@@ -19,6 +20,16 @@ const Order = () => {
 
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
+
+    const [showCards, setShowCards] = useState(false)
+
+    const showCard = (value) => {
+        if (value === 'card') {
+            setShowCards(true)
+        } else {
+            setShowCards(false)
+        }
+    }
 
     const handleOrder = (event) => {
         event.preventDefault()
@@ -66,7 +77,8 @@ const Order = () => {
     }
 
     return (
-        <form onSubmit={handleOrder}>
+       <>
+          <form onSubmit={handleOrder}>
             <div className='w-7/12 mx-auto mt-6 mb-36'>
                 <div className="card bg-base-100 shadow-xl mb-10">
                     <div className="card-body">
@@ -125,6 +137,7 @@ const Order = () => {
                                     className="radio radio-warning mr-2"
                                     onChange={(event) => setPaymentType(event.target.value)}
                                     checked={paymentType === 'COD'}
+                                    onClick={(e)=>showCard(e.target.value)}
                                 />
                                 <p>Cash On Delivery</p>
                             </div>
@@ -136,20 +149,28 @@ const Order = () => {
                                     className="radio radio-warning mr-2"
                                     onChange={(event) => setPaymentType(event.target.value)}
                                     checked={paymentType === 'card'}
+                                    onClick={(e)=>showCard(e.target.value)}
                                 />
                                 <p>Card</p>
                             </div>
                         </div>
                     </div>
                 </div>
+               
+                
+                {/* <button
+                    className='btn btn-warning text-white w-full rounded-lg'
                 <button
                     className='btn border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
                     type='submit'
                 >
                     Confirm Order
-                </button>
+                </button> */}
             </div >
         </form>
+        {showCards ? <Payment data={cartItems}></Payment> : null}
+       </>
+       
     );
 };
 
