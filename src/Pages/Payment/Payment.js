@@ -17,7 +17,7 @@ const Payment = ({ data }) => {
        <div className="w-7/12 mx-auto mt-[-90px] mb-36" >
          <div className="card bg-base-100 shadow-xl mb-10 ">
          <div className="card-body">
-            <h3 className='text-3xl'>Please Complete your order</h3>
+            <h3 className='text-3xl text-warning'>Please Complete your order</h3>
             <p className='text-xl'>Your Payable amount is <strong>{total}</strong></p>
             <div>
                 <Elements stripe={stripePromise}>
