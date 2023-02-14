@@ -20,7 +20,6 @@ const RestaurantOrders = () => {
             return data;
         }
     });
-    console.log(orders);
 
     const handleOrderDelete = (id) => {
         fetch(`https://tap-for-delicious-server.vercel.app/orders/${id}`, {
@@ -53,6 +52,7 @@ const RestaurantOrders = () => {
                             <th>Customer Email</th>
                             <th>Address</th>
                             <th>Note</th>
+                            <th>Payment Amount</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
                             <th></th>
@@ -79,6 +79,7 @@ const RestaurantOrders = () => {
                                 <td>{order.buyerEmail}</td>
                                 <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
                                 <td>{order.note}</td>
+                                <td>{order.payable}</td>
                                 <td>{order.paymentType}</td>
                                 <td>
                                     <OrderStatus order={order} refetch={refetch}></OrderStatus>

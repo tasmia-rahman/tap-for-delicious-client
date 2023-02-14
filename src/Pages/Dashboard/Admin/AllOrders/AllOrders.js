@@ -29,6 +29,7 @@ const AllOrders = () => {
                             <th>Customer Email</th>
                             <th>Ordered Items</th>
                             <th>Restaurant</th>
+                            <th>Payment Amount</th>
                             <th>Order Date</th>
                             <th>Order Status</th>
                         </tr>
@@ -52,6 +53,7 @@ const AllOrders = () => {
                                     }
                                 </td>
                                 <td>{order.restaurantName}</td>
+                                <td>{order.payable}</td>
                                 <td>{order.date.substring(0, 24)}</td>
                                 <td>{order.orderStatus}</td>
                             </tr>)

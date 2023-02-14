@@ -5,10 +5,10 @@ import { addToCart, deleteFromCart } from '../../../Redux/Actions/cartAction';
 import { Link } from 'react-router-dom';
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    console.log(cartItems.length);
 
     const dispatch = useDispatch();
 
@@ -82,16 +82,23 @@ const Cart = () => {
                             <p className='flex justify-end'>TK {subtotal + 60 + 3}</p>
                         </div>
                         <button
-                            className='btn btn-warning text-white w-full rounded-lg mt-4'
+                            className='btn mx-auto md:mx-auto flex justify-center mt-16 border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
                         >
-                            <Link to='/order'>Go To Checkout</Link>
+                            <Link to='/order' payable={subtotal + 60 + 3}>Go To Checkout</Link>
                         </button>
                     </div>
                 </div>
             </>
             :
-            <div className='my-40'>
-                <h3 className='text-warning text-4xl text-center'>Nothing in cart!</h3>
+            <div className='min-h-screen flex flex-col md:flex-row items-center justify-center'>
+                <h3 className='text-warning text-4xl text-center '>Nothing in cart!</h3>
+                <Player
+                    src='https://assets5.lottiefiles.com/packages/lf20_peztuj79.json'
+                    className="player"
+                    loop
+                    autoplay
+                    speed={1}
+                />
             </div>
     );
 };

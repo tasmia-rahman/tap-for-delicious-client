@@ -41,6 +41,7 @@ const MyOrders = () => {
                             <th>Restaurant</th>
                             <th>Order Date</th>
                             <th>Address</th>
+                            <th>Payment Amount</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
                         </tr>
@@ -64,6 +65,7 @@ const MyOrders = () => {
                                 <td>{order.restaurantName}</td>
                                 <td>{order.date.substring(0, 24)}</td>
                                 <td>House #{order.house}, Road #{order.road}, {order.area}, {order.postalCode} </td>
+                                <td>{order.payable}</td>
                                 <td className='capitalize'>{order.paymentType}</td>
                                 <td>{order.orderStatus}</td>
                             </tr>)
