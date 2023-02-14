@@ -27,6 +27,7 @@ import UploadItems from "../../Pages/Dashboard/UploadFood/UploadItems";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestaurants/ReportedRestaurants';
 import Documentation from "../../Pages/Documentation/Documentation";
+import AdvertiseRequests from './../../Pages/Dashboard/Admin/AdvertiseRequests/AdvertiseRequests';
 
 export const router = createBrowserRouter([
     {
@@ -130,6 +131,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allReports',
                 element: <ReportedRestaurants></ReportedRestaurants>
+            },
+            {
+                path: '/dashboard/advertiseRequests',
+                element: <AdvertiseRequests></AdvertiseRequests>
             },
             {
                 path: '/dashboard/restaurantOrders',
