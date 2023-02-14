@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
 import ReportModal from './ReportModal/ReportModal';
+import Advertisement from './Advertisement/Advertisement';
 
 const RestaurantDetails = () => {
 
@@ -135,10 +136,11 @@ const RestaurantDetails = () => {
                         </div>
                     </div>
                     <div className='mt-6 rounded-lg card-bordered py-3'>
-                        <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8 ">Advertisement</h1>
-                        <div className='flex justify-center mt-2 mb-4'>
+                        <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8">Advertisement</h1>
+                        {/* <div className='flex justify-center mt-2 mb-4'>
                             <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='shadow-lg' />
-                        </div>
+                        </div> */}
+                        <Advertisement restaurantName={restaurant.title}></Advertisement>
                     </div>
                 </div>
 

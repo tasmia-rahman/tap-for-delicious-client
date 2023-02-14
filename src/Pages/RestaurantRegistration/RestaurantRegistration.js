@@ -240,7 +240,7 @@ const RestaurantRegistration = () => {
                 <input
                   type="file"
                   name="image"
-                  className="file-input file-input-bordered  w-full "
+                  className="file-input file-input-bordered w-full "
                   required
                 />
               </div>

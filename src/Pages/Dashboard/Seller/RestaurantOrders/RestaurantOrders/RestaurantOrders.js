@@ -29,7 +29,7 @@ const RestaurantOrders = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
-                    toast('Deleted successfully');
+                    toast.success('Deleted successfully');
                 }
             })
     }
