@@ -5,13 +5,12 @@ import banner from '../../../Assets/footer-banner/footer3.jpg'
 
 const Footer = () => {
     return (
-        <div
-        className=" bg-cover bg-right"
-        style={{ backgroundImage: `url(${banner})` }}
-      >
-        <footer  className="px-10 py-10 divide-y bg-cover bg-right bg-slate-100"
+      
+        <footer  className=" divide-y bg-cover  bg-slate-100 bg-fixed font-semibold"
         style={{ backgroundImage: `url(${banner})` }} data-theme="">
-            <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,224L80,192C160,160,320,96,480,101.3C640,107,800,181,960,208C1120,235,1280,213,1360,202.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+            
+            <div className="container flex flex-col justify-between py-10 mx-auto px-10 space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3 p-10">
                     <Link to="/home" className="flex justify-center space-x-3 lg:justify-start">
                         <div className="flex items-center justify-center w-24 h-24 rounded-full">
@@ -90,9 +89,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center">© Tap For Delicious. All rights reserved.</div>
+            <div className="py-6 text-center">© Tap For Delicious. All rights reserved.</div>
         </footer>
-      </div>
        
     );
 };
