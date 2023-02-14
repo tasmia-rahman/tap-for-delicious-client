@@ -4,8 +4,6 @@ import RestaurantCard from './RestaurantCard';
 
 const Restaurants = ({ restaurants }) => {
 
-    console.log("res", restaurants)
-
     return (
         <div className='mt-5'>
             {restaurants ?

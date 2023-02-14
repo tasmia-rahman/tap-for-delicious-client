@@ -8,7 +8,6 @@ import { FaMinusCircle } from "react-icons/fa";
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    console.log(cartItems.length);
 
     const dispatch = useDispatch();
 
@@ -84,7 +83,7 @@ const Cart = () => {
                         <button
                             className='btn btn-warning text-white w-full rounded-lg mt-4'
                         >
-                            <Link to='/order'>Go To Checkout</Link>
+                            <Link to='/order' payable={subtotal + 60 + 3}>Go To Checkout</Link>
                         </button>
                     </div>
                 </div>
