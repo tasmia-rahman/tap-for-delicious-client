@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import { getAuth, updateProfile } from "firebase/auth";
+
+import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 
 import useToken from '../../Hooks/useToken';
 
@@ -45,6 +46,7 @@ const Signup = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                verifyEmail();
                 updateProfile(auth.currentUser, { displayName: displayName })
                     .then(() => {
                         // Profile updated!
@@ -134,6 +136,13 @@ const Signup = () => {
                 
                 setCreatedUserEmail(email);
             })
+    }
+    const verifyEmail = () =>{
+        sendEmailVerification(auth.currentUser)
+        .then(()=>{
+            alert('please check your email and verify your email address!');
+
+        })
     }
 
 
