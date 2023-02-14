@@ -4,7 +4,6 @@ import RestaurantCard from './RestaurantCard';
 
 const Restaurants = ({ restaurants }) => {
 
-
     return (
         <div className='mt-5'>
             {restaurants ?

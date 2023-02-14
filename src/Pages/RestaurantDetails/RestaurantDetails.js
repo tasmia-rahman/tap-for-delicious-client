@@ -57,8 +57,6 @@ const RestaurantDetails = () => {
             .then(data => setRestaurant(data))
     }, [resEmail])
 
-    console.log(restaurant);
-
     const handlePlaceReview = event => {
 
         event.preventDefault();

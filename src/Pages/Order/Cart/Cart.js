@@ -9,7 +9,6 @@ import { Player } from '@lottiefiles/react-lottie-player';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
-    console.log(cartItems.length);
 
     const dispatch = useDispatch();
 
@@ -85,7 +84,7 @@ const Cart = () => {
                         <button
                             className='btn mx-auto md:mx-auto flex justify-center mt-16 border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
                         >
-                            <Link to='/order'>Go To Checkout</Link>
+                            <Link to='/order' payable={subtotal + 60 + 3}>Go To Checkout</Link>
                         </button>
                     </div>
                 </div>
