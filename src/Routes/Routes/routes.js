@@ -29,6 +29,7 @@ import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestauran
 import Documentation from "../../Pages/Documentation/Documentation";
 import AdvertiseRequests from './../../Pages/Dashboard/Admin/AdvertiseRequests/AdvertiseRequests';
 import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
+import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndConditions";
 
 export const router = createBrowserRouter([
     {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
             {
                 path: '/documentation',
                 element: <Documentation></Documentation>
+            },
+            {
+                path: '/terms-and-conditions',
+                element: <TermsAndConditions></TermsAndConditions>
             }
         ]
     },

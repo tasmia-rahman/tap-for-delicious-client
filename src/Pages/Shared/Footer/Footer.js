@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/tap-logo.png'
 import banner from '../../../Assets/footer-banner/footer3.jpg'
+import { FaPhoneAlt, FaRegClock, FaMailBulk } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -21,6 +22,20 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
+                        <h3 className="tracking-wide uppercase font-bold text-xl ">Let's Get Together</h3>
+                        <ul className="space-y-1">
+                            <li className='flex'>
+                               <FaRegClock className='mt-1 mr-2'></FaRegClock> 24/7
+                            </li>
+                            <li className='flex'>
+                            <FaPhoneAlt className='mt-1 mr-2'></FaPhoneAlt>  01999999999
+                            </li>
+                            <li className='flex'>
+                               <FaMailBulk className='mt-1 mr-2'></FaMailBulk> demo@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="space-y-3">
                         <h3 className="tracking-wide uppercase font-bold text-xl ">Product</h3>
                         <ul className="space-y-1">
                             <li>
@@ -29,17 +44,17 @@ const Footer = () => {
                             <li>
                                 <Link to="/toprestaurant">Top Restaurant</Link>
                             </li>
-
                         </ul>
                     </div>
+
                     <div className="space-y-3">
                         <h3 className="tracking-wide uppercase  font-bold text-xl">About</h3>
                         <ul className="space-y-1">
                             <li>
-                                <Link href="#">Privacy policy</Link>
+                                <Link to='/terms-and-conditions'>Terms and Conditions</Link>
                             </li>
                             <li>
-                                <Link href="#">Terms of Service</Link>
+                                <Link href="#">Privacy policy</Link>
                             </li>
                             <li>
                                 <Link href="#">Pricing</Link>
@@ -49,6 +64,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
+                    
                     <div className="space-y-3">
                         <h3 className="uppercase font-bold text-xl">Support</h3>
                         <ul className="space-y-1">
