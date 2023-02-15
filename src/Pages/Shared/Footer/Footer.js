@@ -60,7 +60,7 @@ const Footer = () => {
                                 <Link to='/tofood'>Pricing</Link>
                             </li>
                             <li>
-                                <Link href="#">FAQ</Link>
+                                <Link to='/FAQ'>FAQ</Link>
                             </li>
                         </ul>
                     </div>
