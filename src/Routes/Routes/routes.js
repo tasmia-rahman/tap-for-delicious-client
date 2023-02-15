@@ -30,6 +30,8 @@ import Documentation from "../../Pages/Documentation/Documentation";
 import AdvertiseRequests from './../../Pages/Dashboard/Admin/AdvertiseRequests/AdvertiseRequests';
 import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
 import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndConditions";
+import Privacy from "../../Pages/Privacy/Privacy";
+import FAQ from "../../Pages/FAQ/FAQ";
 
 export const router = createBrowserRouter([
     {
@@ -102,6 +104,14 @@ export const router = createBrowserRouter([
             {
                 path: '/terms-and-conditions',
                 element: <TermsAndConditions></TermsAndConditions>
+            },
+            {
+                path: '/privacy',
+                element: <Privacy></Privacy>
+            },
+            {
+                path: '/FAQ',
+                element: <FAQ></FAQ>
             }
         ]
     },
