@@ -30,8 +30,10 @@ const OrderStatus = ({ order, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('Order status changed successfully');
-                refetch();
+                if (data.modifiedCount > 0) {
+                    toast.success('Order status changed successfully');
+                    refetch();
+                }
             })
             .catch(err => console.error(err))
     }
