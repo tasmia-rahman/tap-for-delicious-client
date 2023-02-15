@@ -28,6 +28,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ReportedRestaurants from './../../Pages/Dashboard/Admin/ReportedRestaurants/ReportedRestaurants';
 import Documentation from "../../Pages/Documentation/Documentation";
 import AdvertiseRequests from './../../Pages/Dashboard/Admin/AdvertiseRequests/AdvertiseRequests';
+import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
 
 export const router = createBrowserRouter([
     {
@@ -151,6 +152,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/uploadItems',
                 element: <UploadItems />
+            },
+            {
+                path: '/dashboard/myProfile',
+                element: <MyProfile />
             }
         ]
     }
