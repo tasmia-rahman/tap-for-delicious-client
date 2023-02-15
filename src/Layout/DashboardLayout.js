@@ -4,6 +4,7 @@ import DashboardNavbar from '../Pages/Shared/DashboardNavbar/DashboardNavbar';
 import { useContext } from 'react';
 import { AuthContext } from './../Context/AuthProvider/AuthProvider';
 import useUser from './../Hooks/useUser';
+import { RiMenuUnfoldLine } from 'react-icons/ri'
 
 const DashboardLayout = () => {
 
@@ -28,8 +29,11 @@ const DashboardLayout = () => {
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content pt-7 px-8 h-full">
-                    <Outlet></Outlet>
-                    <label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="dashboard-drawer" className="absolute top-30 z-20 right-7 drawer-button lg:hidden"><RiMenuUnfoldLine className='text-3xl font-bold text-yellow-400' /> </label>
+                    <div className='mt-16'>
+                        <Outlet></Outlet>
+                    </div>
+
                 </div>
                 <div className="drawer-side drawer-container">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
@@ -94,6 +98,12 @@ const DashboardLayout = () => {
                                         isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                                     }>My Orders</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to='/dashboard/myProfile' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>My Profile</NavLink>
+                                </li>
+
                             </>
                         }
                     </ul>
