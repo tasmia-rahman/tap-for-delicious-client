@@ -2,6 +2,8 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { toast } from 'react-hot-toast';
 import Loading from './../../../Shared/Loading/Loading';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const AdvertiseRequests = () => {
     const { data: advertises = [], refetch, isFetching } = useQuery({
@@ -13,8 +15,19 @@ const AdvertiseRequests = () => {
         }
     });
 
-    const handleAddAdvertise = () => {
-
+    const handleApproveAdvertise = (id) => {
+        fetch(`https://tap-for-delicious-server.vercel.app/advertises/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Advertisement request approved');
+                    refetch();
+                }
+            })
+            .catch(err => console.error(err))
     }
 
     const handleDeleteAdvertise = (id) => {
@@ -24,8 +37,8 @@ const AdvertiseRequests = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    refetch();
                     toast.success('Deleted successfully');
+                    refetch();
                 }
             })
     }
@@ -62,11 +75,22 @@ const AdvertiseRequests = () => {
                                 <td>
                                     <div className="avatar">
                                         <div className="w-24 rounded">
-                                            <img src={advertise.advertiseImg} alt='' />
+                                            <PhotoProvider>
+                                                <PhotoView src={advertise.advertiseImg}>
+                                                    <img src={advertise.advertiseImg} alt='' />
+                                                </PhotoView>
+                                            </PhotoProvider>
                                         </div>
                                     </div>
                                 </td>
-                                <td><button onClick={() => handleAddAdvertise(advertise._id)} className='btn btn-sm bg-teal-600 text-white border-none'>Advertise</button></td>
+                                <td>
+                                    {
+                                        advertise?.isAdvertised === true ?
+                                            <button className='btn btn-sm bg-sky-600 text-white border-none' disabled>Approved</button>
+                                            :
+                                            <button onClick={() => handleApproveAdvertise(advertise._id)} className='btn btn-sm bg-teal-600 text-white border-none'>Approve</button>
+                                    }
+                                </td>
                                 <td><button onClick={() => handleDeleteAdvertise(advertise._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
                             </tr>)
                         }
