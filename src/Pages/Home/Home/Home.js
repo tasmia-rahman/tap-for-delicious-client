@@ -36,7 +36,7 @@ const Home = () => {
 
     const [topRestaurants, setTopRestaurants] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/restaurants-limit')
+        fetch('https://tap-for-delicious-server.vercel.app/restaurants-limit')
             .then(res => res.json())
             .then(data => setTopRestaurants(data))
 
