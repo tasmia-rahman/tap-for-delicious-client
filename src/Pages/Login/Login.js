@@ -69,7 +69,7 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                console.log("gmail", user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
                 let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
