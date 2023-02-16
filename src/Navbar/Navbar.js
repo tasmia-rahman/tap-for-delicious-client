@@ -89,6 +89,7 @@ const Navbar = () => {
         logout()
             .then(() => {
                 dispatch(emptyCart());
+                navigate('/login');
                 // Sign-out successful.
             }).catch((error) => {
                 // An error happened.
