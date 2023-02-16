@@ -7,6 +7,7 @@ import { logoutInitiate } from '../Redux/Authentication/action';
 import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md"
+import { emptyCart } from './../Redux/Actions/cartAction';
 
 
 const Navbar = () => {
@@ -84,12 +85,17 @@ const Navbar = () => {
         }
     }
 
-
     const handleLogOut = () => {
         logout()
-            .then()
-            .catch();
+            .then(() => {
+                dispatch(emptyCart());
+                navigate('/login');
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            })
     }
+
     return (
         <div data-theme={`${theme}`} className="border-b z-40 border-gray-200 shadow-md navbar sticky top-0   backdrop-filter backdrop-blur-lg bg-opacity-50">
             <div className="navbar-start">

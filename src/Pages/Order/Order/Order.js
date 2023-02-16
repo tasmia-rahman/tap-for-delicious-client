@@ -80,47 +80,15 @@ const Order = () => {
             .then(result => {
                 if (result.acknowledged) {
                     toast.success('Your order has been placed successfully.');
-
-                    // save top food information to the database
-                    if (cartItems.length === 1) {
-                        saveTopFoods(cartItems[0]);
-                    }
-                    else {
-                        cartItems.forEach(cartItem => {
-                            console.log('cartItem', cartItem);
-                            saveTopFoods(cartItem);
-                        });
-                    }
-
                     dispatch(emptyCart());
                     navigate('/');
                 }
             })
     }
 
-    const saveTopFoods = cartItem => {
-        try {
-            fetch('https://tap-for-delicious-server.vercel.app/topFoods', {
-                mode: 'no-cors',
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(cartItem)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
-        }
-        catch (error) {
-
-        }
-    }
-
     return (
         <>
-            <form onSubmit={handleOrder}>
+            {/* <form onSubmit={handleOrder}>
                 <div className='w-7/12 mx-auto mt-6 mb-36'>
                     <div className="card bg-base-100 shadow-xl mb-10">
                         <div className="card-body">
@@ -206,8 +174,8 @@ const Order = () => {
                         Confirm Order
                     </button>
                 </div >
-            </form>
-            {showCards ? <Payment data={cartItems}></Payment> : null}
+            </form> */}
+            <Payment data={cartItems}></Payment>
         </>
 
     );
