@@ -2,25 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/tap-logo.png'
 import banner from '../../../Assets/footer-banner/footer3.jpg'
+import pic1 from '../../../Assets/blog/pic1.jpg'
+import pic2 from '../../../Assets/blog/pic2.jpg'
+import pic3 from '../../../Assets/blog/pic3.jpg'
 import { FaPhoneAlt, FaRegClock, FaMailBulk } from "react-icons/fa";
 
 const Footer = () => {
     return (
       
-        <footer  className=" divide-y bg-cover  bg-slate-100 bg-fixed font-semibold"
+        <footer  className=" bg-cover  bg-slate-100 bg-fixed font-semibold text-black"
         style={{ backgroundImage: `url(${banner})` }} data-theme="">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,224L80,192C160,160,320,96,480,101.3C640,107,800,181,960,208C1120,235,1280,213,1360,202.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
-            
-            <div className="container flex flex-col justify-between py-10 mx-auto px-10 space-y-8 lg:flex-row lg:space-y-0">
-                <div className="lg:w-1/3 p-10">
-                    <Link to="/home" className="flex justify-center space-x-3 lg:justify-start">
-                        <div className="flex items-center justify-center w-24 h-24 rounded-full">
+            <div>
+                    <Link to="/home">
+                        <div className="flex justify-center h-24 rounded-full">
                             <img src={logo} alt="" srcSet="" />
+                            <span className="self-center text-2xl font-semibold">Tap For Delicious</span>
                         </div>
-                        <span className="self-center text-2xl font-semibold">Tap For Delicious</span>
                     </Link>
                 </div>
-                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+            <div className=" flex flex-col justify-center  py-10 mx-auto px-10  lg:flex-row bg-white/40">
+                
+                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8  sm:grid-cols-4">
                     <div className="space-y-3">
                         <h3 className="tracking-wide uppercase font-bold text-xl ">Let's Get Together</h3>
                         <ul className="space-y-1">
@@ -31,7 +34,8 @@ const Footer = () => {
                             <FaPhoneAlt className='mt-1 mr-2'></FaPhoneAlt>  01999999999
                             </li>
                             <li className='flex'>
-                               <FaMailBulk className='mt-1 mr-2'></FaMailBulk> demo@gmail.com
+                               <FaMailBulk className='mt-1 mr-2'></FaMailBulk> runtime.terror.608.2@gmail.com
+
                             </li>
                         </ul>
                     </div>
@@ -43,6 +47,9 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link to="/toprestaurant">Top Restaurant</Link>
+                            </li>
+                            <li>
+                                <Link to='/documentation'>Documentation</Link>
                             </li>
                         </ul>
                     </div>
@@ -65,12 +72,10 @@ const Footer = () => {
                         </ul>
                     </div>
                     
-                    <div className="space-y-3">
+                    {/* <div className="space-y-3">
                         <h3 className="uppercase font-bold text-xl">Support</h3>
                         <ul className="space-y-1">
-                        <li>
-                                <Link to='/documentation'>Documentation</Link>
-                            </li>
+                       
                             <li>
                                 <Link href="#">Partner with us</Link>
                             </li>
@@ -82,7 +87,7 @@ const Footer = () => {
                                 <Link href="#">Careers</Link>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                     <div className="space-y-3">
                         <div className="uppercase font-bold text-xl">Social Link</div>
                         <div className="flex justify-start space-x-3">
@@ -102,10 +107,20 @@ const Footer = () => {
                                 </svg>
                             </a>
                         </div>
+                        <div className='flex gap-2'>
+                            <img className='h-10 w-11' src={pic1} alt="food" />
+                            <img className='h-10 w-11' src={pic2} alt="food" />
+                            <img className='h-10 w-11' src={pic3} alt="food" />
+                        </div>
+                        <div className='flex gap-2'>
+                            <img className='h-10 w-11' src={pic1} alt="food" />
+                            <img className='h-10 w-11' src={pic2} alt="food" />
+                            <img className='h-10 w-11' src={pic3} alt="food" />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-center">© Tap For Delicious. All rights reserved.</div>
+            <div className="pb-5 text-center bg-white/40">© Tap For Delicious. All rights reserved.</div>
         </footer>
        
     );
