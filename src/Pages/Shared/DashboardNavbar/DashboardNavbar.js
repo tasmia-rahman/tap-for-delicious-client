@@ -5,11 +5,15 @@ import { FaCartArrowDown } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
 import { logoutInitiate } from '../../../Redux/Authentication/action';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { emptyCart } from './../../../Redux/Actions/cartAction';
+import { useNavigate } from 'react-router-dom';
 
 const DashboardNavbar = () => {
 
     const { user, logout } = useContext(AuthContext);
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const handleAuth = () => {
         if (user) {
@@ -19,8 +23,13 @@ const DashboardNavbar = () => {
 
     const handleLogOut = () => {
         logout()
-            .then()
-            .catch();
+            .then(() => {
+                dispatch(emptyCart());
+                navigate('/login');
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            })
     }
 
     return (
