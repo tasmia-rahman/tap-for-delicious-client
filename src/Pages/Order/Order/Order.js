@@ -41,6 +41,7 @@ const Order = () => {
     }
 
     const handleOrder = (event) => {
+        console.log("lololo");
         event.preventDefault()
 
         const form = event.target;
@@ -120,7 +121,7 @@ const Order = () => {
 
     return (
         <>
-            <form onSubmit={handleOrder}>
+            {/* <form onSubmit={handleOrder}>
                 <div className='w-7/12 mx-auto mt-6 mb-36'>
                     <div className="card bg-base-100 shadow-xl mb-10">
                         <div className="card-body">
@@ -206,8 +207,8 @@ const Order = () => {
                         Confirm Order
                     </button>
                 </div >
-            </form>
-            {showCards ? <Payment data={cartItems}></Payment> : null}
+            </form> */}
+             <Payment data={cartItems}></Payment> 
         </>
 
     );
