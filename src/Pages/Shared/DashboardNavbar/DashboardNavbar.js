@@ -5,6 +5,7 @@ import { FaCartArrowDown } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
 import { logoutInitiate } from '../../../Redux/Authentication/action';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { emptyCart } from './../../../Redux/Actions/cartAction';
 
 const DashboardNavbar = () => {
 
@@ -19,8 +20,12 @@ const DashboardNavbar = () => {
 
     const handleLogOut = () => {
         logout()
-            .then()
-            .catch();
+            .then(() => {
+                dispatch(emptyCart());
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            })
     }
 
     return (
