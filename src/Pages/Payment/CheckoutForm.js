@@ -49,8 +49,6 @@ const CheckoutForm = ({ total, foodName, _id }) => {
     }
 
 
-
-    console.log(foodName, _id);
     useEffect(() => {
         fetch("https://tap-for-delicious-server.vercel.app/create-payment-intent", {
             method: "POST",
@@ -66,7 +64,6 @@ const CheckoutForm = ({ total, foodName, _id }) => {
         event.preventDefault();
 
         // start///////
-        console.log("lololo");
         event.preventDefault()
 
         const form = event.target;
@@ -318,7 +315,6 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             <button className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
                                 Pay
                             </button>
-                        </div>
                         <p className='text-red-500'>{cardError}</p>
                         {
                             success && <div>
@@ -326,6 +322,7 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                                 <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
                             </div>
                         }
+                        </div>
 
                     </> : <button
                         className='btn border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
