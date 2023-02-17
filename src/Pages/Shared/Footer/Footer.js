@@ -10,10 +10,10 @@ import { FaPhoneAlt, FaRegClock, FaMailBulk } from "react-icons/fa";
 const Footer = () => {
     return (
       
-        <footer  className=" bg-cover  bg-slate-100 bg-fixed font-semibold text-black"
+        <footer  className=" bg-cover  bg-slate-100 bg-fixed font-semibold  text-white"
         style={{ backgroundImage: `url(${banner})` }} data-theme="">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,224L80,192C160,160,320,96,480,101.3C640,107,800,181,960,208C1120,235,1280,213,1360,202.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
-            <div>
+            <svg  className='bg-black/60' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FFF4D6" fill-opacity="1" d="M0,224L80,192C160,160,320,96,480,101.3C640,107,800,181,960,208C1120,235,1280,213,1360,202.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+            <div className='bg-black/60'>
                     <Link to="/home">
                         <div className="flex justify-center h-24 rounded-full">
                             <img src={logo} alt="" srcSet="" />
@@ -21,7 +21,7 @@ const Footer = () => {
                         </div>
                     </Link>
                 </div>
-            <div className=" flex flex-col justify-center  py-10 mx-auto px-10  lg:flex-row bg-white/40">
+            <div className=" flex flex-col justify-center  py-10 mx-auto px-10  lg:flex-row bg-black/60">
                 
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8  sm:grid-cols-4">
                     <div className="space-y-3">
@@ -120,7 +120,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="pb-5 text-center bg-white/40">© Tap For Delicious. All rights reserved.</div>
+            <div className="pb-5 text-center bg-black/60">© Tap For Delicious. All rights reserved.</div>
         </footer>
 
     );
