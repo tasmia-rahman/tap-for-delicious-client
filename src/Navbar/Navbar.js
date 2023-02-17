@@ -78,13 +78,6 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
 
-
-    const handleAuth = () => {
-        if (user) {
-            dispatch(logoutInitiate());
-        }
-    }
-
     const handleLogOut = () => {
         logout()
             .then(() => {

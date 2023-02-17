@@ -13,6 +13,8 @@ const AllOrders = () => {
         }
     });
 
+    console.log(allOrders)
+
     if (isFetching) {
         return <Loading></Loading>
     }
@@ -36,7 +38,7 @@ const AllOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            allOrders.map((order, i) => <tr key={order._id}>
+                            allOrders && allOrders?.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>{order.buyerName}</td>
                                 <td>{order.buyerEmail}</td>

@@ -22,6 +22,19 @@ const CheckoutForm = ({ total, foodName, _id }) => {
     const [paymentType, setPaymentType] = useState('COD');
 
     const { user } = useContext(AuthContext);
+    console.log("chaeckout", user.email)
+    const [userData, setUserData] = useState({});
+
+    // useEffect(() => {
+    //     fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setUserData(data))
+    // }
+    //     , [user.email])
+
+    // const { road, house, area, postal } = userData
+    // console.log(userData);
+
     const { buyer } = useUser(user?.email);
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -75,12 +88,14 @@ const CheckoutForm = ({ total, foodName, _id }) => {
         const area = form.area.value;
         const postalCode = form.postalCode.value;
         const note = form.note.value;
+        const phone = form.phone.value;
 
         const order = {
             buyerUid: user?.uid,
             buyerId: buyer?._id,
             buyerName: buyer?.displayName,
             buyerEmail: buyer?.email,
+            phone: phone,
             cartItems,
             restaurantName: cartItems[0].restaurant,
             road,
@@ -213,6 +228,10 @@ const CheckoutForm = ({ total, foodName, _id }) => {
 
         }
     }
+
+
+
+
     return (
         <>
             <form onSubmit={handleSubmit} className="lg:grid md:grid grid-cols-2 gap-6">
@@ -226,6 +245,14 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             </div>
                             <input onChange={() => setDeliveryOption(!deliveryOption)} type="checkbox" className="toggle toggle-warning" />
                         </div>
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Contact No."
+                            defaultValue={userData.phone}
+                            className="input input-bordered input-warning w-full my-3"
+                            required
+                        />
                         <input
                             type="text"
                             name="road"

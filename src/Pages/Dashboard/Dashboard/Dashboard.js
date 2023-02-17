@@ -9,7 +9,7 @@ const Dashboard = () => {
     return (
         <div>
             <h2 className="text-2xl text-center">Welcome</h2>
-            <h1 className="mt-5 text-center mx-auto  font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-600">{user?.displayName}</h1>
+            <h1 className="mt-5 text-center mx-auto py-3 font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-600">{user?.displayName}</h1>
             {user?.photoURL ?
                 <div className="avatar flex justify-center my-16">
                     <div className="w-32 rounded-full">
