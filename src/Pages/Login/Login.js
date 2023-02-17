@@ -105,7 +105,7 @@ const Login = () => {
 
     // ---- Send user info to database ---- //
     const saveUser = (user) => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://tap-for-delicious-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
