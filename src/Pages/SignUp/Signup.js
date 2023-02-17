@@ -63,6 +63,7 @@ const Signup = () => {
 
     const [show, setShow] = useState(false)
     const [showConfirm, setShowConfirm] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [state, setState] = useState({
         displayName: "",
         email: "",
@@ -80,21 +81,25 @@ const Signup = () => {
         
     };
     const handleEmailChange=(e)=>{
+        setIsLoading(true)
         const email=e.target.value;
         const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
         if(!emailValidator.test(email)){
             setErrors({...errors,email:"× Please provide a valid email"})  
             setState({ ...state, email: e.target.value })
+            setIsLoading(false)
         }
         else
         {
             setErrors({...errors,email:""}) 
          setState({ ...state, email: e.target.value })
+         setIsLoading(true)
         }
     }
     ///
     const handlePasswordChange=(e)=>{
+        setIsLoading(true)
         const password=e.target.value;
         const passNumber=/^(?=.*[0-9])/;
         const passUpperCase=/^(?=.*[A-Z])/.test(password);
@@ -102,22 +107,27 @@ const Signup = () => {
         if(!passNumber.test(password)){
             setErrors({...errors,password:"× Must contain 1 number "})
             setState({ ...state, password: e.target.value })
+            setIsLoading(false)
         }
        else if(!passUpperCase){
             setErrors({...errors,password:"× Must contain 1 Upper Case "})
             setState({ ...state, password: e.target.value })
+            setIsLoading(false)
         }
        else if(!passLowerCase){
             setErrors({...errors,password:"× Must contain 1 Lower Case "})
             setState({ ...state, password: e.target.value })
+            setIsLoading(false)
         }
         else if(password.length<6){
             setErrors({...errors,password:"× Must contain at least 6 characters"})
             setState({ ...state, password: e.target.value })
+            setIsLoading(false)
         }
         else{
             setErrors({...errors,password:""})
             setState({ ...state, password: e.target.value })
+            setIsLoading(true)
                }
     }
 
@@ -212,7 +222,7 @@ const Signup = () => {
                             {showConfirm ? <RiEyeLine onClick={() => setShowConfirm(!showConfirm)} /> : <RiEyeCloseLine onClick={() => setShowConfirm(!showConfirm)} />}
                         </p>
                     </div>
-                    <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
+                    <button disabled={!isLoading} type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 text-amber-500
                 hover:bg-amber-400 hover:text-white hover:border-amber-400 bg-transparent text">Sign Up</button>
                     <div>
                         <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Already on Tap for Delicious?</span>

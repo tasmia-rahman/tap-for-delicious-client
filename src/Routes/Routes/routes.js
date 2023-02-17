@@ -4,7 +4,6 @@ import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
 import AddBlog from "../../Pages/Dashboard/Seller/AddBlog/AddBlog";
-import Users from "../../Pages/Dashboard/Users/Users";
 import Home from "../../Pages/Home/Home/Home";
 import TopRestaurant from "../../Pages/Home/TopRestaurant/TopRestaurant";
 import Login from "../../Pages/Login/Login";
@@ -32,6 +31,7 @@ import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
 import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndConditions";
 import Privacy from "../../Pages/Privacy/Privacy";
 import FAQ from "../../Pages/FAQ/FAQ";
+import UpdateProfile from "../../Pages/Dashboard/MyProfile/UpdateProfile";
 
 export const router = createBrowserRouter([
     {
@@ -125,10 +125,6 @@ export const router = createBrowserRouter([
                 element: <Dashboard></Dashboard>
             },
             {
-                path: '/dashboard/users',
-                element: <Users />
-            },
-            {
                 path: '/dashboard/restaurant',
                 element: <DashboardRestaurant />
             },
@@ -171,7 +167,12 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myProfile',
                 element: <MyProfile />
+            },
+            {
+                path: '/dashboard/update_profile',
+                element: <UpdateProfile />
             }
+
         ]
     }
 ])
