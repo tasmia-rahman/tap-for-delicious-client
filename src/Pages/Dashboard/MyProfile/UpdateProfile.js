@@ -51,7 +51,7 @@ const UpdateProfile = () => {
                             postal,
                             photoUrl: imgData.data.url
                         }
-                        fetch(`http://localhost:5000/user?email=${userData.email}`, {
+                        fetch(`https://tap-for-delicious-server.vercel.app/user?email=${userData.email}`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'
@@ -78,7 +78,7 @@ const UpdateProfile = () => {
                 postal,
                 photoUrl: userData.photoUrl
             }
-            fetch(`http://localhost:5000/user?email=${userData.email}`, {
+            fetch(`https://tap-for-delicious-server.vercel.app/user?email=${userData.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
