@@ -8,7 +8,7 @@ const TermsAndConditions = () => {
         className=" bg-cover bg-right"
         style={{ backgroundImage: `url(${banner})` }}
       >
-        <h1 className="text-5xl text-white   block text-center py-40 ">
+        <h1 className="text-5xl text-white block text-center py-40 bg-stone-800/30">
           Terms And Conditions
         </h1>
       </div>

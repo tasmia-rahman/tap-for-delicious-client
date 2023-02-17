@@ -8,7 +8,7 @@ const About = () => {
         className=" bg-cover bg-right"
         style={{ backgroundImage: `url(${banner})` }}
       >
-        <h1 className="text-5xl text-white   block text-center py-40 ">
+        <h1 className="text-5xl text-white   block text-center py-40 bg-stone-800/30">
           ABOUT US
         </h1>
       </div>
@@ -37,18 +37,18 @@ const About = () => {
 
       <div className="p-14 bg-orange-50">
         <h1 className="uppercase text-red-700 text-3xl mb-7">How it works | tap for delicious</h1>
-        <p>Tap for Delicious is a simple service to order food from a variety of restaurants online. Enjoy different cuisines and flavours delivered to your door step.</p>
-        <p className="mt-6">Find a restaurant, <br />
+        <p className="text-black">Tap for Delicious is a simple service to order food from a variety of restaurants online. Enjoy different cuisines and flavours delivered to your door step.</p>
+        <p className="mt-6 text-black">Find a restaurant, <br />
  You can find a lots of restaurant on the home page. Browse from our extensive list of restaurants that deliver to your area. Pick a restaurant you like and browse its menu.</p>
 <br />
-<p>Order what you want,<br />
+<p className="text-black">Order what you want,<br />
 Build up your meal by choosing from any of your favorite restaurants, browse the menu and select the items you will like to order. If options are required, e.g pizza toppings, you will be asked to choose them one you click on an item. Your items will appear on your cart on the right.</p>
 <br />
-<p>
+<p className="text-black">
 Checkout & Payment, <br />
 Once you are happy with your order, click on the "ORDER NOW" button and enter your delivery address. Simply follow the checkout instructions from there. We currently only accept cash on delivery and card payment.</p>
 <br />
-<p>
+<p className="text-black">
 Delivery, <br />
 We will send you an SMS confirming your order and delivery time. Sit back, relax and wait for piping hot food to be conveniently delivered to you! </p>
       </div>
