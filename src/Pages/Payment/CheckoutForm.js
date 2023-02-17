@@ -39,8 +39,7 @@ const CheckoutForm = ({ total, foodName, _id }) => {
         , [user?.email])
 
     console.log(userData)
-    // const { road, house, area, postal } = userData
-    // console.log(userData);
+
 
     const { buyer } = useUser(user?.email);
 
@@ -249,6 +248,7 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             </div>
                             <input onChange={() => setDeliveryOption(!deliveryOption)} type="checkbox" className="toggle toggle-warning" />
                         </div>
+                        <h1>Contact no.</h1>
                         <input
                             type="text"
                             name="phone"
@@ -257,31 +257,39 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>Road no.</h1>
                         <input
                             type="text"
                             name="road"
                             placeholder="Road No."
+                            defaultValue={userData.road}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>House no.</h1>
                         <input
                             type="text"
                             name="house"
                             placeholder="House No."
+                            defaultValue={userData.house}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>Area</h1>
                         <input
                             type="text"
                             name="area"
                             placeholder="Area"
+                            defaultValue={userData.area}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>Postal code</h1>
                         <input
                             type="text"
                             name="postalCode"
                             placeholder="Postal Code"
+                            defaultValue={userData.postal}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
