@@ -14,7 +14,9 @@ const MyProfile = () => {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
+
         fetch(`http://localhost:5000/user/${user?.email}`)
+
             .then(res => res.json())
             .then(data => setUserData(data))
     }

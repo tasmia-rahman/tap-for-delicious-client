@@ -8,6 +8,8 @@ import useUser from '../../Hooks/useUser';
 import { emptyCart } from '../../Redux/Actions/cartAction';
 
 const CheckoutForm = ({ total, foodName, _id }) => {
+
+    const { user } = useContext(AuthContext);
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
@@ -21,17 +23,22 @@ const CheckoutForm = ({ total, foodName, _id }) => {
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
 
-    const { user } = useContext(AuthContext);
-    console.log("chaeckout", user.email)
+
+    console.log("checkout", user.email)
     const [userData, setUserData] = useState({});
 
-    // useEffect(() => {
-    //     fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setUserData(data))
-    // }
-    //     , [user.email])
+    const url = `https://tap-for-delicious-server.vercel.app/user/${user?.email}`;
 
+    console.log(url)
+
+    useEffect(() => {
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setUserData(data))
+    }
+        , [user?.email])
+
+    console.log(userData)
     // const { road, house, area, postal } = userData
     // console.log(userData);
 
@@ -342,13 +349,13 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             <button className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
                                 Pay
                             </button>
-                        <p className='text-red-500'>{cardError}</p>
-                        {
-                            success && <div>
-                                <p className='text-green-500'>{success}</p>
-                                <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
-                            </div>
-                        }
+                            <p className='text-red-500'>{cardError}</p>
+                            {
+                                success && <div>
+                                    <p className='text-green-500'>{success}</p>
+                                    <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
+                                </div>
+                            }
                         </div>
 
                     </> : <button
