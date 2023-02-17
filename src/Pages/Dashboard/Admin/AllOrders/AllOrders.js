@@ -14,6 +14,8 @@ const AllOrders = () => {
     });
     console.log(allOrders);
 
+    console.log(allOrders)
+
     if (isFetching) {
         return <Loading></Loading>
     }

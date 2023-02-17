@@ -32,7 +32,7 @@ const Contact = () => {
     <div className="">
       <div className="bg-fixed " style={{ backgroundImage: `url(${banner})` }}>
         {/* <img src={banner} alt="contact-banner" /> */}
-        <h1 className="text-5xl text-white  font-semibold block text-center py-40 ">Contact With Tap For Delicious.</h1>
+        <h1 className="text-5xl text-white  font-semibold block text-center py-40 bg-stone-800/30">Contact With Tap For Delicious.</h1>
       </div>
 
       <div className="flex flex-col md:flex-row w-full justify-center items-center">

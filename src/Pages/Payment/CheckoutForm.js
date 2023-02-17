@@ -8,6 +8,8 @@ import useUser from '../../Hooks/useUser';
 import { emptyCart } from '../../Redux/Actions/cartAction';
 
 const CheckoutForm = ({ total, foodName, _id }) => {
+
+    const { user } = useContext(AuthContext);
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
@@ -21,7 +23,24 @@ const CheckoutForm = ({ total, foodName, _id }) => {
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
 
-    const { user } = useContext(AuthContext);
+
+    console.log("checkout", user.email)
+    const [userData, setUserData] = useState({});
+
+    const url = `https://tap-for-delicious-server.vercel.app/user/${user?.email}`;
+
+    console.log(url)
+
+    useEffect(() => {
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setUserData(data))
+    }
+        , [user?.email])
+
+    console.log(userData)
+
+
     const { buyer } = useUser(user?.email);
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -49,8 +68,6 @@ const CheckoutForm = ({ total, foodName, _id }) => {
     }
 
 
-
-    console.log(foodName, _id);
     useEffect(() => {
         fetch("https://tap-for-delicious-server.vercel.app/create-payment-intent", {
             method: "POST",
@@ -66,7 +83,6 @@ const CheckoutForm = ({ total, foodName, _id }) => {
         event.preventDefault();
 
         // start///////
-        console.log("lololo");
         event.preventDefault()
 
         const form = event.target;
@@ -75,12 +91,14 @@ const CheckoutForm = ({ total, foodName, _id }) => {
         const area = form.area.value;
         const postalCode = form.postalCode.value;
         const note = form.note.value;
+        const phone = form.phone.value;
 
         const order = {
             buyerUid: user?.uid,
             buyerId: buyer?._id,
             buyerName: buyer?.displayName,
             buyerEmail: buyer?.email,
+            phone: phone,
             cartItems,
             restaurantName: cartItems[0].restaurant,
             road,
@@ -213,6 +231,10 @@ const CheckoutForm = ({ total, foodName, _id }) => {
 
         }
     }
+
+
+
+
     return (
         <>
             <form onSubmit={handleSubmit} className="lg:grid md:grid grid-cols-2 gap-6">
@@ -226,31 +248,48 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             </div>
                             <input onChange={() => setDeliveryOption(!deliveryOption)} type="checkbox" className="toggle toggle-warning" />
                         </div>
+                        <h1>Contact no.</h1>
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Contact No."
+                            defaultValue={userData.phone}
+                            className="input input-bordered input-warning w-full my-3"
+                            required
+                        />
+                        <h1>Road no.</h1>
                         <input
                             type="text"
                             name="road"
                             placeholder="Road No."
+                            defaultValue={userData.road}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>House no.</h1>
                         <input
                             type="text"
                             name="house"
                             placeholder="House No."
+                            defaultValue={userData.house}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>Area</h1>
                         <input
                             type="text"
                             name="area"
                             placeholder="Area"
+                            defaultValue={userData.area}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
+                        <h1>Postal code</h1>
                         <input
                             type="text"
                             name="postalCode"
                             placeholder="Postal Code"
+                            defaultValue={userData.postal}
                             className="input input-bordered input-warning w-full my-3"
                             required
                         />
@@ -318,14 +357,14 @@ const CheckoutForm = ({ total, foodName, _id }) => {
                             <button className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
                                 Pay
                             </button>
+                            <p className='text-red-500'>{cardError}</p>
+                            {
+                                success && <div>
+                                    <p className='text-green-500'>{success}</p>
+                                    <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
+                                </div>
+                            }
                         </div>
-                        <p className='text-red-500'>{cardError}</p>
-                        {
-                            success && <div>
-                                <p className='text-green-500'>{success}</p>
-                                <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
-                            </div>
-                        }
 
                     </> : <button
                         className='btn border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'

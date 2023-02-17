@@ -69,7 +69,7 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                console.log("gmail", user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
                 let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer' };
@@ -105,7 +105,7 @@ const Login = () => {
 
     // ---- Send user info to database ---- //
     const saveUser = (user) => {
-        fetch('https://tap-for-delicious-server.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -123,20 +123,20 @@ const Login = () => {
         setUserEmail(email);
         console.log(email);
     }
-    // const handleForgetPassword = () =>{ 
-    //     if(!userEmail){
-    //         toast('Please enter your email address?')
-    //         return ;
-    //     }
-    //     sendPasswordResetEmail(auth,userEmail)
-    //     .then( () =>{
-    //         toast('Password reset email send Please check your email')
-    //     })
-    //     .catch(error =>{
-    //         console.error('error',error);
-    //     })
-    // }
 
+    const handleForgetPassword = () => {
+        if (!userEmail) {
+            toast('Please enter your email address?')
+            return;
+        }
+        sendPasswordResetEmail(auth, userEmail)
+            .then(() => {
+                toast('Password reset email send Please check your email')
+            })
+            .catch(error => {
+                console.error('error', error);
+            })
+    }
 
     return (
 
