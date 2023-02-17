@@ -14,7 +14,6 @@ const MyProfile = () => {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-
         fetch(`http://localhost:5000/user/${user?.email}`)
 
             .then(res => res.json())
@@ -22,11 +21,6 @@ const MyProfile = () => {
     }
         , [user.email])
 
-    console.log("data", userData)
-    const { address } = userData;
-    console.log(address)
-    // const { road } = address;
-    // const { road, house, area, postal } = userData?.address
 
     return (
         <body className="bg-base-100 antialiased">

@@ -27,45 +27,72 @@ const UpdateProfile = () => {
         const house = form.house.value;
         const area = form.area.value;
         const postal = form.postal.value;
-
-
         const image = form.image.files[0];
         const formData = new FormData();
         formData.append("image", image);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-        fetch(url, {
-            method: "POST",
-            body: formData,
-        })
-            .then((res) => res.json())
-            .then((imgData) => {
-                if (imgData.success) {
 
-                    console.log(imgData.data.url)
-                    const user = {
-                        displayName: displayName,
-                        phone: phone,
-                        road: road,
-                        house,
-                        area,
-                        postal,
-                        photoUrl: imgData.data.url
-                    }
-                    fetch(`http://localhost:5000/user?email=${userData.email}`, {
-                        method: 'PUT',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(user)
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log("data", data)
-                            toast.success("Profile updated successfully")
-                            navigate("/dashboard/myProfile")
+        if (image) {
+            fetch(url, {
+                method: "POST",
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((imgData) => {
+                    if (imgData.success) {
+
+                        console.log(imgData.data.url)
+                        const user = {
+                            displayName: displayName,
+                            phone: phone,
+                            road: road,
+                            house,
+                            area,
+                            postal,
+                            photoUrl: imgData.data.url
+                        }
+                        fetch(`http://localhost:5000/user?email=${userData.email}`, {
+                            method: 'PUT',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(user)
                         })
-                }
-            });
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log("data", data)
+                                toast.success("Profile updated successfully")
+                                navigate("/dashboard/myProfile")
+                            })
+                    }
+                });
+        }
+
+        else {
+            const user = {
+                displayName: displayName,
+                phone: phone,
+                road: road,
+                house,
+                area,
+                postal,
+                photoUrl: userData.photoUrl
+            }
+            fetch(`http://localhost:5000/user?email=${userData.email}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("data", data)
+                    toast.success("Profile updated successfully")
+                    navigate("/dashboard/myProfile")
+                })
+        }
+
     }
 
 
@@ -103,25 +130,25 @@ const UpdateProfile = () => {
                     <label className="label">
                         <span className="label-text">Road</span>
                     </label>
-                    <input type="text" name="road" placeholder="Road No." className="input input-bordered" />
+                    <input type="text" name="road" placeholder="Road No." defaultValue={userData.road} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">House</span>
                     </label>
-                    <input type="text" name="house" placeholder="House No." className="input input-bordered" />
+                    <input type="text" name="house" placeholder="House No." defaultValue={userData.house} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Area</span>
                     </label>
-                    <input type="text" name="area" placeholder="Area" className="input input-bordered" />
+                    <input type="text" name="area" placeholder="Area" defaultValue={userData.area} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Postal code</span>
                     </label>
-                    <input type="text" name="postal" placeholder="Postal Code" className="input input-bordered" />
+                    <input type="text" name="postal" placeholder="Postal Code" defaultValue={userData.postal} className="input input-bordered" />
                 </div>
                 <div>
                     <button type='submit' className="btn max-w-sm mx-auto flex justify-center mt-10 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Update</button>
