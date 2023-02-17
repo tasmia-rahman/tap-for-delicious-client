@@ -7,11 +7,12 @@ const AllOrders = () => {
     const { data: allOrders = [], isFetching } = useQuery({
         queryKey: ['allOrders'],
         queryFn: async () => {
-            const res = await fetch(`https://tap-for-delicious-server.vercel.app/all_orders`);
+            const res = await fetch('https://tap-for-delicious-server.vercel.app/all_orders');
             const data = await res.json();
             return data;
         }
     });
+    console.log(allOrders);
 
     console.log(allOrders)
 
@@ -38,7 +39,7 @@ const AllOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            allOrders && allOrders?.map((order, i) => <tr key={order._id}>
+                            allOrders?.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>{order.buyerName}</td>
                                 <td>{order.buyerEmail}</td>

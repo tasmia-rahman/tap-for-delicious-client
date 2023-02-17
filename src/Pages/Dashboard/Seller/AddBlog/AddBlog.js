@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
+import useUser from './../../../../Hooks/useUser';
 
 const AddBlog = () => {
+    const { user } = useContext(AuthContext);
+    const { seller } = useUser(user?.email);
 
     const navigate = useNavigate();
     const imageHostKey = process.env.REACT_APP_imgbb_key;
@@ -31,8 +35,8 @@ const AddBlog = () => {
                         img: imgData.data.url,
                         title,
                         details,
-                        author: 'Safa Tazmin',
-                        authorImg: 'https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg?w=2000'
+                        author: seller?.displayName,
+                        authorImg: 'https://media.istockphoto.com/id/1270067126/photo/smiling-indian-man-looking-at-camera.jpg?s=612x612&w=0&k=20&c=ovIQ5GPurLd3mOUj82jB9v-bjGZ8updgy1ACaHMeEC0='
                     }
 
                     // save blog information to the database
@@ -47,7 +51,7 @@ const AddBlog = () => {
                         .then(result => {
                             if (result.acknowledged) {
                                 toast.success('Blog added successfully.');
-                                navigate('/dashboard/myBlogs');
+                                navigate('/blog');
                             }
                         })
                 }

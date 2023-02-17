@@ -123,6 +123,7 @@ const Login = () => {
         setUserEmail(email);
         console.log(email);
     }
+
     const handleForgetPassword = () => {
         if (!userEmail) {
             toast('Please enter your email address?')
@@ -136,7 +137,6 @@ const Login = () => {
                 console.error('error', error);
             })
     }
-
 
     return (
 
@@ -186,8 +186,8 @@ const Login = () => {
                     {errors && <p className='text-amber-500 mt-2 text-center mb-[-7px] '>{errors}</p>}
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 hover:border-amber-400 text-amber-500
                 hover:bg-amber-400 hover:text-white bg-transparent text">Login</button>
-                    <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ? <button onClick={handleForgetPassword} className=''>Reset password</button>
-                    </span>
+                    {/* <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ? <button className=''>Reset password</button>
+                    </span> */}
                     <div className='mt-4'>
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
