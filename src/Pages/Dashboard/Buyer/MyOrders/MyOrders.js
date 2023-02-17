@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
-import useUser from './../../../../Hooks/useUser';
 import { useQuery } from 'react-query';
 import Loading from './../../../Shared/Loading/Loading';
 
