@@ -24,7 +24,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     const [show, setShow] = useState(false)
-    const [errors,setErrors]=useState("")
+    const [errors, setErrors] = useState("")
     // const [state, setState] = useState({
     //     email: "",
     //     password: "",
@@ -39,14 +39,14 @@ const Login = () => {
         const password = form.password.value;
 
 
-        
+
 
 
         loginUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-              
+
 
 
                 const currentUser = {
@@ -54,12 +54,12 @@ const Login = () => {
                 }
                 console.log(currentUser);
                 navigate(from, { replace: true });
-               
+
             })
 
             .catch(err => setErrors(err.code)
             )
-        }
+    }
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -118,24 +118,24 @@ const Login = () => {
                 console.log(data);
             })
     }
-    const handleEmailBlur = event =>{
+    const handleEmailBlur = event => {
         const email = event.target.value;
         setUserEmail(email);
         console.log(email);
     }
-    const handleForgetPassword = () =>{ 
-        if(!userEmail){
-            toast('Please enter your email address?')
-            return ;
-        }
-        sendPasswordResetEmail(auth,userEmail)
-        .then( () =>{
-            toast('Password reset email send Please check your email')
-        })
-        .catch(error =>{
-            console.error('error',error);
-        })
-    }
+    // const handleForgetPassword = () =>{ 
+    //     if(!userEmail){
+    //         toast('Please enter your email address?')
+    //         return ;
+    //     }
+    //     sendPasswordResetEmail(auth,userEmail)
+    //     .then( () =>{
+    //         toast('Password reset email send Please check your email')
+    //     })
+    //     .catch(error =>{
+    //         console.error('error',error);
+    //     })
+    // }
 
 
     return (
@@ -183,11 +183,11 @@ const Login = () => {
                             {show ? <RiEyeLine onClick={() => setShow(!show)} /> : <RiEyeCloseLine onClick={() => setShow(!show)} />}
                         </p>
                     </div>
-                    {errors&&<p className='text-amber-500 mt-2 text-center mb-[-7px] '>{errors}</p>}
+                    {errors && <p className='text-amber-500 mt-2 text-center mb-[-7px] '>{errors}</p>}
                     <button type="submit" className="block w-full  mt-4 py-2 rounded-2xl font-semibold mb-2 btn mr-10 border-2 border-amber-400 hover:border-amber-400 text-amber-500
                 hover:bg-amber-400 hover:text-white bg-transparent text">Login</button>
-                    <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ? <button onClick={handleForgetPassword} className=''>Reset password</button>
-                    </span>
+                    {/* <span className="text-sm ml-2 hover:text-yellow-500 cursor-pointer">Forgot Password ? <button className=''>Reset password</button>
+                    </span> */}
                     <div className='mt-4'>
                         Don't have an account? <Link to='/signup'><span className='text-orange-400 font-semibold hover:text-amber-400  hover:font-bold'>Sign up</span></Link>
                     </div>
