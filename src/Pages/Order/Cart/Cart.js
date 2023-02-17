@@ -81,11 +81,12 @@ const Cart = () => {
                             <p><span className='font-bold'>Total</span> <small className='hidden lg:flex md:flex'>(Incl. VAT where applicable)</small></p>
                             <p className='flex justify-end'>TK {subtotal + 60 + 3}</p>
                         </div>
-                        <button
+                        <Link to='/order'> <button
                             className='btn mx-auto md:mx-auto flex justify-center mt-16 border-2 bg-amber-400 border-amber-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 w-full'
                         >
-                            <Link to='/order'>Go To Checkout</Link>
+                            Go To Checkout
                         </button>
+                        </Link>
                     </div>
                 </div>
             </>
