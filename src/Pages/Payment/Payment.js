@@ -7,7 +7,6 @@ const stripePromise = loadStripe('pk_test_51MbMEwEEljFKzkqnyLnJo99Y9F0RTR0NMplKw
 
 const Payment = ({ data ,handleOrder}) => {
 
-    console.log(data,handleOrder);
     let total = 0;
     let foodName = "";
     let id = "";
