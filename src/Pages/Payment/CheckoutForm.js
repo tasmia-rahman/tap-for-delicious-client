@@ -23,8 +23,6 @@ const CheckoutForm = ({ total, foodName, _id }) => {
     const [deliveryOption, setDeliveryOption] = useState(false);
     const [paymentType, setPaymentType] = useState('COD');
 
-
-    console.log("checkout", user.email)
     const [userData, setUserData] = useState({});
 
     const url = `https://tap-for-delicious-server.vercel.app/user/${user?.email}`;
