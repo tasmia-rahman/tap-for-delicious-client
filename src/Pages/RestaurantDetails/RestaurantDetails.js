@@ -10,13 +10,13 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
 import ReportModal from './ReportModal/ReportModal';
-import Advertisement from './Advertisement/Advertisement';
+import { useQuery } from 'react-query';
 
 const RestaurantDetails = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { isBuyer, isSeller, isAdmin, buyer } = useUser(user?.email);
+    const { isBuyer, isSeller, isAdmin, buyer, seller } = useUser(user?.email);
 
     const foods = useLoaderData();
 
@@ -49,7 +49,6 @@ const RestaurantDetails = () => {
         setItemQuantity(itemQuantity - 1);
     }
 
-
     const [restaurant, setRestaurant] = useState({})
     useEffect(() => {
         fetch(`https://tap-for-delicious-server.vercel.app/restaurant/${resEmail}`)
@@ -57,6 +56,17 @@ const RestaurantDetails = () => {
 
             .then(data => setRestaurant(data))
     }, [resEmail])
+    console.log(restaurant?.title);
+
+    const { data: advertises = [] } = useQuery({
+        queryKey: ['advertises', restaurant?.title],
+        queryFn: async () => {
+            const res = await fetch(`https://tap-for-delicious-server.vercel.app/advertises/${restaurant?.title}`);
+            const data = await res.json();
+            return data;
+        }
+    });
+    console.log(!advertises[0]?.restaurantName);
 
     const handlePlaceReview = event => {
 
@@ -140,7 +150,13 @@ const RestaurantDetails = () => {
                         {/* <div className='flex justify-center mt-2 mb-4'>
                             <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='shadow-lg' />
                         </div> */}
-                        <Advertisement restaurantName={restaurant.title}></Advertisement>
+                        {/* <Advertisement restaurantName={restaurant.title}></Advertisement> */}
+                        {
+                            advertises[0]?.restaurantName === restaurant?.title && advertises[0]?.isAdvertised === true &&
+                            <div className='flex justify-center mt-2 mb-4'>
+                                <img src={advertises[0]?.advertiseImg} alt="" className='shadow-lg' />
+                            </div>
+                        }
                     </div>
                 </div>
 
