@@ -1,24 +1,14 @@
 import React, { useContext } from 'react';
-import { AuthContext } from './../../../Context/AuthProvider/AuthProvider';
-import useUser from './../../../Hooks/useUser';
+import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
+import useUser from '../../../../Hooks/useUser';
 import { toast } from 'react-hot-toast';
 import { useQuery } from 'react-query';
-import Loading from './../../Shared/Loading/Loading';
+import Loading from '../../../Shared/Loading/Loading';
 
-const Advertisement = ({ restaurantName }) => {
+const Advertisement = () => {
     const { user } = useContext(AuthContext);
     const { isSeller, seller } = useUser(user?.email);
     const imageHostKey = process.env.REACT_APP_imgbb_key;
-
-    const { data: advertises = [], isFetching } = useQuery({
-        queryKey: ['advertises', restaurantName],
-        queryFn: async () => {
-            const res = await fetch(`https://tap-for-delicious-server.vercel.app/advertises/${restaurantName}`);
-            const data = await res.json();
-            return data;
-        }
-    });
-    console.log(!advertises[0]?.restaurantName);
 
     const handleAddAdvertise = (event) => {
         event.preventDefault();
@@ -42,7 +32,7 @@ const Advertisement = ({ restaurantName }) => {
                         sellerId: seller?._id,
                         sellerName: seller?.displayName,
                         sellerEmail: seller?.email,
-                        restaurantName,
+                        restaurantName: seller?.restaurantName,
                         joinDate: seller?.joinDate,
                         advertiseImg: imgData.data.url,
                         isAdvertised: false
@@ -72,32 +62,34 @@ const Advertisement = ({ restaurantName }) => {
     // }
 
     return (
-        advertises[0]?.restaurantName === restaurantName && advertises[0]?.isAdvertised === true ?
-            <div className='flex justify-center mt-2 mb-4'>
-                <img src={advertises[0]?.advertiseImg} alt="" className='shadow-lg' />
-            </div>
-            :
-            isSeller && seller?.restaurantName === restaurantName && !advertises[0]?.restaurantName && <>
-                <form onSubmit={handleAddAdvertise}>
-                    <div className="form-control max-w-xs my-2 mx-3">
-                        <label className="label" htmlFor='image'>
-                            Choose Advertise Image
-                        </label>
-                        <input type="file"
-                            name="image"
-                            className="file-input file-input-bordered file-input-warning w-full max-w-xs mb-1"
-                            required
-                        />
-                    </div>
+        // advertises[0]?.restaurantName === restaurantName && advertises[0]?.isAdvertised === true ?
+        //     <div className='flex justify-center mt-2 mb-4'>
+        //         <img src={advertises[0]?.advertiseImg} alt="" className='shadow-lg' />
+        //     </div>
+        //     :
+        //     isSeller && seller?.restaurantName === restaurantName && !advertises[0]?.restaurantName && <>
+        <div className='ml-6'>
+            <h3 className="text-3xl font-semibold">Add Advertisement</h3>
+            <form onSubmit={handleAddAdvertise}>
+                <div className="form-control max-w-xs my-2">
+                    <label className="label" htmlFor='image'>
+                        Choose Advertise Image
+                    </label>
+                    <input type="file"
+                        name="image"
+                        className="file-input file-input-bordered file-input-warning w-full max-w-xs mb-1"
+                        required
+                    />
+                </div>
 
-                    <button
-                        className="btn w-[150px] my-3 mx-auto flex justify-center border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300"
-                        type="submit"
-                    >
-                        Request
-                    </button>
-                </form>
-            </>
+                <button
+                    className="btn w-2/6 my-3 mx-2 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300"
+                    type="submit"
+                >
+                    Request
+                </button>
+            </form>
+        </div>
     );
 };
 

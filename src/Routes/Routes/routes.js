@@ -32,6 +32,7 @@ import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndCondition
 import Privacy from "../../Pages/Privacy/Privacy";
 import FAQ from "../../Pages/FAQ/FAQ";
 import UpdateProfile from "../../Pages/Dashboard/MyProfile/UpdateProfile";
+import Advertisement from "../../Pages/Dashboard/Seller/Advertisement/Advertisement";
 
 export const router = createBrowserRouter([
     {
@@ -155,6 +156,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addBlog',
                 element: <AddBlog></AddBlog>
+            },
+            {
+                path: '/dashboard/sellerAdvertisement',
+                element: <Advertisement></Advertisement>
             },
             {
                 path: '/dashboard/myOrders',
