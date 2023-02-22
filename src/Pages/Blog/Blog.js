@@ -8,7 +8,7 @@ const Blog = () => {
         queryKey: ["blogs"],
         queryFn: async () => {
             try {
-                const res = await fetch('https://tap-for-delicious-server.vercel.app/blogs',)
+                const res = await fetch('http://localhost:5000/blogs',)
                 const data = await res.json();
                 return data;
             }
