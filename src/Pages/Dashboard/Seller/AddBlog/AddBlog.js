@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './../../../../Context/AuthProvider/AuthProvider';
@@ -7,9 +7,21 @@ import useUser from './../../../../Hooks/useUser';
 const AddBlog = () => {
     const { user } = useContext(AuthContext);
     const { seller } = useUser(user?.email);
+    const [userData, setUserData] = useState({});
+    const imageHostKey = "3854192c81d6a82970830b8c614a4811";
+
+    useEffect(() => {
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
+
+            .then(res => res.json())
+            .then(data => setUserData(data))
+    }
+        , [user.email])
+
+
 
     const navigate = useNavigate();
-    const imageHostKey = process.env.REACT_APP_imgbb_key;
+    // const imageHostKey = process.env.REACT_APP_imgbb_key;
 
     const handleAddBlog = (event) => {
         event.preventDefault();
@@ -35,8 +47,8 @@ const AddBlog = () => {
                         img: imgData.data.url,
                         title,
                         details,
-                        author: seller?.displayName,
-                        authorImg: 'https://media.istockphoto.com/id/1270067126/photo/smiling-indian-man-looking-at-camera.jpg?s=612x612&w=0&k=20&c=ovIQ5GPurLd3mOUj82jB9v-bjGZ8updgy1ACaHMeEC0='
+                        author: userData.displayName,
+                        authorImg: userData.photoUrl
                     }
 
                     // save blog information to the database
@@ -59,9 +71,51 @@ const AddBlog = () => {
     }
 
     return (
-        <div className='ml-6'>
-            <h3 className="text-3xl font-semibold">Add Blog</h3>
-            <form onSubmit={handleAddBlog}>
+        <div className='ml-2'>
+            <h3 className="text-3xl font-semibold mx-6">Add Blog</h3>
+            <div className=' bg-base-200 mx-6 my-3 py-2 rounded-lg'>
+                <div className='flex items-center'>
+                    <div className="avatar">
+                        <div className="w-20 rounded-full mx-4 my-4">
+                            <img src={userData.photoUrl} alt="" />
+                        </div>
+                    </div>
+                    <div>
+                        <h1 className='text-2xl font-bold'>{userData.displayName}</h1>
+                    </div>
+                </div>
+                <form onSubmit={handleAddBlog}>
+                    <div className="form-control w-full max-w-xs mt-4">
+                        <label className="label mx-4" htmlFor='title'>
+                            Add Blog Title
+                        </label>
+                        <input
+                            type="text"
+                            name="title"
+                            placeholder="Type Blog Title"
+                            className="input input-bordered input-warning mx-4 mb-2 max-w-xs"
+                            required
+                        />
+                    </div>
+                    <div className='flex flex-col md:flex-col'>
+                        <div className=''>
+                            <div className='mx-4'>
+                                <textarea name="details" className='textarea textarea-bordered textarea-lg w-full max-w-lg' id="" cols="" rows="3" placeholder="What's on your mind?"></textarea>
+                            </div>
+                        </div>
+                        <div className='mx-4'>
+                            <h1>Add photos</h1>
+                            <input type="file" name="image" className="file-input file-input-bordered file-input-primary  max-w-xs" />
+                        </div>
+                    </div>
+                    <div>
+                        <button type='submit' className='btn max-w-sm mx-auto ml-4 border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300 my-2'>POST</button>
+                    </div>
+                </form>
+
+            </div >
+
+            {/* <form onSubmit={handleAddBlog}>
                 <div className="form-control w-full max-w-xs mt-4">
                     <label className="label" htmlFor='title'>
                         Add Blog Title
@@ -98,7 +152,7 @@ const AddBlog = () => {
                 </div>
 
                 <button className="btn btn-warning w-full max-w-xs block mt-6" type="submit">Submit</button>
-            </form>
+            </form> */}
         </div>
     );
 };

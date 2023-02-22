@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 const MyProfile = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user.email)
     const [userData, setUserData] = useState({});
 
     useEffect(() => {

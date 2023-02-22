@@ -25,6 +25,7 @@ const Blog = () => {
 
     return (
         <>
+
             {blogs.map(blog =>
                 <div key={blog._id}
                     className="card my-10 mx-16 px-10 py-8">
