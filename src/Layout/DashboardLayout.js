@@ -103,6 +103,11 @@ const DashboardLayout = () => {
                                         isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
                                     }>My Profile</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to='/dashboard/addBlog' className={({ isActive }) =>
+                                        isActive ? "text-lg text-red-600 hover:text-amber-500  font-bold" : "text-lg font-medium text-amber-300 hover:text-amber-500 border-0"
+                                    }>Add Blog</NavLink>
+                                </li>
 
                             </>
                         }

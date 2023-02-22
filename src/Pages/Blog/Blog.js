@@ -8,7 +8,7 @@ const Blog = () => {
         queryKey: ["blogs"],
         queryFn: async () => {
             try {
-                const res = await fetch('https://tap-for-delicious-server.vercel.app/blogs',)
+                const res = await fetch('http://localhost:5000/blogs',)
                 const data = await res.json();
                 return data;
             }
@@ -25,6 +25,7 @@ const Blog = () => {
 
     return (
         <>
+
             {blogs.map(blog =>
                 <div key={blog._id}
                     className="card my-10 mx-16 px-10 py-8">
