@@ -28,9 +28,9 @@ const DashboardLayout = () => {
             <DashboardNavbar></DashboardNavbar>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div style={{background: 'linear-gradient(to top, #ffffff 65%, #ffffe6 35%)'}} className="drawer-content pt-7 px-8 h-full ">
+                <div data-theme={theme} className="drawer-content pt-7 px-8 h-full ">
                     <label htmlFor="dashboard-drawer" className="absolute top-30 z-20 right-7 drawer-button lg:hidden"><RiMenuUnfoldLine className='text-3xl font-bold text-yellow-400' /> </label>
-                    <div className='mt-16'>
+                    <div data-theme={theme} className='mt-16'>
                         <Outlet></Outlet>
                     </div>
 
