@@ -18,6 +18,7 @@ const UpdateProfile = () => {
     }
         , [user.uid])
 
+    const uid = user.uid;
 
     const handleOnSubmit = e => {
         e.preventDefault();
@@ -50,9 +51,10 @@ const UpdateProfile = () => {
                             house,
                             area,
                             postal,
-                            photoUrl: imgData.data.url
+                            photoUrl: imgData.data.url,
+                            uid: uid
                         }
-                        fetch(`https://tap-for-delicious-server.vercel.app/user?email=${userData.email}`, {
+                        fetch(`http://localhost:5000/user?uid=${uid}`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'
@@ -76,9 +78,10 @@ const UpdateProfile = () => {
                 house,
                 area,
                 postal,
-                photoUrl: userData.photoUrl
+                photoUrl: userData.photoUrl,
+                uid: uid
             }
-            fetch(`https://tap-for-delicious-server.vercel.app/user?email=${userData.email}`, {
+            fetch(`http://localhost:5000/user?uid=${uid}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -109,12 +112,13 @@ const UpdateProfile = () => {
                     </label>
                     <input type="text" name="name" placeholder="name" defaultValue={userData?.displayName} className="input input-bordered" />
                 </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Email</span>
-                    </label>
-                    <input type="text" name="email" placeholder="email" disabled defaultValue={userData?.email} className="input input-bordered" />
-                </div>
+                {userData.email &&
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input type="text" name="email" placeholder="email" disabled defaultValue={userData?.email} className="input input-bordered" />
+                    </div>}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Phone</span>

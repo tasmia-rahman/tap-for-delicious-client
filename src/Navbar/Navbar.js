@@ -3,7 +3,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../Assets/tap-logo.png'
 import { FaCartArrowDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutInitiate } from '../Redux/Authentication/action';
 import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md"
@@ -17,13 +16,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     // ------- Theme --------- //
     const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
-
-
-
-
     let theme = "bumblebee";
     let dark = false;
-
 
     if (toggleTheme) {
         dark = true
@@ -39,8 +33,6 @@ const Navbar = () => {
         else {
             dark = false;
         }
-
-
     }
     else {
         const retrievedObject = localStorage.getItem('theme');
@@ -53,9 +45,6 @@ const Navbar = () => {
             dark = false
         }
     }
-
-
-
 
     const handleTheme = () => {
         setToggleTheme(!toggleTheme)
@@ -70,7 +59,6 @@ const Navbar = () => {
             localStorage.setItem('theme', JSON.stringify(webTheme));
         }
     }
-
 
     // ------- Theme End --------- //
 

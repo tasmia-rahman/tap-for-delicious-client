@@ -72,7 +72,7 @@ const Login = () => {
                 console.log("Google", user);
                 // setLoading(false);
                 // setLoginUserEmail(user.email);
-                let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer', uid: user?.uid };
+                let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer', uid: user?.uid, photoUrl: user?.photoURL };
                 saveUser(userInfo);
             })
             .catch(error => console.log(error.message))
