@@ -11,7 +11,7 @@ import useToken from '../../Hooks/useToken';
 
 
 const Signup = () => {
-    const [errors,setErrors]=useState({
+    const [errors, setErrors] = useState({
         email: "",
         password: "",
     })
@@ -22,10 +22,10 @@ const Signup = () => {
     const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
 
-    if(token){
+    if (token) {
         navigate('/')
     }
-   
+
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -51,7 +51,7 @@ const Signup = () => {
                     .then(() => {
                         // Profile updated!
                         // ...
-                        saveUser(displayName, user.email, role);
+                        saveUser(displayName, user.email, role, user?.uid);
                     })
                     .catch((error) => {
                         // An error occurred
@@ -78,62 +78,61 @@ const Signup = () => {
     const handleChange = (e) => {
         let { name, value } = e.target;
         setState({ ...state, [name]: value })
-        
+
     };
-    const handleEmailChange=(e)=>{
+    const handleEmailChange = (e) => {
         setIsLoading(true)
-        const email=e.target.value;
+        const email = e.target.value;
         const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-        if(!emailValidator.test(email)){
-            setErrors({...errors,email:"× Please provide a valid email"})  
+        if (!emailValidator.test(email)) {
+            setErrors({ ...errors, email: "× Please provide a valid email" })
             setState({ ...state, email: e.target.value })
             setIsLoading(false)
         }
-        else
-        {
-            setErrors({...errors,email:""}) 
-         setState({ ...state, email: e.target.value })
-         setIsLoading(true)
+        else {
+            setErrors({ ...errors, email: "" })
+            setState({ ...state, email: e.target.value })
+            setIsLoading(true)
         }
     }
     ///
-    const handlePasswordChange=(e)=>{
+    const handlePasswordChange = (e) => {
         setIsLoading(true)
-        const password=e.target.value;
-        const passNumber=/^(?=.*[0-9])/;
-        const passUpperCase=/^(?=.*[A-Z])/.test(password);
-        const passLowerCase=/^(?=.*[a-z])/.test(password);
-        if(!passNumber.test(password)){
-            setErrors({...errors,password:"× Must contain 1 number "})
+        const password = e.target.value;
+        const passNumber = /^(?=.*[0-9])/;
+        const passUpperCase = /^(?=.*[A-Z])/.test(password);
+        const passLowerCase = /^(?=.*[a-z])/.test(password);
+        if (!passNumber.test(password)) {
+            setErrors({ ...errors, password: "× Must contain 1 number " })
             setState({ ...state, password: e.target.value })
             setIsLoading(false)
         }
-       else if(!passUpperCase){
-            setErrors({...errors,password:"× Must contain 1 Upper Case "})
+        else if (!passUpperCase) {
+            setErrors({ ...errors, password: "× Must contain 1 Upper Case " })
             setState({ ...state, password: e.target.value })
             setIsLoading(false)
         }
-       else if(!passLowerCase){
-            setErrors({...errors,password:"× Must contain 1 Lower Case "})
+        else if (!passLowerCase) {
+            setErrors({ ...errors, password: "× Must contain 1 Lower Case " })
             setState({ ...state, password: e.target.value })
             setIsLoading(false)
         }
-        else if(password.length<6){
-            setErrors({...errors,password:"× Must contain at least 6 characters"})
+        else if (password.length < 6) {
+            setErrors({ ...errors, password: "× Must contain at least 6 characters" })
             setState({ ...state, password: e.target.value })
             setIsLoading(false)
         }
-        else{
-            setErrors({...errors,password:""})
+        else {
+            setErrors({ ...errors, password: "" })
             setState({ ...state, password: e.target.value })
             setIsLoading(true)
-               }
+        }
     }
 
     // ---- Send user info to database ---- //
-    const saveUser = (displayName, email, role) => {
-        const user = { displayName, email, role: role };
+    const saveUser = (displayName, email, role, uid) => {
+        const user = { displayName, email, role: role, uid: uid };
         fetch('https://tap-for-delicious-server.vercel.app/users', {
             method: 'POST',
             headers: {
@@ -143,20 +142,20 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                
+
                 setCreatedUserEmail(email);
             })
     }
-    const verifyEmail = () =>{
+    const verifyEmail = () => {
         sendEmailVerification(auth.currentUser)
-        .then(()=>{
-            alert('please check your email and verify your email address!');
+            .then(() => {
+                alert('please check your email and verify your email address!');
 
-        })
+            })
     }
 
 
-   
+
 
     return (
 
@@ -193,7 +192,7 @@ const Signup = () => {
                         </svg>
                         <input className="pl-2 outline-none border-none" type="email" name="email" id="" placeholder="Email Address" onChange={handleEmailChange} value={email} required />
                     </div>
-                    {errors.email&&<p className=' text-amber-500 mt-[-10px] mb-3 ml-3'>{errors.email}</p>}
+                    {errors.email && <p className=' text-amber-500 mt-[-10px] mb-3 ml-3'>{errors.email}</p>}
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
@@ -208,7 +207,7 @@ const Signup = () => {
                         </p>
 
                     </div>
-                    {errors.password&&<p className='text-amber-500 mt-[-10px] mb-3 ml-2'>{errors.password}</p>}
+                    {errors.password && <p className='text-amber-500 mt-[-10px] mb-3 ml-2'>{errors.password}</p>}
                     <div className="flex items-center border-2 hover:border-yellow-400 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
