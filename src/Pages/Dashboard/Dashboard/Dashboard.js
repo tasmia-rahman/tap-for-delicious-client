@@ -13,7 +13,8 @@ const Dashboard = () => {
             .then(res => res.json())
             .then(data => setUserData(data))
     }
-        , [user?.uid])
+        , [user.uid])
+
 
     return (
         <div>

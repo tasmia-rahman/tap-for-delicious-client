@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading/Loading';
+import { toast } from 'react-hot-toast';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { FaRegComment } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
+
+
+    const [love, setLove] = useState(true);
+    const [comment, setComment] = useState(false);
+    
 
     const { data: blogs, isFetching } = useQuery({
         queryKey: ["blogs"],
@@ -13,7 +22,6 @@ const Blog = () => {
                 return data;
             }
             catch (err) {
-
             }
         }
     })
@@ -46,6 +54,27 @@ const Blog = () => {
                         <div className='max-w-4xl text-justify'>
                             {blog.details}
                         </div>
+                    </div>
+                    <hr />
+                    <div className='flex justify-evenly'>
+                        {love ? <button>
+                            <div className='flex items-center gap-1'>
+                                <div>
+                                    <AiOutlineHeart className='text-3xl text-red-600' />
+                                </div>
+                                <div>{ }</div>
+                            </div>
+                        </button> :
+                            <button>
+                                <div className='flex items-center gap-1'>
+                                    <div>
+                                        <AiFillHeart className='text-3xl text-red-600' />
+                                    </div>
+                                    <div>{ }</div>
+                                </div>
+                            </button>}
+
+                        <button onClick={() => setComment(!comment)}><FaRegComment className='text-2xl' /></button>
                     </div>
                 </div>
             )}
