@@ -11,12 +11,12 @@ const AddBlog = () => {
     const imageHostKey = "3854192c81d6a82970830b8c614a4811";
 
     useEffect(() => {
-        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.uid}`)
 
             .then(res => res.json())
             .then(data => setUserData(data))
     }
-        , [user.email])
+        , [user.uid])
 
 
 
