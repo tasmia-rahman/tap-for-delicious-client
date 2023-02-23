@@ -20,7 +20,7 @@ const DashboardLayout = () => {
     }
 
     const { user } = useContext(AuthContext);
-    const { isAdmin, isSeller, isBuyer } = useUser(user?.email);
+    const { isAdmin, isSeller, isBuyer } = useUser(user?.email, user?.uid);
 
 
     return (

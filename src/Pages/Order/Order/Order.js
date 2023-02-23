@@ -11,7 +11,7 @@ import Payment from '../../Payment/Payment';
 
 const Order = () => {
     const { user } = useContext(AuthContext);
-    const { buyer } = useUser(user?.email);
+    const { buyer } = useUser(user?.email, user?.uid);
 
     const cartItems = useSelector((state) => state.cartReducer.cartItems);
     console.log(cartItems);

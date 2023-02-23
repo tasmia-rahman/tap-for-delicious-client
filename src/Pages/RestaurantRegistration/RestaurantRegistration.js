@@ -55,6 +55,7 @@ const RestaurantRegistration = () => {
                 phone,
                 time: `${openingTime} - ${closingTime}`,
                 role: "seller",
+                uid: userCredential.user?.uid
               };
               // save seller information to the database
               fetch("https://tap-for-delicious-server.vercel.app/restaurant", {
@@ -69,7 +70,7 @@ const RestaurantRegistration = () => {
                   console.log(result);
                   if (result.acknowledged) {
                     toast.success("Registered Successfully.");
-                    saveUser(name, email, "seller", restaurantName);
+                    saveUser(userCredential.user?.uid, name, email, "seller", restaurantName);
                     navigate("/dashboard");
                   }
                 });
@@ -81,8 +82,8 @@ const RestaurantRegistration = () => {
       });
   };
 
-  const saveUser = (displayName, email, role, restaurantName) => {
-    const user = { displayName, email, role, restaurantName };
+  const saveUser = (uid, displayName, email, role, restaurantName) => {
+    const user = { uid, displayName, email, role, restaurantName };
     fetch('https://tap-for-delicious-server.vercel.app/users', {
       method: 'POST',
       headers: {

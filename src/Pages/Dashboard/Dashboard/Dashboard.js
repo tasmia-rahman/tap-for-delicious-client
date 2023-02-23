@@ -15,6 +15,7 @@ const Dashboard = () => {
     }
         , [user.uid])
 
+
     return (
         <div>
             <h2 className="text-2xl text-center">Welcome</h2>

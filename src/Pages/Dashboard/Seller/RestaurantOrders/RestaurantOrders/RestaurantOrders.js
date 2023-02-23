@@ -9,7 +9,7 @@ import Loading from './../../../../Shared/Loading/Loading';
 
 const RestaurantOrders = () => {
     const { user } = useContext(AuthContext);
-    const { seller } = useUser(user?.email);
+    const { seller } = useUser(user?.email, user?.uid);
     console.log(seller?.restaurantName);
 
     const { data: orders = [], refetch, isFetching } = useQuery({
