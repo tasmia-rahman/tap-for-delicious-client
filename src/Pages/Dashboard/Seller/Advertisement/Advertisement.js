@@ -2,12 +2,10 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
 import useUser from '../../../../Hooks/useUser';
 import { toast } from 'react-hot-toast';
-import { useQuery } from 'react-query';
-import Loading from '../../../Shared/Loading/Loading';
 
 const Advertisement = () => {
     const { user } = useContext(AuthContext);
-    const { isSeller, seller } = useUser(user?.email);
+    const { seller } = useUser(user?.email, user?.uid);
     const imageHostKey = process.env.REACT_APP_imgbb_key;
 
     const handleAddAdvertise = (event) => {
@@ -56,10 +54,6 @@ const Advertisement = () => {
                 }
             })
     }
-
-    // if (isFetching) {
-    //     return <Loading></Loading>
-    // }
 
     return (
         // advertises[0]?.restaurantName === restaurantName && advertises[0]?.isAdvertised === true ?

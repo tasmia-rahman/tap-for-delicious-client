@@ -18,7 +18,7 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(data => setUserData(data))
     }
-        , [user.uid])
+        , [user?.uid])
 
     console.log(userData)
 
