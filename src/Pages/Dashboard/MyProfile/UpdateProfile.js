@@ -11,11 +11,12 @@ const UpdateProfile = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`https://tap-for-delicious-server.vercel.app/user/${user.email}`)
+        fetch(`http://localhost:5000/user/${user.uid}`)
+
             .then(res => res.json())
             .then(data => setUserData(data))
     }
-        , [user.email])
+        , [user.uid])
 
 
     const handleOnSubmit = e => {
