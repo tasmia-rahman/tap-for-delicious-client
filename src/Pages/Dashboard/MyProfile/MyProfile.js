@@ -30,10 +30,12 @@ const MyProfile = () => {
 
                     <div className="bg-base-100 relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
                         <div className="flex justify-center">
+
                             {userData.photoUrl ?
                                 <img src={userData.photoUrl} alt="" className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110" /> :
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQskE_K0tR332USgjzlAjZNS53Y84Nl9O1wMg&usqp=CAU" alt="" className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110" />
                             }
+
                         </div>
 
                         <div className="mt-16">
@@ -49,12 +51,16 @@ const MyProfile = () => {
                                         <span className="ml-2 text-base block">{userData.displayName}</span>
                                     </a>
 
-                                    <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
-                                        <FiMail className='inline mr-3 text-lg text-orange-500 font-bold' />
-                                        <span className="text-sm block">User email : </span>
-                                        <span className="ml-2 text-base block">{userData.email}</span>
-                                    </a>
+                                    {
+                                        userData.email ?
+                                            <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                                <FiMail className='inline mr-3 text-lg text-orange-500 font-bold' />
+                                                <span className="text-sm block">User email : </span>
+                                                <span className="ml-2 text-base block">{userData.email}</span>
+                                            </a> :
+                                            ""
 
+                                    }
                                     {
                                         userData.road ?
                                             <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
