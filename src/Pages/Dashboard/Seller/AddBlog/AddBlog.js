@@ -6,7 +6,7 @@ import useUser from './../../../../Hooks/useUser';
 
 const AddBlog = () => {
     const { user } = useContext(AuthContext);
-    const { seller } = useUser(user?.email);
+    const { seller } = useUser(user?.email, user?.uid);
     const [userData, setUserData] = useState({});
     const imageHostKey = "3854192c81d6a82970830b8c614a4811";
 
