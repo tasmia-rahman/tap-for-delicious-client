@@ -21,6 +21,7 @@ const RestaurantDetails = () => {
     const foods = useLoaderData();
 
     const resEmail = foods[0]?.resEmail;
+
     const [foodItem, setFoodItem] = useState({});
     const [itemQuantity, setItemQuantity] = useState(1);
 

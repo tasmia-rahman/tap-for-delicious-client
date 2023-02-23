@@ -4,15 +4,11 @@ import Blog from '../Blog/Blog';
 import FoodItem from '../FoodItem/FoodItem';
 import Reviews from '../Reviews/Reviews';
 import ClientChoice from '../ClientChoice/ClientChoice';
-import { BiSearchAlt2 } from 'react-icons/bi'
-import TopRestaurant from '../TopRestaurant/TopRestaurant';
 import RegisterRes from '../RegisterRes/RegisterRes';
-import TopRestaurantCard from '../TopRestaurant/TopRestaurantCard';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Restaurants from '../Restaurants/Restaurants';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
-import $ from "jquery";
 import "jquery-ui-dist/jquery-ui";
 import Search from './Search';
 
