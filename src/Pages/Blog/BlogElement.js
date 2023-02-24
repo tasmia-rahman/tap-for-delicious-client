@@ -13,7 +13,7 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
     const found = likeArr.find(element => element.uid === like.uid);
     let react;
     const foundUid = found?.uid;
-    console.log(foundUid, user?.uid)
+    const [comment, setComment] = useState(true);
 
     if (foundUid === user?.uid) {
         react = <button onClick={() => handleDislike(blog._id)}>
@@ -72,6 +72,37 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
             })
 
     }
+
+    const handleOnSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const text = form.comment.value;
+        const commenter = user?.displayName;
+        const commenterPhoto = user?.photoURL;
+        const id = form._id.value;
+
+        const comment = {
+            text,
+            commenter,
+            commenterPhoto,
+            id
+        }
+
+        // fetch(`https://know-me-server.vercel.app/comment`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(comment)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         toast.success("Comment posted successfully")
+        //     })
+
+        console.log(comment)
+
+    }
     return (
         <div key={blog._id}
             className="card my-10 mx-16 px-10 py-8">
@@ -100,7 +131,19 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
                     {react}
 
                     <button><FaRegComment className='text-2xl' /></button>
+
                 </div>
+                {
+                    comment ?
+                        <div className='mx-4'>
+                            <form onSubmit={handleOnSubmit} >
+                                <input type="text" name='_id' className='hidden' defaultValue={blog._id} />
+                                <textarea className='rounded-lg p-2 block' name="comment" id="" cols="40" rows="2" placeholder="Add a comment"></textarea>
+                                <button type='submit' className=' mx-2 my-3 btn-primary btn btn-xs  bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'>comment</button>
+                            </form>
+                        </div>
+                        : ""
+                }
             </>}
         </div>
     );
