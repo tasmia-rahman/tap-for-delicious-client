@@ -4,15 +4,11 @@ import Blog from '../Blog/Blog';
 import FoodItem from '../FoodItem/FoodItem';
 import Reviews from '../Reviews/Reviews';
 import ClientChoice from '../ClientChoice/ClientChoice';
-import { BiSearchAlt2 } from 'react-icons/bi'
-import TopRestaurant from '../TopRestaurant/TopRestaurant';
 import RegisterRes from '../RegisterRes/RegisterRes';
-import TopRestaurantCard from '../TopRestaurant/TopRestaurantCard';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Restaurants from '../Restaurants/Restaurants';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
-import $ from "jquery";
 import "jquery-ui-dist/jquery-ui";
 import Search from './Search';
 
@@ -85,23 +81,7 @@ const Home = () => {
                     <h4 className='text-xl text-center mt-10 font-medium'>Top Restaurants</h4>
                     <h1 className="text-3xl text-center my-5 font-medium">Choose From Most Popular <span className='text-red-600'>Restaurant</span></h1>
                 </div>
-                {/* <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
 
-                    {
-                        topRestaurant.map(restaurant => <TopRestaurantCard
-                            key={restaurant._id}
-                            restaurant={restaurant}
-                        ></TopRestaurantCard>)
-
-                    }
-
-
-                </div>
-                <div className='text-center mt-5'>
-
-                    <Link to='/toprestaurant'>  <button className="btn mr-10 border-2 border-amber-400 bg-transparent text-amber-500 rounded-2xl hover:bg-amber-400 hover:text-white hover:border-amber-400 text">See All Restaurant</button></Link>
-
-                </div> */}
                 <div>
                     <Restaurants
                         restaurants={topRestaurants}

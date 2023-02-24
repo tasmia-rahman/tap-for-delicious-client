@@ -16,11 +16,12 @@ const RestaurantDetails = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { isBuyer, isSeller, isAdmin, buyer, seller } = useUser(user?.email, user?.uid);
+    const { isBuyer, isSeller, isAdmin, buyer } = useUser(user?.email, user?.uid);
 
     const foods = useLoaderData();
 
     const resEmail = foods[0]?.resEmail;
+
     const [foodItem, setFoodItem] = useState({});
     const [itemQuantity, setItemQuantity] = useState(1);
 
@@ -147,10 +148,6 @@ const RestaurantDetails = () => {
                     </div>
                     <div className='mt-6 rounded-lg card-bordered py-3'>
                         <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8">Advertisement</h1>
-                        {/* <div className='flex justify-center mt-2 mb-4'>
-                            <img src="https://marketplace.foodotawp.com/wp-content/uploads/2021/03/sd.png" alt="" className='shadow-lg' />
-                        </div> */}
-                        {/* <Advertisement restaurantName={restaurant.title}></Advertisement> */}
                         {
                             advertises[0]?.restaurantName === restaurant?.title && advertises[0]?.isAdvertised === true &&
                             <div className='flex justify-center mt-2 mb-4'>

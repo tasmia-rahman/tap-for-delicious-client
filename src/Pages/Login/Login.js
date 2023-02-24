@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import logo from '../../Assets/tap-logo.png'
-import { BsFacebook, BsGoogle, BsListNested } from 'react-icons/bs'
+import { BsFacebook } from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { FcGoogle } from 'react-icons/fc'
-
-import { GoogleAuthProvider, FacebookAuthProvider, getAuth, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider, getAuth, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from './../../Context/AuthProvider/AuthProvider';
 import app from '../../Firebase/firebase.config';
@@ -38,25 +37,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-
-
-
-
         loginUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-
-
-
                 const currentUser = {
                     email: user.email
                 }
                 console.log(currentUser);
                 navigate(from, { replace: true });
-
             })
-
             .catch(err => setErrors(err.code)
             )
     }
@@ -69,9 +59,6 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log("Google", user);
-                // setLoading(false);
-                // setLoginUserEmail(user.email);
                 let userInfo = { displayName: user?.displayName, email: user?.email, role: 'buyer', uid: user?.uid, photoUrl: user?.photoURL };
                 saveUser(userInfo);
             })

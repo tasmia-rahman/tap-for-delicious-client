@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import TopRestaurantCard from './TopRestaurantCard';
 
 
 const TopRestaurant = () => {
 
-    const { data: restaurants, refetch, isFetching } = useQuery({
+    const { data: restaurants } = useQuery({
         queryKey: ["restaurants"],
         queryFn: async () => {
             try {

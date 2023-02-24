@@ -48,7 +48,7 @@ const AddBlog = () => {
                         title,
                         details,
                         author: userData.displayName,
-                        authorImg: userData.photoUrl
+                        authorImg: userData.photoUrl,
                     }
 
                     // save blog information to the database

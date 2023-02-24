@@ -70,7 +70,6 @@ const Signup = () => {
         password: "",
         passwordConfirm: "",
     });
-    console.log(state.displayName);
 
     const { email, password, displayName, passwordConfirm } = state;
 
