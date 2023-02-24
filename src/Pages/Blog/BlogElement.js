@@ -142,7 +142,7 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
                                 <button type='submit' className=' mx-2 my-3 btn-primary btn btn-xs  bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'>comment</button>
                             </form>
                         </div>
-                        : ""
+                        : ''
                 }
             </>}
         </div>
