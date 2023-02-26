@@ -33,6 +33,7 @@ import Privacy from "../../Pages/Privacy/Privacy";
 import FAQ from "../../Pages/FAQ/FAQ";
 import UpdateProfile from "../../Pages/Dashboard/MyProfile/UpdateProfile";
 import Advertisement from "../../Pages/Dashboard/Seller/Advertisement/Advertisement";
+import TeamMembers from "../../Pages/Home/TeamMembers/TeamMembers";
 
 export const router = createBrowserRouter([
     {
@@ -65,8 +66,13 @@ export const router = createBrowserRouter([
                 element: <TopRestaurant />
             },
             {
-                path: '/tofood',
+                path: '/topfood',
                 element: <AvailableRestaurant />
+            },
+            {
+                path: '/search/:id',
+                element: <TeamMembers />,
+                loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
             },
             {
                 path: '/details/:email',
