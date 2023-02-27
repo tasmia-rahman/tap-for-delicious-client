@@ -8,7 +8,7 @@ const Dashboard = () => {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.uid}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user.uid}`)
 
             .then(res => res.json())
             .then(data => setUserData(data))

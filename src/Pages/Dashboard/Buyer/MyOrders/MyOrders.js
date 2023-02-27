@@ -8,7 +8,7 @@ const MyOrders = () => {
     const { user } = useContext(AuthContext);
 
     let url;
-    if ((user.email === null) && user.uid) {
+    if ((user?.email === null) && user?.uid) {
         url = `https://tap-for-delicious-server.vercel.app/orders_with_uid/${user?.uid}`;
     }
     else {
