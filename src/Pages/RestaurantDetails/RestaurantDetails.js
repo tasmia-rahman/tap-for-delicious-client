@@ -160,17 +160,18 @@ const RestaurantDetails = () => {
                         </div>
                     </div>
                     <div className='card-bordered mt-2 rounded-lg'>
-                        <img src='https://i.ibb.co/YZv992f/map.png' alt=''/>
+                        <img src={restaurant?.image} alt='' />
                     </div>
-                    <div className='mt-2 rounded-lg card-bordered py-3'>
-                        <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8">Advertisement</h1>
-                        {
-                            advertises[0]?.restaurantName === restaurant?.title && advertises[0]?.isAdvertised === true &&
+
+                    {
+                        advertises[0]?.restaurantName === restaurant?.title && advertises[0]?.isAdvertised === true &&
+                        <div className='mt-2 rounded-lg card-bordered py-3'>
+                            <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8">Advertisement</h1>
                             <div className='flex justify-center mt-2 mb-4'>
                                 <img src={advertises[0]?.advertiseImg} alt="" className='shadow-lg' />
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
 
                 <div class="lg:ml-[-40px] lg:w-[515px] mx-3 mt-5 lg:mt-0"  >
