@@ -67,7 +67,7 @@ const Footer = () => {
                         <h3 className="tracking-wide uppercase font-bold text-xl ">Product</h3>
                         <ul className="space-y-1">
                             <li>
-                                <Link to="/tofood">Top Food</Link>
+                                <Link to="/topfood">Top Food</Link>
                             </li>
                             <li>
                                 <Link to="/toprestaurant">Top Restaurant</Link>
@@ -88,7 +88,7 @@ const Footer = () => {
                                 <Link to='/privacy'>Privacy policy</Link>
                             </li>
                             <li>
-                                <Link to='/tofood'>Pricing</Link>
+                                <Link to='/topfood'>Pricing</Link>
                             </li>
                             <li>
                                 <Link to='/FAQ'>FAQ</Link>

@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { RiSendPlaneFill } from 'react-icons/ri'
 
 const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
 
@@ -117,7 +118,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
     }
     return (
         <div key={blog._id}
-            className="card my-10 mx-16 px-10 py-8">
+            className="card my-10 mx-4 md:mx-16 md:px-10 py-8">
             <div className='flex justify-start items-center gap-5'>
                 <div className="avatar">
                     <div className="w-24 rounded-full">
@@ -131,7 +132,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
                 {blog.title}
             </div>
             <div className='flex flex-col md:flex-row items-center gap-10 mb-5'>
-                <img src={blog.img} alt="" className='max-h-[400px] max-w-[400px]' />
+                <img src={blog.img} alt="" className='md:max-h-[400px] md:max-w-[400px]' />
                 <div className='max-w-4xl text-justify'>
                     {blog.details}
                 </div>
@@ -146,7 +147,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
 
                 </div>
                 <div>
-                    {blog?.comment ? <h1 className='mx-2'>Comments</h1> : <h1 className='mx-2'>Be the first one to comment</h1>}
+                    {blog?.comment ? <h1 className='mx-2'>Comments</h1> : <h1 className='mx-2'>Be the first one to <span onClick={() => setComment(!comment)} className='font-semibold cursor-pointer'>comment</span></h1>}
                     {blog?.comment?.map((c, i) =>
                         <div key={i} className='border-none m-2 bg-base-200 max-w-3xl rounded-lg'>
                             <div className='flex justify-start items-center'>
@@ -165,11 +166,11 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
                 </div>
                 {
                     comment ?
-                        <div className='mx-4'>
+                        <div className='mx-4 my-2'>
                             <form onSubmit={handleOnSubmit} >
                                 <input type="text" name='_id' className='hidden' defaultValue={blog._id} />
-                                <textarea className='rounded-lg p-2 block border-1 border-yellow-400 bg-base-200' name="comment" id="" cols="40" rows="2" placeholder="Add a comment"></textarea>
-                                <button type='submit' className=' mx-2 my-3 btn-primary btn btn-xs  bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'>comment</button>
+                                <textarea className='rounded-lg p-2 block border-1 border-yellow-400 bg-base-200' name="comment" id="" cols="" rows="2" placeholder="Add a comment"></textarea>
+                                <button type='submit' className=' mx-2 my-3 btn-primary btn bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'> <RiSendPlaneFill className='text-3xl'/> </button>
                             </form>
                         </div>
                         : ''

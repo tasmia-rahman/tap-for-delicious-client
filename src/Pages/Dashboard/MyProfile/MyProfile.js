@@ -45,7 +45,7 @@ const MyProfile = () => {
                             <div className="w-full">
                                 <h3 className="font-semibold text-left my-2 px-6">Personal details</h3>
                                 <div className="mt-5 w-full flex flex-col items-center overflow-hidden text-sm">
-                                    <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                    <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-100 transition duration-150 flex justify-center md:justify-start items-center">
                                         <FaRegUser className='inline mr-3 text-lg text-yellow-300 font-bold' />
                                         <span className="text-sm block">User name : </span>
                                         <span className="ml-2 text-base block">{userData.displayName}</span>
@@ -53,7 +53,7 @@ const MyProfile = () => {
 
                                     {
                                         userData.email ?
-                                            <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-100 transition duration-150 flex justify-center md:justify-start items-center">
                                                 <FiMail className='inline mr-3 text-lg text-orange-500 font-bold' />
                                                 <span className="text-sm block">User email : </span>
                                                 <span className="ml-2 text-base block">{userData.email}</span>
@@ -63,12 +63,12 @@ const MyProfile = () => {
                                     }
                                     {
                                         userData.road ?
-                                            <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-100 transition duration-150 flex justify-center md:justify-start items-center">
                                                 <ImLocation2 className='inline mr-3 text-lg text-green-500 font-bold' />
                                                 <span className="text-sm block">Address : </span>
                                                 <span className="ml-2 text-sm block">Road: {userData.road}, House: {userData.house}, Area: {userData.area}, Postal Code: {userData.postal}</span>
                                             </a> :
-                                            <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-100 transition duration-150 flex justify-center md:justify-start items-center">
                                                 <ImLocation2 className='inline mr-3 text-lg text-green-500 font-bold' />
                                                 <span className="text-sm block">Address : </span>
                                                 <span className="ml-2 text-base block text-red-500">No address set yet</span>
@@ -76,12 +76,12 @@ const MyProfile = () => {
                                     }
                                     {
                                         userData.phone ?
-                                            <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-100 transition duration-150 flex justify-center md:justify-start items-center">
                                                 <AiTwotonePhone className='inline mr-3 text-lg text-purple-500 font-bold' />
                                                 <span className="text-sm block">Contact no. : </span>
                                                 <span className="ml-2 text-base block">{userData.phone}</span>
                                             </a> :
-                                            <a href="/" className="w-full border-t border-gray-100 py-4 pl-6 pr-3 hover:bg-gray-100 transition duration-150 flex justify-start items-center">
+                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-700 transition duration-150 flex justify-center md:justify-start items-center">
                                                 <AiTwotonePhone className='inline mr-3 text-lg text-purple-500 font-bold' />
                                                 <span className="text-sm block">Contact no. : </span>
                                                 <span className="ml-2 text-base block text-red-500">No contact no. set yet</span>
