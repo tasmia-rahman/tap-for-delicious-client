@@ -37,19 +37,16 @@ const DashboardRestaurant = () => {
     console.log("food", foods)
     let noFood;
 
-    if (foods.length === 0) {
-        noFood = <div className="max-w-[400px] mx-auto my-20">
+    if (foods?.length === 0) {
+        noFood = <div className="flex flex-col justify-center mx-auto  my-20">
             <h1 className='text-center font-semibold text-xl'>No foods available yet</h1>
             <Player
                 src='https://assets5.lottiefiles.com/temp/lf20_Celp8h.json'
-                className="player"
+                className="player h-[400px] w-[400px]"
                 loop
                 autoplay
                 speed={1}
             />
-            <Link to='/'> <p className="flex justify-center w-60 mx-auto btn border-2 border-amber-400  text-amber-500 rounded-2xl bg-transparent hover:bg-amber-400 hover:text-white hover:border-white">Back home</p>
-            </Link>
-
         </div>
     }
 
@@ -99,8 +96,9 @@ const DashboardRestaurant = () => {
 
             <div className='mt-20'>
                 <h1 className='text-xl my-10 text-red-600 font-medium'>All Available Foods</h1>
+                {noFood}
                 <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                    {noFood}
+
                     {
                         foods.map((food, i) =>
                             <div key={i} className="card z-10 bg-base-100 shadow-xl mb-10">
