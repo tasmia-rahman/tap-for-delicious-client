@@ -146,7 +146,10 @@ const RestaurantDetails = () => {
                             <p className='text-xl'>Total foods : {foods?.length}</p>
                         </div>
                     </div>
-                    <div className='mt-6 rounded-lg card-bordered py-3'>
+                    <div className='card-bordered mt-2 rounded-lg'>
+                        <img src='https://i.ibb.co/YZv992f/map.png' alt=''/>
+                    </div>
+                    <div className='mt-2 rounded-lg card-bordered py-3'>
                         <h1 className="text-2xl font-bold mb-1 lg:ml-3 ml-8">Advertisement</h1>
                         {
                             advertises[0]?.restaurantName === restaurant?.title && advertises[0]?.isAdvertised === true &&
