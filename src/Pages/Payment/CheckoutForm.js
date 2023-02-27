@@ -25,16 +25,16 @@ const CheckoutForm = ({ total, foodName, _id }) => {
 
     const [userData, setUserData] = useState({});
 
-    const url = `https://tap-for-delicious-server.vercel.app/user/${user?.email}`;
+    const url = `https://tap-for-delicious-server.vercel.app/user/${user?.uid}`;
 
     console.log(url)
 
     useEffect(() => {
-        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.email}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.uid}`)
             .then(res => res.json())
             .then(data => setUserData(data))
     }
-        , [user?.email])
+        , [user?.uid])
 
     console.log(userData)
 
