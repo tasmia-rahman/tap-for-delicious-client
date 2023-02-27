@@ -21,7 +21,7 @@ const[item,setItem]=useState('');
             },
             minLength: 2,
             select: function (event, ui) {
-                console.log(ui.item.id);
+                // console.log(ui.item.id);
                 setItem(ui.item)
 
             }
