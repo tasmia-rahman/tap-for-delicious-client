@@ -66,7 +66,7 @@ const AdvertiseRequests = () => {
                     </thead>
                     <tbody>
                         {
-                            advertises.map((advertise, i) => <tr key={advertise._id}>
+                            advertises?.map((advertise, i) => <tr key={advertise._id}>
                                 <th>{i + 1}</th>
                                 <td>{advertise.sellerName}</td>
                                 <td>{advertise.sellerEmail}</td>

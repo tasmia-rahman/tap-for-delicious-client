@@ -55,12 +55,12 @@ const RestaurantOrders = () => {
                             <th>Payment Amount</th>
                             <th>Payment Type</th>
                             <th>Order Status</th>
-                            <th></th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, i) => <tr key={order._id}>
+                            orders?.map((order, i) => <tr key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>
                                     {
