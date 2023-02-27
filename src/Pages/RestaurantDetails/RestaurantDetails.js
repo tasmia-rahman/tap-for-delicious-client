@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { HiLocationMarker } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import AllCategoryDetails from "../Home/AllCategory/AllCategoryDetails";
@@ -15,6 +15,20 @@ import { useQuery } from 'react-query';
 const RestaurantDetails = () => {
 
     const { user } = useContext(AuthContext);
+
+    const [userData, setUserData] = useState({});
+
+    useEffect(() => {
+        if (user?.uid) {
+            fetch(`http://localhost:5000/user/${user?.uid}`)
+
+                .then(res => res.json())
+                .then(data => setUserData(data))
+        }
+
+    }
+        , [user?.uid])
+
 
     const { isBuyer, isSeller, isAdmin, buyer } = useUser(user?.email, user?.uid);
 
@@ -83,9 +97,10 @@ const RestaurantDetails = () => {
             restaurantName: restaurant.title,
             customer: name,
             // email,
+            photoUrl: userData?.photoUrl,
             message,
         }
-        console.log(review)
+
 
         fetch('https://tap-for-delicious-server.vercel.app/reviews', {
             method: 'POST',
@@ -96,10 +111,8 @@ const RestaurantDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     toast.success('Review successfully');
-
                     form.reset();
                 }
             })
@@ -189,33 +202,38 @@ const RestaurantDetails = () => {
                             <hr style={{ backgroundColor: "gold", height: "3px", width: "4px" }} />
                         </div>
                     </div>
-                    <form onSubmit={handlePlaceReview} className="mt-5">
+                    {user ?
+                        <form onSubmit={handlePlaceReview} className="mt-5">
 
-                        <div className="mt-5">
+                            <div className="mt-5">
 
-                            <div className="mx-auto ">
+                                <div className="mx-auto ">
 
-                                <div className="card  card-bordered">
-                                    <div className="card-body">
-                                        <div className="form-control">
-                                            <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
-                                        </div>
+                                    <div className="card  card-bordered">
+                                        <div className="card-body">
+                                            <div className="form-control">
+                                                <input name='name' type="text" placeholder=" Name" className="input input-bordered" />
+                                            </div>
 
-                                        <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
-                                        <div className="form-control mt-6">
-                                            <button className="btn max-w-sm mx-auto flex justify-center  border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
+                                            <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="text your message"></textarea>
+                                            <div className="form-control mt-6">
+                                                <button className="btn max-w-sm mx-auto flex justify-center  border-2 bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300">Add your review </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                    <div className='mt-10  lg:ml-14 ml-16 mb-10 flex items-center'>
-                        <label htmlFor="report-modal" className='py-2 px-6 border-2 bg-red-600 border-red-600 text-white rounded-2xl hover:bg-base-100 hover:text-red-500 hover:border-red-400 text shadow-sm shadow-red-400 hover:shadow-lg hover:shadow-red-400 duration-300'
-                        >
-                            Report This Restaurant
-                        </label>
-                    </div>
+                        </form> :
+                        <h1 className='mt-2 ml-1'>
+                            You need to <span className='text-yellow-400 font-semibold'><Link to='/login'>Login</Link></span> to post review
+                        </h1>}
+                    {user ?
+                        <div className='mt-10  lg:ml-14 ml-16 mb-10 flex items-center'>
+                            <label htmlFor="report-modal" className='py-2 px-6 border-2 bg-red-600 border-red-600 text-white rounded-2xl hover:bg-base-100 hover:text-red-500 hover:border-red-400 text shadow-sm shadow-red-400 hover:shadow-lg hover:shadow-red-400 duration-300'
+                            >
+                                Report This Restaurant
+                            </label>
+                        </div> : ""}
                 </div>
             </div>
             {

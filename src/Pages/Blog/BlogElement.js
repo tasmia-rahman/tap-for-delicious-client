@@ -12,7 +12,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
     const [userData, setUserData] = useState('');
 
     useEffect(() => {
-        if (user.uid) {
+        if (user?.uid) {
             fetch(`http://localhost:5000/user/${user?.uid}`)
 
                 .then(res => res.json())
@@ -20,7 +20,8 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
         }
 
     }
-        , [user.uid])
+        , [user?.uid])
+        
     const likeArr = blog.like;
     const like = { uid: user?.uid };
     const found = likeArr.find(element => element.uid === like.uid);

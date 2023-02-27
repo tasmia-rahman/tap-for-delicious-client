@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { HiStar } from "react-icons/hi";
 import { FaUserCircle } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
-
-
 
 
 const ReviewsCard = ({ review }) => {
     // const[title]=useLoaderData();
-    const {customer, message } = review;
-    const { user } = useSelector((state) => state.user);
+    const {customer, message , photoUrl} = review;
+    
 
     // const { title} = review;
 
@@ -31,24 +27,24 @@ const ReviewsCard = ({ review }) => {
                     <p className='pb-6'>{message.slice(0, 150)}
                     </p>
 
-                    <div className='flex justify-start'>
+                    <div className='flex gap-2 items-center justify-start'>
 
-                        {user?.photoURL ?
+                        {photoUrl ?
                             <div className="avatar">
-                                <div className="w-16 rounded-full">
-                                    <img src={user?.photoURL} alt="" />
+                                <div className="w-12 rounded-full">
+                                    <img src={photoUrl} alt="" />
                                 </div>
                             </div> :
 
-                            <div className=''>
+                            <div className='pr-6'>
                                 <h1 className='text-3xl my-6'><FaUserCircle></FaUserCircle></h1>
                             </div>
                         }
-                        <div className='pl-6'>
+                        {/* <div className='pl-6'>
                             <h1 className="font-semibold text-2xl">{user?.displayName}</h1>
-                            {/* <p className='font-semibold text-2xl mt-10'>{customer}</p> */}
-                        </div>
-                        <p className='font-semibold text-xl mt-6'>{customer}</p>
+                            <p className='font-semibold text-2xl mt-10'>{customer}</p>
+                        </div> */}
+                        <p className='font-semibold text-xl'>{customer}</p>
 
 
                     </div>
