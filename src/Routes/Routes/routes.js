@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
             {
                 path: '/search/:id',
                 element: <TeamMembers />,
-                loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://tap-for-delicious-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/details/:email',

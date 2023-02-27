@@ -13,7 +13,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
 
     useEffect(() => {
         if (user.uid) {
-            fetch(`http://localhost:5000/user/${user?.uid}`)
+            fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.uid}`)
 
                 .then(res => res.json())
                 .then(data => setUserData(data))
@@ -53,7 +53,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
 
 
     const handleLike = (id) => {
-        fetch(`http://localhost:5000/blog?id=${id}`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/blog?id=${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
     const handleDislike = (id) => {
         const like = { uid: user.uid };
 
-        fetch(`http://localhost:5000/blog_dlt?id=${id}`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/blog_dlt?id=${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -101,7 +101,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
             id
         }
 
-        fetch(`http://localhost:5000/blogs/comment`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/blogs/comment`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -170,7 +170,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
                             <form onSubmit={handleOnSubmit} >
                                 <input type="text" name='_id' className='hidden' defaultValue={blog._id} />
                                 <textarea className='rounded-lg p-2 block border-1 border-yellow-400 bg-base-200' name="comment" id="" cols="" rows="2" placeholder="Add a comment"></textarea>
-                                <button type='submit' className=' mx-2 my-3 btn-primary btn bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'> <RiSendPlaneFill className='text-3xl'/> </button>
+                                <button type='submit' className=' mx-2 my-3 btn-primary btn bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'> <RiSendPlaneFill className='text-3xl' /> </button>
                             </form>
                         </div>
                         : ''
