@@ -34,14 +34,14 @@ const Drawer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='flex justify-between my-3'>
+                            {/* <div className='flex justify-between my-3'>
                                 <p className=' text-slate-600'>Delivery</p>
                                 <input type="checkbox" className="toggle toggle-warning" />
                             </div>
                             <div className='flex justify-between'>
                                 <p className=' text-slate-600'>Pickup</p>
                                 <input type="checkbox" className="toggle toggle-warning" />
-                            </div>
+                            </div> */}
                         </div>
                         <div className='my-6' >
                             <h2 className='text-xl font-medium mb-2'>Advertisement</h2>

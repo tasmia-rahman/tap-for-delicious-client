@@ -11,7 +11,7 @@ const UpdateProfile = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.uid}`)
+        fetch(`https://tap-for-delicious-server.vercel.app/user/${user.uid}`)
 
             .then(res => res.json())
             .then(data => setUserData(data))
@@ -54,7 +54,7 @@ const UpdateProfile = () => {
                             photoUrl: imgData.data.url,
                             uid: uid
                         }
-                        fetch(`http://localhost:5000/user?uid=${uid}`, {
+                        fetch(`https://tap-for-delicious-server.vercel.app/user?uid=${uid}`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'
@@ -81,7 +81,7 @@ const UpdateProfile = () => {
                 photoUrl: userData.photoUrl,
                 uid: uid
             }
-            fetch(`http://localhost:5000/user?uid=${uid}`, {
+            fetch(`https://tap-for-delicious-server.vercel.app/user?uid=${uid}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
