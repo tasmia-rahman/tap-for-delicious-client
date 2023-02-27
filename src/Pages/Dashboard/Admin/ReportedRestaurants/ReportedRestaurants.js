@@ -42,17 +42,19 @@ const ReportedRestaurants = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Date</th>
+                            <th>Reported Restaurant</th>
                             <th>Objection</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            reports.map((report, i) => <tr key={report._id}>
+                            reports?.map((report, i) => <tr key={report._id}>
                                 <th>{i + 1}</th>
                                 <td>{report.displayName}</td>
                                 <td>{report.email}</td>
                                 <td>{report.date.substring(0, 24)}</td>
+                                <td>{report.restaurantName}</td>
                                 <td>{report.objection}</td>
                                 <td><button onClick={() => handleReportDelete(report._id)} className='btn btn-sm bg-rose-600 text-white border-none'>Delete</button></td>
                             </tr>)

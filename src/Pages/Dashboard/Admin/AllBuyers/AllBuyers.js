@@ -42,12 +42,12 @@ const AllBuyers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Join Date</th>
-                            <th></th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            buyers.map((buyer, i) => <tr key={buyer._id}>
+                            buyers?.map((buyer, i) => <tr key={buyer._id}>
                                 <th>{i + 1}</th>
                                 <td>{buyer.displayName}</td>
                                 <td>{buyer.email}</td>

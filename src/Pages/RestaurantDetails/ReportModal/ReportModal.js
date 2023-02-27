@@ -14,6 +14,7 @@ const ReportModal = ({ buyer, restaurant }) => {
         const report = {
             displayName,
             email,
+            restaurantName: restaurant?.title,
             objection
         }
 
@@ -61,7 +62,6 @@ const ReportModal = ({ buyer, restaurant }) => {
                                 type="email"
                                 name="email"
                                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
-                                readOnly
                             />
                         </div>
                         <div className="md:px-4">

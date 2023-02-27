@@ -45,7 +45,7 @@ const AllOrders = () => {
                                 <td>{order.buyerEmail}</td>
                                 <td>
                                     {
-                                        order.cartItems.map(item => <div key={item._id} className='flex items-center py-4'>
+                                        order.cartItems?.map(item => <div key={item._id} className='flex items-center py-4'>
                                             <div className="avatar mr-3">
                                                 <div className="w-16 rounded">
                                                     <img src={item.image} alt='' />
