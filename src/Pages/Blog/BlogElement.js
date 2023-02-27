@@ -1,19 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
-const BlogElement = ({ blog, isFetching, refetch }) => {
+const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
 
+    console.log(blog)
     const { user } = useContext(AuthContext)
+    const [userData, setUserData] = useState('');
 
+    useEffect(() => {
+        if (user.uid) {
+            fetch(`http://localhost:5000/user/${user?.uid}`)
+
+                .then(res => res.json())
+                .then(data => setUserData(data))
+        }
+
+    }
+        , [user.uid])
     const likeArr = blog.like;
     const like = { uid: user?.uid };
     const found = likeArr.find(element => element.uid === like.uid);
     let react;
     const foundUid = found?.uid;
-    const [comment, setComment] = useState(true);
+
 
     if (foundUid === user?.uid) {
         react = <button onClick={() => handleDislike(blog._id)}>
@@ -77,8 +89,8 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
         event.preventDefault();
         const form = event.target;
         const text = form.comment.value;
-        const commenter = user?.displayName;
-        const commenterPhoto = user?.photoURL;
+        const commenter = userData?.displayName;
+        const commenterPhoto = userData?.photoUrl;
         const id = form._id.value;
 
         const comment = {
@@ -88,19 +100,19 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
             id
         }
 
-        // fetch(`https://know-me-server.vercel.app/comment`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(comment)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         toast.success("Comment posted successfully")
-        //     })
+        fetch(`http://localhost:5000/blogs/comment`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(comment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success("Comment posted successfully");
+                refetch()
+            })
 
-        console.log(comment)
 
     }
     return (
@@ -130,15 +142,33 @@ const BlogElement = ({ blog, isFetching, refetch }) => {
 
                     {react}
 
-                    <button><FaRegComment className='text-2xl' /></button>
+                    <button><FaRegComment onClick={() => setComment(!comment)} className='text-2xl' /></button>
 
+                </div>
+                <div>
+                    {blog?.comment ? <h1 className='mx-2'>Comments</h1> : <h1 className='mx-2'>Be the first one to comment</h1>}
+                    {blog?.comment?.map((c, i) =>
+                        <div key={i} className='border-none m-2 bg-base-200 max-w-3xl rounded-lg'>
+                            <div className='flex justify-start items-center'>
+                                <div className="avatar">
+                                    <div className="w-8 rounded-full mx-4 my-4">
+                                        <img src={c.commenterPhoto} alt="" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1 className='text-lg font-bold'>{c.commenter}</h1>
+                                </div>
+                            </div>
+                            <h1 className='mx-4 pb-2 text-lg'>{c.text}</h1>
+                        </div>
+                    )}
                 </div>
                 {
                     comment ?
                         <div className='mx-4'>
                             <form onSubmit={handleOnSubmit} >
                                 <input type="text" name='_id' className='hidden' defaultValue={blog._id} />
-                                <textarea className='rounded-lg p-2 block' name="comment" id="" cols="40" rows="2" placeholder="Add a comment"></textarea>
+                                <textarea className='rounded-lg p-2 block border-1 border-yellow-400 bg-base-200' name="comment" id="" cols="40" rows="2" placeholder="Add a comment"></textarea>
                                 <button type='submit' className=' mx-2 my-3 btn-primary btn btn-xs  bg-amber-400 border-yellow-400 text-white rounded-2xl hover:bg-base-100 hover:text-amber-500 hover:border-amber-400 text shadow-sm shadow-yellow-400 hover:shadow-lg hover:shadow-yellow-400 duration-300'>comment</button>
                             </form>
                         </div>

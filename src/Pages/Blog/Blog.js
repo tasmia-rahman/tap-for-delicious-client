@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading/Loading';
 import BlogElement from './BlogElement';
@@ -6,7 +6,7 @@ import BlogElement from './BlogElement';
 const Blog = () => {
 
 
-
+    const [comment, setComment] = useState(false)
     const { data: blogs, isFetching, refetch } = useQuery({
         queryKey: ["blogs"],
         queryFn: async () => {
@@ -34,7 +34,9 @@ const Blog = () => {
                 <BlogElement key={blog._id}
                     blog={blog}
                     isFetching={isFetching}
-                    refetch={refetch}>
+                    refetch={refetch}
+                    comment={comment}
+                    setComment={setComment}>
                 </BlogElement>
             )}
         </>
