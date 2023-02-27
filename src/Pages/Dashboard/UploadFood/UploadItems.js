@@ -61,7 +61,7 @@ const UploadItems = () => {
                         .then(result => {
                             if (result.acknowledged) {
                                 toast.success("Item uploaded successfully")
-                                navigate('dashboard/restaurant')
+                                navigate('/dashboard/restaurant')
                             }
                         })
                 }
