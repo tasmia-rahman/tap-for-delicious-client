@@ -81,7 +81,7 @@ const MyProfile = () => {
                                                 <span className="text-sm block">Contact no. : </span>
                                                 <span className="ml-2 text-base block">{userData.phone}</span>
                                             </a> :
-                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-700 transition duration-150 flex justify-center md:justify-start items-center">
+                                            <a href="/" className="w-full border-t border-gray-100 md:py-4 md:pl-6 md:pr-3 hover:bg-gray-100 transition duration-150 flex justify-center md:justify-start items-center">
                                                 <AiTwotonePhone className='inline mr-3 text-lg text-purple-500 font-bold' />
                                                 <span className="text-sm block">Contact no. : </span>
                                                 <span className="ml-2 text-base block text-red-500">No contact no. set yet</span>
