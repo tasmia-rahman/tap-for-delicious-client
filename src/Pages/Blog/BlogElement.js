@@ -12,15 +12,15 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
     const [userData, setUserData] = useState('');
 
     useEffect(() => {
-        if (user.uid) {
-            fetch(`https://tap-for-delicious-server.vercel.app/user/${user?.uid}`)
-
+        if (user?.uid) {
+            fetch(`http://localhost:5000/user/${user?.uid}`)
                 .then(res => res.json())
                 .then(data => setUserData(data))
         }
 
     }
-        , [user.uid])
+        , [user?.uid])
+        
     const likeArr = blog.like;
     const like = { uid: user?.uid };
     const found = likeArr.find(element => element.uid === like.uid);
