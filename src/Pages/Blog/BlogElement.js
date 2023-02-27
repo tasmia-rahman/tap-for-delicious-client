@@ -62,7 +62,6 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success("Post liked");
                 refetch()
             })
 
@@ -80,7 +79,6 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.error("Post disliked");
                 refetch()
             })
 
