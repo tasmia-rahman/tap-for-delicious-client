@@ -7,7 +7,7 @@ import { RiSendPlaneFill } from 'react-icons/ri'
 
 const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
 
-    console.log(blog)
+
     const { user } = useContext(AuthContext)
     const [userData, setUserData] = useState('');
 
@@ -91,7 +91,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
         const commenter = userData?.displayName;
         const commenterPhoto = userData?.photoUrl;
         const id = form._id.value;
-
+        console.log("Commented")
         const comment = {
             text,
             commenter,
@@ -99,7 +99,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
             id
         }
 
-        fetch(`https://tap-for-delicious-server.vercel.app/blogs/comment`, {
+        fetch(`http://localhost:5000/blogs/comment`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -108,6 +108,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log("comment: " + JSON.stringify(data))
                 toast.success("Comment posted successfully");
                 refetch()
             })
