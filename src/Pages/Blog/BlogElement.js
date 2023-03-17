@@ -99,7 +99,7 @@ const BlogElement = ({ blog, isFetching, refetch, comment, setComment }) => {
             id
         }
 
-        fetch(`http://localhost:5000/blogs/comment`, {
+        fetch(`https://tap-for-delicious-server.vercel.app/blogs/comment`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
