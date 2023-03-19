@@ -120,6 +120,51 @@ const RestaurantDetails = () => {
 
     }
 
+
+    // map......................
+    const restaurantmap = restaurant.maplink;
+
+    const mapDhaka = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233668.1325209085!2d90.14865174142844!3d23.78071488474704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1679241248671!5m2!1sen!2sbd";
+
+    const mirpurMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.328095156281!2d90.36650911429808!3d23.806929392532837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0d6f6b8c2ff%3A0x3b138861ee9c8c30!2sMirpur%2010%20Roundabout%2C%20Dhaka%201216!5e0!3m2!1sen!2sbd!4v1679241695298!5m2!1sen!2sbd";
+
+    const rampuraMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14606.488155808407!2d90.41241356941451!3d23.760853942274473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8783ab9882f%3A0x50f429f46d937f3c!2sRampura%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1679243466024!5m2!1sen!2sbd";
+
+    const uttoraMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29186.92013258742!2d90.360778338187!3d23.876671852776663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5d05e7074dd%3A0xd1c58803049f00c7!2sUttara%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1679243512292!5m2!1sen!2sbd";
+    const bananiMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14602.678639279695!2d90.39695081942557!3d23.794774936885158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70c15ea1de1%3A0x97856381e88fb311!2sBanani%20Model%20Town%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1679243549372!5m2!1sen!2sbd";
+
+    const mohakhaliMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14604.462702542538!2d90.38780909855407!3d23.778894815876406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c77094eace8b%3A0x1cd8c2d9239b6cb7!2sMohakhali%2C%20Dhaka%201212!5e0!3m2!1sen!2sbd!4v1679243591312!5m2!1sen!2sbd";
+
+    const map = (restaurantmap) => {
+
+        if (restaurantmap === "mirpurMap") {
+            const map = mirpurMap;
+            return map;
+        }
+        else if (restaurantmap === "rampuraMap") {
+            const map = rampuraMap;
+            return map;
+        }
+        else if (restaurantmap === "uttoraMap") {
+            const map = uttoraMap;
+            return map;
+        }
+        else if (restaurantmap === "bananiMap") {
+            const map = bananiMap;
+            return map;
+        }
+        else if (restaurantmap === "mohakhaliMap") {
+            const map = mohakhaliMap;
+            return map;
+        }
+        else {
+            const map = mapDhaka;
+            return map;
+        }
+    };
+
+    // map..................
+
     return (
         <div>
             <div className='card-bordered'>
@@ -160,7 +205,7 @@ const RestaurantDetails = () => {
                         </div>
                     </div>
                     <div className='card-bordered mt-2 rounded-lg'>
-                        <img src={restaurant?.image} alt='' />
+                        <iframe src={map(restaurantmap)} style={{ width: "100%", height: "320px" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
                     {
