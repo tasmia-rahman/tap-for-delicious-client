@@ -6,6 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 import { HiLocationMarker } from 'react-icons/hi'
 import { Link } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi'
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const DashboardRestaurant = () => {
 
@@ -33,6 +34,21 @@ const DashboardRestaurant = () => {
         }
     })
 
+    console.log("food", foods)
+    let noFood;
+
+    if (foods?.length === 0) {
+        noFood = <div className="flex flex-col justify-center mx-auto  my-20">
+            <h1 className='text-center font-semibold text-xl'>No foods available yet</h1>
+            <Player
+                src='https://assets5.lottiefiles.com/temp/lf20_Celp8h.json'
+                className="player h-[400px] w-[400px]"
+                loop
+                autoplay
+                speed={1}
+            />
+        </div>
+    }
 
     if (isFetching) {
         return <Loading></Loading>
@@ -80,10 +96,12 @@ const DashboardRestaurant = () => {
 
             <div className='mt-20'>
                 <h1 className='text-xl my-10 text-red-600 font-medium'>All Available Foods</h1>
-                <div className='grid -z-40 gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                {noFood}
+                <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+
                     {
                         foods.map((food, i) =>
-                            <div key={i} className="card -z-10 bg-base-100 shadow-xl mb-10">
+                            <div key={i} className="card z-10 bg-base-100 shadow-xl mb-10">
 
 
                                 <figure className="px-10 pt-10">

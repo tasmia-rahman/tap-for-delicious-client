@@ -11,6 +11,8 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useUser from './../../Hooks/useUser';
 import ReportModal from './ReportModal/ReportModal';
 import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading/Loading';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const RestaurantDetails = () => {
 
@@ -71,7 +73,9 @@ const RestaurantDetails = () => {
 
             .then(data => setRestaurant(data))
     }, [resEmail])
-    console.log(restaurant?.title);
+
+
+
 
     const { data: advertises = [] } = useQuery({
         queryKey: ['advertises', restaurant?.title],
@@ -81,7 +85,7 @@ const RestaurantDetails = () => {
             return data;
         }
     });
-    console.log(!advertises[0]?.restaurantName);
+
 
     const handlePlaceReview = event => {
 
@@ -119,6 +123,7 @@ const RestaurantDetails = () => {
             .catch(er => console.error(er));
 
     }
+
 
 
     // map......................
@@ -164,6 +169,43 @@ const RestaurantDetails = () => {
     };
 
     // map..................
+
+    if (foods.length === 0) {
+        return <div className="max-w-[400px] mx-auto my-20">
+            <h1 className='text-center font-semibold text-xl'>No foods available yet</h1>
+            <Player
+                src='https://assets5.lottiefiles.com/temp/lf20_Celp8h.json'
+                className="player"
+                loop
+                autoplay
+                speed={1}
+            />
+            <Link to='/'> <p className="flex justify-center w-60 mx-auto btn border-2 border-amber-400  text-amber-500 rounded-2xl bg-transparent hover:bg-amber-400 hover:text-white hover:border-white">Back home</p>
+            </Link>
+
+        </div>
+    }
+
+    console.log(restaurant.email)
+    if (!restaurant.email) {
+        return <div className="max-w-[400px] mx-auto my-20">
+            <h1 className='text-center font-semibold text-xl'>No Restaurant Found</h1>
+            <Player
+                src='https://assets5.lottiefiles.com/temp/lf20_Celp8h.json'
+                className="player"
+                loop
+                autoplay
+                speed={1}
+            />
+            <Link to='/'> <p className="flex justify-center w-60 mx-auto btn border-2 border-amber-400  text-amber-500 rounded-2xl bg-transparent hover:bg-amber-400 hover:text-white hover:border-white">Back to home</p>
+            </Link>
+
+        </div>
+    }
+
+
+
+
 
     return (
         <div>

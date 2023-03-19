@@ -71,7 +71,7 @@ const RestaurantRegistration = () => {
                   if (result.acknowledged) {
                     toast.success("Registered Successfully.");
                     saveUser(userCredential.user?.uid, name, email, "seller", restaurantName);
-                    navigate("/dashboard");
+                    navigate("/login");
                   }
                 });
             })
