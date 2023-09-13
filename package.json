@@ -30,6 +30,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.2",
     "swiper": "^8.4.5",
+    "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -57,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.2.4"
   }
 }

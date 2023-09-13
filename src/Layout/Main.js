@@ -32,7 +32,7 @@ const Main = () => {
 
 
     return (
-        <div data-theme={theme}>
+        <div data-theme={theme} className='scrollbar-thin scrollbar-rounded-lg scrollbar-thumb-amber-300 scrollbar-track-gray-100'>
             <Navbar />
             <Outlet />
             <Footer></Footer>

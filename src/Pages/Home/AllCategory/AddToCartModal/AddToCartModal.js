@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { RiH1 } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../../../Redux/Actions/cartAction';
 import { toast } from 'react-hot-toast';

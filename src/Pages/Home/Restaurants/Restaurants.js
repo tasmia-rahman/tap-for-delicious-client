@@ -5,7 +5,7 @@ import RestaurantCard from './RestaurantCard';
 const Restaurants = ({ restaurants }) => {
 
     return (
-        <div className='mt-5'>
+        <div className='mt-5 scrollbar-thin scrollbar-rounded-lg scrollbar-thumb-amber-300 scrollbar-track-gray-100'>
             {restaurants ?
                 <div className='grid  gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 mx-16'>
                     {restaurants.map((restaurant, i) => <RestaurantCard key={i}

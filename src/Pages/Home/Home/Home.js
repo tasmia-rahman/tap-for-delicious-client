@@ -55,9 +55,9 @@ const Home = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen scrollbar-thin scrollbar-rounded-lg scrollbar-thumb-amber-300 scrollbar-track-gray-100'>
             <div>
-                <div className='relative'>
+                <div className='relative scrollbar-thin scrollbar-rounded-lg scrollbar-thumb-amber-300 scrollbar-track-gray-100'>
                     <div className='flex justify-center'>
                         <Banner />
                     </div>
